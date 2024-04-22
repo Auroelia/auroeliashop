@@ -1,0 +1,147 @@
+import React, { useState } from "react";
+
+function Hero() {
+  const heroProducts = [ 
+    {
+      id: 1,
+      name: "Ositos Fancy",
+      price: 100,
+      description:
+        "¡Haz que tus emociones florezcan con nuestros Ositos Fancy! Cada uno de estos adorables ositos está hecho a mano con aproximadamente 500 hermosas rosas de goma EVA. Son el regalo perfecto para cualquier ocasión especial, infundiendo encanto y elegancia con su diseño artesanal.",
+      image: "/assets/hero/osofancy.png",
+      elipse: "/assets/hero/osoelipse.svg",
+    },
+    {
+      id: 2,
+      name: "Flores de jabón",
+      price: 100,
+      description:
+        "¡Descubre la elegancia perdurable de nuestros arreglos florales artesanales con jabón! Cada composición es una fusión de belleza natural y funcionalidad, elaborada a mano con cuidado y detalle. Sorprende con un regalo que perdura en el tiempo y deleita los sentidos.",
+      image: "/assets/hero/arreglo.png",
+      elipse: "/assets/hero/arregloelipse.svg",
+    },
+    {
+      id: 3,
+      name: "Ramos de novia",
+      price: 100,
+      description:
+        "Deja que tu amor florezca con un toque de elegancia en tu día especial. Cada ramo es una obra maestra única, que fusiona la belleza natural de las flores con la practicidad del jabón, ofreciendo una alternativa encantadora y duradera a los ramos tradicionales.",
+      image: "/assets/hero/ramo.png",
+      elipse: "/assets/hero/ramoelipse.svg",
+    },
+  ];
+
+  const [seleccion, setSeleccion] = useState(0);
+
+  return (
+    <div className="w-full h-full overflow-hidden relative">
+      
+        <img src="/assets/hero/lirio.png" alt="hero" className="w-[728px] h-[722px] absolute -left-[150px] -bottom-[100px] opacity-30 -z-10" />
+
+        <img src={heroProducts[seleccion+1].image} alt="hero" className="w-[326px] h-[326px] absolute -right-[150px] -top-[30px] blur-sm -z-10" />
+        <img src={heroProducts[seleccion+2].image} alt="hero" className="w-[326px] h-[326px] absolute -right-[150px] bottom-[40px] blur-sm -z-10" />
+      
+      <div className="w-full h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto">
+        <div className="w-full  flex flex-row justify-center items-center ">
+          <div className=" flex flex-col">
+            <h1 className="text-[70px] font-bloverly">
+              {heroProducts[seleccion].name}
+            </h1>
+            <p className="mt-[12px] w-[583px] text-[16px] font-semibold font-shipporiMincho">
+              {heroProducts[seleccion].description}
+            </p>
+            <div className="w-[200px] flex flex-row items-center justify-start  gap-[33px] mt-[40px]">
+              {heroProducts.map((product, index) => (
+                <div className="w-full h-full flex flex-col  gap-[12px]">
+                  <div className="rounded-full w-[60px] h-[60px] cursor-pointer ">
+                    <img
+                      src={product.elipse}
+                      key={product.id}
+                      onClick={() => setSeleccion(index)}
+                      className="object-cover "
+                    ></img>
+                    <div className={seleccion == index && `w-[60px] h-[3px] bg-black rounded-[4px] mt-[12px]`}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-[59px]">
+              <button className="w-[188px] h-[60px] bg-[#e39c9d] text-[24px] font-bold rounded-[6px] ">
+                Ver Tienda
+              </button>
+            </div>
+          </div>
+          <div className="w-[526px] h-[526px] ">
+            <img
+              src="/assets/hero/osofancy.png"
+              alt="osofancy"
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+
+        <div className="w-[853px] h-[113px] bg-black rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[32px]">
+          <div className="flex flex-row items-center gap-[13px]">
+            <div>
+              <img
+                src="/assets/hero/info/envio.svg"
+                alt="entrega"
+                className="w-[61px] h-[41px]"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h4 className="text-white font-bold text-[12px]  font-inter">
+                Envíos a todo México
+              </h4>
+              <p className="text-white text-[12px] font-inter leading-[14px]">
+                Belleza floral a tu puerta
+              </p>
+            </div>
+            <div>
+              <img src="/assets/hero/info/divider.png" alt="entrega" className="w-full h-full" />
+            </div>
+          </div>
+          <div className="flex flex-row items-center gap-[13px]">
+            <div>
+              <img
+                src="/assets/hero/info/tarjetas.svg"
+                alt="entrega"
+                className="w-[56px] h-[38px]"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h4 className="text-white font-bold text-[12px]  font-inter">
+                Aceptamos todas las tarjetas
+              </h4>
+              <p className="text-white text-[12px] font-inter leading-[14px]">
+                Seguridad y confianza al pagar
+              </p>
+            </div>
+          </div>
+          <div>
+              <img src="/assets/hero/info/divider.png" alt="entrega" className="w-full h-full" />
+            </div>
+          <div className="flex flex-row items-center gap-[13px]">
+            <div>
+              <img
+                src="/assets/hero/info/premium.svg"
+                alt="entrega"
+                className="w-[49px] h-[44px]"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h4 className="text-white font-bold text-[12px]  font-inter">
+                Arreglos Premium
+              </h4>
+              <p className="text-white text-[12px] font-inter leading-[14px]">
+                Calidad en todos los pedidos
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Hero;

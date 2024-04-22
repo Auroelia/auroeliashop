@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'apollo';
+    src: url('/assets/fonts/APOLLO.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'bloverly';
+    src: url('/assets/fonts/BLOVERLY.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'bonita';
+    src: url('/assets/fonts/BONITA.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'shipporiMinchoB';
+    src: url('/assets/fonts/ShipporiMincho-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'shipporiMincho';
+    src: url('/assets/fonts/ShipporiMincho.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'inter';
+    src: url('/assets/fonts/Inter.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'bloverly';
+  }
+
+  p{
+    font-family: 'shipporiMincho';
+  }
+
+ 
