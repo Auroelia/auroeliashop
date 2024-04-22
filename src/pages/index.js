@@ -5,6 +5,7 @@ import Acerca from "@/components/Home/Acerca/Acerca";
 import Populares from "@/components/Home/Populares/Populares";
 import Nuestros from "@/components/Home/Nuestros/Nuestros";
 import Testimonios from "@/components/Home/Testimonios/Testimonios";
+import Suscribe from "@/components/Suscribe";
 
 const inter = Inter({ subsets: ["latin"] });
 

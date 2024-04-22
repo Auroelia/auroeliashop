@@ -44,8 +44,13 @@ function Testimonios() {
           className="w-[577px]  h-[481px] "
         />
         <div className=" flex flex-col items-center justify-center gap-[30px]">
-          <div className="w-full flex flex-row justify-end">
-            <div className="flex flex-col text-end">
+          <div className="w-full flex flex-row justify-between">
+            <div className="flex flex-col justify-end">
+              <img src="/assets/testimonios/comillas.png" alt="persona" className="w-[120px] h-[100px]" />
+              </div>
+              <div className="flex flex-row justify-end">
+
+            <div className="flex flex-col  text-end">
               <span className="text-[31px] font-bold font-inter">
                 {testimonios[seleccion].nombre}
               </span>
@@ -57,7 +62,8 @@ function Testimonios() {
               src="/assets/testimonios/usuario.svg"
               alt="estrella"
               className="w-[117px] h-[117px] ml-[10px]"
-            />
+              />
+              </div>
           </div>
           <div>
             <p className="text-end text-[24px] leading-[35px] w-[556px]">
