@@ -30,7 +30,7 @@ function Testimonios() {
 
   const [seleccion, setSeleccion] = useState(1);
   return (
-    <div className="w-full h-[850px] overflow-hidden relative">
+    <div className="w-full h-[650px] overflow-hidden relative">
       <div className="w-full max-w-[1440px] min-w-sm mx-auto flex flex-col items-center justify-center leading-[70px] ">
         <span className="text-[#E39C9D] font-inter font-bold text-[32px]">
           Nuestros Clientes
