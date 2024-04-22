@@ -52,7 +52,7 @@ function Hero() {
             </p>
             <div className="w-[200px] flex flex-row items-center justify-start  gap-[33px] mt-[40px]">
               {heroProducts.map((product, index) => (
-                <div className="w-full h-full flex flex-col  gap-[12px]">
+                <div key={index} className="w-full h-full flex flex-col  gap-[12px]">
                   <div className="rounded-full w-[60px] h-[60px] cursor-pointer ">
                     <img
                       src={product.elipse}
