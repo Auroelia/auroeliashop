@@ -1,8 +1,13 @@
+import Hero from '@/components/Acerca/Hero/Hero'
+import Mision from '@/components/Acerca/Mision/Mision'
 import React from 'react'
 
 function Acerca() {
   return (
-    <div>Acerca</div>
+    <div>
+      <Hero/>
+      <Mision/>
+    </div>
   )
 }
 
