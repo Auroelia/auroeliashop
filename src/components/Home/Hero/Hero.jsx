@@ -8,8 +8,8 @@ function Hero() {
       price: 100,
       description:
         "¡Haz que tus emociones florezcan con nuestros Ositos Fancy! Cada uno de estos adorables ositos está hecho a mano con aproximadamente 500 hermosas rosas de goma EVA. Son el regalo perfecto para cualquier ocasión especial, infundiendo encanto y elegancia con su diseño artesanal.",
-      image: "/assets/hero/osofancy.png",
-      elipse: "/assets/hero/osoelipse.svg",
+      image: "/assets/Home/hero/osofancy.png",
+      elipse: "/assets/Home/hero/osoelipse.svg",
     },
     {
       id: 2,
@@ -17,8 +17,8 @@ function Hero() {
       price: 100,
       description:
         "¡Descubre la elegancia perdurable de nuestros arreglos florales artesanales con jabón! Cada composición es una fusión de belleza natural y funcionalidad, elaborada a mano con cuidado y detalle. Sorprende con un regalo que perdura en el tiempo y deleita los sentidos.",
-      image: "/assets/hero/arreglo.png",
-      elipse: "/assets/hero/arregloelipse.svg",
+      image: "/assets/Home/hero/arreglo.png",
+      elipse: "/assets/Home/hero/arregloelipse.svg",
     },
     {
       id: 3,
@@ -26,8 +26,8 @@ function Hero() {
       price: 100,
       description:
         "Deja que tu amor florezca con un toque de elegancia en tu día especial. Cada ramo es una obra maestra única, que fusiona la belleza natural de las flores con la practicidad del jabón, ofreciendo una alternativa encantadora y duradera a los ramos tradicionales.",
-      image: "/assets/hero/ramo.png",
-      elipse: "/assets/hero/ramoelipse.svg",
+      image: "/assets/Home/hero/ramo.png",
+      elipse: "/assets/Home/hero/ramoelipse.svg",
     },
   ];
 
@@ -36,7 +36,7 @@ function Hero() {
   return (
     <div className="w-full h-full overflow-hidden relative">
       
-        <img src="/assets/hero/lirio.png" alt="hero" className="w-[728px] h-[722px] absolute -left-[150px] -bottom-[100px] opacity-30 -z-10" />
+        <img src="/assets/Home/hero/lirio.png" alt="hero" className="w-[728px] h-[722px] absolute -left-[150px] -bottom-[100px] opacity-30 -z-10" />
 
         <img src={heroProducts[seleccion+1].image} alt="hero" className="w-[326px] h-[326px] absolute -right-[150px] -top-[30px] blur-sm -z-10" />
         <img src={heroProducts[seleccion+2].image} alt="hero" className="w-[326px] h-[326px] absolute -right-[150px] bottom-[40px] blur-sm -z-10" />
@@ -73,7 +73,7 @@ function Hero() {
           </div>
           <div className="w-[526px] h-[526px] ">
             <img
-              src="/assets/hero/osofancy.png"
+              src="/assets/Home/hero/osofancy.png"
               alt="osofancy"
               className="w-full h-full"
             />
@@ -84,7 +84,7 @@ function Hero() {
           <div className="flex flex-row items-center gap-[13px]">
             <div>
               <img
-                src="/assets/hero/info/envio.svg"
+                src="/assets/Home/hero/info/envio.svg"
                 alt="entrega"
                 className="w-[61px] h-[41px]"
               />
@@ -98,13 +98,13 @@ function Hero() {
               </p>
             </div>
             <div>
-              <img src="/assets/hero/info/divider.png" alt="entrega" className="w-full h-full" />
+              <img src="/assets/Home/hero/info/divider.png" alt="entrega" className="w-full h-full" />
             </div>
           </div>
           <div className="flex flex-row items-center gap-[13px]">
             <div>
               <img
-                src="/assets/hero/info/tarjetas.svg"
+                src="/assets/Home/hero/info/tarjetas.svg"
                 alt="entrega"
                 className="w-[56px] h-[38px]"
               />
@@ -119,12 +119,12 @@ function Hero() {
             </div>
           </div>
           <div>
-              <img src="/assets/hero/info/divider.png" alt="entrega" className="w-full h-full" />
+              <img src="/assets/Home/hero/info/divider.png" alt="entrega" className="w-full h-full" />
             </div>
           <div className="flex flex-row items-center gap-[13px]">
             <div>
               <img
-                src="/assets/hero/info/premium.svg"
+                src="/assets/Home/hero/info/premium.svg"
                 alt="entrega"
                 className="w-[49px] h-[44px]"
               />

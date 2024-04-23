@@ -5,7 +5,7 @@ function Producto({ product }) {
     <div className="w-[322px] h-[315px] flex flex-col relative shadow-popular  ">
       <div className="w-[322px] ">
         <img
-          src="/assets/populares/arreglo.jpg"
+          src="/assets/Home/populares/arreglo.jpg"
           alt="ramo1"
           className="  object-fit "
         />

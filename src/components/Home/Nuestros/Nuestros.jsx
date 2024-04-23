@@ -12,7 +12,7 @@ function Nuestros() {
           <div className="w-full flex flex-row gap-[37px] justify-center">
             <div className="w-[559px] h-[282px] relative cursor-pointer">
               <img
-                src="/assets/categorias/jabon.png"
+                src="/assets/Home/categorias/jabon.png"
                 alt="ramo1"
                 className=" w-full h-full flex flex-col  "
               />
@@ -26,7 +26,7 @@ function Nuestros() {
             </div>
             <div className="w-[456px] h-[282px] relative cursor-pointer">
               <img
-                src="/assets/categorias/ositos.png"
+                src="/assets/Home/categorias/ositos.png"
                 alt="ramo1"
                 className=" w-full h-full flex flex-col   "
               />
@@ -42,7 +42,7 @@ function Nuestros() {
           <div className="w-full flex flex-row gap-[37px] justify-center">
             <div className="w-[456px] h-[282px] relative cursor-pointer">
               <img
-                src="/assets/categorias/bouquets.png"
+                src="/assets/Home/categorias/bouquets.png"
                 alt="ramo1"
                 className="w-[456px] h-[282px] flex flex-col   "
               />
@@ -57,7 +57,7 @@ function Nuestros() {
 
             <div className="w-[559px] h-[282px] relative cursor-pointer">
               <img
-                src="/assets/categorias/ramos.png"
+                src="/assets/Home/categorias/ramos.png"
                 alt="ramo1"
                 className="w-full h-full flex flex-col  "
               />

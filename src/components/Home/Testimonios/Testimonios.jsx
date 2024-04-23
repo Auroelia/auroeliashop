@@ -39,14 +39,14 @@ function Testimonios() {
       </div>
       <div className="w-full flex flex-row justify-center">
         <img
-          src="/assets/testimonios/testimonio.png"
+          src="/assets/Home/testimonios/testimonio.png"
           alt="testimonio-bg"
           className="w-[577px]  h-[481px] "
         />
         <div className=" flex flex-col items-center justify-center gap-[30px]">
           <div className="w-full flex flex-row justify-between">
             <div className="flex flex-col justify-end">
-              <img src="/assets/testimonios/comillas.png" alt="persona" className="w-[120px] h-[100px]" />
+              <img src="/assets/Home/testimonios/comillas.png" alt="persona" className="w-[120px] h-[100px]" />
               </div>
               <div className="flex flex-row justify-end">
 
@@ -59,7 +59,7 @@ function Testimonios() {
               </span>
             </div>
             <img
-              src="/assets/testimonios/usuario.svg"
+              src="/assets/Home/testimonios/usuario.svg"
               alt="estrella"
               className="w-[117px] h-[117px] ml-[10px]"
               />
