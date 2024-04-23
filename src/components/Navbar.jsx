@@ -11,13 +11,13 @@ function Navbar() {
       <div>
         <ul className='flex flex-row gap-x-[49px]'>
           <li>
-            <Link href={"/Inicio"}>Inicio</Link>
+            <Link href={"/"}>Inicio</Link>
           </li>
           <li>
-            <Link href={"/Tienda"}>Tienda</Link>
+            <Link href={"/Flores"}>Flores</Link>
           </li>
           <li>
-            <Link href={"/Nosotros"}>Nosotros</Link>
+            <Link href={"/Acerca"}>Acerca</Link>
           </li>
           <li>
             <Link href={"/Contacto"}>Contacto</Link>
@@ -25,13 +25,13 @@ function Navbar() {
         </ul>
       </div>
       <div className='flex gap-[19px]'>
-        <Image src="assets/navbar/carrito.svg" width={30} height={30} className='w-[20px] h-[22px]' alt="carrito de compras" />
-        <Image src="assets/navbar/fb.svg" width={30} height={30}
+        <Image src="/assets/icons/carrito.svg" width={30} height={30} className='w-[20px] h-[22px]' alt="carrito de compras" />
+        <Image src="/assets/icons/fb.svg" width={30} height={30}
         className='w-[13px] h-[21px]'
         alt="carrito de compras"  />
         <Image
          className='w-[21px] h-[24px]'
-        src="assets/navbar/ig.svg" width={30} height={30} alt="carrito de compras" />
+        src="/assets/icons/ig.svg" width={30} height={30} alt="carrito de compras" />
       </div>
 
     </div>
