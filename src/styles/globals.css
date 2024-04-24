@@ -47,4 +47,25 @@
     font-family: 'shipporiMincho';
   }
 
+  #range-slider {
+    background:  #333;
+}
+
+#range-slider .range-slider__range {
+    background: #E39C9D;
+    transition: height .3s;
+}
+
+#range-slider .range-slider__thumb {
+    background: #E39C9D;
+    transition: transform .3s;
+}
+
+#range-slider .range-slider__thumb[data-active] {
+    transform: translate(-50%, -50%) scale(1.25);
+}
+
+#range-slider .range-slider__range[data-active] {
+    height: 16px;
+}
  
