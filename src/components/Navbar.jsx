@@ -11,13 +11,14 @@ function Navbar() {
       <div>
         <ul className='flex flex-row gap-x-[49px]'>
           <li>
-            <Link href={"/"}>Inicio</Link>
+            <Link href={"/Acerca"}>Acerca</Link>
           </li>
+          
           <li>
             <Link href={"/Flores"}>Flores</Link>
           </li>
           <li>
-            <Link href={"/Acerca"}>Acerca</Link>
+            <Link href={"/Luxury"}>Luxury</Link>
           </li>
           <li>
             <Link href={"/Contacto"}>Contacto</Link>
