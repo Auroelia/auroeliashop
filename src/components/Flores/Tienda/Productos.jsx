@@ -17,6 +17,7 @@ function Productos() {
   }, []);
 
   return (
+    <div className='w-full h-full flex flex-col mb-[80px]'>
     <div className='w-full h-full grid grid-cols-3 gap-x-[22px] gap-y-[61px] place-items-center'>
       {productos.map((producto) => (
         <div key={producto._id} className='w-[229px] shadow-popular rounded-[30px]'>
@@ -40,6 +41,25 @@ function Productos() {
           </div>
           </div>
       ))}
+    </div>
+    <div>
+    <div className=" w-full flex flex-row items-center justify-end gap-[21px] mt-[56px]">
+            <div className="rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center">
+              <img
+                src="/assets/icons/izq.svg"
+                alt="arrow"
+                className="w-[25px] h-[40px]"
+              />
+            </div>
+            <div className="rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center">
+              <img
+                src="/assets/icons/der.svg"
+                alt="arrow"
+                className="w-[25px] h-[40px]"
+              />
+            </div>
+          </div>
+    </div>
     </div>
   );
 }
