@@ -25,7 +25,7 @@ function Contacto() {
 
   return (
     <div className='w-full h-full relative'>
-        <div className='w-full h-[60vh] flex flex-col items-center justify-center'>
+        <div className='w-full h-[75vh] flex flex-col items-center justify-center'>
         <span className="text-[#E39C9D] font-inter font-bold text-[32px]">
         Dudas y comentarios
                 </span>
@@ -34,21 +34,23 @@ function Contacto() {
                 Horario de Atención de 10 AM a 7 PM
                 </span>
                 <div className='grid grid-cols-2 gap-x-[37px] gap-y-[50px]'>
-                <div className='w-[333px] h-[285px] rounded-[58px]'>
-                        <img src="/assets/icons/contactPhone.svg" alt='contacto1' className='w-[64px] h-[62px] object-cover' />
-                        <p>+5255402356</p>
-                    </div>
-                <div className='w-[333px] h-[285px] rounded-[58px]'>
+                <div className='flex flex-col items-center justify-center gap-[8px] w-[333px] h-[285px] rounded-[58px]'
+                style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}
+                >
+                    <img src="/assets/icons/contactPhone.svg" alt='contacto1' className='w-[64px] h-[62px] object-cover' />
+                    <p className='text-[24px] font-medium'>+5255402356</p>
+                </div>
+                <div className='flex flex-col items-center justify-center gap-[8px] w-[333px] h-[285px] rounded-[58px]' style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}>
                         <img src="/assets/icons/contactMail.svg" alt='contacto1' className='w-[82px] h-[61px] object-cover' />
-                        <p>contacto@auroelia.com</p>
+                        <p className='text-[24px] font-medium'>contacto@auroelia.com</p>
                     </div>
-                <div className='w-[333px] h-[285px] rounded-[58px]'>
+                <div className='flex flex-col items-center justify-center gap-[8px] w-[333px] h-[285px] rounded-[58px]' style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}>
                         <img src="/assets/icons/conctactFB.svg" alt='contacto1' className='w-[44px] h-[70px] object-cover' />
-                        <p>contacto@auroelia.com</p>
+                        <p className='text-[24px] font-medium'>Auroelia</p>
                     </div>
-                <div className='w-[333px] h-[285px] rounded-[58px]'>
+                <div className='flex flex-col items-center justify-center gap-[8px] w-[333px] h-[285px] rounded-[58px]' style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}>
                         <img src="/assets/icons/contactIG.svg" alt='contacto1' className='w-[64px] h-[73px] object-cover' />
-                        <p>contacto@auroelia.com</p>
+                        <p className='text-[24px] font-medium'>auroelia.na</p>
                     </div>
                     
                 </div>
