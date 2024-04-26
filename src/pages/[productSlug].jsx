@@ -130,6 +130,55 @@ function Product() {
                   Ver en AR
                 </div>
               </div>
+              <div className="h-[1px] w-[481px] bg-[#E39C9D] mt-[37px]"/>
+              {/* Materiales */}
+              <div className="w-[481px] flex flex-col justify-between items-center mt-[11px]" >
+                <div className="w-full flex flex-row  items-center justify-between gap-[19px]">
+                    <div className="flex flex-row items-center gap-[19px]">
+                    <img src="/assets/icons/materiales.svg" alt="material" className="w-[40px] h-[40px]"/>
+                    <span className="font-inter text-[20px] ">
+                    Materiales
+                    </span>
+                    </div>
+                    <img src="/assets/icons/up.svg" alt="arrow" className="w-[40px] h-[40px]"/>  
+                    </div>
+                    <p className="text-[16px] font-medium leading-[23px] mt-[8px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </p>
+
+                </div>
+                <div className="h-[1px] w-[481px] bg-[#E39C9D] mt-[13px]"/>
+                <div className="w-[481px] flex flex-col justify-between items-center mt-[11px]" >
+                <div className="w-full flex flex-row  items-center justify-between gap-[19px]">
+                    <div className="flex flex-row items-center gap-[19px]">
+                    <img src="/assets/icons/envios.svg" alt="material" className="w-[40px] h-[40px]"/>
+                    <span className="font-inter text-[20px] ">
+                    Envíos y devoluciones
+                    </span>
+                    </div>
+                    <img src="/assets/icons/up.svg" alt="arrow" className="w-[40px] h-[40px]"/>  
+                    </div>
+                    <p className="text-[16px] font-medium leading-[23px] mt-[8px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </p>
+
+                </div>
+                <div className="h-[1px] w-[481px] bg-[#E39C9D] mt-[13px]"/>
+                <div className="w-[481px] flex flex-col justify-between items-center mt-[11px]" >
+                <div className="w-full flex flex-row  items-center justify-between gap-[19px]">
+                    <div className="flex flex-row items-center gap-[19px]">
+                    <img src="/assets/icons/cuidados.svg" alt="material" className="w-[40px] h-[40px]"/>
+                    <span className="font-inter text-[20px] ">
+                    Envíos y devoluciones
+                    </span>
+                    </div>
+                    <img src="/assets/icons/up.svg" alt="arrow" className="w-[40px] h-[40px]"/>  
+                    </div>
+                    <p className="text-[16px] font-medium leading-[23px] mt-[8px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </p>
+
+                </div>
             </div>
             <div></div>
           </div>
