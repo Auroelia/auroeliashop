@@ -20,7 +20,7 @@ function Productos() {
     <div className='w-full h-full flex flex-col mb-[80px]'>
     <div className='w-full h-full grid grid-cols-3 gap-x-[22px] gap-y-[61px] place-items-center'>
       {productos.map((producto) => (
-        <div key={producto._id} className='w-[229px] shadow-popular rounded-[30px]'>
+        <div key={producto._id} className='w-[229px] shadow-popular rounded-[30px] cursor-pointer'>
           <img src={urlForImage(producto?.imagenes[0]?.asset._ref)} alt={producto.nombre}
           className='w-full h-[263px] object-cover rounded-t-[30px]'
           />
@@ -34,7 +34,7 @@ function Productos() {
                 </span>
                
 
-                <img src="/assets/icons/carrito.svg" alt="carrito de compras" className='w-[30px] h-[30px]' />
+                <img src="/assets/icons/carrito.svg" alt="carrito de compras" className='w-[30px] h-[30px] cursor-pointer hover:scale-125 transition-all duration-300' />
              
 
               </div>
