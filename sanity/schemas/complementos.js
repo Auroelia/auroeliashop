@@ -1,6 +1,6 @@
-const productosSchema = {
-    name: 'producto',
-    title: 'Producto',
+const complementosSchema = {
+    name: 'complemento',
+    title: 'Complemento',
     type: 'document',
     fields: [
         {
@@ -20,12 +20,7 @@ const productosSchema = {
             },
             validation: (Rule) => Rule.required(),
         },
-        { name: 'categoria',
-         title: 'Categoría',
-          type: 'reference',
-           to: [{ type: 'categoria' }], validation: (Rule) => Rule.required(), },
-            { name: 'nuevaCategoria', title: 'Nueva Categoría', type: 'string', },
-
+        
         {
             name: 'descripcion',
             title: 'Descripción',
@@ -39,10 +34,10 @@ const productosSchema = {
             validation: (Rule) => Rule.required().positive(),
         },
         {
-            name: 'imagenes',
-            title: 'Imágenes',
-            type: 'array',
-            of: [{ type: 'image', options: { hotspot: true } }],
+            name: 'imagen',
+            title: 'Imagen',
+            type: 'image',
+            options: { hotspot: true },
             validation: (Rule) => Rule.required(),
         },
         // Agrega aquí más campos según tus necesidades
@@ -50,4 +45,4 @@ const productosSchema = {
 };
 
 
-export default productosSchema;
+export default complementosSchema;

@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {client} from '../../../../sanity/lib/client'
 import { urlForImage } from '../../../../sanity/lib/image';
+import { AppContext } from '@/context/AppContext';
 
 
 
 function Productos() {
   const [productos, setProductos] = useState([]);
-  console.log(productos)
+  const {addToCart} = useContext(AppContext)
+
 
   useEffect(() => {
     // Realiza la consulta a la API de Sanity para obtener los productos
@@ -34,7 +36,9 @@ function Productos() {
                 </span>
                
 
-                <img src="/assets/icons/carrito.svg" alt="carrito de compras" className='w-[30px] h-[30px] cursor-pointer hover:scale-125 transition-all duration-300' />
+                <img src="/assets/icons/carrito.svg" alt="carrito de compras" className='w-[30px] h-[30px] cursor-pointer hover:scale-125 transition-all duration-300'
+                 onClick={()=>addToCart(producto, 1)}
+                />
              
 
               </div>
