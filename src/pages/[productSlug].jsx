@@ -238,7 +238,7 @@ function Product() {
                     className="w-full h-[263px] object-cover rounded-t-[30px]"
                   />
                   <div className="h-[100px]  flex flex-col  justify-center px-[22px]">
-                    <span className="font-inter font-bold text-[16px]">
+                    <span className="font-inter font-bold text-[16px] text-start">
                       {producto.nombre}
                     </span>
                     <div className="flex justify-between items-center ">
