@@ -55,18 +55,21 @@ function Product() {
                 alt={product.nombre}
                 className="w-[427px] h-[486px] object-cover rounded-[30px]"
               />
-              <div className="w-[406px] flex justify-between items-center ">
+              {
+                product?.imagenes[1] && product?.imagenes[2] &&
+                <div className="w-[406px] flex justify-between items-center ">
                 <img
                   src={urlForImage(product?.imagenes[1]?.asset._ref)}
                   alt={product.nombre}
                   className="w-[188px] h-[194px] object-cover rounded-[30px]"
-                />
+                  />
                 <img
                   src={urlForImage(product?.imagenes[2]?.asset._ref)}
                   alt={product.nombre}
                   className="w-[188px] h-[194px] object-cover rounded-[30px]"
-                />
+                  />
               </div>
+                }
             </div>
             <div className="w-full flex flex-col">
               <span className="font-inter text-[42px] font-bold ">
@@ -131,7 +134,8 @@ function Product() {
               </div>
 
               <div className="w-[481px] flex flex-row justify-between items-center mt-[58px]  ">
-                <div className="font-inter text-[24px] font-bold w-[258px] h-[60px] rounded-[6px] bg-[#E39C9D] flex items-center justify-center">
+                <div className="font-inter text-[24px] font-bold w-[258px] h-[60px] rounded-[6px] bg-[#E39C9D] flex items-center justify-center cursor-pointer"
+                onClick={()=> addToCart(product,1)}>
                   Agregar a carrito
                 </div>
                 <div className="font-inter text-[24px] font-bold w-[204px] h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px]">

@@ -33,7 +33,6 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     let total = 0;
     cart.forEach((item) => {
-        console.log(item.qty)
         total += item.product.price * item.qty;
     });
     setSubtotal(total);
@@ -82,6 +81,8 @@ const addToCart = (product, qty) => {
 
    // Delete
    const removeFromCart = (productId) => {
+    console.log("entre")
+    console.log(productId)
     setCart((currentCart) => currentCart.filter((item) => item.product.id !== productId));
   };
 
