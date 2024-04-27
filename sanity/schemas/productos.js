@@ -20,11 +20,18 @@ const productosSchema = {
             },
             validation: (Rule) => Rule.required(),
         },
-        { name: 'categoria',
-         title: 'Categoría',
+        { 
+            name: 'flor',
+         title: 'Flor',
           type: 'reference',
-           to: [{ type: 'categoria' }], validation: (Rule) => Rule.required(), },
-            { name: 'nuevaCategoria', title: 'Nueva Categoría', type: 'string', },
+           to: [{ type: 'flor' }], validation: (Rule) => Rule.required(), },
+        
+
+        { 
+            name: 'arreglo',
+         title: 'Arreglo',
+          type: 'reference',
+           to: [{ type: 'arreglo' }], validation: (Rule) => Rule.required(), },
 
         {
             name: 'descripcion',
@@ -38,6 +45,11 @@ const productosSchema = {
             type: 'number',
             validation: (Rule) => Rule.required().positive(),
         },
+        { 
+            name: 'inventario',
+         title: 'Inventario',
+          type: 'number',
+           validation: (Rule) => Rule.required().integer().positive(), },
         {
             name: 'imagenes',
             title: 'Imágenes',

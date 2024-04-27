@@ -50,12 +50,13 @@ const addToCart = (product, qty) => {
   setCart((currentCart) => {
     // Buscar el producto en el carrito
     const index = currentCart.findIndex(
-      (item) => item.product.id === product.id 
+      (item) => item.product._id === product._id 
     );
 
     // Si el producto ya está en el carrito, incrementar su cantidad
     if (index !== -1) {
       const newCart = [...currentCart];
+      console.log(newCart[index].qty)
       newCart[index].qty += qty;
       return newCart;
     }
@@ -72,7 +73,7 @@ const addToCart = (product, qty) => {
   const updateCartItem = (productId,  qty) => {
     setCart((currentCart) => {
       return currentCart.map((item) => 
-        item.product.id === productId 
+        item.product._id === productId 
           ? {product: item.product,  qty} 
           : item
       );
@@ -83,7 +84,7 @@ const addToCart = (product, qty) => {
    const removeFromCart = (productId) => {
     console.log("entre")
     console.log(productId)
-    setCart((currentCart) => currentCart.filter((item) => item.product.id !== productId));
+    setCart((currentCart) => currentCart.filter((item) => item.product._id !== productId));
   };
 
  

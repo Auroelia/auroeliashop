@@ -3,6 +3,7 @@ import { AppContext } from "@/context/AppContext";
 import React, { useContext, useEffect, useState } from "react";
 import { urlForImage } from "../../sanity/lib/image";
 import Otros from "../components/Carrito/Otros/Otros";
+import DatosModal from "@/components/Carrito/DatosModal";
 
 function Carrito() {
   const { cart, removeFromCart } = useContext(AppContext);
@@ -29,6 +30,18 @@ function Carrito() {
 
   console.log(cart);
 
+  
+const [isOpen, setIsOpen] = useState(false);
+
+const openModal = () => {
+  setIsOpen(true);
+};
+
+const closeModal = () => {
+  setIsOpen(false);
+};
+
+
   return (
     <div className="w-full h-full overflow-hidden relative">
       <div
@@ -47,7 +60,7 @@ function Carrito() {
           </div>
           <div className="h-[1px] bg-[#E39C9D] w-full" />
           {cart.map((item, index) => (
-            <div key={index} className="w-full grid grid-cols-5 mt-[ 19px]">
+            <div key={index} className="w-full grid grid-cols-5 mt-[19px]">
               <div>
                 <img
                   src={urlForImage(item?.product.imagenes[0]?.asset._ref)}
@@ -64,10 +77,17 @@ function Carrito() {
                 </p>
               </div>
               <div className="flex flex-row items-center justify-center gap-[23px]">
-                <button className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center ">
+                <button className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center "
+                onClick={() => {
+                    if (counter - 1 > 0) {
+                      setCounter(counter - 1);
+                    }
+                  }}
+                >
                   -
                 </button>
-                <span className="font-inter text-[20px] ">{counter}</span>
+                <span className="font-inter text-[20px] ">{item.qty}</span>
+                {console.log(item.qty)}
                 <button className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center">
                   +
                 </button>
@@ -154,9 +174,18 @@ rounded-[6px]
               </div>
             </div>
             <div className="">
-              <button className="w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter mt[30px]">
+              <button className="w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter mt[30px]"
+              onClick={openModal}
+              >
                 Pagar
               </button>
+              {isOpen && (
+     <DatosModal
+     isOpen={modalOpen}
+     onRequestClose={closeModal}
+     setModalOpen={setModalOpen}
+   />
+    )}
             </div>
           </div>
         </div>
