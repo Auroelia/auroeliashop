@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Producto from "./Producto";
+import { AppContext } from "@/context/AppContext";
 
 function Populares() {
+
 
     const productos = [
         {

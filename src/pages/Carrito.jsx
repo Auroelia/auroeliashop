@@ -4,34 +4,38 @@ import React, { useContext, useEffect, useState } from "react";
 import { urlForImage } from "../../sanity/lib/image";
 import Otros from "../components/Carrito/Otros/Otros";
 
-
 function Carrito() {
   const { cart, removeFromCart } = useContext(AppContext);
   const [counter, setCounter] = useState(1);
 
-  const [total, setTotal] = useState(0)
-  const [subtotalPrice, setSubTotalPrice] = useState(0)
+  const [total, setTotal] = useState(0);
+  const [subtotalPrice, setSubTotalPrice] = useState(0);
 
   useEffect(() => {
     let total = 0;
     cart.forEach((item) => {
-        total += item.product.precio * item.qty;
+      total += item.product.precio * item.qty;
     });
     setTotal(total);
-} , [cart]);
+  }, [cart]);
 
-useEffect(() => {
-    const subtotalPrice = cart.reduce((total, item) => total + item.product.precio, 0);
+  useEffect(() => {
+    const subtotalPrice = cart.reduce(
+      (total, item) => total + item.product.precio,
+      0
+    );
     setSubTotalPrice(subtotalPrice);
-}, [cart]);
+  }, [cart]);
 
   console.log(cart);
 
   return (
     <div className="w-full h-full overflow-hidden relative">
-      <div className="w-full max-w-[1440px] min-w-sm mx-auto flex flex-row justify-center items-center gap-[33px]
+      <div
+        className="w-full max-w-[1440px] min-w-sm mx-auto flex flex-row justify-center items-center gap-[33px]
       
-      ">
+      "
+      >
         {/* Productos */}
         <div className="w-[639px] flex flex-col justify-center items-center">
           <div className="w-full grid grid-cols-5 place-items-center">
@@ -98,14 +102,14 @@ rounded-[6px]
           </div>
           <div className="w-full h-full flex flex-row justify-end font-inter text-[16px] font-light mt-[13px] ">
             <div className=" flex flex-col">
-                <span>Sub Total</span>
-                <span>Descuento</span>
-                <span>Total</span>
+              <span>Sub Total</span>
+              <span>Descuento</span>
+              <span>Total</span>
             </div>
             <div className=" flex flex-col w-[120px] items-end">
-                <span>${subtotalPrice}</span>
-                <span>descuento</span>
-                <span>${total}</span>
+              <span>${subtotalPrice}</span>
+              <span>descuento</span>
+              <span>${total}</span>
             </div>
           </div>
         </div>
@@ -150,14 +154,14 @@ rounded-[6px]
               </div>
             </div>
             <div className="">
-                <button className="w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter mt[30px]">
-                    Pagar
-                </button>
+              <button className="w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter mt[30px]">
+                Pagar
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <Otros/>
+      <Otros />
     </div>
   );
 }

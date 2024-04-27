@@ -1,6 +1,9 @@
-import React from "react";
+import { AppContext } from "@/context/AppContext";
+import React, { useContext } from "react";
 
 function Producto({ product }) {
+  const {addToCart} = useContext(AppContext);
+
   return (
     <div className="w-[322px] h-[315px] flex flex-col relative shadow-popular  ">
       <div className="w-[322px] ">
@@ -19,7 +22,7 @@ function Producto({ product }) {
           <span className="text-[24px] font-inter font-light">
             ${product.price}
           </span>
-          <img src="/assets/icons/carrito.svg" alt="heart" className="w-[20px] h-[22px]"/>
+          <img src="/assets/icons/carrito.svg" alt="heart" className="w-[20px] h-[22px] cursor-pointer transition-all duration-300 hover:scale-125"/>
           </div>
         </div>
         <div className=""></div>
