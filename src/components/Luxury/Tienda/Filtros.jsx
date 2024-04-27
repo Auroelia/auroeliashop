@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { client } from '@/lib/client';
+import React, { useEffect, useState } from 'react'
 
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
@@ -6,14 +7,6 @@ import 'react-range-slider-input/dist/style.css';
 
 function Filtros() {
 
-  const flores = [
-    {id: 1, nombre: 'Rosas'},
-    {id: 2, nombre: 'Girasoles'},
-    {id: 3, nombre: 'Peonias'},
-    {id: 4, nombre: 'Lirios'},
-    {id: 5, nombre: 'Tulipanes'},
-    {id: 6, nombre: 'Orquideas'},
-  ]
 
   const tipes = [
     {id: 1, nombre: 'Ramo'},
@@ -35,6 +28,24 @@ function Filtros() {
 
   const [value, setValue] = useState([2, 10]);
 
+  const [flores, setFlores] = useState([])
+  const [arreglos, setArreglos] = useState([])
+
+  useEffect(() => {
+    // Realiza la consulta a la API de Sanity para obtener los productos
+    client
+      .fetch('*[_type == "flor"]')
+      .then((data) => setFlores(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  useEffect(() => {
+    // Realiza la consulta a la API de Sanity para obtener los productos
+    client
+      .fetch('*[_type == "arreglo"]')
+      .then((data) => setArreglos(data))
+      .catch((error) => console.error(error));
+  }, []);
 
 
   return (
@@ -54,9 +65,9 @@ function Filtros() {
   <div className=' w-full flex flex-col gap-[15px]'>
     {
   flores.map((flower) => (
-    <div key={flower.id} className='w-[190px] h-[27px] flex flex-row  items-center px-[5px] cursor-pointer gap-[9px]'>
-      <div id={flower.id} className={`w-[21px] h-[21px]  rounded-[6px] border-[1px] border-[#E39C9D] ${!checklist[flower.id]? "bg-transparent": "bg-[#E39C9D]"}`}
-      onClick={() => setChecklist({...checklist, [flower.id]: !checklist[flower.id]})}
+    <div key={flower._id} className='w-[190px] h-[27px] flex flex-row  items-center px-[5px] cursor-pointer gap-[9px]'>
+      <div id={flower._id} className={`w-[21px] h-[21px]  rounded-[6px] border-[1px] border-[#E39C9D] ${!checklist[flower.id]? "bg-transparent": "bg-[#E39C9D]"}`}
+      onClick={() => setChecklist({...checklist, [flower._id]: !checklist[flower.id]})}
       />
       <label htmlFor={flower.id}>{flower.nombre}</label>
     </div>
@@ -82,12 +93,12 @@ function Filtros() {
   arreglosOpen && 
   <div className=' w-full flex flex-col gap-[15px]'>
     {
-  tipes.map((arreglo) => (
-    <div key={arreglo.id} className='w-[190px] h-[27px] flex flex-row  items-center px-[5px] cursor-pointer gap-[9px]'>
-      <div id={arreglo.id} className={`w-[21px] h-[21px]  rounded-[6px] border-[1px] border-[#E39C9D] ${!checklistArreglos[arreglo.id]? "bg-transparent": "bg-[#E39C9D]"}`}
-      onClick={() => setChecklistArreglos({...checklistArreglos, [arreglo.id]: !checklistArreglos[arreglo.id]})}
+  arreglos.map((arreglo) => (
+    <div key={arreglo._id} className='w-[190px] h-[27px] flex flex-row  items-center px-[5px] cursor-pointer gap-[9px]'>
+      <div id={arreglo._id} className={`w-[21px] h-[21px]  rounded-[6px] border-[1px] border-[#E39C9D] ${!checklistArreglos[arreglo._id]? "bg-transparent": "bg-[#E39C9D]"}`}
+      onClick={() => setChecklistArreglos({...checklistArreglos, [arreglo._id]: !checklistArreglos[arreglo._id]})}
       />
-      <label htmlFor={arreglo.id}>{arreglo.nombre}</label>
+      <label htmlFor={arreglo._id}>{arreglo.nombre}</label>
     </div>
   ))
 }
