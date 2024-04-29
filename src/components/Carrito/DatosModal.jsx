@@ -24,10 +24,10 @@ function DatosModal({isOpen,close,title}) {
       style={{
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
       }}>
-        <img src='/images/close.svg' alt='close' className='absolute top-0 right-0 m-[20px] cursor-pointer' onClick={close}/>
+        <img src='/assets/Carrito/cerrar.svg' alt='close' className='absolute top-4 right-4 m-[20px] cursor-pointer' onClick={close}/>
 
-        <img src='/assets/Carrito/girasol.png' alt='girasol' className='absolute -top-60 -left-60 w-[469px] h-[489px] object-contain' onClick={close}/>
-        <img src='/assets/Acerca/elegirnos/rosa.png' alt='girasol' className='absolute -bottom-60 -right-60 w-[469px] h-[489px] object-contain' onClick={close}/>
+        <img src='/assets/Carrito/girasol.png' alt='girasol' className='absolute -top-60 -left-60 w-[469px] h-[489px] object-contain'/>
+        <img src='/assets/Acerca/elegirnos/rosa.png' alt='girasol' className='absolute -bottom-60 -right-60 w-[469px] h-[489px] object-contain' />
         <h2 className='text-[80px] text-center'>Datos Bancarios</h2>
         <div className='flex flex-row justify-center items-center gap-[74px]'>
           <div className='w-[336px] flex flex-col'>

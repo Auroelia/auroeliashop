@@ -54,7 +54,9 @@ const closeModal = () => setModalOpen(false);
             <div>Total</div>
           </div>
           <div className="h-[1px] bg-[#E39C9D] w-full" />
-          {cart.map((item, index) => (
+          {
+          cart.length>0?
+          cart.map((item, index) => (
             <div key={index} className="w-full grid grid-cols-5 mt-[19px]">
               <div>
                 <img
@@ -101,7 +103,13 @@ const closeModal = () => setModalOpen(false);
                 </span>
               </div>
             </div>
-          ))}
+          ))
+        :
+        <div className="w-full h-[200px] flex flex-col items-center justify-center">
+          <span className="text-[24px] font-inter font-bold">Carrito Vacio</span>
+          <span className="text-[16px] font-inter font-light">Agrega productos</span>
+          </div>
+        }
           <div className="h-[1px] bg-[#E39C9D] w-full" />
           <div className="w-full flex flex-row justify-end gap-[15px] mt-[13px]">
             <input
