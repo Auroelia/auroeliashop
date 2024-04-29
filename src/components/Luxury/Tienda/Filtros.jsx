@@ -66,10 +66,10 @@ function Filtros() {
     {
   flores.map((flower) => (
     <div key={flower._id} className='w-[190px] h-[27px] flex flex-row  items-center px-[5px] cursor-pointer gap-[9px]'>
-      <div id={flower._id} className={`w-[21px] h-[21px]  rounded-[6px] border-[1px] border-[#E39C9D] ${!checklist[flower.id]? "bg-transparent": "bg-[#E39C9D]"}`}
+      <div id={flower._id} className={`w-[21px] h-[21px]  rounded-[6px] border-[1px] border-[#E39C9D] ${!checklist[flower._id]? "bg-transparent": "bg-[#E39C9D]"}`}
       onClick={() => setChecklist({...checklist, [flower._id]: !checklist[flower.id]})}
       />
-      <label htmlFor={flower.id}>{flower.nombre}</label>
+      <label htmlFor={flower._id}>{flower.nombre}</label>
     </div>
   ))
 }

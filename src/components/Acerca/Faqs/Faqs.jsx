@@ -3,21 +3,25 @@ import React, { useState } from "react";
 function Faqs() {
   const faqs = [
     {
+      id:1,
       question: "¿Cuál es el tiempo de entrega de los arreglos florales?",
       answer:
         "El tiempo de entrega de nuestros arreglos florales es de 24 a 48 horas hábiles, dependiendo de la disponibilidad de los productos y la zona de entrega. Para entregas en el mismo día, te recomendamos realizar tu pedido antes de las 12:00 pm.",
     },
     {
+      id:2,
       question: "¿Puedo personalizar mi arreglo floral?",
       answer:
         "Sí, ofrecemos la opción de personalizar tu arreglo floral con flores y colores de tu elección. Contáctanos para obtener más información sobre las opciones de personalización disponibles.",
     },
     {
+      id:3,
       question: "¿Qué métodos de pago aceptan?",
       answer:
         "Aceptamos pagos con tarjeta de crédito, débito y PayPal. También ofrecemos la opción de pago en efectivo al momento de la entrega. Para obtener más información sobre los métodos de pago disponibles, contáctanos.",
     },
     {
+      id:4,
       question: "¿Ofrecen servicio de envío a domicilio?",
       answer:
         "Sí, ofrecemos servicio de envío a domicilio en toda la Ciudad de México y área metropolitana. Para envíos a otras zonas, contáctanos para obtener más información sobre las opciones de envío disponibles.",
@@ -25,6 +29,7 @@ function Faqs() {
   ];
 
   const [open, setOpen] = useState(false);
+  const [eleccion, setEleccion] = useState(null)
 
   return (
     <div className="w-full h-full relative overflow-hidden">
@@ -41,21 +46,21 @@ function Faqs() {
             <div
               key={index}
               className={`w-full flex  ${
-                !open ? "h-[110px]" : "h-[48px]"
-              } border-[#E39C9D] border-[1px] rounded-[6px] transition-all duration-300`}
-              onClick={() => setOpen(!open)}
+                eleccion == faq.id ? "h-[110px]" : "h-[48px]"
+              } border-[#E39C9D] border-[1px] rounded-[6px] transition-all duration-300 cursor-pointer`}
+              onClick={()=> setEleccion(faq.id)}
             >
               <div className="w-[95%] flex flex-col   justify-center text-start  px-[15px]">
                 <span
                   className={`${
-                    !open ? "text-[#E39C9D]" : "text-black"
+                    eleccion == faq.id  ? "text-[#E39C9D]" : "text-black"
                   } font-inter text-[20px] `}
                 >
                   {faq.question}
                 </span>
                 <p
                   className={` ${
-                    open && "hidden"
+                    eleccion != faq.id  && "hidden"
                   } text-[16px] font-medium leading-[23px]`}
                 >
                   {faq.answer}
@@ -66,7 +71,7 @@ function Faqs() {
                   src="/assets/icons/open.svg"
                   alt="faq"
                   className={`w-[30px] h-[34px] ${
-                    open && "rotate-180"
+                    eleccion != faq.id  && "rotate-180"
                   } transition-all duration-300`}
                 />
               </div>

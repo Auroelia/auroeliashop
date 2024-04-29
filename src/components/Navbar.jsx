@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { AppContext } from '@/context/AppContext'
 
 function Navbar() {
+
+  const {cart} = useContext(AppContext)
+
   return (
     <div className='h-[120px] w-full flex flex-row justify-center items-center gap-x-[52px]'>
       <Link href={"/"}>
@@ -28,9 +32,11 @@ function Navbar() {
       <div className='flex gap-[19px]'>
         <Link href={"/Carrito"} className='relative'  >
         <Image src="/assets/icons/carrito.svg" width={30} height={30} className='cursor-pointer w-[20px] h-[22px]' alt="carrito de compras" />
-        <div className='absolute top-0 -right-[7px] rounded-full w-[10px] h-[10px] bg-[#E39C9D]'>
+        {
+          cart.length>0&&
+          <div className='absolute top-0 -right-[7px] rounded-full w-[10px] h-[10px] bg-[#E39C9D]'/>
 
-        </div>
+        }
         </Link>
         <Image src="/assets/icons/fb.svg" width={30} height={30}
         className='cursor-pointer w-[13px] h-[21px]'
