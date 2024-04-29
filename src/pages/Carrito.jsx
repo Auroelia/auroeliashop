@@ -37,6 +37,8 @@ const [isModalOpen, setModalOpen] = useState(false);
 const openModal = () => setModalOpen(true);
 const closeModal = () => setModalOpen(false);
 
+const [descuento, setDescuento] = useState(0)
+
 
 
   return (
@@ -91,7 +93,7 @@ rounded-[6px]
             </div>
             <div className=" flex flex-col w-[120px] items-end">
               <span>${subtotalPrice}</span>
-              <span>descuento</span>
+              <span>{descuento}%</span>
               <span>${total}</span>
             </div>
           </div>
