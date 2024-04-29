@@ -28,18 +28,13 @@ function Carrito() {
     setSubTotalPrice(subtotalPrice);
   }, [cart]);
 
-  console.log(cart);
-
   
 const [isOpen, setIsOpen] = useState(false);
 
-const openModal = () => {
-  setIsOpen(true);
-};
+const [isModalOpen, setModalOpen] = useState(false);
 
-const closeModal = () => {
-  setIsOpen(false);
-};
+const openModal = () => setModalOpen(true);
+const closeModal = () => setModalOpen(false);
 
 
   return (
@@ -179,11 +174,9 @@ rounded-[6px]
               >
                 Pagar
               </button>
-              {isOpen && (
+              {isModalOpen && (
      <DatosModal
-     isOpen={modalOpen}
-     onRequestClose={closeModal}
-     setModalOpen={setModalOpen}
+     isOpen={isModalOpen} close={closeModal} title="Título del Modal"
    />
     )}
             </div>

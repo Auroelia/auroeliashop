@@ -4,6 +4,7 @@ function Acerca() {
   return (
     <div className='w-full h-full overflow-hidden relative'>
       <img src='/assets/Home/acerca/acercaFondo.png' alt='acerca-bg' className='w-full h-full absolute top-0 left-0 -z-10'/>
+      
       <div className='w-full h-[549px] flex flex-row justify-center items-center max-w-[1440px] min-w-sm mx-auto'>
         <div className='w-full flex flex-row items-center justify-center '>
           <img src='/assets/Home/acerca/foto1.png' alt='acercaRamo' className='w-[416px] h-[327px] -translate-y-[50px] -translate-x-[50px] absolute '/>
