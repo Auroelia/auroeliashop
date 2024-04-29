@@ -71,6 +71,8 @@ const addToCart = (product, qty) => {
 
   // Update
   const updateCartItem = (productId,  qty) => {
+    console.log("entre")
+    console.log(productId, qty)
     setCart((currentCart) => {
       return currentCart.map((item) => 
         item.product._id === productId 

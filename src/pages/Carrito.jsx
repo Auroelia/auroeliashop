@@ -1,13 +1,14 @@
 import Item from "@/components/Carrito/Item";
 import { AppContext } from "@/context/AppContext";
 import React, { useContext, useEffect, useState } from "react";
-import { urlForImage } from "../../sanity/lib/image";
 import Otros from "../components/Carrito/Otros/Otros";
 import DatosModal from "@/components/Carrito/DatosModal";
+import Productos from "../../public/assets/Carrito/Productos";
 
 function Carrito() {
-  const { cart, removeFromCart } = useContext(AppContext);
-  const [counter, setCounter] = useState(1);
+  const { cart } = useContext(AppContext);
+
+
 
   const [total, setTotal] = useState(0);
   const [subtotalPrice, setSubTotalPrice] = useState(0);
@@ -37,6 +38,7 @@ const openModal = () => setModalOpen(true);
 const closeModal = () => setModalOpen(false);
 
 
+
   return (
     <div className="w-full h-full overflow-hidden relative">
       <div
@@ -57,52 +59,10 @@ const closeModal = () => setModalOpen(false);
           {
           cart.length>0?
           cart.map((item, index) => (
-            <div key={index} className="w-full grid grid-cols-5 mt-[19px]">
-              <div>
-                <img
-                  src={urlForImage(item?.product.imagenes[0]?.asset._ref)}
-                  className="w-[78px] h-[90px] object-cover rounded-[10px]"
-                  alt="imagen producto"
-                />
-              </div>
-              <div className="flex flex-col  justify-center">
-                <span className="font-inter font-bold text-[16px] ">
-                  {item.product.nombre}
-                </span>
-                <p className="text[10px] font-medium w-full">
-                  {item.product.descripcion.slice(0, 40)}
-                </p>
-              </div>
-              <div className="flex flex-row items-center justify-center gap-[23px]">
-                <button className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center "
-                onClick={() => {
-                    if (counter - 1 > 0) {
-                      setCounter(counter - 1);
-                    }
-                  }}
-                >
-                  -
-                </button>
-                <span className="font-inter text-[20px] ">{item.qty}</span>
-                {console.log(item.qty)}
-                <button className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center">
-                  +
-                </button>
-              </div>
-              <div className="w-full h-full flex flex-col items-center justify-center">
-                <img
-                  src="/assets/icons/trash.svg"
-                  alt="eliminar"
-                  className="cursor-pointer"
-                  onClick={() => removeFromCart(item.product._id)}
-                />
-              </div>
-              <div className="w-full h-full flex flex-col items-center justify-center">
-                <span className="font-inter font-bold text-[16px] ">
-                  ${item.product.precio}.00
-                </span>
-              </div>
-            </div>
+            <Productos
+            key={index}
+            item={item}
+            />
           ))
         :
         <div className="w-full h-[200px] flex flex-col items-center justify-center">
