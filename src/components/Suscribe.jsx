@@ -1,4 +1,4 @@
-import { client } from "@/lib/client";
+import { client } from "../lib/client";
 import { useState } from "react";
 
 function Suscribe() {
@@ -9,7 +9,7 @@ function Suscribe() {
 
     // Crear un nuevo documento en Sanity
     const newSubscription = {
-      _type: 'subscription', // el tipo de documento en tu schema de Sanity
+      _type: 'suscripcion', // el tipo de documento en tu schema de Sanity
       email: email
     };
 

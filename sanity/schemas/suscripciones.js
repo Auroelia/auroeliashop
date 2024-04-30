@@ -1,5 +1,7 @@
-const schema = {
-    name: 'suscripciones',
+const suscripcionesSchema = {
+    name: 'suscripcion',
+    title: 'Suscripcion',
+    type: 'document',
     fields: [
         {
             name: 'email',
@@ -11,4 +13,4 @@ const schema = {
     ],
 };
 
-export default schema;
+export default suscripcionesSchema;

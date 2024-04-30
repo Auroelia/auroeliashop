@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 function Faqs() {
@@ -83,9 +84,11 @@ function Faqs() {
             <h3 className="text-[41px]">¿Tienes más dudas?</h3>
           </div>
           <div className="w-2/3 flex justify-end">
+            <Link href="/Contacto">
             <button className="w-[188px] h-[60px] rounded-[6px] bg-[#E39C9D] text-[24px] font-inter font-bold">
               Contáctanos
             </button>
+            </Link>
           </div>
         </div>
       </div>

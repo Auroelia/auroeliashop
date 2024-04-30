@@ -1,4 +1,4 @@
-export default {
+const cuponesSchema = {
     name: 'cupon',
     title: 'Cupón',
     type: 'document',
@@ -17,3 +17,5 @@ export default {
         },
     ],
 };
+
+export default cuponesSchema;
