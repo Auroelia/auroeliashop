@@ -4,6 +4,7 @@ import Productos from './Productos'
 
 function Layout() {
   const [checklist, setChecklist] = useState([]);
+  console.log(checklist)
   const [checklistArreglos, setChecklistArreglos] = useState([]);
 
   return (

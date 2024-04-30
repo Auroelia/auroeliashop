@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
-import {client} from '../../../../sanity/lib/client'
-import { urlForImage } from '../../../../sanity/lib/image';
-import { AppContext } from '@/context/AppContext';
+import React, { useContext, useEffect, useState } from "react";
+import { client } from "../../../../sanity/lib/client";
+import { urlForImage } from "../../../../sanity/lib/image";
+import { AppContext } from "@/context/AppContext";
 
-
-
-function Productos({checklist, checklistArreglos}) {
+function Productos({ checklist, checklistArreglos }) {
   const [productos, setProductos] = useState([]);
-  const {addToCart} = useContext(AppContext)
-
+  const [flores, setFlores] = useState([]);
+  const [arreglos, setArreglos] = useState([]);
+  const { addToCart } = useContext(AppContext);
 
   useEffect(() => {
     // Realiza la consulta a la API de Sanity para obtener los productos
@@ -17,55 +16,114 @@ function Productos({checklist, checklistArreglos}) {
       .then((data) => setProductos(data))
       .catch((error) => console.error(error));
   }, []);
+  useEffect(() => {
+    // Realiza la consulta a la API de Sanity para obtener los productos
+    client
+      .fetch('*[_type == "flor"]')
+      .then((data) => setFlores(data))
+      .catch((error) => console.error(error));
+  }, []);
+  useEffect(() => {
+    // Realiza la consulta a la API de Sanity para obtener los productos
+    client
+      .fetch('*[_type == "arreglo"]')
+      .then((data) => setArreglos(data))
+      .catch((error) => console.error(error));
+  }, []);
 
-  
+
 
   return (
-    <div className='w-full h-full flex flex-col mb-[80px]'>
-    <div className='w-full h-full grid grid-cols-3 gap-x-[22px] gap-y-[61px] place-items-center'>
-      {productos.map((producto) => (
-        <div key={producto._id} className='w-[229px] shadow-popular rounded-[30px] cursor-pointer'>
-          <img src={urlForImage(producto?.imagenes[0]?.asset._ref)} alt={producto.nombre}
-          className='w-full h-[263px] object-cover rounded-t-[30px]'
-          />
-          <div className='h-[100px]  flex flex-col  justify-center px-[22px]'>
-            <span className='font-inter font-bold text-[16px]'>
-          {producto.nombre}
-            </span>
-            <div className='flex justify-between items-center '>
-              <span className='font-inter font-bold text-[16px]'>
-                ${producto.precio}.00
+    <div className="w-full h-full flex flex-col mb-[80px]">
+      <div className="w-full h-full grid grid-cols-3 gap-x-[22px] gap-y-[61px] place-items-center">
+      {
+  checklist.length < 1 && checklistArreglos.length < 1 
+  ? productos.map((producto) => (
+    
+   
+          <div
+            key={producto._id}
+            className="w-[229px] shadow-popular rounded-[30px] cursor-pointer"
+          >
+            {console.log(producto)}
+            <img
+              src={urlForImage(producto?.imagenes[0]?.asset._ref)}
+              alt={producto.nombre}
+              className="w-full h-[263px] object-cover rounded-t-[30px]"
+            />
+            <div className="h-[100px]  flex flex-col  justify-center px-[22px]">
+              <span className="font-inter font-bold text-[16px]">
+                {producto.nombre}
+              </span>
+              <div className="flex justify-between items-center ">
+                <span className="font-inter font-bold text-[16px]">
+                  ${producto.precio}.00
                 </span>
-               
 
-                <img src="/assets/icons/carrito.svg" alt="carrito de compras" className='w-[30px] h-[30px] cursor-pointer hover:scale-125 transition-all duration-300'
-                 onClick={()=>addToCart(producto, 1)}
+                <img
+                  src="/assets/icons/carrito.svg"
+                  alt="carrito de compras"
+                  className="w-[30px] h-[30px] cursor-pointer hover:scale-125 transition-all duration-300"
+                  onClick={() => addToCart(producto, 1)}
                 />
-             
-
               </div>
-          </div>
-          </div>
-      ))}
-    </div>
-    <div>
-    <div className=" w-full flex flex-row items-center justify-end gap-[21px] mt-[56px]">
-            <div className="rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center">
-              <img
-                src="/assets/icons/izq.svg"
-                alt="arrow"
-                className="w-[25px] h-[40px]"
-              />
-            </div>
-            <div className="rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center">
-              <img
-                src="/assets/icons/der.svg"
-                alt="arrow"
-                className="w-[25px] h-[40px]"
-              />
             </div>
           </div>
-    </div>
+          ))
+        : 
+        productos
+        .filter(producto => 
+          checklist.includes(producto.flor._ref) || checklistArreglos.includes(producto.arreglo._ref)
+        )
+      .map((producto) => (
+        <div
+          key={producto._id}
+          className="w-[229px] shadow-popular rounded-[30px] cursor-pointer"
+        >
+          <img
+            src={urlForImage(producto?.imagenes[0]?.asset._ref)}
+            alt={producto.nombre}
+            className="w-full h-[263px] object-cover rounded-t-[30px]"
+          />
+          <div className="h-[100px]  flex flex-col  justify-center px-[22px]">
+            <span className="font-inter font-bold text-[16px]">
+              {producto.nombre}
+            </span>
+            <div className="flex justify-between items-center ">
+              <span className="font-inter font-bold text-[16px]">
+                ${producto.precio}.00
+              </span>
+
+              <img
+                src="/assets/icons/carrito.svg"
+                alt="carrito de compras"
+                className="w-[30px] h-[30px] cursor-pointer hover:scale-125 transition-all duration-300"
+                onClick={() => addToCart(producto, 1)}
+              />
+            </div>
+          </div>
+        </div>
+
+        ))}
+      </div>
+      <div>
+        <div className=" w-full flex flex-row items-center justify-end gap-[21px] mt-[56px]">
+          <div className="rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center">
+            <img
+              src="/assets/icons/izq.svg"
+              alt="arrow"
+              className="w-[25px] h-[40px]"
+            />
+          </div>
+          <div className="rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center">
+            <img
+              src="/assets/icons/der.svg"
+              alt="arrow"
+              className="w-[25px] h-[40px]"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
