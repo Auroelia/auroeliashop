@@ -31,6 +31,7 @@ function Filtros() {
   const [floresOpen, setFloresOpen] = useState(false);
 
   const [checklist, setChecklist] = useState([]);
+  console.log(checklist);
 
   const [arreglosOpen, setArreglosOpen] = useState(false);
 
