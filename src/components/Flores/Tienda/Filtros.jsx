@@ -37,7 +37,11 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
 
   const [checklistPrecio, setChecklistPrecio] = useState([]);
 
-  const [value, setValue] = useState([2, 10]);
+  const [value, setValue] = useState([0, 100]); 
+
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  }
 
   return (
     <div className="w-[220px] flex flex-col ">
@@ -117,7 +121,12 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
       </div>
       {precioOpen && (
         <div className="mt-[29px]">
-          <RangeSlider id="range-slider" min={0} max={100} />
+      <RangeSlider id="range-slider" minValue={0} maxValue={100}  onChange={value => setValue(value)} />
+            <div className="flex justify-between">
+
+           <span>${value[0]}</span>
+           <span>${value[1]}</span>
+        </div>
         </div>
       )}
       <div>
