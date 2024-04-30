@@ -11,18 +11,24 @@ function Productos({ checklist, checklistArreglos }) {
   const { addToCart } = useContext(AppContext);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3; // Cambia esto al número de elementos que quieres por página
+  const itemsPerPage = 6; // Cambia esto al número de elementos que quieres por página
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     // Realiza la consulta a la API de Sanity para obtener los productos
     client
-      .fetch(`*[_type == "producto"] | order(_createdAt desc) [${(currentPage - 1) * itemsPerPage}...${currentPage * itemsPerPage}]`)
-      .then((data) => setProductos(data))
+      .fetch(`*[_type == "producto"] | order(_createdAt desc)`)
+      .then((data) => {
+        setTotalItems(data.length);
+        setProductos(data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
+      })
       .catch((error) => console.error(error));
   }, [currentPage]);
 
   const nextPage = () => {
-    setCurrentPage(currentPage + 1);
+    if (currentPage < Math.ceil(totalItems / itemsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   const prevPage = () => {
@@ -44,18 +50,21 @@ function Productos({ checklist, checklistArreglos }) {
       </div>
       <div>
         <div className=" w-full flex flex-row items-center justify-end gap-[21px] mt-[56px]">
-          <button onClick={prevPage} className="rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center">
+          <button onClick={prevPage}  
+          className={
+            currentPage > 1?
+            `rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center` :"hidden"}>
             <img
               src="/assets/icons/izq.svg"
               alt="arrow"
-              className="w-[25px] h-[40px]"
+              className={"w-[25px] h-[40px]"}
             />
           </button>
-          <button onClick={nextPage} className="rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center">
+          <button onClick={nextPage}  className={currentPage < Math.ceil(totalItems / itemsPerPage) ? "rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center":"hidden"}>
             <img
               src="/assets/icons/der.svg"
               alt="arrow"
-              className="w-[25px] h-[40px]"
+              className={ "w-[25px] h-[40px] "}
             />
           </button>
         </div>
