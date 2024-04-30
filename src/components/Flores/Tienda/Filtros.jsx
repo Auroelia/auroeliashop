@@ -6,7 +6,7 @@ import Flor from "../../../components/Flores/Tienda/Flor";
 import { client } from "@/lib/client";
 import Arreglo from "./Arreglo";
 
-function Filtros() {
+function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArreglos}) {
   const [flores, setFlores] = useState([]);
   const [arreglos, setArreglos] = useState([]);
 
@@ -30,12 +30,8 @@ function Filtros() {
 
   const [floresOpen, setFloresOpen] = useState(false);
 
-  const [checklist, setChecklist] = useState([]);
-  console.log(checklist);
-
   const [arreglosOpen, setArreglosOpen] = useState(false);
 
-  const [checklistArreglos, setChecklistArreglos] = useState([]);
 
   const [precioOpen, setPrecioOpen] = useState(false);
 

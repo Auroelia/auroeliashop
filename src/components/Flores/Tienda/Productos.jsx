@@ -5,7 +5,7 @@ import { AppContext } from '@/context/AppContext';
 
 
 
-function Productos() {
+function Productos({checklist, checklistArreglos}) {
   const [productos, setProductos] = useState([]);
   const {addToCart} = useContext(AppContext)
 
@@ -17,6 +17,8 @@ function Productos() {
       .then((data) => setProductos(data))
       .catch((error) => console.error(error));
   }, []);
+
+  
 
   return (
     <div className='w-full h-full flex flex-col mb-[80px]'>
