@@ -48,15 +48,15 @@ function Navbar() {
       </div>
 
     </div>
-    <div className='w-full h-[150px] lg:hidden flex flex-col justify-center '>
-        <div className='flex flex-row justify-around'>
+    <div className='w-full h-full lg:hidden flex flex-col justify-center relative'>
+        <div className='flex flex-row justify-around mt-[150px]'>
         <Link href={"/"}>
-        <Image src='/assets/logonav.png' width={100} height={100} alt='logo' className='w-[112px] h-[24px]' />
+        <Image src='/assets/logonav.png' width={100} height={100} alt='logo' className='w-[112px] h-[24px] ' />
       </Link>
 
       <div className='flex gap-[19px] items-center'>
         <Link href={"/Carrito"} className='relative'  >
-        <Image src="/assets/icons/carrito.svg" width={30} height={30} className='cursor-pointer w-[22px] h--[26px] lg:w-[20px] lg:h-[22px]' alt="carrito de compras" />
+        <Image src="/assets/icons/carrito.svg" width={30} height={30} className='cursor-pointer w-[22px] h-[26px] lg:w-[20px] lg:h-[22px]' alt="carrito de compras" />
         {
           cart.length>0&&
           <div className='absolute top-0 -right-[7px] rounded-full w-[10px] h-[10px] bg-[#E39C9D]'/>
@@ -68,7 +68,39 @@ function Navbar() {
         alt="carrito de compras"  />
         
       </div>
+
+       
+
         </div>
+        <div className='font-inter text-[26px] text-center mt-[59px] gap-[29px] flex flex-col '>
+          <Link href={"/"}>
+            Acerca De
+          </Link>
+          <Link href={"/"}>
+            Flores
+          </Link>
+          <Link href={"/"}>
+            Luxury
+          </Link>
+          <Link href={"/"}>
+            Contacto
+          </Link>
+        </div>
+        <div className='w-full flex flexrow justify-center'>
+
+        <div className='h-[1px] bg-[#E39C9D] w-[80%]'>
+
+        </div>
+        </div>
+        <div className='w-full flex flex-row justify-center items-center gap-[55px]'>
+
+        <Image src="/assets/icons/navbar/fbnav.svg" width={100} height={100} className='w-[15px] h-[24px] object-fit'/>
+        <Image src="/assets/icons/navbar/ignav.svg" width={100} height={100} className='w-[15px] h-[24px] object-fit'/>
+        <Image src="/assets/icons/navbar/telnav.svg" width={100} height={100} className='w-[15px] h-[24px] object-fit'/>
+        <Image src="/assets/icons/navbar/mailnav.svg" width={100} height={100} className='w-[15px] h-[24px] object-fit'/>
+
+        </div>
+        <div/>
     </div>
     </>
   )
