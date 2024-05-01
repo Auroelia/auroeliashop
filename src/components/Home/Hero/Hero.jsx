@@ -36,18 +36,20 @@ function Hero() {
   return (
     <div className="w-full h-full overflow-hidden relative">
       
-        <img src="/assets/Home/hero/lirio.png" alt="hero" className="w-[728px] h-[722px] absolute -left-[150px] -bottom-[100px] opacity-30 -z-10" />
+        <img src="/assets/Home/hero/lirio.png" alt="hero" className="
+        hidden lg:block
+        w-[728px] h-[722px] absolute lg:-left-[150px] lg:-bottom-[100px] opacity-30 -z-10" />
 
         <img src={heroProducts[seleccion+1].image} alt="hero" className="w-[326px] h-[326px] absolute -right-[150px] -top-[30px] blur-sm -z-10" />
         <img src={heroProducts[seleccion+2].image} alt="hero" className="w-[326px] h-[326px] absolute -right-[150px] bottom-[40px] blur-sm -z-10" />
       
-      <div className="w-full h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto">
-        <div className="w-full  flex flex-row justify-center items-center ">
+      <div className="w-full h-scren lg:h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto">
+        <div className="w-full  flex flex-col-reverse lg:flex-row justify-center items-center ">
           <div className=" flex flex-col">
-            <h1 className="text-[70px] font-bloverly">
+            <h1 className="text-[50px] lg:text-[70px] font-bloverly">
               {heroProducts[seleccion].name}
             </h1>
-            <p className="mt-[12px] w-[583px] text-[16px] font-semibold font-shipporiMincho">
+            <p className="mt-[12px] w-[293px] lg:w-[583px] text-[12px] lg:text-[16px] lg:font-semibold textcenter lg:text-left font-shipporiMincho ">
               {heroProducts[seleccion].description}
             </p>
             <div className="w-[200px] flex flex-row items-center justify-start  gap-[33px] mt-[40px]">

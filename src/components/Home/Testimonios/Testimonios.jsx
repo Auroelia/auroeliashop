@@ -30,60 +30,62 @@ function Testimonios() {
 
   const [seleccion, setSeleccion] = useState(1);
   return (
-    <div className="w-full h-[650px] overflow-hidden relative">
-      <div className="w-full max-w-[1440px] min-w-sm mx-auto flex flex-col items-center justify-center leading-[70px] ">
-        <span className="text-[#E39C9D] font-inter font-bold text-[32px]">
+    <div className="w-full h-full lg:h-[650px] overflow-hidden relative my-[27px] lg:my-[0px]">
+      <div className="w-full max-w-[1440px] min-w-sm mx-auto flex flex-col items-center justify-center lg:leading-[70px] ">
+        <span className="text-[#E39C9D] font-inter font-bold text-[18px] lg:text-[32px]">
           Nuestros Clientes
         </span>
-        <h2 className="text-[83px]">Testimonios</h2>
+        <h2 className="text-[42px]  lg:text-[83px]">Testimonios</h2>
       </div>
       <div className="w-full flex flex-row justify-center">
         <img
           src="/assets/Home/testimonios/testimonio.png"
           alt="testimonio-bg"
-          className="w-[577px]  h-[481px] "
+          className=" w-[202px] h-[156px] lg:w-[577px]  lg:h-[481px] "
         />
         <div className=" flex flex-col items-center justify-center gap-[30px]">
           <div className="w-full flex flex-row justify-between">
             <div className="flex flex-col justify-end">
-              <img src="/assets/Home/testimonios/comillas.png" alt="persona" className="w-[120px] h-[100px]" />
+              <img src="/assets/Home/testimonios/comillas.png" alt="persona" className="w-[40px] h-[40px] lg:w-[120px] lg:h-[100px]" />
               </div>
               <div className="flex flex-row justify-end">
 
             <div className="flex flex-col  text-end">
-              <span className="text-[31px] font-bold font-inter">
+              <span className="text-[12px] lg:text-[31px] font-bold font-inter">
                 {testimonios[seleccion].nombre}
               </span>
-              <span className="text-[20px] font-light font-inter">
+              <span className="text-[12px] lg:text-[20px] font-light font-inter">
                 {testimonios[seleccion].ciudad}
               </span>
             </div>
+            <div>
             <img
               src="/assets/Home/testimonios/usuario.svg"
               alt="estrella"
-              className="w-[117px] h-[117px] ml-[10px]"
+              className="w-[35px] h-[35px]lg:w-[117px] lg:h-[117px] ml-[10px]"
               />
+              </div>
               </div>
           </div>
           <div>
-            <p className="text-end text-[24px] leading-[35px] w-[556px]">
+            <p className="text-end text-[12px] lg:text-[24px] leading-[17px] lg:leading-[35px] w-[209px] lg:w-[556px]">
               Mi ramo de novia fue perfecto. Cada flor era como sacada de un
               cuento de hadas. ¡Gracias por hacer mi día aún más especial!
             </p>
           </div>
-          <div className=" w-full flex flex-row items-center justify-end gap-[21px]">
-            <div className="rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center">
+          <div className=" w-full flex flex-row items-center justify-end gap-[8px] lg:gap-[21px]">
+            <div className="rounded-full bg-[#d8d8d8] w-[28px] h-[28px] lg:w-[76px] lg:h-[76px] flex items-center justify-center">
               <img
                 src="/assets/icons/izq.svg"
                 alt="arrow"
-                className="w-[25px] h-[40px]"
+                className="w-[9px] h-[15px] w-[25px] h-[40px]"
               />
             </div>
-            <div className="rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center">
+            <div className="rounded-full bg-black w-[28px] h-[28px] lg:w-[76px] lg:h-[76px] flex items-center justify-center">
               <img
                 src="/assets/icons/der.svg"
                 alt="arrow"
-                className="w-[25px] h-[40px]"
+                className="w-[9px] h-[15px] w-[25px] h-[40px]"
               />
             </div>
           </div>

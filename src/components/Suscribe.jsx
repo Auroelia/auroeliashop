@@ -38,7 +38,7 @@ function Suscribe() {
             <input
               type='email'
               placeholder='Correo Electrónico'
-              className='w-[481px] h-[58px]  border-0 outline-none rounded-[6px] placeholder:text-[#989898] placeholder:font-inter placeholder:text-[16px] placeholder:pl-[55px]'
+              className='w-[255px] lg:w-[481px] h-[58px]  border-0 outline-none rounded-[6px] placeholder:text-[#989898] placeholder:font-inter placeholder:text-[16px] placeholder:pl-[55px]'
               value={email}
               onChange={e => setEmail(e.target.value)}
             />

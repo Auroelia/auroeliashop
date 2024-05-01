@@ -26,7 +26,7 @@ export default function Home() {
     <meta name="twitter:image" content="/assets/ogimage.jpg" />
     <link rel="icon" href="favicon.ico" />
   </Head>
-    <div>
+    <div className="">
       <Hero/>
       <Acerca/>
       <Populares/>
