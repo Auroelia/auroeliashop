@@ -26,8 +26,8 @@ function Contacto() {
   return (
     <div className='w-full h-full relative'>
         <div className='w-full h-screen 2xl:h-[80vh] flex flex-col items-center max-w-[1440px] min-w-sm mx-auto relative '>
-        <img src='/assets/Flores/floresIzq.png' alt='flores' className='w-[568px] h-[719px] object-cover absolute -bottom-[300px] -left-[200px]'/>
-          <img src='/assets/Flores/floresIzq.png' alt='flores' className='w-[568px] h-[719px] object-cover absolute top-[0px] -right-[400px]'/>
+        <img src='/assets/petaloizq.png' alt='flores' className='w-[221px] h-[200px] object-cover absolute bottom-[100px] -left-[0px]'/>
+          <img src='/assets/Home/populares/petalo.png' alt='flores' className='w-[230px] h-[247px] object-cover absolute top-[0px] -right-[0px]'/>
         <span className="text-[#E39C9D] font-inter font-bold text-[32px]">
         Dudas y comentarios
                 </span>
