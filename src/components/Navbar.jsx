@@ -8,7 +8,8 @@ function Navbar() {
   const {cart} = useContext(AppContext)
 
   return (
-    <div className='h-[120px] w-full flex flex-row justify-center items-center gap-x-[52px]'>
+    <>
+    <div className='hidden h-[120px] w-full lg:flex flex-row justify-center items-center gap-x-[52px]'>
       <Link href={"/"}>
         <Image src='/assets/logonav.png' width={100} height={100} alt='logo' />
       </Link>
@@ -47,6 +48,29 @@ function Navbar() {
       </div>
 
     </div>
+    <div className='w-full h-[150px] lg:hidden flex flex-col justify-center '>
+        <div className='flex flex-row justify-around'>
+        <Link href={"/"}>
+        <Image src='/assets/logonav.png' width={100} height={100} alt='logo' className='w-[112px] h-[24px]' />
+      </Link>
+
+      <div className='flex gap-[19px] items-center'>
+        <Link href={"/Carrito"} className='relative'  >
+        <Image src="/assets/icons/carrito.svg" width={30} height={30} className='cursor-pointer w-[22px] h--[26px] lg:w-[20px] lg:h-[22px]' alt="carrito de compras" />
+        {
+          cart.length>0&&
+          <div className='absolute top-0 -right-[7px] rounded-full w-[10px] h-[10px] bg-[#E39C9D]'/>
+
+        }
+        </Link>
+        <Image src="/assets/icons/menuMob.svg" width={30} height={30}
+        className='cursor-pointer w-[35px] h-[21px] lg:w-[13px] lg:h-[21px]'
+        alt="carrito de compras"  />
+        
+      </div>
+        </div>
+    </div>
+    </>
   )
 }
 

@@ -49,10 +49,10 @@ function Hero() {
             <h1 className="text-[50px] lg:text-[70px] font-bloverly">
               {heroProducts[seleccion].name}
             </h1>
-            <p className="mt-[12px] w-[293px] lg:w-[583px] text-[12px] lg:text-[16px] lg:font-semibold textcenter lg:text-left font-shipporiMincho ">
+            <p className="mt-[12px] w-[293px] lg:w-[583px] text-[12px] lg:text-[16px] lg:font-semibold text-center lg:text-left font-shipporiMincho ">
               {heroProducts[seleccion].description}
             </p>
-            <div className="w-[200px] flex flex-row items-center justify-start  gap-[33px] mt-[40px]">
+            <div className="w-[200px] hidden lg:flex flex-row items-center justify-start  gap-[33px] mt-[40px]">
               {heroProducts.map((product, index) => (
                 <div key={index} className="w-full h-full flex flex-col  gap-[12px]">
                   <div className="rounded-full w-[60px] h-[60px] cursor-pointer ">
@@ -67,7 +67,7 @@ function Hero() {
                 </div>
               ))}
             </div>
-            <div className="mt-[59px]">
+            <div className="mt-[7px]  lg:mt-[59px] flex flex-row justify-center lg:justify-start">
               <button className="w-[188px] h-[60px] bg-[#e39c9d] text-[24px] font-bold rounded-[6px] ">
                 Ver Tienda
               </button>
@@ -82,40 +82,41 @@ function Hero() {
           </div>
         </div>
 
-        <div className="w-[853px] h-[113px] bg-black rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[32px]">
-          <div className="flex flex-row items-center gap-[13px]">
+        <div className=" w-[90%] lg:w-[853px] h-[73px] lg:h-[113px] bg-black rounded-[13px] lg:rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[19px] lg:gap-[32px] my-[20px] lg:my-[0px]">
+          <div className="flex flex-col lg:flex-row items-center gap-[13px]">
             <div>
               <img
                 src="/assets/Home/hero/info/envio.svg"
                 alt="entrega"
-                className="w-[61px] h-[41px]"
+                className="w-[25px] h-[19px] lg:w-[61px] lg:h-[41px]"
               />
             </div>
-            <div className="flex flex-col">
-              <h4 className="text-white font-bold text-[12px]  font-inter">
+            <div className="flex flex-col text-center lg:text-left">
+              <h4 className="text-white font-bold text-[7px] lg:text-[12px]  font-inter ">
                 Envíos a todo México
               </h4>
-              <p className="text-white text-[12px] font-inter leading-[14px]">
+              <p className="text-white text-[7px] lg:text-[12px] font-inter leading-[14px]">
                 Belleza floral a tu puerta
               </p>
             </div>
-            <div>
+            
+          </div>
+          <div>
               <img src="/assets/Home/hero/info/divider.png" alt="entrega" className="w-full h-full" />
             </div>
-          </div>
-          <div className="flex flex-row items-center gap-[13px]">
+          <div className="flex flex-col lg:flex-row items-center gap-[13px]">
             <div>
               <img
                 src="/assets/Home/hero/info/tarjetas.svg"
                 alt="entrega"
-                className="w-[56px] h-[38px]"
+                className="w-[25px] h-[17px] lg:w-[56px] lg:h-[38px]"
               />
             </div>
-            <div className="flex flex-col">
-              <h4 className="text-white font-bold text-[12px]  font-inter">
+            <div className="flex flex-col text-center lg:text-left">
+              <h4 className="text-white font-bold text-[7px] lg:text-[12px]  font-inter">
                 Aceptamos todas las tarjetas
               </h4>
-              <p className="text-white text-[12px] font-inter leading-[14px]">
+              <p className="text-white text-[7px] lg:text-[12px] font-inter leading-[14px]">
                 Seguridad y confianza al pagar
               </p>
             </div>
@@ -123,19 +124,19 @@ function Hero() {
           <div>
               <img src="/assets/Home/hero/info/divider.png" alt="entrega" className="w-full h-full" />
             </div>
-          <div className="flex flex-row items-center gap-[13px]">
+          <div className="flex flex-col lg:flex-row items-center gap-[13px]">
             <div>
               <img
                 src="/assets/Home/hero/info/premium.svg"
                 alt="entrega"
-                className="w-[49px] h-[44px]"
+                className="w-[22px] h[19px] lg:w-[49px] lg:h-[44px]"
               />
             </div>
-            <div className="flex flex-col">
-              <h4 className="text-white font-bold text-[12px]  font-inter">
+            <div className="flex flex-col text-center lg:text-left">
+              <h4 className="text-white font-bold text-[7px] lg:text-[12px]  font-inter">
                 Arreglos Premium
               </h4>
-              <p className="text-white text-[12px] font-inter leading-[14px]">
+              <p className="text-white text-[7px] lg:text-[12px] font-inter leading-[14px]">
                 Calidad en todos los pedidos
               </p>
             </div>
