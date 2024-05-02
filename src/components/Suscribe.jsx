@@ -28,17 +28,17 @@ function Suscribe() {
       <img src='/assets/suscribe/suscribebg.jpg' alt='suscribe-bg' className='w-full h-full object-cover absolute -z-20' />
       <div className='w-full h-[249px] flex flex-row justify-center items-center'>
         <div className='flex flex-col text-center gap-[6px]'>
-          <span className='text-white font-inter text-[35px] font-bold leading-[42px]'>
+          <span className='text-white font-inter text-[19px] lg:text-[35px] font-bold leading-[42px]'>
             Suscríbete para grandes ofertas
           </span>
-          <p className='text-white text-[16px] font-semibold leading-[24px]'>
+          <p className='text-white text-[12px] lg:text-[16px] font-semibold leading-[17px] lg:leading-[24px]'>
             ¡No dejes de enterarte de nuestras mejores promociones y descuentos!
           </p>
           <form onSubmit={handleSubmit} className='flex flex-row gap-[20px] mt-[18px]'>
             <input
               type='email'
               placeholder='Correo Electrónico'
-              className='w-[255px] lg:w-[481px] h-[58px]  border-0 outline-none rounded-[6px] placeholder:text-[#989898] placeholder:font-inter placeholder:text-[16px] placeholder:pl-[55px]'
+              className='w-[255px] lg:w-[481px] lg:h-[58px] h-[36px]  border-0 outline-none rounded-[6px] placeholder:text-[#989898] placeholder:font-inter placeholder:text-[16px] placeholder:pl-[55px]'
               value={email}
               onChange={e => setEmail(e.target.value)}
             />

@@ -3,44 +3,67 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className='w-full h-full bg-black relative'>
-      <div className='w-full h-[400px] flex flex-col lg:flex-row justify-between items-center max-w-[1440px] min-w-sm mx-auto px-[150px]'>
-        <div className='flex flex-col gap-[23px]'>
-          <img src='/assets/logoFooter.png' alt='logo' className='w-[258px] h-[55px]' />
-          <div className='flex items-center gap-[3px]'>
+    <div className='w-full h-full bg-black relative pt-4 lg:pt-0'>
+      <div className='w-full lg:h-[400px] flex flex-col lg:flex-row justify-between items-center max-w-[1440px] min-w-sm mx-auto px-[150px]'>
+        <div className='flex flex-col gap-[7px] lg:gap-[23px] items-center lg:items-start'>
+          <img src='/assets/logoFooter.png' alt='logo' className='lg:w-[258px] w-[103px] h-[22px] lg:h-[55px]' />
+          <h3 className='text-[#E39C9D] text-[15px] w-[215px] text-center lg:hidden'>Ideas que nacen
+del corazón</h3>
+<div className='flex justify-end gap-[19px] lg:hidden'>
+    <img src='/assets/icons/carritob.svg' alt='carrito' className='w-[20px] h-[22px] text' />
+    <img src='/assets/icons/fb.svg' alt='facebook' className='w-[13px] h-[21px]' />
+    <img src='/assets/icons/ig.svg' alt='instagram' className='w-[21px] h-[24px]' />
+    <img src='/assets/icons/telblanco.svg' alt='facebook' className='w-[13px] h-[21px]' />
+    <img src='/assets/icons/mailblanco.svg' alt='instagram' className='w-[21px] h-[24px]' />
+</div>
+          <div className='items-center gap-[3px] hidden lg:flex'>
             <img src='/assets/icons/telefono.svg' alt='telefono' className='w-[32px] h-[31px]' />
             <a href='tel:+5255402356' className='text-white text-[24px] font-inter '>+52 5540 2356</a>
           </div>
-          <div className='flex items-center gap-[2px]'>
+          <div className='items-center gap-[2px] hidden lg:flex'>
             <img src='/assets/icons/correo.svg' alt='telefono' className='w-[32px] h-[31px]' />
             <a href='tel:+5255402356' className='text-white text-[24px] font-inter '>contacto@auroelia.com</a>
           </div>
         </div>
         <div className='flex flex-col text-white text-end gap-[17px]'>
-          <h3 className='text-[#E39C9D] text-[30px] w-[215px]'>Ideas que nacen
+          <h3 className='text-[#E39C9D] text-[30px] w-[215px] hidden lg:block'>Ideas que nacen
 del corazón</h3>
-<ul className='text-[15px] font-inter'>
-  <li>
+<div className='flex flex-col text-[12px] lg:text-[15px] font-inter text-center lg:text-right gap-[10px] py-[15px] lg:py-[0px] '>
+ 
     <Link href={"/Acerca"}>Acerca</Link>
-    </li>
-    <li>
+  
     <Link href={"/Flores"}>Flores</Link>
-    </li>
-    <li>
+    
     <Link href={"/Luxury"}>Luxury</Link>
-    </li>
-    <li>
+    
     <Link href={"/Contacto"}>Contacto</Link>
-    </li>
-</ul>
-<div className='flex justify-end gap-[19px]'>
+   
+</div>
+<div className='lg:flex justify-end gap-[19px] hidden'>
     <img src='/assets/icons/carritob.svg' alt='carrito' className='w-[20px] h-[22px] text' />
     <img src='/assets/icons/fb.svg' alt='facebook' className='w-[13px] h-[21px]' />
     <img src='/assets/icons/ig.svg' alt='instagram' className='w-[21px] h-[24px]' />
 </div>
         </div>
 
+        
+
       </div>
+      <div className='w-full flex flex-row justify-center'>
+
+<div className='h-[1px] bg-[#E39C9D] w-[60%] lg:hidden'/>
+
+</div>
+<div className='w-full  flex flex-col font-inter items-center text-white text-[12px] py-[15px] gap-[10px]'>
+  <span>2024 Auroelia® </span>
+  <Link href={"/TerminosCondiciones"} className='text-[#E39C9D]'>Términos y Condiciones</Link>
+  <Link href={"/PoliticaPrivacidad"} className='text-[#E39C9D]'>Política de Privacidad</Link>
+  <Link href={"/PoliticaEnvio"} className='text-[#E39C9D]'>Política de Envío</Link>
+  <a href='https://www.instagram.com/jaizmora_agency/'>Website made by <span className='text-[#E39C9D]'>Jaizmora Digital Media </span> </a>
+
+  
+
+</div>
     </div>
   )
 }
