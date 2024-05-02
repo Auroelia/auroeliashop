@@ -3,12 +3,12 @@ import React from 'react'
 function Acerca() {
   return (
     <div className='w-full h-full overflow-hidden relative'>
-      <img src='/assets/Home/acerca/acercaFondo.png' alt='acerca-bg' className='w-full h-full absolute top-0 left-0 -z-10'/>
+      <img src='/assets/Home/acerca/acercaFondo.png' alt='acerca-bg' className='w-full h-full absolute top-0 left-0 -z-10 object-cover'/>
       
       <div className='w-full h-[549px] flex flex-col lg:flex-row justify-center items-center max-w-[1440px] min-w-sm mx-auto'>
         <div className='w-full flex flex-row items-center justify-center '>
-          <img src='/assets/Home/acerca/foto1.png' alt='acercaRamo' className='w-[203px] h-[160px]lg:w-[416px] lg:h-[327px] lg:-translate-y-[50px] -translate-x-[50px] absolute '/>
-          <img src='/assets/Home/acerca/foto2.png' alt='acercaRamo' className='w-[203px] h-[160px]lg:w-[416px] lg:h-[327px]  absolute lg:translate-y-[25px] translate-x-[75px]'/>
+          <img src='/assets/Home/acerca/foto1.png' alt='acercaRamo' className='w-[203px] h-[160px] lg:w-[416px] lg:h-[327px] lg:-translate-y-[50px] -translate-x-[50px] lg:absolute  '/>
+          <img src='/assets/Home/acerca/foto2.png' alt='acercaRamo' className='w-[203px] h-[160px] lg:w-[416px] lg:h-[327px]  absolute lg:translate-y-[25px] translate-x-[75px] '/>
         </div>
         <div className='w-full justify-center flex flex-col gap-[21px]' >
 

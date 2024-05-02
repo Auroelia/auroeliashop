@@ -8,7 +8,7 @@ function Nuestros() {
           ¿Qué te gustaría regalar(te)?
         </span>
         <h2 className="text-[42px] lg:text-[83px]">Nuestros Productos</h2>
-        <div className="w-full flex flex-col items-center justify-center gap-[34px]">
+        <div className="w[90%] lg:w-full flex flex-col items-center justify-center gap-[34px]">
           <div className="w-full flex flex-row gap-[14px] lg:gap-[37px] justify-center">
             <div className="w-[60%] h-[103px] lg:w-[559px] lg:h-[282px] relative cursor-pointer">
               <img
@@ -17,7 +17,7 @@ function Nuestros() {
                 className=" w-full h-full flex flex-col  "
               />
               <div
-                className="absolute 
+                className="absolute cursor-pointer
                     top-1/3 left-[10px] lg:left-[35px] flex flex-col text-white  text-[11px] lg:text-[31px] font-inter font-bold 
                     leading-[14px]
                     lg:leading-[38px] z-10 uppercase "
@@ -33,7 +33,7 @@ function Nuestros() {
                 className=" w-full h-full flex flex-col   "
               />
               <div
-                className="absolute 
+                className="absolute cursor-pointer
                 top-1/3 left-[10px] lg:left-[35px] flex flex-col text-white  text-[11px] lg:text-[31px] font-inter font-bold 
                 leading-[14px]
                 lg:leading-[38px] z-10 uppercase "
@@ -51,7 +51,7 @@ function Nuestros() {
                 className="w-full h-full flex flex-col   "
               />
               <div
-                className="absolute 
+                className="absolute cursor-pointer
                 top-1/3 left-[10px] lg:left-[35px] flex flex-col text-white  text-[11px] lg:text-[31px] font-inter font-bold 
                 leading-[14px]
                 lg:leading-[38px] z-10 uppercase "
@@ -68,8 +68,8 @@ function Nuestros() {
                 className="w-full h-full flex flex-col  "
               />
               <div
-                className="absolute 
-                    top-1/3 right-[50px] flex flex-col text-white  text-[11px] lg:text-[31px] font-inter font-bold leading-[14px]
+                className="absolute cursor-pointer
+                    top-1/3 right-[20px] lg:right-[50px] flex flex-col text-white  text-[11px] lg:text-[31px] font-inter font-bold leading-[14px]
                     lg:leading-[38px] z-10 uppercase "
 
                     

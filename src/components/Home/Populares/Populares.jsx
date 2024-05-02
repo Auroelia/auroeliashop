@@ -44,7 +44,7 @@ function Populares() {
   return (
     <div className="w-full h-full  relative">
       
-      <img src='/assets/petaloizq.png' alt='flores' className='w-[377px] h-[300px] object-cover absolute -bottom-[80px] -left-[0px]'/>
+      <img src='/assets/petaloizq.png' alt='flores' className='hidden lg:block w-[377px] h-[300px] object-cover absolute -bottom-[80px] -left-[0px]'/>
       <div className="w-full h-[650px] hidden lg:flex flex-col justify-center max-w-[1440px] min-w-sm mx-auto relative">
       <img src='/assets/Home/populares/petalo.png' alt='flores' className='w-[271px] h-[292px] object-cover absolute -top-[150px] -right-[100px]'/>
         <div className="w-full   flex flex-row justify-between  px-[198px]">
