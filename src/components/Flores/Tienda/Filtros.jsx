@@ -44,7 +44,7 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
   }
 
   return (
-    <div className="w-[220px] flex flex-col ">
+    <div className="hidden lg:block w-[220px] flex flex-col ">
       <span>Filtrar</span>
       <div className="bg-[#E39C9D] h-[1px] w-full mt-[10px]" />
       <div

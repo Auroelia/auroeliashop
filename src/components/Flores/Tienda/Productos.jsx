@@ -39,7 +39,7 @@ function Productos({ checklist, checklistArreglos }) {
 
   return (
     <div className="w-full h-full flex flex-col mb-[80px]">
-      <div className="w-full h-full grid grid-cols-3 gap-x-[22px] gap-y-[61px] place-items-center">
+      <div className="w-full h-full grid grid-cols-2 lg:grid-cols-3 gap-x-[22px] gap-y-[22px] lg:gap-y-[61px] px-[30px] lg:px-[0px] place-items-center mt-4 lg:mt-0">
         {productos.map((producto) => (
           <Producto
             key={producto._id}

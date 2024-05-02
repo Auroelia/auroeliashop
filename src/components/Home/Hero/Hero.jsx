@@ -38,7 +38,7 @@ function Hero() {
       
         <img src="/assets/Home/hero/lirio.png" alt="hero" className="
         hidden lg:block
-        w-[728px] h-[722px] absolute lg:-left-[150px] lg:-bottom-[100px] opacity-30 -z-10" />
+        w-[728px] h-[722px] absolute lg:-left-[150px] lg:-bottom-[100px] opacity-30 -z-10" /> 
 
         <img src={heroProducts[seleccion+1].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -right-[150px] top-[15%] lg:-top-[30px] blur-sm -z-10" />
         <img src={heroProducts[seleccion+2].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -left-[150px] top-[15%] lg:-right-[150px] lg:bottom-[40px] blur-sm -z-10" />
