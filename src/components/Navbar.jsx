@@ -66,17 +66,17 @@ function Navbar() {
         }
         </Link>
         {
-          open? 
+          !open? 
 
           <Image src="/assets/icons/menuMob.svg" width={30} height={30}
-          className={!open? "hidden":'cursor-pointer w-[35px] h-[21px] lg:w-[13px] lg:h-[21px]'}
+          className={'cursor-pointer w-[35px] h-[21px] lg:w-[13px] lg:h-[21px]'}
           alt="carrito de compras" 
           onClick={()=>setOpen(!open)	}
           />
           :
           <Image src="/assets/icons/navbar/close.svg" width={30} height={30}
-          className={open? "hidden":'cursor-pointer w-[35px] h-[21px] lg:w-[13px] lg:h-[21px]'}
-          alt="carrito de compras" 
+          className={'cursor-pointer w-[35px] h-[21px] lg:w-[13px] lg:h-[21px]'}
+          alt="cerrar menu" 
           onClick={()=>setOpen(!open)	}
           />
         }
@@ -86,6 +86,7 @@ function Navbar() {
        
 
         </div>
+        <div className={!open&&"hidden"}>
         <div className='font-inter text-[26px] text-center my-[59px] gap-[29px] flex flex-col '>
           <Link href={"/"}>
             Acerca De
@@ -100,7 +101,7 @@ function Navbar() {
             Contacto
           </Link>
         </div>
-        <div className='w-full flex flexrow justify-center'>
+        <div className='w-full flex flex-row justify-center'>
 
         <div className='h-[1px] bg-[#E39C9D] w-[80%]'>
 
@@ -114,7 +115,7 @@ function Navbar() {
         <Image src="/assets/icons/navbar/mailnav.svg" width={100} height={100} className='w-[26px] h-[25px] object-fit'/>
 
         </div>
-        <div/>
+        </div>
     </div>
     </>
   )
