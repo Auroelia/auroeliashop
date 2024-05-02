@@ -21,8 +21,10 @@ function Layout() {
         setChecklistArreglos={setChecklistArreglos}
         />
         <Productos
-          checklist={checklist}
-          checklistArreglos={checklistArreglos}
+           checklist={checklist}
+           setChecklist={setChecklist}
+           checklistArreglos={checklistArreglos}
+           setChecklistArreglos={setChecklistArreglos}
         />
       </div>
 
