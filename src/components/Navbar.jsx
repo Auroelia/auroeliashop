@@ -91,13 +91,13 @@ function Navbar() {
           <Link href={"/"}>
             Acerca De
           </Link>
-          <Link href={"/"}>
+          <Link href={"/Flores"}>
             Flores
           </Link>
-          <Link href={"/"}>
+          <Link href={"/Luxury"}>
             Luxury
           </Link>
-          <Link href={"/"}>
+          <Link href={"/Contacto"}>
             Contacto
           </Link>
         </div>
