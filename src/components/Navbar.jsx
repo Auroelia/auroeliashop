@@ -88,7 +88,7 @@ function Navbar() {
         </div>
         <div className={!open&&"hidden"}>
         <div className='font-inter text-[26px] text-center my-[59px] gap-[29px] flex flex-col '>
-          <Link href={"/"}>
+          <Link href={"/Acerca"}>
             Acerca De
           </Link>
           <Link href={"/Flores"}>

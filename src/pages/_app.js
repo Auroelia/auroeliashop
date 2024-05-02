@@ -8,8 +8,11 @@ import "@/styles/globals.css";
 export default function App({ Component, pageProps }) {
   return<div className="overflow-hidden">
   <AppProvider>
+    <div className="flex flex-col-reverse lg:flex-col">
     <Promo/>
     <Navbar/>
+    </div>
+      
     <Component {...pageProps} />
     <Suscribe/>
     <Footer/>
