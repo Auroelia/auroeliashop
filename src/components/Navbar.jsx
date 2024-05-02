@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AppContext } from '@/context/AppContext'
@@ -6,6 +6,8 @@ import { AppContext } from '@/context/AppContext'
 function Navbar() {
 
   const {cart} = useContext(AppContext)
+
+  const [open, setOpen] = useState(false)
 
   return (
     <>
@@ -63,16 +65,28 @@ function Navbar() {
 
         }
         </Link>
-        <Image src="/assets/icons/menuMob.svg" width={30} height={30}
-        className='cursor-pointer w-[35px] h-[21px] lg:w-[13px] lg:h-[21px]'
-        alt="carrito de compras"  />
-        
+        {
+          open? 
+
+          <Image src="/assets/icons/menuMob.svg" width={30} height={30}
+          className={!open? "hidden":'cursor-pointer w-[35px] h-[21px] lg:w-[13px] lg:h-[21px]'}
+          alt="carrito de compras" 
+          onClick={()=>setOpen(!open)	}
+          />
+          :
+          <Image src="/assets/icons/navbar/close.svg" width={30} height={30}
+          className={open? "hidden":'cursor-pointer w-[35px] h-[21px] lg:w-[13px] lg:h-[21px]'}
+          alt="carrito de compras" 
+          onClick={()=>setOpen(!open)	}
+          />
+        }
+          
       </div>
 
        
 
         </div>
-        <div className='font-inter text-[26px] text-center mt-[59px] gap-[29px] flex flex-col '>
+        <div className='font-inter text-[26px] text-center my-[59px] gap-[29px] flex flex-col '>
           <Link href={"/"}>
             Acerca De
           </Link>
@@ -92,12 +106,12 @@ function Navbar() {
 
         </div>
         </div>
-        <div className='w-full flex flex-row justify-center items-center gap-[55px]'>
+        <div className='w-full flex flex-row justify-center items-center gap-[55px] my-[26px]'>
 
-        <Image src="/assets/icons/navbar/fbnav.svg" width={100} height={100} className='w-[15px] h-[24px] object-fit'/>
-        <Image src="/assets/icons/navbar/ignav.svg" width={100} height={100} className='w-[15px] h-[24px] object-fit'/>
-        <Image src="/assets/icons/navbar/telnav.svg" width={100} height={100} className='w-[15px] h-[24px] object-fit'/>
-        <Image src="/assets/icons/navbar/mailnav.svg" width={100} height={100} className='w-[15px] h-[24px] object-fit'/>
+        <Image src="/assets/icons/navbar/fbnav.svg" width={100} height={100} className='w-[26px] h-[25px] object-fit'/>
+        <Image src="/assets/icons/navbar/ignav.svg" width={100} height={100} className='w-[26px] h-[25px] object-fit'/>
+        <Image src="/assets/icons/navbar/telnav.svg" width={100} height={100} className='w-[26px] h-[25px] object-fit'/>
+        <Image src="/assets/icons/navbar/mailnav.svg" width={100} height={100} className='w-[26px] h-[25px] object-fit'/>
 
         </div>
         <div/>
