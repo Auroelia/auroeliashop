@@ -27,11 +27,11 @@ function Suscribe() {
       <div className='w-full h-full bg-black/50 absolute -z-10'/>
       <img src='/assets/suscribe/suscribebg.jpg' alt='suscribe-bg' className='w-full h-full object-cover absolute -z-20' />
       <div className='w-full h-[249px] flex flex-row justify-center items-center'>
-        <div className='flex flex-col text-center gap-[6px]'>
+        <div className='flex flex-col items-center lg:items-start text-center gap-[6px]'>
           <span className='text-white font-inter text-[19px] lg:text-[35px] font-bold leading-[42px]'>
             Suscríbete para grandes ofertas
           </span>
-          <p className='text-white text-[12px] lg:text-[16px] font-semibold leading-[17px] lg:leading-[24px]'>
+          <p className='w-[60%] lg:w-full text-white text-[12px] lg:text-[16px] font-semibold leading-[17px] lg:leading-[24px]'>
             ¡No dejes de enterarte de nuestras mejores promociones y descuentos!
           </p>
           <form onSubmit={handleSubmit} className='flex flex-row gap-[20px] mt-[18px]'>

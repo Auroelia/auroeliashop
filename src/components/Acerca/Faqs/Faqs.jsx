@@ -35,19 +35,19 @@ function Faqs() {
   return (
     <div className="w-full h-full relative overflow-hidden">
       <div
-        className="w-full flex flex-col justify-center text-center  max-w-[1440px] min-w-sm mx-auto 
-        px-[180px] "
+        className="w-[90%] flex flex-col justify-center text-left lg:text-center  max-w-[1440px] min-w-sm mx-auto 
+        lg:px-[180px] "
       >
-        <span className="text-[#E39C9D] font-inter font-bold text-[32px] ">
+        <span className="text-[#E39C9D] font-inter font-bold text-[19px] lg:text-[32px] ">
           FAQs
         </span>
-        <h2 className="text-[65px]">Dudas y Preguntas</h2>
+        <h2 className="w-[150px] text-[42px] lg:text-[65px]">Dudas y Preguntas</h2>
         <div className="flex flex-col gap-[36px] mt-[69px]">
           {faqs.map((faq, index) => (
             <div
               key={index}
               className={`w-full flex  ${
-                eleccion == faq.id ? "h-[110px]" : "h-[48px]"
+                eleccion == faq.id ? "h-[200px] lg:h-[110px]" : "h-[48px]"
               } border-[#E39C9D] border-[1px] rounded-[6px] transition-all duration-300 cursor-pointer`}
               onClick={()=> setEleccion(faq.id)}
             >
@@ -55,7 +55,7 @@ function Faqs() {
                 <span
                   className={`${
                     eleccion == faq.id  ? "text-[#E39C9D]" : "text-black"
-                  } font-inter text-[20px] `}
+                  } font-inter text-[12px] lg:text-[20px] `}
                 >
                   {faq.question}
                 </span>
@@ -67,7 +67,7 @@ function Faqs() {
                   {faq.answer}
                 </p>
               </div>
-              <div className="w-[5%]">
+              <div className="w-[5%] mr-4 lg:mr-0">
                 <img
                   src="/assets/icons/open.svg"
                   alt="faq"
@@ -79,13 +79,13 @@ function Faqs() {
             </div>
           ))}
         </div>
-        <div className="w-full flex flex-row my-[68px]">
-          <div className="w-1/3">
-            <h3 className="text-[41px]">¿Tienes más dudas?</h3>
+        <div className="w-full flex flex-col lg:flex-row my-[68px]">
+          <div className=" w-full lg:w-1/3">
+            <h3 className="text-[29px] lg:text-[41px] text-center lg:text-start">¿Tienes más dudas?</h3>
           </div>
-          <div className="w-2/3 flex justify-end">
+          <div className=" w-full lg:w-2/3 flex justify-center lg:justify-end">
             <Link href="/Contacto">
-            <button className="w-[188px] h-[60px] rounded-[6px] bg-[#E39C9D] text-[24px] font-inter font-bold">
+            <button className="w[117px] lg:w-[188px] h-[37px] lg:h-[60px] rounded-[6px] bg-[#E39C9D] text-[15px] lg:text-[24px] font-inter font-bold px-[15px]">
               Contáctanos
             </button>
             </Link>
