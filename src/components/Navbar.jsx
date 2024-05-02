@@ -13,7 +13,8 @@ function Navbar() {
     <>
     <div className='hidden h-[120px] w-full lg:flex flex-row justify-center items-center gap-x-[52px]'>
       <Link href={"/"}>
-        <Image src='/assets/logonav.png' width={100} height={100} alt='logo' />
+        <Image
+        src='/assets/logonav.png' width={100} height={100} alt='logo' />
       </Link>
       <div>
         <ul className='flex flex-row gap-x-[49px]'>
@@ -53,7 +54,9 @@ function Navbar() {
     <div className='w-full h-full lg:hidden flex flex-col justify-center relative'>
         <div className='flex flex-row justify-around mt-[150px]'>
         <Link href={"/"}>
-        <Image src='/assets/logonav.png' width={100} height={100} alt='logo' className='w-[112px] h-[24px] ' />
+        <Image 
+        onClick={()=>setOpen(false)}
+        src='/assets/logonav.png' width={100} height={100} alt='logo' className='w-[112px] h-[24px] ' />
       </Link>
 
       <div className='flex gap-[19px] items-center'>
@@ -88,16 +91,16 @@ function Navbar() {
         </div>
         <div className={!open&&"hidden"}>
         <div className='font-inter text-[26px] text-center my-[59px] gap-[29px] flex flex-col '>
-          <Link href={"/Acerca"}>
+          <Link onClick={()=>setOpen(!open)	} href={"/Acerca"}>
             Acerca De
           </Link>
-          <Link href={"/Flores"}>
+          <Link onClick={()=>setOpen(!open)	} href={"/Flores"}>
             Flores
           </Link>
-          <Link href={"/Luxury"}>
+          <Link onClick={()=>setOpen(!open)	} href={"/Luxury"}>
             Luxury
           </Link>
-          <Link href={"/Contacto"}>
+          <Link onClick={()=>setOpen(!open)	} href={"/Contacto"}>
             Contacto
           </Link>
         </div>
