@@ -42,7 +42,7 @@ function Suscribe() {
               value={email}
               onChange={e => setEmail(e.target.value)}
             />
-            <button type='submit' className='bg-[#E39C9D] w-[152px] h-[52px] text-[24px] font-semibold rounded-[6px]'>Enviar</button>
+            <button type='submit' className='bg-[#E39C9D] lg:w-[152px] lg:h-[52px] w-[117px] h-[37px] text-[24px] font-semibold rounded-[6px]'>Enviar</button>
           </form>
         </div>
       </div>
