@@ -53,7 +53,7 @@ function Mision() {
         </div>
       </div>
       <div className="w-full flex flex-row justify-center items-center ">
-        <span className="text-center text-[36px] font-bold font-inter w-[920px]">
+        <span className="text-center text-[19px] lg:text-[36px] font-bold font-inter w-[80%] lg:w-[920px]">
           En nuestra florería, cada ramo es una obra maestra de elegancia y
           pasión floral. Descubre la magia detrás de{" "}
           <span className="text-[#E39C9D]">nuestras creaciones</span>
