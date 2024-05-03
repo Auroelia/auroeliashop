@@ -44,16 +44,16 @@ const [descuento, setDescuento] = useState(0)
   return (
     <div className="w-full h-full overflow-hidden relative">
       <div
-        className="w-full max-w-[1440px] min-w-sm mx-auto flex flex-row justify-center items-center gap-[33px]
+        className="w-full max-w-[1440px] min-w-sm mx-auto flex flex-col lg:flex-row justify-center items-center gap-[33px]
       
       "
       >
         {/* Productos */}
-        <div className="w-[639px] flex flex-col justify-center items-center">
-          <div className="w-full grid grid-cols-5 place-items-center">
+        <div className="lg:w-[639px] flex flex-col justify-center items-center">
+          <div className="w-full grid grid-cols-4 lg:grid-cols-5 place-items-center">
             <div>{/* vacio */}</div>
             <div>Producto</div>
-            <div>Cantidad</div>
+            <div className="hidden lg:block">Cantidad</div>
             <div>{/* vacio */}</div>
             <div>Total</div>
           </div>

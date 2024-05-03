@@ -19,23 +19,39 @@ function Productos({item}) {
 
 
   return (
-    <div  className="w-full grid grid-cols-5 mt-[19px]">
-    <div>
+    <div  className="w-full grid grid-cols-4 lg:grid-cols-5 mt-[19px]">
+    <div className='"w-[94px] h-[107px] lg:w-[78px] lg:h-[90px] '>
       <img
         src={urlForImage(item?.product.imagenes[0]?.asset._ref)}
-        className="w-[78px] h-[90px] object-cover rounded-[10px]"
+        className="w-full h-full object-cover rounded-[10px]"
         alt="imagen producto"
       />
     </div>
     <div className="flex flex-col  justify-center">
-      <span className="font-inter font-bold text-[16px] ">
+      <span className="font-inter font-bold text-[11px] lg:text-[16px] ">
         {item.product.nombre}
       </span>
-      <p className="text[10px] font-medium w-full">
+      <p className="text-[10px] font-medium w-full">
         {item.product.descripcion.slice(0, 40)}
       </p>
+      <div className="flex flex-row items-center justify-center gap-[23px]">
+      <button className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center "
+      onClick={() => {
+          if (counter - 1 > 0) {
+            setCounter(counter - 1);
+          }
+        }}
+      >
+        -
+      </button>
+      <span className="font-inter text-[20px] ">{counter}</span>
+      <button className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center"
+      onClick={()=>setCounter(counter+1)}>
+        +
+      </button>
     </div>
-    <div className="flex flex-row items-center justify-center gap-[23px]">
+    </div>
+    <div className="hidden lg:flex flex-row items-center justify-center gap-[23px]">
       <button className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center "
       onClick={() => {
           if (counter - 1 > 0) {
@@ -55,7 +71,7 @@ function Productos({item}) {
       <img
         src="/assets/icons/trash.svg"
         alt="eliminar"
-        className="cursor-pointer"
+        className="cursor-pointer w-[16px] h-[19px]"
         onClick={() => removeFromCart(item.product._id)}
       />
     </div>
