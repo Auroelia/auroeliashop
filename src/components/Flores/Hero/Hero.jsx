@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Hero() {
+function Hero() { 
     return (
         <div className='h-[600px] lg:h-[900px] w-full relative '>
                 <img src='/assets/Flores/floresHero.jpg' alt='hero' className='w-full h-[493px] object-cover ' />
