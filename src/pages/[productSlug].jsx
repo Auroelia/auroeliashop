@@ -48,8 +48,25 @@ function Product() {
     <div className="w-full h-full relative overflow-hidden">
       {product && (
         <div className="w-full h-full flex flex-col justify-between  max-w-[1440px] min-w-sm mx-auto">
-          <div className="w-full flex flex-row justify-center gap-[54px]  ">
-            <div className="w-full flex flex-col items-end  gap-[44px]">
+          <div className="w-full flex flex-col lg:flex-row justify-center gap-[10px] lg:gap-[54px]  ">
+            {/* Mobil */}
+            <div className="w-full h-full flex flex-row overflow-x-scroll no-scrollbar gap-[10px] px-4 my-4 ">
+  {
+    product?.imagenes[0] &&
+    product.imagenes.map((imagen, index) => (
+      <div key={index} className="w-[321px] h-[338px] flex-shrink-0">
+
+        <img
+          src={urlForImage(imagen)}
+          alt={product.nombre}
+          className="w-full h-full object-cover rounded-[30px]"
+        />
+      </div>
+    ))             
+  }
+</div>
+            {/* Desktop */}
+            <div className="w-full hidden lg:flex flex-col items-end  gap-[44px]">
               <img
                 src={urlForImage(product?.imagenes[0]?.asset._ref)}
                 alt={product.nombre}
@@ -71,11 +88,12 @@ function Product() {
               </div>
                 }
             </div>
-            <div className="w-full flex flex-col">
-              <span className="font-inter text-[42px] font-bold ">
+
+            <div className="w-full flex flex-col  px-4 ">
+              <span className="font-inter text-[20px] lg:text-[42px] font-bold ">
                 {product.nombre}{" "}
               </span>
-              <span className="font-inter text-[36px] ">
+              <span className="font-inter text-[20px] lg:text-[36px] ">
                 ${product.precio}.00
               </span>
               <div className="flex flex-row items-center gap-[23px]">
@@ -87,38 +105,39 @@ function Product() {
                   +
                 </button>
               </div>
-              <p className="text-[16px] font-medium w-[481px]">
+              <p className="text-[16px] font-medium w-[322px] lg:w-[481px]">
                 {product.descripcion}
               </p>
-              <div className="w-[481px] flex flex-row items-center">
-                <h3 className="text-[36px] mt-[36px] w-full">Complementos</h3>
-                <div>
-                  <div className="  flex flex-row items-center justify-end gap-[21px] mt-[56px]">
-                    <div className="rounded-full bg-[#d8d8d8] w-[64px] h-[64px] flex items-center justify-center">
+              <div className="w-full h-full lg:w-[481px] flex flex-row items-center">
+                <h3 className="text-[25px] lg:text-[36px] mt-[36px] w-full">Complementos</h3>
+                
+                  <div className="  flex flex-row items-center justify-end gap-[20px] lg:gap-[21px] mt-[56px]">
+                    <div className="rounded-full bg-[#d8d8d8] w-[29px] h-[29px] lg:w-[64px] lg:h-[64px] flex items-center justify-center">
                       <img
                         src="/assets/icons/izq.svg"
                         alt="arrow"
-                        className="w-[25px] h-[40px]"
+                        className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
                       />
                     </div>
-                    <div className="rounded-full bg-black w-[64px] h-[64px] flex items-center justify-center">
+                    <div className="rounded-full bg-black 
+                    w-[29px] h-[29px]
+                    lg:w-[64px] lg:h-[64px] flex items-center justify-center">
                       <img
                         src="/assets/icons/der.svg"
                         alt="arrow"
-                        className="w-[25px] h-[40px]"
+                        className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
                       />
                     </div>
-                  </div>
                 </div>
               </div>
-              <div className="w-[481px] flex flex-row justify-between items-center mt-[27px]">
+              <div className="lg:w-[481px] flex flex-row justify-between items-center mt-[27px]">
                 {complementos.map((complemento, index) => (
                   <div
                     key={complemento._id}
                     className="w-full h-full flex flex-col items-center cursor-pointer"
                   >
                     <img
-                      className="w-[142px] h-[120px] rounded-[6px] object-cover"
+                      className=" w-[112px] h-[95px] lg:w-[142px] lg:h-[120px] rounded-[6px] object-cover"
                       src={urlForImage(complemento?.imagen?.asset._ref)}
                     />
                     <span className="font-inter text-[16px]">
@@ -133,22 +152,22 @@ function Product() {
                 ))}
               </div>
 
-              <div className="w-[481px] flex flex-row justify-between items-center mt-[58px]  ">
-                <div className="font-inter text-[24px] font-bold w-[258px] h-[60px] rounded-[6px] bg-[#E39C9D] flex items-center justify-center cursor-pointer"
+              <div className="lg:w-[481px] flex flex-row gap-[10px] lg:gap-[0px] lg:justify-between items-center mt-[58px]  ">
+                <div className="font-inter text-[15px] lg:text-[24px] font-bold w-[160px] h-[37px] lg:w-[258px] lg:h-[60px] rounded-[6px] bg-[#E39C9D] flex items-center justify-center cursor-pointer"
                 onClick={()=> addToCart(product,1)}>
                   Agregar a carrito
                 </div>
-                <div className="font-inter text-[24px] font-bold w-[204px] h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px]">
+                <div className="font-inter text-[15px] lg:text-[24px] font-bold  w-[160px] h-[37px] lg:w-[204px] lg:h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px]">
                   <img
                     src="/assets/icons/ar.svg"
-                    className="w-[21px] h-[37px]"
+                    className="w-[13px] h-[22px] lg:w-[21px] lg:h-[37px]"
                   />
                   Ver en AR
                 </div>
               </div>
-              <div className="h-[1px] w-[481px] bg-[#E39C9D] mt-[37px]" />
+              <div className="h-[1px] lg:w-[481px] bg-[#E39C9D] mt-[37px]" />
               {/* Materiales */}
-              <div className="w-[481px] flex flex-col justify-between items-center mt-[11px]">
+              <div className="lg:w-[481px] flex flex-col justify-between items-center mt-[11px]">
                 <div className="w-full flex flex-row  items-center justify-between gap-[19px]">
                   <div className="flex flex-row items-center gap-[19px]">
                     <img
@@ -171,8 +190,8 @@ function Product() {
                   laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
               </div>
-              <div className="h-[1px] w-[481px] bg-[#E39C9D] mt-[13px]" />
-              <div className="w-[481px] flex flex-col justify-between items-center mt-[11px]">
+              <div className="h-[1px] lg:w-[481px] bg-[#E39C9D] mt-[13px]" />
+              <div className="lg:w-[481px] flex flex-col justify-between items-center mt-[11px]">
                 <div className="w-full flex flex-row  items-center justify-between gap-[19px]">
                   <div className="flex flex-row items-center gap-[19px]">
                     <img
@@ -197,8 +216,8 @@ function Product() {
                   laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
               </div>
-              <div className="h-[1px] w-[481px] bg-[#E39C9D] mt-[13px]" />
-              <div className="w-[481px] flex flex-col justify-between items-center mt-[11px]">
+              <div className="h-[1px] lg:w-[481px] bg-[#E39C9D] mt-[13px]" />
+              <div className="lg:w-[481px] flex flex-col justify-between items-center mt-[11px] mb-4 lg:mb-0">
                 <div className="w-full flex flex-row  items-center justify-between gap-[19px]">
                   <div className="flex flex-row items-center gap-[19px]">
                     <img
@@ -225,11 +244,11 @@ function Product() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center text-center mt-[97px] ">
-            <span className="text-[#E39C9D] font-inter font-bold text-[32px]">
+          <div className="hidden lg:flex flex-col justify-center items-center text-center mt-[97px] ">
+            <span className="text-[#E39C9D] font-inter font-bold text[18px] lg:text-[32px]">
               Recomendaciones
             </span>
-            <h2 className="text-[83px]">También podría gustarte</h2>
+            <h2 className=" text-[25px] lg:text-[83px]">También podría gustarte</h2>
             <div className="flex gap-[22px] mt-[29px]">
               {products.slice(0, 4).map((producto) => (
                 <div
