@@ -19,10 +19,10 @@ function Productos({item}) {
 
 
   return (
-    <div className='w-[94px] h-[107px]'>
+    <div  className="w-full h-full flex flex-row mt-[19px]  gap-[31px]">
+  <div className='w-full h-full'>
 
-    <div  className="w-full h-full flex flex-row   gap-[31px]">
-  <img src={urlForImage(item?.product.imagenes[0]?.asset._ref)}  className="w-full h-full lg:w-[78px] lg:h-[90px] object-cover" alt="imagen producto" />
+  <img src={urlForImage(item?.product.imagenes[0]?.asset._ref)}  className="w-[94px] h-[107px] lg:w-[78px] lg:h-[90px] object-cover" alt="imagen producto" />
   </div>
 
     <div className="flex flex-col  justify-center">
