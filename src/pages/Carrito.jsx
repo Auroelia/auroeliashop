@@ -42,7 +42,7 @@ const [descuento, setDescuento] = useState(0)
 
 
   return (
-    <div className="w-full h-full overflow-hidden relative">
+    <div className="w-full h-full overflow-hidden relative my-8 lg:my-0">
       <div
         className="w-full max-w-[1440px] min-w-sm mx-auto flex flex-col lg:flex-row justify-center items-center gap-[33px] px-4 lg:px-0 mt-4
       
@@ -58,20 +58,23 @@ const [descuento, setDescuento] = useState(0)
             <div>Total</div>
           </div>
           <div className="h-[1px] bg-[#E39C9D] w-full hidden lg:block" />
+          <div>
+
           {
-          cart.length>0?
-          cart.map((item, index) => (
-            <Productos
-            key={index}
-            item={item}
-            />
-          ))
-        :
-        <div className="w-full h-[200px] flex flex-col items-center justify-center">
+            cart.length>0?
+            cart.map((item, index) => (
+              <Productos
+              key={index}
+              item={item}
+              />
+            ))
+            :
+            <div className="w-full h-[200px] flex flex-col items-center justify-center">
           <span className="text-[24px] font-inter font-bold">Carrito Vacio</span>
           <span className="text-[16px] font-inter font-light">Agrega productos</span>
           </div>
         }
+        </div>
           <div className="h-[1px] bg-[#E39C9D] w-full" />
           <div className="w-full flex flex-row justify-end gap-[15px] mt-[13px]">
             <input
