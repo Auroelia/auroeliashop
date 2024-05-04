@@ -12,6 +12,8 @@ export const AppProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0)
   const [isCartInitialized, setIsCartInitialized] = useState(false);
+  const [ventas, setVentas] = useState([]);
+
 
 
 
@@ -147,6 +149,27 @@ const addToCart = (product, qty) => {
         registerDate: new Date(),
       });
     }
+
+    async function getVentas() {
+      const query = '*[_type == "ventas"]';
+      const resultado = await client.fetch(query);
+      setVentas(resultado);
+    }
+  
+    async function getVenta(ref) {
+      try {
+        const query = `*[ _id == "${ref}"]`;
+        const resultado = await client.fetch(query);
+        if (resultado.length > 0) {
+          return resultado[0]
+        } else {
+          return null;
+        }
+      } catch (error) {
+        console.error("Error al obtener la venta:", error);
+        throw error; 
+      }
+    }
   
 
  
@@ -158,6 +181,7 @@ const addToCart = (product, qty) => {
       iva,
       envio,
       total,
+      ventas,
       setEnvio,
       setSubtotal,
       setIva,
@@ -166,7 +190,9 @@ const addToCart = (product, qty) => {
          updateCartItem,
           removeFromCart,
           postUser,
-          loginUser
+          loginUser,
+          getVenta,
+          getVentas
     
     }}>
       {children}
