@@ -27,7 +27,7 @@ function Suscribe() {
 
   return (
     <div className="w-full h-full relative">
-      {router.pathname.startsWith("/Login" || "/Dashboard") ? (
+      {router.pathname.startsWith("/Login") || router.pathname.startsWith("/Dashboard") ? (
         <div></div>
       ) : (
         <>

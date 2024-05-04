@@ -2,15 +2,21 @@ import React, { useContext, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AppContext } from '@/context/AppContext'
+import { useRouter } from 'next/router'
 
 function Navbar() {
 
   const {cart} = useContext(AppContext)
 
   const [open, setOpen] = useState(false)
+  const router = useRouter()
 
   return (
     <>
+    {router.pathname.startsWith("/Login") || router.pathname.startsWith("/Dashboard") ? (
+        <div></div>
+      ) : (
+        <>
     <div className='hidden h-[120px] w-full lg:flex flex-row justify-center items-center gap-x-[52px]'>
       <Link href={"/"}>
         <Image
@@ -120,6 +126,8 @@ function Navbar() {
         </div>
         </div>
     </div>
+    </>
+      )}
     </>
   )
 }
