@@ -30,7 +30,7 @@ function Productos({ item }) {
         <span className="font-inter font-bold text-[11px] lg:text-[16px] ">
           {item.product.nombre}
         </span>
-        <p className="text-[10px] font-medium  leading-[14px] ">
+        <p className=" text-[10px] font-medium  leading-[14px] ">
           {item.product.descripcion.slice(0, 40)}
         </p>
         <div className="flex flex-row items-center justify-center gap-[23px]">
