@@ -16,16 +16,19 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
   const [filteredProductos, setFilteredProductos] = useState([]);
 
   useEffect(() => {
-    if(checklist.length > 0) {
+    if(checklist.length > 0 || checklistArreglos.length > 0) {
       const newFilteredProductos = productos.filter((producto) => {
-        return checklist.includes(producto.flor._ref);
+        return (
+          checklist.includes(producto.flor._ref) ||
+          checklistArreglos.includes(producto.arreglo._ref)
+        );
       });
       setFilteredProductos(newFilteredProductos);
     }
     else{
       setFilteredProductos(productos);
     }
-  }, [checklist, productos]);
+  }, [checklist, checklistArreglos, productos]);
 
   useEffect(() => {
     // Realiza la consulta a la API de Sanity para obtener los productos

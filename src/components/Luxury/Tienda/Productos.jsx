@@ -13,6 +13,23 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
   const itemsPerPage = 6; // Cambia esto al número de elementos que quieres por página
   const [totalItems, setTotalItems] = useState(0);
 
+  const [filteredProductos, setFilteredProductos] = useState([]);
+
+  useEffect(() => {
+    if(checklist.length > 0 || checklistArreglos.length > 0) {
+      const newFilteredProductos = productos.filter((producto) => {
+        return (
+          checklist.includes(producto.flor._ref) ||
+          checklistArreglos.includes(producto.arreglo._ref)
+        );
+      });
+      setFilteredProductos(newFilteredProductos);
+    }
+    else{
+      setFilteredProductos(productos);
+    }
+  }, [checklist, checklistArreglos, productos]);
+
   useEffect(() => {
     // Realiza la consulta a la API de Sanity para obtener los productos
     client
@@ -82,7 +99,7 @@ const closeModal = () => setModalOpen(false);
           </div>
 
       <div className="w-full h-full grid grid-cols-2 lg:grid-cols-3 gap-x-[22px] gap-y-[22px] lg:gap-y-[61px] px-[30px] lg:px-[0px] place-items-center mt-4 lg:mt-0">
-        {productos.map((producto) => (
+        {filteredProductos.map((producto) => (
           <Producto
             key={producto._id}
             producto={producto}

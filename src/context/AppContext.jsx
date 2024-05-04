@@ -1,3 +1,4 @@
+import { client } from '@/lib/client';
 import React, { createContext, useEffect, useState } from 'react';
 
 export const AppContext = createContext();
@@ -87,6 +88,67 @@ const addToCart = (product, qty) => {
     setCart((currentCart) => currentCart.filter((item) => item.product._id !== productId));
   };
 
+  //loginUser
+  async function loginUser(email, password) {
+    const query = `*[_type == "usuarios" && email == $email] `;
+
+    const params = { email };
+    const users = await client.fetch(query, params);
+
+    if (users.length === 0) {
+      throw new Error("El correo electrónico no existe");
+    }
+
+    const user = users[0];
+
+    // Aquí debes verificar la contraseña usando la librería de tu elección
+    // Por ejemplo, bcrypt
+    const isPasswordCorrect = await checkPassword(password, user.password);
+
+    if (!isPasswordCorrect) {
+      throw new Error("Contraseña incorrecta");
+    }
+
+    // Genera un token JWT
+    const tokenPayload = {
+      id: user._id,
+      email: user.email,
+    };
+
+    const jwtSecret = process.env.NEXT_PUBLIC_JWT_SECRET;
+
+    try {
+      const token = await new Promise((resolve, reject) => {
+        jwt.sign(tokenPayload, jwtSecret, { expiresIn: "1h" }, (err, token) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(token);
+          }
+        });
+      });
+
+      // Devuelve el usuario y el token JWT
+      return { user, token };
+    } catch (error) {
+      console.error("Error al firmar el token JWT:", error);
+      throw new Error("Error al firmar el token JWT");
+    }
+  }
+
+    //postUser
+
+    async function postUser(name, email, password) {
+      client.create({
+        _type: "usuarios",
+        name: name,
+        email: email,
+        password: password,
+        registerDate: new Date(),
+      });
+    }
+  
+
  
 
   return (
@@ -102,7 +164,9 @@ const addToCart = (product, qty) => {
        addToCart,
         getCart,
          updateCartItem,
-          removeFromCart
+          removeFromCart,
+          postUser,
+          loginUser
     
     }}>
       {children}
