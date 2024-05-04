@@ -20,10 +20,13 @@ function Productos({item}) {
 
   return (
     <div  className="w-full h-full flex flex-row mt-[19px]  gap-[31px]">
-  <div className='w-full h-full'>
-
-  <img src={urlForImage(item?.product.imagenes[0]?.asset._ref)}  className="w-[94px] h-[107px] lg:w-[78px] lg:h-[90px] object-cover" alt="imagen producto" />
-  </div>
+<div className='w-[94px] h-[107px]'>
+  <img 
+    src={urlForImage(item?.product.imagenes[0]?.asset._ref)}  
+    className="w-[94px] h-[107px] object-cover" 
+    alt="imagen producto" 
+  />
+</div>
 
     <div className="flex flex-col  justify-center">
       <span className="font-inter font-bold text-[11px] lg:text-[16px] ">
@@ -65,7 +68,7 @@ function Productos({item}) {
         +
       </button>
     </div>
-    <div className="w-full h-full flex flex-col items-center justify-center">
+    <div className=" flex flex-col items-center justify-center">
       <img
         src="/assets/icons/trash.svg"
         alt="eliminar"
@@ -73,7 +76,7 @@ function Productos({item}) {
         onClick={() => removeFromCart(item.product._id)}
       />
     </div>
-    <div className="w-full h-full flex flex-col items-center justify-center">
+    <div className=" flex flex-col items-center justify-center">
       <span className="font-inter font-bold text-[16px] ">
         ${item.product.precio}.00
       </span>

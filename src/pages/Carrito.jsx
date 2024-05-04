@@ -58,7 +58,7 @@ const [descuento, setDescuento] = useState(0)
             <div>Total</div>
           </div>
           <div className="h-[1px] bg-[#E39C9D] w-full hidden lg:block" />
-          <div>
+          <div className="w-full h-full ">
 
           {
             cart.length>0?
@@ -92,12 +92,12 @@ rounded-[6px]
             <div className=" flex flex-col">
               <span>Sub Total</span>
               <span>Descuento</span>
-              <span>Total</span>
+              <span className="font-bold">Total</span>
             </div>
             <div className=" flex flex-col w-[120px] items-end">
               <span>${subtotalPrice}</span>
               <span>{descuento}%</span>
-              <span>${total}</span>
+              <span className="font-bold">${total}</span>
             </div>
           </div>
         </div>
