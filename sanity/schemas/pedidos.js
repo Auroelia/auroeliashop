@@ -40,7 +40,22 @@ const pedidosSchema = {
             name: 'productos',
             title: 'Productos',
             type: 'array',
-            of: [{ type: 'reference', to: [{ type: 'producto' }] }],
+            of: [{
+                type: 'object',
+                fields: [
+                    {
+                        name: 'producto',
+                        title: 'Producto',
+                        type: 'reference',
+                        to: [{ type: 'producto' }]
+                    },
+                    {
+                        name: 'qty',
+                        title: 'Cantidad',
+                        type: 'number'
+                    }
+                ]
+            }],
         },
         {
             name: 'estado',
