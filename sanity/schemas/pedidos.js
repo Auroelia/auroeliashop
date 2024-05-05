@@ -13,7 +13,6 @@ const pedidosSchema = {
                 { name: 'apellidos', title: 'Apellidos', type: 'string' },
                 { name: 'telefono', title: 'Nombre', type: 'number' },
                 { name: 'correo', title: 'Correo', type: 'string' },
-                // Add more fields as needed
             ],
         },
         {
@@ -31,9 +30,16 @@ const pedidosSchema = {
                 { name: 'dedicatoria', title: 'Dedicatoria', type: 'string' },
                 { name: 'firma', title: 'Firma', type: 'string' },
                 { name: 'notas', title: 'Notas', type: 'string' },
+                
+            ],
+        },
+        {
+            name: 'envio',
+            title: 'Envio',
+            type: 'object',
+            fields: [
                 { name: 'fecha', title: 'Fecha', type: 'string' },
                 { name: 'horario', title: 'Horario', type: 'string' },
-                // Add more fields as needed
             ],
         },
         {

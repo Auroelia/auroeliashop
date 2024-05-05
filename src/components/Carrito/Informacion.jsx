@@ -1,25 +1,14 @@
 import React, { useState } from 'react'
 
-function Informacion() {
+function Informacion({
+    cliente,
+    setCliente,
+    destinatario,
+    setDestinatario,
+    
+}) {
 
-    const [cliente, setCliente] = useState({
-    nombre: "",
-    apellidos: "",
-    telefono: "",
-    correo: "",
-    });
-    const [destinatario, setDestinatario] = useState({
-    nombre: "",
-    telefono: "",
-    direccion: "",
-    colonia: "",
-    estado: "",
-    delegacion: "",
-    cp: "",
-    dedicatoria: "",
-    firma: "",
-    notas: "",
-    });
+ 
 
     const handleChangeCliente = (e) => {
     setCliente({

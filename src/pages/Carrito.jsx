@@ -41,6 +41,25 @@ const closeModal = () => setModalOpen(false);
 
 const [descuento, setDescuento] = useState(0)
 
+const [cliente, setCliente] = useState({
+  nombre: "",
+  apellidos: "",
+  telefono: "",
+  correo: "",
+  });
+  const [destinatario, setDestinatario] = useState({
+  nombre: "",
+  telefono: "",
+  direccion: "",
+  colonia: "",
+  estado: "",
+  delegacion: "",
+  cp: "",
+  dedicatoria: "",
+  firma: "",
+  notas: "",
+  });
+
 
 
   return (
@@ -105,6 +124,10 @@ rounded-[6px]
 
 {/* informacion */}
 <Informacion
+cliente={cliente}
+setCliente={setCliente}
+destinatario={destinatario}
+setDestinatario={setDestinatario}
 
 />
 
