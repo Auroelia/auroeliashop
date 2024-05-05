@@ -26,14 +26,14 @@ function Productos({ item }) {
         />
       </div>
 
-      <div className=" w-[110px] lg:w-full flex flex-col  justify-center">
+      <div className=" w-[110px]  flex flex-col  justify-center">
         <span className="font-inter font-bold text-[11px] lg:text-[16px] ">
           {item.product.nombre}
         </span>
         <p className=" text-[10px] font-medium  leading-[14px] ">
           {item.product.descripcion.slice(0, 40)}
         </p>
-        <div className="flex flex-row items-center justify-center gap-[23px]">
+        <div className="flex flex-row lg:hidden items-center justify-center gap-[23px]">
           <button
             className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center "
             onClick={() => {

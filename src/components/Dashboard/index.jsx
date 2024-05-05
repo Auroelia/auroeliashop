@@ -210,104 +210,45 @@ const Dashboard = () => {
         </div>
       </div>
     <div className="w-full h-full lg:h-screen flex flex-row ">
-      <div className="hidden w-1/4 lg:flex flex-col bg-[#31302c]">
+      <div className="hidden w-1/4 lg:flex flex-col bg-[#E39C9D]">
         <div className="w-full h-full flex flex-row justify-center ">
-          <div className="w-[90%] flex flex-col  justify-between">
-            <div className="h-full flex flex-col">
-              <div className="text-center">
-                <h1 className="  text-white text-3xl font-cinzelRegular mt-8">
-                  <span className="text-white text-[35px]  ">C</span>
-                  asa <span className="text-white text-[35px] ">I</span>
-                  tzimná
-                </h1>
-                <h2 className="text-white text-md  font-cinzelRegular mb-2">
-                  Boutique
-                </h2>
-              </div>
-              <div className="text-white font-apollo mt-4">
-                <p className="text-lg tracking-[2px]">Bienvenido,</p>
-                <p className="text-4xl tracking-[2px]">{user?.name}</p>
-              </div>
-              <div className="flex flex-col">
-                {/* <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer hover:text-[#d3cbc0]">
-                  <span>
-                    <AiFillHome className="text-2xl text-white " />
-                  </span>
-                  <span className="text-xl text-white font-apollo tracking-[2px]">
-                    Dashboard
-                  </span>
-                </p> */}
-                <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer hover:text-[#d3cbc0]">
-                  <span>
-                    <FaSuitcase className="text-2xl text-white" />
-                  </span>
+          <div className="w-[90%] flex flex-col items-center  justify-between gap-[85px]">
+            <img src='/assets/Acerca/elegirnos/rosa.png' alt='girasol' className='
+            -translate-y-16
+            w-[182px] h-[190px] lg:w-[286px] lg:h-[277px] object-contain' />
+            <div className="h-full flex flex-col items-center gap-[102px]">
+              <img src="/assets/dashboard/logoDashboard.png"
+              alt="logo dashboard"
+              className="w-[216px] h-[46px] object-cover"
+              />
+
+              
+              <div className="flex flex-col items-center
+              ">
+
+                <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer ">
+                  
                   <span
-                    className="text-xl text-white font-apollo tracking-[2px]"
-                    onClick={() => handleSidebarClick("Reservaciones")}
-                  >
-                    Reservaciones
-                  </span>
-                </p>
-               
-                <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer hover:text-[#d3cbc0]">
-                  <span>
-                    <FaDollarSign className="text-2xl text-white" />
-                  </span>
-                  <span
-                    className="text-xl text-white font-apollo tracking-[2px]"
+                    className="text-xl  font-inter tracking-[2px]"
                     onClick={() => handleSidebarClick("Ventas")}
                   >
                     Ventas
                   </span>
                 </p>
-                <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer hover:text-[#d3cbc0]">
-                  <span>
-                    <FaStar className="text-2xl text-white" />
-                  </span>
+                <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer ">
+                  
                   <a
       href="https://casaitzimna.sanity.studio/desk/productos"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span className="text-xl text-white font-apollo tracking-[2px]">
+      <span className="text-xl  font-inter tracking-[2px]">
         Productos
       </span>
     </a>
                 </p>
-                <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer hover:text-[#d3cbc0]">
-                  <span>
-                    <FaGlassCheers className="text-2xl text-white" />
-                  </span>
-                  <a
-      href="https://casaitzimna.sanity.studio/desk/experiencias"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-                  <span
-                    className="text-xl text-white font-apollo tracking-[2px]"
-                    
-                  >
-                    Experiencias
-                  </span>
-                  </a>
-                </p>
-                <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer hover:text-[#d3cbc0]">
-                  <span>
-                    <FaRegCalendarAlt className="text-2xl text-white" />
-                  </span>
-                  <a
-      href="https://casaitzimna.sanity.studio/desk/fechas"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-                  <span
-                    className="text-xl text-white font-apollo tracking-[2px]"
-                   
-                  >
-                    Fechas Especiales
-                  </span>
-                  </a>
-                </p>
+                
+                
               </div>
             </div>
             <div>
@@ -315,15 +256,8 @@ const Dashboard = () => {
                 className="flex flex-row gap-4 mb-8 items-center cursor-pointer hover:text-[#d3cbc0]"
                 onClick={() => logout()}
               >
-                <span>
-                  <Image
-                    src='/assets/icons/navbar/close.svg	'
-                   width={30} height={30}
-                    alt="exit icon"
-                    className="w-[20px] h-[21px]"
-                  />
-                </span>
-                <span className="text-xl text-white font-apollo tracking-[2px]">
+                
+                <span className="text-xl  font-inter tracking-[2px]">
                   Cerrar Sesión
                 </span>
               </p>

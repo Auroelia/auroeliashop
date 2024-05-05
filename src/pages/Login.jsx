@@ -49,14 +49,14 @@ function Login() {
   return (
     <div className="w-full h-screen lg:h-[1000px] flex flex-row justify-center  relative ">
        <Head>
- <title>Casa Itzimná Boutique</title>
+ <title>Auroelia</title>
  </Head>
 
       <div className="absolute top-0 h-screen lg:h-full w-full z-0">
         <img
           src="/assets/Login/loginbg.jpg"
           alt="login background"
-          className="w-full h-full object-cover"
+          className="w-full h-screen object-cover"
         />
       </div>
       <div className='w-full h-full absolute top-0 left-0 bg-black/70'>

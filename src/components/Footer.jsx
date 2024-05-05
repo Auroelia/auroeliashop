@@ -7,11 +7,7 @@ function Footer() {
   const router = useRouter();
 
   return (
-       <>
-    {router.pathname.startsWith("/Login") || router.pathname.startsWith("/Dashboard") ? (
-        <div></div>
-      ) : (
-        <>
+      
 
     <div className='w-full h-full bg-black relative pt-4 lg:pt-0'>
       <div className='w-full lg:h-[400px] flex flex-col lg:flex-row justify-between items-center max-w-[1440px] min-w-sm mx-auto px-[150px]'>
@@ -75,9 +71,7 @@ del corazón</h3>
 
 </div>
     </div>
-    </>
-    )}
-    </>
+  
   )
 }
 
