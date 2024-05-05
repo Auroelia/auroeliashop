@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from "react";
 import DatosModal from "./DatosModal";
 
-function Envio({ openModal, isModalOpen, closeModal }) {
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTime, setSelectedTime] = useState("");
-  const [dedication, setDedication] = useState("");
+function Envio({ openModal, isModalOpen, closeModal,
+ envio, setEnvio, enviarInfo})
+
+  {
+ 
   const [selectedPerson, setSelectedPerson] = useState("novia/o");
   const [generatedMessages, setGeneratedMessages] = useState("");
 
-  const handleDateChange = (e) => {
-    setSelectedDate(e.target.value);
-  };
-
-  const handleTimeChange = (e) => {
-    setSelectedTime(e.target.value);
-  };
-
-  const handleDedicationChange = (e) => {
-    setDedication(e.target.value);
-  };
-
-  const handlePersonChange = (e) => {
-    setSelectedPerson(e.target.value);
-  };
+  const handleChangeEnvio = (e) => {
+    setEnvio({
+        ...envio,
+        [e.target.name]: e.target.value,
+    });
+    };
 
   const messagesNovie = [
     `Para mi amor en su día especial `,
@@ -50,6 +42,10 @@ function Envio({ openModal, isModalOpen, closeModal }) {
     `Celebremos nuestra amistad, ¡felicidades! `,
   ];
 
+    const handlePersonChange = (e) => {
+    setSelectedPerson(e.target.value);
+    };
+
   const handleGenerateMessages = () => {
     let messages = [];
     switch (selectedPerson) {
@@ -74,7 +70,10 @@ function Envio({ openModal, isModalOpen, closeModal }) {
   };
 
   useEffect(() => {
-    setDedication(generatedMessages);
+    setEnvio({
+      ...envio,
+      dedicatoria: generatedMessages,
+    });
   }, [generatedMessages]);
 
   return (
@@ -86,15 +85,17 @@ function Envio({ openModal, isModalOpen, closeModal }) {
         <input
           type="date"
           className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
-          value={selectedDate}
-          onChange={handleDateChange}
+            name="fecha"
+            value={envio.fecha}
+            onChange={handleChangeEnvio}
         />
         <select
           className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
-          value={selectedTime}
-          onChange={handleTimeChange}
+          name="horario"
+            value={envio.horario}
+            onChange={handleChangeEnvio}
         >
-          <option value="12-4">Elige un horario</option>
+          <option >Elige un horario</option>
           <option value="12-4">12pm-4pm</option>
           {new Date().getHours() < 16 && <option value="4-7">4pm-7pm</option>}
         </select>
@@ -104,8 +105,9 @@ function Envio({ openModal, isModalOpen, closeModal }) {
         <textarea
           placeholder="Escribe el mensaje"
           className="h-[164px] w-full border-[1px] border-[#E39C9D] pl-4 pt-4 mt-[10px]"
-          value={dedication}
-          onChange={handleDedicationChange}
+          name="dedicatoria"
+          value={envio.dedicatoria}
+          onChange={handleChangeEnvio}
         />
         <div className="w-full flex justify-between items-center">
           <span className="text-[12px] font-light">Genera un mensaje para</span>
@@ -127,10 +129,13 @@ function Envio({ openModal, isModalOpen, closeModal }) {
           </div>
         </div>
         <div className="">
-          <button
-            className="w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter lg:mt-[20px]"
-            onClick={openModal}
-          >
+        <button
+  className="w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter lg:mt-[20px]"
+  onClick={() => {
+/*     openModal();
+ */    enviarInfo();
+  }}
+>
             Pagar
           </button>
           {isModalOpen && (

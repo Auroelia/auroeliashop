@@ -60,6 +60,19 @@ const [cliente, setCliente] = useState({
   notas: "",
   });
 
+  const [envio, setEnvio] = useState({
+  fecha: "",
+  horario: "",
+  dedicatoria: "",
+
+  })
+
+  const enviarInfo = () =>{
+    console.log(cliente, "cliente")
+    console.log(destinatario, "destinatario")
+    console.log(envio, "envio")
+  }
+
 
 
   return (
@@ -137,6 +150,9 @@ setDestinatario={setDestinatario}
           openModal={openModal}
           isModalOpen={isModalOpen}
           closeModal={closeModal}
+          envio={envio}
+          setEnvio={setEnvio}
+          enviarInfo={enviarInfo}
 
          />
       </div>
