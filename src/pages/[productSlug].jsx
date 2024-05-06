@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { client } from "../lib/client";
 import { urlForImage } from "../../sanity/lib/image";
 import Link from "next/link";
+import Complemento from "@/components/Producto/Complemento";
 
 function Product() {
   const router = useRouter();
@@ -11,7 +12,13 @@ function Product() {
 
   const { cart, addToCart, removeFromCart } = useContext(AppContext);
 
+  const [complementosActivos, setComplementosActivos] = useState([])
+
+  console.log(complementosActivos)
+
   const [counter, setCounter] = useState(1);
+
+  
 
   const [products, setProductos] = useState([]);
   console.log(products);
@@ -43,7 +50,10 @@ function Product() {
   );
   const [selectedImage, setSelectedImage] = useState(null);
 
-  console.log(product);
+
+ 
+
+  
 
   return (
     <div className="w-full h-full relative overflow-hidden">
@@ -98,11 +108,19 @@ function Product() {
                 ${product.precio}.00
               </span>
               <div className="flex flex-row items-center gap-[23px]">
-                <button className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[24px] flex flex-col items-center justify-center ">
+                <button className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[24px] flex flex-col items-center justify-center "
+                onClick={() => {
+                  if (counter - 1 > 0) {
+                    setCounter(counter - 1);
+                  }
+                }}
+                >
                   -
                 </button>
                 <span className="font-inter text-[32px] ">{counter}</span>
-                <button className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[24px] flex flex-col items-center justify-center">
+                <button className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[24px] flex flex-col items-center justify-center"
+                onClick={() => setCounter(counter + 1)}
+                >
                   +
                 </button>
               </div>
@@ -133,29 +151,23 @@ function Product() {
               </div>
               <div className="lg:w-[481px] flex flex-row justify-between items-center mt-[27px]">
                 {complementos.map((complemento, index) => (
-                  <div
-                    key={complemento._id}
-                    className="w-full h-full flex flex-col items-center cursor-pointer"
-                  >
-                    <img
-                      className=" w-[112px] h-[95px] lg:w-[142px] lg:h-[120px] rounded-[6px] object-cover"
-                      src={urlForImage(complemento?.imagen?.asset._ref)}
-                    />
-                    <span className="font-inter text-[16px]">
-                      {complemento.nombre}
-                    </span>
-                    <span className="font-inter text-[16px]">
-                      ${complemento.precio}.00
-                    </span>
-
-                    <div className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D]  mt-[29px] " />
-                  </div>
+                  <Complemento key={index} complemento={complemento}
+                  setComplementosActivos={setComplementosActivos}
+                  complementosActivos={complementosActivos}
+                  />
                 ))}
               </div>
 
               <div className="lg:w-[481px] flex flex-row gap-[10px] lg:gap-[0px] lg:justify-between items-center mt-[58px]  ">
                 <div className="font-inter text-[15px] lg:text-[24px] font-bold w-[160px] h-[37px] lg:w-[258px] lg:h-[60px] rounded-[6px] bg-[#E39C9D] flex items-center justify-center cursor-pointer"
-                onClick={()=> addToCart(product,1)}>
+                onClick={()=> {
+                  addToCart(product,counter)
+                  if(complementosActivos.length>0){
+                    complementosActivos.forEach(complemento => {
+                      addToCart(complemento,1)
+                    })
+                  }
+                  }}>
                   Agregar a carrito
                 </div>
                 <div className="font-inter text-[15px] lg:text-[24px] font-bold  w-[160px] h-[37px] lg:w-[204px] lg:h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px]">

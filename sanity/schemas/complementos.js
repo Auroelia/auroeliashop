@@ -34,10 +34,10 @@ const complementosSchema = {
             validation: (Rule) => Rule.required().positive(),
         },
         {
-            name: 'imagen',
-            title: 'Imagen',
-            type: 'image',
-            options: { hotspot: true },
+            name: 'imagenes',
+            title: 'Imágenes',
+            type: 'array',
+            of: [{ type: 'image', options: { hotspot: true } }],
             validation: (Rule) => Rule.required(),
         },
         // Agrega aquí más campos según tus necesidades
