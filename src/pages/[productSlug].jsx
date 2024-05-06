@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import { client } from "../lib/client";
 import { urlForImage } from "../../sanity/lib/image";
+import Link from "next/link";
 
 function Product() {
   const router = useRouter();
@@ -281,9 +282,11 @@ function Product() {
               ))}
             </div>
             <div className="w-[950px] flex justify-end items-center gap-[15px]">
-                <span className="text-[20px] font-medium mt-[43px] mb-[42px] hover:scale-110 transition-all duration-300 cursor-pointer">
+              <Link href="/Flores" className="mt-[43px] mb-[42px] ">
+                <span className="text-[20px] font-medium hover:scale-110 transition-all duration-300 cursor-pointer">
                     Ver Tienda
                 </span>
+              </Link>
                 <img src="/assets/icons/arrow.svg" alt="arrow" className="w-[40px] h-[40px]"/>
                 </div>
           </div>
