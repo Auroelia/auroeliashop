@@ -78,7 +78,7 @@ function Envio({ openModal, isModalOpen, closeModal,
 
   return (
     <div className="flex flex-col items-center">
-      <div className="w-[349px]">
+      <div className="w-full lg:w-[349px]">
         <span className="text-[16px] font-inter font-bold">
           Selecciona Fecha y Hora de Entrega
         </span>
@@ -97,7 +97,7 @@ function Envio({ openModal, isModalOpen, closeModal,
         >
           <option >Elige un horario</option>
           <option value="12-4">12pm-4pm</option>
-          {new Date().getHours() < 16 && <option value="4-7">4pm-7pm</option>}
+          {new Date().getHours() > 16 && <option value="4-7">4pm-7pm</option>}
         </select>
         <span className="text-[16px] font-inter font-bold">
           Escribe o elige una dedicatoria
@@ -130,7 +130,7 @@ function Envio({ openModal, isModalOpen, closeModal,
         </div>
         <div className="">
         <button
-  className="w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter lg:mt-[20px]"
+  className="w-full lg:w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter lg:mt-[20px]"
   onClick={() => {
 /*     openModal();
  */    enviarInfo();

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function Nuestros() {
@@ -10,7 +11,8 @@ function Nuestros() {
         <h2 className="text-[42px] lg:text-[83px]">Nuestros Productos</h2>
         <div className="w[90%] lg:w-full flex flex-col items-center justify-center gap-[34px]">
           <div className="w-full flex flex-row gap-[14px] lg:gap-[37px] justify-center">
-            <div className="w-[60%] h-[103px] lg:w-[559px] lg:h-[282px] relative cursor-pointer">
+            <Link href="/Flores" className="w-[60%] h-[103px] lg:w-[559px] lg:h-[282px]">
+            <div className="w-full h-full relative cursor-pointer">
               <img
                 src="/assets/Home/categorias/jabon.png"
                 alt="ramo1"
@@ -26,7 +28,9 @@ function Nuestros() {
                 <span>Jabon</span>
               </div>
             </div>
-            <div className="w-[40%] h-[103px] lg:w-[456px] lg:h-[282px] relative cursor-pointer">
+            </Link>
+            <Link href="/Flores" className="w-[40%] h-[103px] lg:w-[456px] lg:h-[282px]">
+            <div className="w-full h-full relative cursor-pointer">
               <img
                 src="/assets/Home/categorias/ositos.png"
                 alt="ramo1"
@@ -42,9 +46,11 @@ function Nuestros() {
                 <span>Fancy</span>
               </div>
             </div>
+            </Link>
           </div>
           <div className="w-full flex flex-row gap-[14px] lg:gap-[37px] justify-center">
-            <div className="w-[40%] h-[103px] lg:w-[456px] lg:h-[282px] relative cursor-pointer">
+            <Link href="/Flores" className="w-[40%] h-[103px] lg:w-[456px] lg:h-[282px]">
+            <div className="w-full h-full relative cursor-pointer">
               <img
                 src="/assets/Home/categorias/bouquets.png"
                 alt="ramo1"
@@ -60,8 +66,9 @@ function Nuestros() {
                 <span>Bouquets</span>
               </div>
             </div>
-
-            <div className="w-[60%] h-[103px] lg:w-[559px] lg:h-[282px] relative cursor-pointer">
+            </Link>
+            <Link href="/Flores" className="w-[60%] h-[103px] lg:w-[559px] lg:h-[282px]">
+            <div className="w-full h-full relative cursor-pointer">
               <img
                 src="/assets/Home/categorias/ramos.png"
                 alt="ramo1"
@@ -78,6 +85,7 @@ function Nuestros() {
                 <span>Novia</span>
               </div>
             </div>
+            </Link>
           </div>
         </div>
       </div>

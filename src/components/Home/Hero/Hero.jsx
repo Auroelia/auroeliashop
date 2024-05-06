@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 function Hero() {
@@ -68,9 +69,11 @@ function Hero() {
               ))}
             </div>
             <div className="mt-[7px]  lg:mt-[59px] flex flex-row justify-center lg:justify-start">
+              <Link href="/Flores">
               <button className="w-[188px] h-[60px] bg-[#e39c9d] text-[24px] font-bold rounded-[6px] ">
                 Ver Tienda
               </button>
+              </Link>
             </div>
           </div>
           <div className="w-[526px] h-[526px] ">

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function Acerca() {
@@ -23,7 +24,9 @@ function Acerca() {
           </p>
         </div>
         <div className='w-full flex flex-row justify-center lg:justify-start'>
+          <Link href='/Acerca'>
           <button className='bg-[#E39C9D] w-[188px] h-[60px] rounded-[6px] text-[24px] font-bold font-inter '>Conócenos</button>
+          </Link>
         </div>
         </div>
 
