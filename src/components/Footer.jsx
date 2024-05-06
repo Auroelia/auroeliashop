@@ -60,7 +60,7 @@ del corazón</h3>
 <div className='h-[1px] bg-[#E39C9D] w-[60%] lg:hidden'/>
 
 </div>
-<div className='w-full  flex flex-col font-inter items-center text-white text-[12px] py-[15px] gap-[10px]'>
+<div className='w-full  flex flex-col lg:flex-row font-inter justify-center items-center text-white text-[12px] py-[15px] gap-[10px]'>
   <span>2024 Auroelia® </span>
   <Link href={"/TerminosCondiciones"} className='text-[#E39C9D]'>Términos y Condiciones</Link>
   <Link href={"/PoliticaPrivacidad"} className='text-[#E39C9D]'>Política de Privacidad</Link>

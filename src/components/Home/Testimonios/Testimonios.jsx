@@ -62,30 +62,48 @@ function Testimonios() {
             <img
               src="/assets/Home/testimonios/usuario.svg"
               alt="estrella"
-              className="w-[35px] h-[35px]lg:w-[117px] lg:h-[117px] ml-[10px]"
+              className="w-[35px] h-[35px] lg:w-[117px] lg:h-[117px] ml-[10px]"
               />
               </div>
               </div>
           </div>
           <div>
             <p className="text-end text-[12px] lg:text-[24px] leading-[17px] lg:leading-[35px] w-[209px] lg:w-[556px]">
-              Mi ramo de novia fue perfecto. Cada flor era como sacada de un
-              cuento de hadas. ¡Gracias por hacer mi día aún más especial!
+            {testimonios[seleccion].testimonio}
             </p>
           </div>
           <div className=" w-full flex flex-row items-center justify-end gap-[8px] lg:gap-[21px]">
-            <div className="rounded-full bg-[#d8d8d8] w-[28px] h-[28px] lg:w-[76px] lg:h-[76px] flex items-center justify-center">
+            <div className="rounded-full bg-[#d8d8d8] w-[28px] h-[28px] lg:w-[76px] lg:h-[76px] flex items-center justify-center cursor-pointer"
+            onClick={() => {
+              if (seleccion === 0) {
+                setSeleccion(2);
+              } else {
+                setSeleccion(seleccion - 1);
+              }
+            }
+            }
+            >
               <img
                 src="/assets/icons/izq.svg"
                 alt="arrow"
-                className="w-[9px] h-[15px] w-[25px] h-[40px]"
+                className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
               />
             </div>
-            <div className="rounded-full bg-black w-[28px] h-[28px] lg:w-[76px] lg:h-[76px] flex items-center justify-center">
+            <div className="rounded-full bg-black w-[28px] h-[28px] lg:w-[76px] lg:h-[76px] flex items-center justify-center cursor-pointer"
+            onClick={() => {
+              if (seleccion === 2) {
+                setSeleccion(0);
+              } else {
+                setSeleccion(seleccion + 1);
+              }
+
+            }
+            }
+            >
               <img
                 src="/assets/icons/der.svg"
                 alt="arrow"
-                className="w-[9px] h-[15px] w-[25px] h-[40px]"
+                className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
               />
             </div>
           </div>
