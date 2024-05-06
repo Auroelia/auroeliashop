@@ -50,7 +50,7 @@ function Product() {
         <div className="w-full h-full flex flex-col justify-between  max-w-[1440px] min-w-sm mx-auto">
           <div className="w-full flex flex-col lg:flex-row justify-center gap-[10px] lg:gap-[54px]  ">
             {/* Mobil */}
-            <div className="w-full h-full flex flex-row overflow-x-scroll no-scrollbar gap-[10px] px-4 my-4 ">
+            <div className="w-full h-full lg:hidden flex flex-row overflow-x-scroll no-scrollbar gap-[10px] px-4 my-4 ">
   {
     product?.imagenes[0] &&
     product.imagenes.map((imagen, index) => (

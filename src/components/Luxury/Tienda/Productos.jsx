@@ -61,12 +61,13 @@ const closeModal = () => setModalOpen(false);
   return (
     <div className="w-full h-full flex flex-col mb-[80px]">
 
-        <div className="w-full h-full flex flex-col mt-4 lg:mt-0 ">
+<div className="w-full h-full flex flex-col mt-4 lg:mt-0 lg:mb-8 ">
           
-          <div className="w-full flex justify-around">
+          <div className="w-full flex justify-around lg:justify-end lg:pr-8">
             <div className="flex flex-col gap-[10px] ">
-              <span className="text-[#E39C9D] font-inter font-bold text-[12px] lg:text-[16px]">Ordenar por:</span>
-            <div className="flex items-center gap-[6px]">
+              <span className="text-[#E39C9D] font-inter font-bold text-[12px] lg:text-[16px] lg:hidden">Ordenar por:</span>
+            <div className="flex items-center  gap-[6px]">
+              <span className="text-[16px] font-inter">Ordenar por</span>
               <select className="rounded-[3px] border-[1px] border-[#E39C9D] w-[121px] h-[23px] flex items-center justify-center">
                 <option value="mas-vendidos">Más vendidos</option>
                 <option value="precio-ascendente">Precio ascendente</option>
@@ -77,7 +78,7 @@ const closeModal = () => setModalOpen(false);
             </div>
             <div className="flex flex-col justify-end">
 
-            <div className="w-[79px] h-[23px] border-[1px] border-[#E39C9D] flex items-center justify-center gap-[15px]"
+            <div className="w-[79px] h-[23px] border-[1px] border-[#E39C9D] flex items-center justify-center gap-[15px] lg:hidden"
              onClick={openModal}
             >
               <span>Filtrar</span>
