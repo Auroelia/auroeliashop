@@ -125,24 +125,8 @@ function Informacion({
         value={destinatario.cp}
         onChange={handleChangeDestinatario}
     />
-    <span className=" text-[16px] font-inter font-bold col-span-2">
-      Escribe tu Dedicatoría
-    </span>
-    <textarea
-      placeholder="Dedicatoria"
-      className="h-[164px] w-full border-[1px] border-[#E39C9D] col-span-2 pl-4 pt-4 mt-[10px]"
-        name="dedicatoria"
-        value={destinatario.dedicatoria}
-        onChange={handleChangeDestinatario}
-    />
-    <input
-      type="text"
-      placeholder="Firma"
-      className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4 col-span-2"
-        name="firma"
-        value={destinatario.firma}
-        onChange={handleChangeDestinatario}
-    />
+   
+    
     <span className=" text-[16px] font-inter font-bold col-span-2 ">
       Notas de Envío
     </span>

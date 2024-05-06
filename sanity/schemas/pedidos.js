@@ -3,7 +3,6 @@ const pedidosSchema = {
     title: 'Pedido',
     type: 'document',
     fields: [
-       
         {
             name: 'cliente',
             title: 'Cliente',
@@ -11,7 +10,7 @@ const pedidosSchema = {
             fields: [
                 { name: 'nombre', title: 'Nombre', type: 'string' },
                 { name: 'apellidos', title: 'Apellidos', type: 'string' },
-                { name: 'telefono', title: 'Nombre', type: 'number' },
+                { name: 'telefono', title: 'Telefono', type: 'string' },
                 { name: 'correo', title: 'Correo', type: 'string' },
             ],
         },
@@ -21,16 +20,13 @@ const pedidosSchema = {
             type: 'object',
             fields: [
                 { name: 'nombre', title: 'Nombre', type: 'string' },
-                { name: 'telefono', title: 'Nombre', type: 'number' },
+                { name: 'telefono', title: 'Telefono', type: 'string' },
                 { name: 'direccion', title: 'Dirección', type: 'string' },
                 { name: 'colonia', title: 'Colonia', type: 'string' },
                 { name: 'estado', title: 'Estado', type: 'string' },
                 { name: 'delegacion', title: 'Delegación', type: 'string' },
                 { name: 'cp', title: 'CP', type: 'string' },
-                { name: 'dedicatoria', title: 'Dedicatoria', type: 'string' },
-                { name: 'firma', title: 'Firma', type: 'string' },
                 { name: 'notas', title: 'Notas', type: 'string' },
-                
             ],
         },
         {
@@ -40,52 +36,37 @@ const pedidosSchema = {
             fields: [
                 { name: 'fecha', title: 'Fecha', type: 'string' },
                 { name: 'horario', title: 'Horario', type: 'string' },
+                { name: 'dedicatoria', title: 'Dedicatoria', type: 'string' },
+                { name: 'firma', title: 'Firma', type: 'string' },
+                { name: 'estadoPedido', title: 'Estado de Pedido', type: 'string' },
             ],
         },
         {
             name: 'productos',
             title: 'Productos',
             type: 'array',
-            of: [{
-                type: 'object',
-                fields: [
-                    {
-                        name: 'producto',
-                        title: 'Producto',
-                        type: 'reference',
-                        to: [{ type: 'producto' }]
-                    },
-                    {
-                        name: 'qty',
-                        title: 'Cantidad',
-                        type: 'number'
-                    }
-                ]
-            }],
-        },
-        {
-            name: 'estado',
-            title: 'Estado de Pedido',
-            type: 'string',
-            options: {
-                list: [
-                    { title: 'Pendiente', value: 'pendiente' },
-                    { title: 'Confirmado', value: 'confirmado' },
-                    { title: 'Enviado', value: 'envidado' },
-                    { title: 'En Proceso', value: 'en_proceso' },
-                    { title: 'Entregado', value: 'entregado' },
-                ],
-            },
-        },
-
-        {
-            name: 'fecha',
-            title: 'Fecha',
-            type: 'datetime',
-            options: {
-                defaultValue: 'now',
-            },
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'product',
+                            title: 'Product',
+                            type: 'reference',
+                            to: [{ type: 'producto' }, { type: 'complemento' }],
+                        },
+                        {
+                            name: 'qty',
+                            title: 'Quantity',
+                            type: 'number',
+                            validation: (Rule) => Rule.required().integer().positive(),
+                        },
+                    ],
+                },
+            ],
+            validation: (Rule) => Rule.required(),
         },
     ],
 };
+
 export default pedidosSchema;

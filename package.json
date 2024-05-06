@@ -25,7 +25,8 @@
     "react-range-slider-input": "^3.0.7",
     "sanity": "^3.38.0",
     "styled-components": "^6.1.8",
-    "sweetalert2": "^11.10.8"
+    "sweetalert2": "^11.10.8",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "eslint": "^8",

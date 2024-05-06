@@ -12,13 +12,9 @@ function Product() {
 
   const { cart, addToCart, removeFromCart } = useContext(AppContext);
 
-  const [complementosActivos, setComplementosActivos] = useState([])
-
-  console.log(complementosActivos)
+  const [complementosActivos, setComplementosActivos] = useState([]);
 
   const [counter, setCounter] = useState(1);
-
-  
 
   const [products, setProductos] = useState([]);
   console.log(products);
@@ -50,11 +46,6 @@ function Product() {
   );
   const [selectedImage, setSelectedImage] = useState(null);
 
-
- 
-
-  
-
   return (
     <div className="w-full h-full relative overflow-hidden">
       {product && (
@@ -62,20 +53,20 @@ function Product() {
           <div className="w-full flex flex-col lg:flex-row justify-center gap-[10px] lg:gap-[54px]  ">
             {/* Mobil */}
             <div className="w-full h-full lg:hidden flex flex-row overflow-x-scroll no-scrollbar gap-[10px] px-4 my-4 ">
-  {
-    product?.imagenes[0] &&
-    product.imagenes.map((imagen, index) => (
-      <div key={index} className="w-[321px] h-[338px] flex-shrink-0">
-
-        <img
-          src={urlForImage(imagen)}
-          alt={product.nombre}
-          className="w-full h-full object-cover rounded-[30px]"
-        />
-      </div>
-    ))             
-  }
-</div>
+              {product?.imagenes[0] &&
+                product.imagenes.map((imagen, index) => (
+                  <div
+                    key={index}
+                    className="w-[321px] h-[338px] flex-shrink-0"
+                  >
+                    <img
+                      src={urlForImage(imagen)}
+                      alt={product.nombre}
+                      className="w-full h-full object-cover rounded-[30px]"
+                    />
+                  </div>
+                ))}
+            </div>
             {/* Desktop */}
             <div className="w-full hidden lg:flex flex-col items-end  gap-[44px]">
               <img
@@ -83,21 +74,20 @@ function Product() {
                 alt={product.nombre}
                 className="w-[427px] h-[486px] object-cover rounded-[30px]"
               />
-              {
-                product?.imagenes[1] && product?.imagenes[2] &&
+              {product?.imagenes[1] && product?.imagenes[2] && (
                 <div className="w-[406px] flex justify-between items-center ">
-                <img
-                  src={urlForImage(product?.imagenes[1]?.asset._ref)}
-                  alt={product.nombre}
-                  className="w-[188px] h-[194px] object-cover rounded-[30px]"
+                  <img
+                    src={urlForImage(product?.imagenes[1]?.asset._ref)}
+                    alt={product.nombre}
+                    className="w-[188px] h-[194px] object-cover rounded-[30px]"
                   />
-                <img
-                  src={urlForImage(product?.imagenes[2]?.asset._ref)}
-                  alt={product.nombre}
-                  className="w-[188px] h-[194px] object-cover rounded-[30px]"
+                  <img
+                    src={urlForImage(product?.imagenes[2]?.asset._ref)}
+                    alt={product.nombre}
+                    className="w-[188px] h-[194px] object-cover rounded-[30px]"
                   />
-              </div>
-                }
+                </div>
+              )}
             </div>
 
             <div className="w-full flex flex-col  px-4 ">
@@ -108,18 +98,20 @@ function Product() {
                 ${product.precio}.00
               </span>
               <div className="flex flex-row items-center gap-[23px]">
-                <button className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[24px] flex flex-col items-center justify-center "
-                onClick={() => {
-                  if (counter - 1 > 0) {
-                    setCounter(counter - 1);
-                  }
-                }}
+                <button
+                  className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[24px] flex flex-col items-center justify-center "
+                  onClick={() => {
+                    if (counter - 1 > 0) {
+                      setCounter(counter - 1);
+                    }
+                  }}
                 >
                   -
                 </button>
                 <span className="font-inter text-[32px] ">{counter}</span>
-                <button className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[24px] flex flex-col items-center justify-center"
-                onClick={() => setCounter(counter + 1)}
+                <button
+                  className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[24px] flex flex-col items-center justify-center"
+                  onClick={() => setCounter(counter + 1)}
                 >
                   +
                 </button>
@@ -128,46 +120,54 @@ function Product() {
                 {product.descripcion}
               </p>
               <div className="w-full h-full lg:w-[481px] flex flex-row items-center">
-                <h3 className="text-[25px] lg:text-[36px] mt-[36px] w-full">Complementos</h3>
-                
-                  <div className="  flex flex-row items-center justify-end gap-[20px] lg:gap-[21px] mt-[56px]">
-                    <div className="rounded-full bg-[#d8d8d8] w-[29px] h-[29px] lg:w-[64px] lg:h-[64px] flex items-center justify-center">
-                      <img
-                        src="/assets/icons/izq.svg"
-                        alt="arrow"
-                        className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
-                      />
-                    </div>
-                    <div className="rounded-full bg-black 
+                <h3 className="text-[25px] lg:text-[36px] mt-[36px] w-full">
+                  Complementos
+                </h3>
+
+                <div className="  flex flex-row items-center justify-end gap-[20px] lg:gap-[21px] mt-[56px]">
+                  <div className="rounded-full bg-[#d8d8d8] w-[29px] h-[29px] lg:w-[64px] lg:h-[64px] flex items-center justify-center">
+                    <img
+                      src="/assets/icons/izq.svg"
+                      alt="arrow"
+                      className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
+                    />
+                  </div>
+                  <div
+                    className="rounded-full bg-black 
                     w-[29px] h-[29px]
-                    lg:w-[64px] lg:h-[64px] flex items-center justify-center">
-                      <img
-                        src="/assets/icons/der.svg"
-                        alt="arrow"
-                        className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
-                      />
-                    </div>
+                    lg:w-[64px] lg:h-[64px] flex items-center justify-center"
+                  >
+                    <img
+                      src="/assets/icons/der.svg"
+                      alt="arrow"
+                      className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="lg:w-[481px] flex flex-row justify-between items-center mt-[27px]">
                 {complementos.map((complemento, index) => (
-                  <Complemento key={index} complemento={complemento}
-                  setComplementosActivos={setComplementosActivos}
-                  complementosActivos={complementosActivos}
+                  <Complemento
+                    key={index}
+                    complemento={complemento}
+                    setComplementosActivos={setComplementosActivos}
+                    complementosActivos={complementosActivos}
                   />
                 ))}
               </div>
 
               <div className="lg:w-[481px] flex flex-row gap-[10px] lg:gap-[0px] lg:justify-between items-center mt-[58px]  ">
-                <div className="font-inter text-[15px] lg:text-[24px] font-bold w-[160px] h-[37px] lg:w-[258px] lg:h-[60px] rounded-[6px] bg-[#E39C9D] flex items-center justify-center cursor-pointer"
-                onClick={()=> {
-                  addToCart(product,counter)
-                  if(complementosActivos.length>0){
-                    complementosActivos.forEach(complemento => {
-                      addToCart(complemento,1)
-                    })
-                  }
-                  }}>
+                <div
+                  className="font-inter text-[15px] lg:text-[24px] font-bold w-[160px] h-[37px] lg:w-[258px] lg:h-[60px] rounded-[6px] bg-[#E39C9D] flex items-center justify-center cursor-pointer"
+                  onClick={() => {
+                    addToCart(product, counter);
+                    if (complementosActivos.length > 0) {
+                      complementosActivos.forEach((complemento) => {
+                        addToCart(complemento, 1);
+                      });
+                    }
+                  }}
+                >
                   Agregar a carrito
                 </div>
                 <div className="font-inter text-[15px] lg:text-[24px] font-bold  w-[160px] h-[37px] lg:w-[204px] lg:h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px]">
@@ -261,7 +261,9 @@ function Product() {
             <span className="text-[#E39C9D] font-inter font-bold text[18px] lg:text-[32px]">
               Recomendaciones
             </span>
-            <h2 className=" text-[25px] lg:text-[83px]">También podría gustarte</h2>
+            <h2 className=" text-[25px] lg:text-[83px]">
+              También podría gustarte
+            </h2>
             <div className="flex gap-[22px] mt-[29px]">
               {products.slice(0, 4).map((producto) => (
                 <div
@@ -296,11 +298,15 @@ function Product() {
             <div className="w-[950px] flex justify-end items-center gap-[15px]">
               <Link href="/Flores" className="mt-[43px] mb-[42px] ">
                 <span className="text-[20px] font-medium hover:scale-110 transition-all duration-300 cursor-pointer">
-                    Ver Tienda
+                  Ver Tienda
                 </span>
               </Link>
-                <img src="/assets/icons/arrow.svg" alt="arrow" className="w-[40px] h-[40px]"/>
-                </div>
+              <img
+                src="/assets/icons/arrow.svg"
+                alt="arrow"
+                className="w-[40px] h-[40px]"
+              />
+            </div>
           </div>
         </div>
       )}

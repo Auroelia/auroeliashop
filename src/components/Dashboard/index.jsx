@@ -127,18 +127,7 @@ const Dashboard = () => {
               </span>{" "}
               Dashboard
             </li> */}
-            <li
-              className="cursor-pointer hover:text-[#d3cbc0] tracking-[3px]"
-              onClick={() => {
-                setActive(false);
-                handleSidebarClick("Reservaciones");
-              }}
-            >
-              <span>
-                <FaSuitcase className="text-2xl text-white" />
-              </span>
-              Reservaciones
-            </li>
+           
             
             <li
               className="cursor-pointer hover:text-[#d3cbc0] tracking-[3px]"
@@ -166,34 +155,8 @@ const Dashboard = () => {
               </span>{" "}
               Productos
             </a>
-            <a
-              href="https://casaitzimna.sanity.studio/desk/fechas"
-              target="_blank"
-              rel="noopener noreferrer"
-               className="cursor-pointer hover:text-[#d3cbc0] tracking-[3px]"
-               onClick={() => {
-                 setActive(false)
-               }}
-            >
-              <span>
-                <FaReceipt className="text-2xl text-white" />
-              </span>{" "}
-              Experiencias
-            </a>
-            <a
-             href="https://casaitzimna.sanity.studio/desk/fechas"
-             target="_blank"
-             rel="noopener noreferrer"
-              className="cursor-pointer hover:text-[#d3cbc0] tracking-[3px]"
-              onClick={() => {
-                setActive(false)
-              }}
-            >
-              <span>
-                <FaReceipt className="text-2xl text-white" />
-              </span>{" "}
-              Fechas Especiales
-            </a>
+          
+           
             <li
               className="cursor-pointer hover:text-[#d3cbc0] tracking-[3px]"
               onClick={() => {

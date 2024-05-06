@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DatosModal from "./DatosModal";
 
 function Envio({ openModal, isModalOpen, closeModal,
- envio, setEnvio, enviarInfo})
+ envio, setEnvio, enviarInfo, error})
 
   {
  
@@ -128,17 +128,32 @@ function Envio({ openModal, isModalOpen, closeModal,
             </button>
           </div>
         </div>
+
+        <input
+      type="text"
+      placeholder="Firma"
+      className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4 col-span-2"
+        name="firma"
+        value={envio.firma}
+        onChange={handleChangeEnvio}
+    />
         <div className="">
         <button
   className="w-full lg:w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter lg:mt-[20px]"
   onClick={() => {
-/*     openModal();
- */    enviarInfo();
+    console.log(error)
+    if(!error){
+      openModal();
+      enviarInfo();
+    }
   }}
 >
             Pagar
           </button>
-          {isModalOpen && (
+          {
+            error && <span className="text-red-500 text-sm">Por favor rellena todos los campos</span>
+          }
+          {isModalOpen && !error && (
             <DatosModal
               isOpen={isModalOpen}
               close={closeModal}

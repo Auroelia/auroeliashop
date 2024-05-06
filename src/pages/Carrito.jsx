@@ -6,6 +6,9 @@ import DatosModal from "@/components/Carrito/DatosModal";
 import Productos from "../../public/assets/Carrito/Productos";
 import Informacion from "@/components/Carrito/Informacion";
 import Envio from "@/components/Carrito/Envio";
+import { client } from "@/lib/client";
+import { v4 as uuidv4 } from 'uuid';
+
 
 function Carrito() {
   const { cart } = useContext(AppContext);
@@ -55,23 +58,68 @@ const [cliente, setCliente] = useState({
   estado: "",
   delegacion: "",
   cp: "",
-  dedicatoria: "",
-  firma: "",
   notas: "",
   });
 
   const [envio, setEnvio] = useState({
-  fecha: "",
   horario: "",
   dedicatoria: "",
-
+  firma: "",
+  estadoPedido: "pendiente",
+  fecha: new Date(),
   })
 
-  const enviarInfo = () =>{
-    console.log(cliente, "cliente")
-    console.log(destinatario, "destinatario")
-    console.log(envio, "envio")
-  }
+  const [error, setError] = useState(false)
+
+  const enviarInfo = () => {
+    e.preventDefault()
+    console.log(cliente)
+    console.log(destinatario)
+    console.log(envio)
+    // Verificar que todos los campos estén llenos
+    if (
+      cliente.nombre === "" ||
+      cliente.apellidos === "" ||
+      cliente.telefono === "" ||
+      cliente.correo === "" ||
+      destinatario.nombre === "" ||
+      destinatario.telefono === "" ||
+      destinatario.direccion === "" ||
+      destinatario.colonia === "" ||
+      destinatario.estado === "" ||
+      destinatario.delegacion === "" ||
+      destinatario.cp === "" ||
+      envio.horario === "" ||
+      envio.dedicatoria === "" ||
+      envio.firma === ""
+    ) {
+      setError(true);
+    }
+    else{
+      setError(true);
+      // Mapear cart para extraer solo el _id, qty y añadir _key único
+      const productosParaSanity = cart.map((item) => ({
+        _key: uuidv4(), // Generar una clave única para cada elemento
+        product: { _ref: item.product._id }, // Referencia al _id del producto
+        qty: item.qty, // Cantidad
+      }));
+      
+      client
+      .create({
+        _type: "pedido", // Nombre del esquema en Sanity
+        cliente: cliente,
+        destinatario: destinatario,
+        envio: envio,
+        productos: productosParaSanity, // Ajuste aquí: utiliza productosParaSanity
+      })
+      .then((res) => {
+        console.log(`Pedido fue creado, ID es ${res._id}`);
+      })
+      .catch((err) => {
+        console.log("Ocurrió un error:", err.message);
+      });
+    }
+  };
 
 
 
@@ -153,6 +201,7 @@ setDestinatario={setDestinatario}
           envio={envio}
           setEnvio={setEnvio}
           enviarInfo={enviarInfo}
+          error={error}
 
          />
       </div>
