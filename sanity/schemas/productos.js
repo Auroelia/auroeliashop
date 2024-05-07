@@ -57,7 +57,11 @@ const productosSchema = {
             of: [{ type: 'image', options: { hotspot: true } }],
             validation: (Rule) => Rule.required(),
         },
-        // Agrega aquí más campos según tus necesidades
+        {
+            name: 'file',
+            title: 'Archivo',
+            type: 'file'
+          }
     ],
 };
 

@@ -40,7 +40,14 @@ const complementosSchema = {
             of: [{ type: 'image', options: { hotspot: true } }],
             validation: (Rule) => Rule.required(),
         },
-        // Agrega aquí más campos según tus necesidades
+        {
+            name:"tipo",
+            title:"Tipo",
+            type:"string",
+            validation: (Rule) => Rule.required(),
+            initialValue: 'complemento',
+        }
+        
     ],
 };
 

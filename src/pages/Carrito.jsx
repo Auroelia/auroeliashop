@@ -72,7 +72,7 @@ const [cliente, setCliente] = useState({
   const [error, setError] = useState(false)
 
   const enviarInfo = () => {
-    e.preventDefault()
+    
     console.log(cliente)
     console.log(destinatario)
     console.log(envio)

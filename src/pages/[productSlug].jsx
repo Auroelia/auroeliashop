@@ -46,6 +46,8 @@ function Product() {
   );
   const [selectedImage, setSelectedImage] = useState(null);
 
+  console.log(product)
+
   return (
     <div className="w-full h-full relative overflow-hidden">
       {product && (
@@ -170,13 +172,16 @@ function Product() {
                 >
                   Agregar a carrito
                 </div>
-                <div className="font-inter text-[15px] lg:text-[24px] font-bold  w-[160px] h-[37px] lg:w-[204px] lg:h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px]">
+                {
+                  product.file?.asset?._ref&&
+                  <div className="font-inter text-[15px] lg:text-[24px] font-bold  w-[160px] h-[37px] lg:w-[204px] lg:h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px]">
                   <img
                     src="/assets/icons/ar.svg"
                     className="w-[13px] h-[22px] lg:w-[21px] lg:h-[37px]"
-                  />
+                    />
                   Ver en AR
                 </div>
+                  }
               </div>
               <div className="h-[1px] lg:w-[481px] bg-[#E39C9D] mt-[37px]" />
               {/* Materiales */}
