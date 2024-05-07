@@ -34,7 +34,7 @@ function Contacto() {
         Dudas y comentarios
                 </span>
                 <h2 className="text-[45px] lg:text-[83px]">Contáctanos</h2>
-                <span className="text-[#E39C9D] font-inter text-[18px] lg:text-[24px] w-[179px] text-center lg:w-full lg:text-left ">
+                <span className="text-[#E39C9D] font-inter text-[18px] lg:text-[24px] w-[179px] text-center lg:w-full  ">
                 Horario de Atención de 10 AM a 7 PM
                 </span>
                 <div className='w-full flex flex-col justify-center items-center mt-[36px]'>
@@ -49,7 +49,7 @@ function Contacto() {
                 </a>
                 <a href='mailto:contacto@auroelia.com' className='flex flex-row lg:flex-col items-center justify-center gap-[25px] lg:gap-[8px] w-[326px] h-[90px] lg:w-[333px] lg:h-[285px] rounded-[26px] lg:rounded-[58px] cursor-pointer' style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}>
                         <img src="/assets/icons/contactMail.svg" alt='contacto1' className='w-[48px] h-[31px] lg:w-[82px] lg:h-[61px] object-cover' />
-                        <p className='text-[12px] lg:text-[24px]font-medium'>contacto@auroelia.com</p>
+                        <p className='text-[12px] lg:text-[24px] font-medium'>contacto@auroelia.com</p>
                     </a>
                 <a href='https://www.facebook.com/auroelia' className='flex flex-row lg:flex-col items-center justify-center gap-[25px] lg:gap-[8px] w-[326px] h-[90px] lg:w-[333px] lg:h-[285px] rounded-[26px] lg:rounded-[58px] cursor-pointer' style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}>
                         <img src="/assets/icons/conctactFB.svg" alt='contacto1' className='w-[20] h-[32px] lg:w-[44px] lg:h-[70px] object-cover' />
