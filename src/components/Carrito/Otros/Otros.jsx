@@ -46,7 +46,7 @@ function Populares() {
   return (
     <div className="hidden xl:block w-full h-full overflow-hidden relative">
       <div className="w-full h-[650px] flex flex-col justify-center max-w-[1440px] min-w-sm mx-auto">
-        <div className="w-full   flex flex-row justify-between px-[198px]">
+        <div className="w-full   flex flex-row justify-between xl:px-[120px] 2xl:px-[198px]">
           <div className="w-full flex flex-col">
             <span className="text-[#E39C9D] font-inter font-bold text-[32px]">
               Otros Productos
@@ -70,7 +70,7 @@ function Populares() {
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-row justify-between px-[198px] ">
+        <div className="w-full flex flex-row justify-between xl:px-[120px] 2xl:px-[198px] ">
 
         {
            productos.slice(0,3).map((product, index) => (

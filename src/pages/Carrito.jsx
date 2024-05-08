@@ -71,32 +71,32 @@ const [cliente, setCliente] = useState({
 
   const [error, setError] = useState(false)
 
-  const enviarInfo = () => {
-    
-    console.log(cliente)
-    console.log(destinatario)
-    console.log(envio)
-    // Verificar que todos los campos estén llenos
+  useEffect(() => {
     if (
-      cliente.nombre === "" ||
-      cliente.apellidos === "" ||
-      cliente.telefono === "" ||
-      cliente.correo === "" ||
-      destinatario.nombre === "" ||
-      destinatario.telefono === "" ||
-      destinatario.direccion === "" ||
-      destinatario.colonia === "" ||
-      destinatario.estado === "" ||
-      destinatario.delegacion === "" ||
-      destinatario.cp === "" ||
-      envio.horario === "" ||
-      envio.dedicatoria === "" ||
-      envio.firma === ""
+      cliente.nombre !== "" &&
+      cliente.apellidos !== "" &&
+      cliente.telefono !== "" &&
+      cliente.correo !== "" &&
+      destinatario.nombre !== "" &&
+      destinatario.telefono !== "" &&
+      destinatario.direccion !== "" &&
+      destinatario.colonia !== "" &&
+      destinatario.estado !== "" &&
+      destinatario.delegacion !== "" &&
+      destinatario.cp !== "" &&
+      envio.horario !== "" &&
+      envio.dedicatoria !== "" &&
+      envio.firma !== ""
     ) {
+      setError(false);
+    } else {
       setError(true);
     }
-    else{
-      setError(true);
+  }, [cliente, destinatario, envio]);
+
+  const enviarInfo = () => {
+    
+    if (!error) {
       // Mapear cart para extraer solo el _id, qty y añadir _key único
       const productosParaSanity = cart.map((item) => ({
         _key: uuidv4(), // Generar una clave única para cada elemento
