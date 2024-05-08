@@ -8,7 +8,6 @@ function Ventas() {
   const itemsPerPage = 6; 
 
   const [ventas, setVentas] = useState([])
-  console.log(ventas)
   const [totalItems, setTotalItems] = useState(0);
   
   useEffect(() => {
@@ -40,15 +39,19 @@ const openModal = () => setModalOpen(true);
 const closeModal = () => setModalOpen(false);
 
   return (
-    <div className='w-full h-full'>
-      <div className='w-full grid grid-cols-3 place-items-center'>
+    <div className='w-full h-full flex flex-col justify-center'>
+      <div className='w-full grid grid-cols-3 gap-x-[10px] place-items-center'>
         {
           ventas.map((venta,index) => (
+            venta.productos.map((productoVenta, index) => (
+
           <Venta
           key={index}
           venta={venta}	
+          productoVenta = {productoVenta}
           />
           ))
+        ))
         }
       </div>
 

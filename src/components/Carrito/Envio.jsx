@@ -141,7 +141,6 @@ function Envio({ openModal, isModalOpen, closeModal,
         <button
   className="w-full lg:w-[349px] h-[40px] rounded-[6px] bg-[#E39C9D] mt-[10px] font-bold text-[24px] font-inter lg:mt-[20px]"
   onClick={() => {
-    console.log(error)
     if(!error){
       openModal();
       enviarInfo();

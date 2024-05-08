@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import Ventas from "./Ventas";
 import { AppContext } from "@/context/AppContext";
+import Productos from "./Productos";
 
 const Dashboard = () => {
   const [active, setActive] = useState(false);
@@ -55,6 +56,8 @@ const Dashboard = () => {
      
         case "Ventas":
           return <Ventas/>
+        case "Productos":
+          return <Productos/>
       default:
         return <Ventas />;
     }
@@ -118,15 +121,6 @@ const Dashboard = () => {
         </div>
         <div>
           <ul className="flex flex-col text-center gap-3 text-xl font-Geometrica">
-            {/* <li
-              className="cursor-pointer hover:text-[#d3cbc0] tracking-[3px]"
-              onClick={() => setActive(false)}
-            >
-              <span>
-                <AiFillHome className="text-2xl text-white " />
-              </span>{" "}
-              Dashboard
-            </li> */}
            
             
             <li
@@ -200,15 +194,12 @@ const Dashboard = () => {
                 </p>
                 <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer ">
                   
-                  <a
-      href="https://casaitzimna.sanity.studio/desk/productos"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span className="text-xl  font-inter tracking-[2px]">
+                  
+      <span className="text-xl  font-inter tracking-[2px]"
+      onClick={() => handleSidebarClick("Productos")}
+      >
         Productos
       </span>
-    </a>
                 </p>
                 
                 

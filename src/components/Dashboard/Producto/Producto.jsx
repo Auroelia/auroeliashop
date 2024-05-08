@@ -118,7 +118,7 @@ function Producto({ producto }) {
         const deletionSuccessful = await deleteProducto(producto._id);
 
         if (deletionSuccessful) {
-          console.log("Producto eliminado");
+         
           getProductos();
           Swal.fire("Eliminada", "El producto ha sido eliminada", "success");
         } else {

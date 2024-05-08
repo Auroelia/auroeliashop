@@ -3,7 +3,6 @@ import React from 'react'
 
 function DatosModal({isOpen,close,title}) {
 
-  console.log(isOpen)
 
   if (!isOpen) return null; 
 
