@@ -35,13 +35,13 @@ function Faqs() {
   return (
     <div className="w-full h-full relative overflow-hidden">
       <div
-        className="w-[90%] flex flex-col justify-center text-left lg:text-center  max-w-[1440px] min-w-sm mx-auto 
-        lg:px-[180px] "
+        className="w-[90%] flex flex-col justify-center text-left xl:text-center  max-w-[1440px] min-w-sm mx-auto lg:px-[50px] 
+        xl:px-[180px] "
       >
         <span className="text-[#E39C9D] font-inter font-bold text-[19px] lg:text-[32px] ">
           FAQs
         </span>
-        <h2 className="w-[150px] text-[42px] lg:text-[65px]">Dudas y Preguntas</h2>
+        <h2 className="w-[150px] lg:w-[200px] text-[42px] lg:text-[50px] xl:text-[65px]">Dudas y Preguntas</h2>
         <div className="flex flex-col gap-[36px] mt-[69px]">
           {faqs.map((faq, index) => (
             <div

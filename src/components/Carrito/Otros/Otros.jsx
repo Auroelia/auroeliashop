@@ -44,7 +44,7 @@ function Populares() {
     ];
 
   return (
-    <div className="hidden lg:block w-full h-full overflow-hidden relative">
+    <div className="hidden xl:block w-full h-full overflow-hidden relative">
       <div className="w-full h-[650px] flex flex-col justify-center max-w-[1440px] min-w-sm mx-auto">
         <div className="w-full   flex flex-row justify-between px-[198px]">
           <div className="w-full flex flex-col">
