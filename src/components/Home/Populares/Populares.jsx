@@ -71,7 +71,7 @@ function Populares() {
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-row justify-center lg:justify-between lg:px-[50px] 2xl:px-[198px] ">
+        <div className="w-full flex flex-row justify-center lg:justify-between lg:px-[100px] 2xl:px-[198px] ">
 
         {
            productos.slice(0,3).map((product, index) => (

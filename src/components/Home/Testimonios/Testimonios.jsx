@@ -68,7 +68,7 @@ function Testimonios() {
               </div>
           </div>
           <div>
-            <p className="text-end text-[12px] lg:text-[20px] xl:text-[24px] leading-[17px] lg:leading-[25px] xl:leading-[35px] w-[209px] lg:w-[400px] xl:w-[556px]">
+            <p className="text-end text-[12px] lg:text-[20px] xl:text-[24px] leading-[17px] lg:leading-[25px] xl:leading-[35px] w-[209px] lg:w-[450px] xl:w-[556px]">
             {testimonios[seleccion].testimonio}
             </p>
           </div>

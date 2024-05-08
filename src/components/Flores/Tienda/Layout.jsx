@@ -12,8 +12,8 @@ function Layout() {
 
       <div className='w-full flex flex-row max-w-[1440px] min-w-sm mx-auto lg:px-[50px]
         xl:px-[180px] relative'>
-          <img src='/assets/Flores/floresIzq.png' alt='flores' className=' hidden xl:block w-[568px] h-[719px] object-cover absolute -bottom-[300px] -left-[200px]'/>
-          <img src='/assets/Flores/floresIzq.png' alt='flores' className=' hidden xl:block w-[568px] h-[719px] object-cover absolute top-[0px] -right-[400px]'/>
+          <img src='/assets/Flores/floresIzq.png' alt='flores' className=' hidden 2xl:block w-[568px] h-[719px] object-cover absolute -bottom-[300px] -left-[200px]'/>
+          <img src='/assets/Flores/floresIzq.png' alt='flores' className=' hidden 2xl:block w-[568px] h-[719px] object-cover absolute top-[0px] -right-[400px]'/>
         <Filtros
         checklist={checklist}
         setChecklist={setChecklist}

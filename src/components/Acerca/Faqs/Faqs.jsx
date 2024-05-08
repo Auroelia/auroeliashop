@@ -41,7 +41,7 @@ function Faqs() {
         <span className="text-[#E39C9D] font-inter font-bold text-[19px] lg:text-[32px] ">
           FAQs
         </span>
-        <h2 className="w-[150px] lg:w-[200px] text-[42px] lg:text-[50px] xl:text-[65px]">Dudas y Preguntas</h2>
+        <h2 className="w-[150px] lg:w-[200px] xl:w-full text-[42px] lg:text-[50px] xl:text-[65px] ">Dudas y Preguntas</h2>
         <div className="flex flex-col gap-[36px] mt-[69px]">
           {faqs.map((faq, index) => (
             <div
@@ -80,10 +80,10 @@ function Faqs() {
           ))}
         </div>
         <div className="w-full flex flex-col lg:flex-row my-[68px]">
-          <div className=" w-full lg:w-1/3">
+          <div className=" w-full xl:w-1/2">
             <h3 className="text-[29px] lg:text-[41px] text-center lg:text-start">¿Tienes más dudas?</h3>
           </div>
-          <div className=" w-full lg:w-2/3 flex justify-center lg:justify-end">
+          <div className=" w-full lg:w-1/2 flex justify-center lg:justify-end">
             <Link href="/Contacto">
             <button className="w[117px] lg:w-[188px] h-[37px] lg:h-[60px] rounded-[6px] bg-[#E39C9D] text-[15px] lg:text-[24px] font-inter font-bold px-[15px]">
               Contáctanos
