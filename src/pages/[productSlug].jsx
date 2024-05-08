@@ -77,7 +77,7 @@ function Product() {
                 className="w-[427px] h-[486px] object-cover rounded-[30px]"
               />
               {product?.imagenes[1] && product?.imagenes[2] && (
-                <div className="w-[406px] flex justify-between items-center ">
+                <div className="w-[427px] flex justify-between items-center ">
                   <img
                     src={urlForImage(product?.imagenes[1]?.asset._ref)}
                     alt={product.nombre}
@@ -96,10 +96,10 @@ function Product() {
               <span className="font-inter text-[20px] lg:text-[42px] font-bold ">
                 {product.nombre}{" "}
               </span>
-              <span className="font-inter text-[20px] lg:text-[36px] ">
+              <span className="font-inter text-[20px] lg:text-[36px] xl:mt-[17px] ">
                 ${product.precio}.00
               </span>
-              <div className="flex flex-row items-center gap-[23px]">
+              <div className="flex flex-row items-center gap-[23px] xl:mt-[32px]">
                 <button
                   className="w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[24px] flex flex-col items-center justify-center "
                   onClick={() => {
@@ -118,7 +118,7 @@ function Product() {
                   +
                 </button>
               </div>
-              <p className="text-[16px] font-medium w-[322px] lg:w-[481px]">
+              <p className="text-[16px] font-medium w-[322px] lg:w-[481px] xl:mt-[30px]">
                 {product.descripcion}
               </p>
               <div className="w-full h-full lg:w-[481px] flex flex-row items-center">
