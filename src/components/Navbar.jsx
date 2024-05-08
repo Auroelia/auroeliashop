@@ -58,7 +58,7 @@ function Navbar() {
 
     </div>
     <div className='w-full h-full lg:hidden flex flex-col justify-center relative'>
-        <div className='flex flex-row justify-around mt-[150px]'>
+        <div className='flex flex-row justify-around mt-[50px]'>
         <Link href={"/"}>
         <Image 
         onClick={()=>setOpen(false)}
