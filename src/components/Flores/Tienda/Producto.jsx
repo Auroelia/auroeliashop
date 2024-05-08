@@ -8,7 +8,7 @@ function Producto({producto, addToCart}) {
 
   return (
     <div
-    className="w-full lg:w-[229px] shadow-popular rounded-[30px] cursor-pointer"
+    className="w-full md:w-[70%] lg:w-[229px] shadow-popular rounded-[30px] cursor-pointer"
   >
     <img
                   src={urlForImage(producto?.imagenes[0]?.asset._ref)}

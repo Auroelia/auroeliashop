@@ -98,8 +98,8 @@ const closeModal = () => setModalOpen(false);
             </div>
           </div>
           </div>
-
-      <div className="w-full h-full grid grid-cols-2 lg:grid-cols-3 gap-x-[22px] gap-y-[22px] lg:gap-y-[61px] px-[30px] lg:px-[0px] place-items-center mt-4 lg:mt-0">
+      <div className="w-full flex justify-center">
+      <div className="w-[90%] lg:w-full h-full grid grid-cols-2 lg:grid-cols-3 gap-x-[22px] gap-y-[22px] lg:gap-y-[61px]  lg:px-[0px] place-items-center mt-4 lg:mt-0">
         {filteredProductos.map((producto) => (
           <Producto
             key={producto._id}
@@ -107,6 +107,7 @@ const closeModal = () => setModalOpen(false);
             addToCart={addToCart}
           />
         ))}
+      </div>
       </div>
       <div>
         <div className=" w-full flex flex-row items-center justify-end gap-[21px] mt-[56px]">
