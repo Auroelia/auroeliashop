@@ -9,7 +9,7 @@ function Nuestros() {
           ¿Qué te gustaría regalar(te)?
         </span>
         <h2 className="text-[42px] lg:text-[83px]">Nuestros Productos</h2>
-        <div className="w[90%] lg:w-full flex flex-col items-center justify-center gap-[34px]">
+        <div className="w-[90%] xl:w-full flex flex-col items-center justify-center gap-[34px]">
           <div className="w-full flex flex-row gap-[14px] lg:gap-[37px] justify-center">
             <Link href="/Flores" className="w-[60%] h-[103px] lg:w-[559px] lg:h-[282px]">
             <div className="w-full h-full relative cursor-pointer">

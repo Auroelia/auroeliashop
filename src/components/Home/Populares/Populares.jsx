@@ -44,10 +44,10 @@ function Populares() {
   return (
     <div className="w-full h-full  relative">
       
-      <img src='/assets/petaloizq.png' alt='flores' className='hidden lg:block w-[377px] h-[300px] object-cover absolute -bottom-[80px] -left-[0px]'/>
-      <div className="w-full h-[650px] hidden lg:flex flex-col justify-center max-w-[1440px] min-w-sm mx-auto relative">
+      <img src='/assets/petaloizq.png' alt='flores' className='hidden xl:block w-[377px] h-[300px] object-cover absolute -bottom-[80px] -left-[0px]'/>
+      <div className="w-full h-[650px] hidden xl:flex flex-col justify-center max-w-[1440px] min-w-sm mx-auto relative">
       <img src='/assets/Home/populares/petalo.png' alt='flores' className='w-[271px] h-[292px] object-cover absolute -top-[150px] -right-[100px]'/>
-        <div className="w-full   flex flex-row justify-between  px-[198px]">
+        <div className="w-full   flex flex-row justify-between  lg: px-[100px] 2xl:px-[198px]">
           <div className="w-full flex flex-col">
             <span className="text-[#E39C9D] font-inter font-bold text-[32px]">
               Productos Populares
@@ -71,7 +71,7 @@ function Populares() {
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-row justify-between px-[198px] ">
+        <div className="w-full flex flex-row justify-center lg:justify-between lg:px-[50px] 2xl:px-[198px] ">
 
         {
            productos.slice(0,3).map((product, index) => (

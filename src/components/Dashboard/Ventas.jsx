@@ -40,7 +40,7 @@ const closeModal = () => setModalOpen(false);
 
   return (
     <div className='w-full h-full flex flex-col justify-center'>
-      <div className='w-full grid grid-cols-3 gap-x-[10px] place-items-center'>
+      <div className='w-full grid grid-cols-3 gap-x-[10px] gap-y-[50px] place-items-center'>
         {
           ventas.map((venta,index) => (
             venta.productos.map((productoVenta, index) => (

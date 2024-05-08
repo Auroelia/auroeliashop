@@ -37,24 +37,24 @@ function Testimonios() {
         </span>
         <h2 className="text-[42px]  lg:text-[83px]">Testimonios</h2>
       </div>
-      <div className="w-full flex flex-row justify-center">
+      <div className="w-full flex flex-row justify-center lg:justify-between xl:justify-center lg:px-[50px] xl:px-[0px]">
         <img
           src="/assets/Home/testimonios/testimonio.png"
           alt="testimonio-bg"
-          className=" w-[202px] h-[156px] lg:w-[577px]  lg:h-[481px] "
+          className=" w-[202px] h-[156px] lg:w-[450px]  lg:h-[350px] xl:w-[577px]  xl:h-[481px] "
         />
         <div className=" flex flex-col items-center justify-center gap-[30px]">
           <div className="w-full flex flex-row justify-between">
             <div className="flex flex-col justify-end">
-              <img src="/assets/Home/testimonios/comillas.png" alt="persona" className="w-[40px] h-[40px] lg:w-[120px] lg:h-[100px]" />
+              <img src="/assets/Home/testimonios/comillas.png" alt="persona" className="w-[40px] h-[40px] lg:w-[100px] lg:h-[80px] xl:w-[120px] xl:h-[100px]" />
               </div>
               <div className="flex flex-row justify-end">
 
             <div className="flex flex-col  text-end">
-              <span className="text-[12px] lg:text-[31px] font-bold font-inter">
+              <span className="text-[12px] lg:text-[25px] xl:text-[31px] font-bold font-inter">
                 {testimonios[seleccion].nombre}
               </span>
-              <span className="text-[12px] lg:text-[20px] font-light font-inter">
+              <span className="text-[12px] lg:text-[18px] xl:text-[20px] font-light font-inter">
                 {testimonios[seleccion].ciudad}
               </span>
             </div>
@@ -62,18 +62,18 @@ function Testimonios() {
             <img
               src="/assets/Home/testimonios/usuario.svg"
               alt="estrella"
-              className="w-[35px] h-[35px] lg:w-[117px] lg:h-[117px] ml-[10px]"
+              className="w-[35px] h-[35px] lg:w-[80px] lg:h-[80px] xl:w-[117px] xl:h-[117px] ml-[10px]"
               />
               </div>
               </div>
           </div>
           <div>
-            <p className="text-end text-[12px] lg:text-[24px] leading-[17px] lg:leading-[35px] w-[209px] lg:w-[556px]">
+            <p className="text-end text-[12px] lg:text-[20px] xl:text-[24px] leading-[17px] lg:leading-[25px] xl:leading-[35px] w-[209px] lg:w-[400px] xl:w-[556px]">
             {testimonios[seleccion].testimonio}
             </p>
           </div>
-          <div className=" w-full flex flex-row items-center justify-end gap-[8px] lg:gap-[21px]">
-            <div className="rounded-full bg-[#d8d8d8] w-[28px] h-[28px] lg:w-[76px] lg:h-[76px] flex items-center justify-center cursor-pointer"
+          <div className=" w-full flex flex-row items-center justify-end gap-[8px] lg:gap-[18px] xl:gap-[21px]">
+            <div className="rounded-full bg-[#d8d8d8] w-[28px] h-[28px] lg:w-[50px] lg:h-[50px] xl:w-[76px] xl:h-[76px] flex items-center justify-center cursor-pointer"
             onClick={() => {
               if (seleccion === 0) {
                 setSeleccion(2);
@@ -86,10 +86,10 @@ function Testimonios() {
               <img
                 src="/assets/icons/izq.svg"
                 alt="arrow"
-                className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
+                className="w-[9px] h-[15px] lg:w-[20px] lg:h-[35px] xl:w-[25px] xl:h-[40px]"
               />
             </div>
-            <div className="rounded-full bg-black w-[28px] h-[28px] lg:w-[76px] lg:h-[76px] flex items-center justify-center cursor-pointer"
+            <div className="rounded-full bg-black w-[28px] h-[28px] lg:w-[50px] lg:h-[50px] xl:w-[76px] xl:h-[76px] flex items-center justify-center cursor-pointer"
             onClick={() => {
               if (seleccion === 2) {
                 setSeleccion(0);
@@ -103,7 +103,7 @@ function Testimonios() {
               <img
                 src="/assets/icons/der.svg"
                 alt="arrow"
-                className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
+                className="w-[9px]  h-[15px] lg:w-[20px] lg:h-[35px] xl:w-[25px] xl:h-[40px]"
               />
             </div>
           </div>

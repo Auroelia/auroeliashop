@@ -38,14 +38,15 @@ function Hero() {
     <div className="w-full h-full overflow-hidden relative">
       
         <img src="/assets/Home/hero/lirio.png" alt="hero" className="
-        hidden lg:block
+        hidden xl:block
         w-[728px] h-[722px] absolute lg:-left-[150px] lg:-bottom-[100px] opacity-30 -z-10" /> 
 
         <img src={heroProducts[seleccion+1].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -right-[150px] top-[15%] lg:-top-[30px] blur-sm -z-10" />
-        <img src={heroProducts[seleccion+2].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -left-[150px] top-[15%] lg:-right-[150px] lg:bottom-[40px] blur-sm -z-10" />
+
+        <img src={heroProducts[seleccion+2].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -left-[150px] top-[15%]  lg:-right-[150px] lg:bottom-[40px] blur-sm -z-10" />
       
-      <div className="w-full h-scren lg:h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto">
-        <div className="w-full  flex flex-col-reverse lg:flex-row justify-center items-center ">
+      <div className="w-full h-screen lg:h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto items-center">
+        <div className="w-full lg:w-[90%] zl:w-full  flex flex-col-reverse lg:flex-row justify-center items-center ">
           <div className=" flex flex-col">
             <h1 className="text-[50px] lg:text-[70px] font-bloverly">
               {heroProducts[seleccion].name}
@@ -76,11 +77,11 @@ function Hero() {
               </Link>
             </div>
           </div>
-          <div className="w-[526px] h-[526px] ">
+          <div className="w-[526px]  h-[526px] ">
             <img
               src="/assets/Home/hero/osofancy.png"
               alt="osofancy"
-              className="w-full h-full"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
