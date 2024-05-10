@@ -1,47 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Producto from "./Producto";
 import { AppContext } from "@/context/AppContext";
+import { client } from "@/lib/client";
 
 function Populares() {
+  const [productos, setProductos] = useState([]);
 
+  useEffect(() => {
+    // Realiza la consulta a la API de Sanity para obtener los productos
+    client
+      .fetch(`*[_type == "producto"]`)
+      .then((data) => {
+        // Mezcla los datos para obtener un resultado aleatorio
+        const shuffledData = data.sort(() => 0.5 - Math.random());
+        // Obtiene los primeros 4 elementos de los datos mezclados
+        const selectedData = shuffledData.slice(0, 4);
+        setProductos(selectedData);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
-    const productos = [
-        {
-            id: 1,
-            name: "Arreglo Fiora",
-            price: 40,
-            description:
-                "¡Haz que tus emociones florezcan con nuestros Ositos Fancy! Cada uno de estos adorables ositos está hecho a mano con aproximadamente 500 hermosas rosas de goma EVA. Son el regalo perfecto para cualquier ocasión especial, infundiendo encanto y elegancia con su diseño artesanal.",
-        },
-        {
-            id: 2,
-            name: "Arreglo Moly",
-            price: 35,
-            description:
-                "El clásico arreglo floral de rosas blancas simboliza la pureza, la inocencia y la elegancia. Es perfecto para expresar sentimientos de amor puro, admiración y respeto. Nuestro arreglo de rosas blancas está cuidadosamente diseñado con rosas frescas y de alta calidad para transmitir emociones sinceras.",
-        },
-        {
-            id: 3,
-            name: "Arreglo Maya",
-            price: 30,
-            description:
-                "Los tulipanes son flores vibrantes y alegres que representan la belleza y la alegría. Nuestro arreglo de tulipanes coloridos es una explosión de colores vivos que iluminará cualquier espacio. Es el regalo perfecto para transmitir felicidad y celebrar momentos especiales.",
-        },
-        {
-            id: 4,
-            name: "Arreglo Jinx",
-            price: 25,
-            description:
-                "Los girasoles son flores que simbolizan la felicidad, la vitalidad y la energía positiva. Nuestro arreglo de girasoles radiantes es una forma maravillosa de transmitir alegría y optimismo. Cada girasol fue seleccionado cuidadosamente para asegurar su frescura y belleza duradera.",
-        },
-        {
-            id: 5,
-            name: "Arreglo Miles",
-            price: 45,
-            description:
-                "Las orquídeas son flores exóticas y elegantes que representan la belleza, la sofisticación y el lujo. Nuestro arreglo de orquídeas combina la delicadeza de las orquídeas con un diseño moderno y elegante. Es el regalo perfecto para impresionar y sorprender a alguien especial.",
-        },
-    ];
+ 
 
   return (
     <div className="hidden xl:block w-full h-full overflow-hidden relative">

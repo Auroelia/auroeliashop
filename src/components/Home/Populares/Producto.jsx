@@ -13,7 +13,7 @@ function Producto({ product }) {
       </div>
       <div className="w-full absolute bottom-0 h-[140px] z-10 bg-white  flex flex-row justify-center items-center ">
         <div className="w-full flex flex-col px-[24px]">
-          <span className="w-[152px] font-inter font-bold text-[24px]">
+          <span className="w-[180px] font-inter font-bold text-[24px]">
             {product.nombre}
           </span>
           <div className="w-full flex flex-row justify-between">
