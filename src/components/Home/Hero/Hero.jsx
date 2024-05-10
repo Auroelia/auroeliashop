@@ -54,7 +54,7 @@ function Hero() {
             <p className="mt-[12px] w-[293px] lg:w-[583px] text-[12px] lg:text-[16px] lg:font-semibold text-center lg:text-left font-shipporiMincho ">
               {heroProducts[seleccion].description}
             </p>
-            <div className="w-[200px] hidden lg:flex flex-row items-center justify-start  gap-[33px] mt-[40px]">
+            {/* <div className="w-[200px] hidden lg:flex flex-row items-center justify-start  gap-[33px] mt-[40px]">
               {heroProducts.map((product, index) => (
                 <div key={index} className="w-full h-full flex flex-col  gap-[12px]">
                   <div className="rounded-full w-[60px] h-[60px] cursor-pointer ">
@@ -68,9 +68,9 @@ function Hero() {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
             <div className="mt-[7px]  lg:mt-[59px] flex flex-row justify-center lg:justify-start">
-              <Link href="/Flores">
+              <Link href="/Tienda">
               <button className="w-[188px] h-[60px] bg-[#e39c9d] text-[24px] font-bold rounded-[6px] ">
                 Ver Tienda
               </button>

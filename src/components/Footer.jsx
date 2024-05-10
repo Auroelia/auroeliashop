@@ -36,11 +36,10 @@ del corazón</h3>
 del corazón</h3>
 <div className='flex flex-col text-[12px] lg:text-[15px] font-inter text-center lg:text-right gap-[10px] py-[15px] lg:py-[0px] '>
  
+    <Link href={"/"}>Home</Link>
     <Link href={"/Acerca"}>Acerca</Link>
   
-    <Link href={"/Flores"}>Flores</Link>
-    
-    <Link href={"/Luxury"}>Luxury</Link>
+    <Link href={"/Tienda"}>Tienda</Link>
     
     <Link href={"/Contacto"}>Contacto</Link>
    
