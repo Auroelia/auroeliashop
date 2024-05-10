@@ -9,7 +9,7 @@ function Hero() {
       price: 100,
       description:
         "¡Haz que tus emociones florezcan con nuestros Ositos Fancy! Cada uno de estos adorables ositos está hecho a mano con aproximadamente 500 hermosas rosas de goma EVA. Son el regalo perfecto para cualquier ocasión especial, infundiendo encanto y elegancia con su diseño artesanal.",
-      image: "/assets/Home/hero/osofancy.png",
+      image: "/assets/Home/hero/osito2.png", 
       elipse: "/assets/Home/hero/osoelipse.svg",
     },
     {
@@ -81,9 +81,9 @@ function Hero() {
           </div>
           <div className="w-[526px]  h-[526px] ">
             <img
-              src="/assets/Home/hero/osofancy.png"
+              src="/assets/Home/hero/osito2.png"
               alt="osofancy"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
