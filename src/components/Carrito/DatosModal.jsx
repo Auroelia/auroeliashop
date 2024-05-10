@@ -5,15 +5,18 @@ import React from 'react'
 
 function DatosModal({isOpen,close}) {
 
-
-  if (!isOpen) return null; 
-
   const router = useRouter();
-
+  
   const handleClick = () => {
     close();
     router.push('/');
   };
+  
+
+  if (!isOpen) return null; 
+
+
+
 
   return (
     <div style={{
