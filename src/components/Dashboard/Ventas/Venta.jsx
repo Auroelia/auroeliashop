@@ -28,7 +28,7 @@ function Venta({ venta, productoVenta }) {
   return (
     <div>
       
-        <div  style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}
+        <div className="rounded-t-[21px]" style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}
         
         >
           {
