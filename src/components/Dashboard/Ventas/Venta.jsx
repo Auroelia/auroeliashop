@@ -40,21 +40,39 @@ function Venta({ venta, productoVenta }) {
           className="w-[311px] h-[152px] object-cover rounded-t-[21px]"
           />
         }
-          <div className="flex flex-col h-[208px] justify-center px-[25px] rounded-b-[21px] gap-[5px]">
+          <div className="flex flex-col h-[300px] justify-center px-[25px] rounded-b-[21px] gap-[5px]">
             <span className="font-inter text-[14px] font-bold leading-[16px]">
               {product?.nombre}
             </span>
-            <span className="font-inter text-[14px]  leading-[16px]">
-              ${product?.precio}.00
-            </span>
+            <div className="font-inter text-[14px]  leading-[16px] flex flex-wrap gap-[10px]">
+              <span>
+                ${product?.precio}.00 
+                </span>
+              <span>
+                {venta?.cupon}
+                </span>
+              
+            </div>
             <span className="font-inter text-[14px]  leading-[16px]">
               {venta?.cliente.nombre} {venta?.cliente.apellidos}
             </span>
-            <div className="font-inter text-[14px]  leading-[16px]  flex gap-1 font-light w-[179px]  flex-wrap">
+            <span className="font-inter text-[14px]  leading-[16px]">
+              {venta?.destinatario.nombre} {venta?.destinatario.telefono}
+            </span>
+            <span className="font-inter text-[14px]  leading-[16px]">
+              {venta?.envio.fecha} {venta?.envio.horario}
+            </span>
+            <div className="font-inter text-[14px]  leading-[16px] flex flex-wrap w-[250px] ">
+              {venta?.envio.dedicatoria} 
+            </div>
+            <span className="font-inter text-[14px]  leading-[16px]">
+              {venta?.envio.firma} 
+            </span>
+            <div className="font-inter text-[14px]  leading-[16px]  flex gap-1 font-light w-[250px]  flex-wrap">
               <span>{venta.destinatario.direccion},</span>
               <span>{venta.destinatario.colonia},</span>
               <span>{venta.destinatario.estado},</span>
-              <span>{venta.destinatario.delegación},</span>
+              <span>{venta.destinatario.delegacion},</span>
               <span>{venta.destinatario.cp},</span>
               <span>{venta.destinatario.notas},</span>
             </div>
