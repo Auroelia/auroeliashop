@@ -4,7 +4,8 @@ function Elegirnos() {
   return (
     <div className='w-full h-full relative  mt-4 lg:mt-0'>
         <img src='/assets/Acerca/elegirnos/rosa.png' alt='elegirnos' className='w-[199px] h-[194px] lg:w-[412px] lg:h-[400px] xl:w-[627px] xl:h-[610px] object-cover absolute right-0 -bottom-[150px] lg:-bottom-[250px] xl:-right-[300px] ' />
-        <div className='w-full h-[610px] md:h-[410px] lg:h-[950px] flex flex-col text-center lg:flex-row justify-between max-w-[1440px] min-w-sm mx-auto 
+
+        <div className='w-full h-[610px] md:h-[410px] lg:h-[850px] flex flex-col text-center lg:flex-row justify-between max-w-[1440px] min-w-sm mx-auto 
         lg:px-[180px]
         '>
             <div className='w-full h-full flex flex-col justify-center items-center '>
