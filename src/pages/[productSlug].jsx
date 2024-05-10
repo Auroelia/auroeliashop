@@ -126,7 +126,7 @@ function Product() {
                   Complementos
                 </h3>
 
-                <div className="  flex flex-row items-center justify-end gap-[20px] lg:gap-[21px] mt-[56px]">
+               {/*  <div className="  flex flex-row items-center justify-end gap-[20px] lg:gap-[21px] mt-[56px]">
                   <div className="rounded-full bg-[#d8d8d8] w-[29px] h-[29px] lg:w-[64px] lg:h-[64px] flex items-center justify-center">
                     <img
                       src="/assets/icons/izq.svg"
@@ -145,7 +145,7 @@ function Product() {
                       className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
                     />
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="lg:w-[481px] flex flex-row justify-between items-center mt-[27px]">
                 {complementos.map((complemento, index) => (
@@ -271,7 +271,7 @@ function Product() {
               También podría gustarte
             </h2>
             <div className="flex gap-[22px] mt-[29px]">
-              {products.slice(0, 4).map((producto) => (
+              {similarProducts.slice(0, 4).map((producto) => (
                 <div
                   key={producto._id}
                   className="w-[229px] shadow-popular rounded-[30px] cursor-pointer"
@@ -302,7 +302,7 @@ function Product() {
               ))}
             </div>
             <div className="w-[950px] flex justify-end items-center gap-[15px]">
-              <Link href="/Flores" className="mt-[43px] mb-[42px] ">
+              <Link href="/Tienda" className="mt-[43px] mb-[42px] ">
                 <span className="text-[20px] font-medium hover:scale-110 transition-all duration-300 cursor-pointer">
                   Ver Tienda
                 </span>
