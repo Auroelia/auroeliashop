@@ -46,9 +46,15 @@ del corazón</h3>
    
 </div>
 <div className='lg:flex justify-end gap-[19px] hidden'>
+    <Link href={"/Carrito"}>
     <img src='/assets/icons/carritob.svg' alt='carrito' className='w-[20px] h-[22px] text' />
+    </Link>
+    <Link href={'https://www.facebook.com/auroelia'}>
     <img src='/assets/icons/fb.svg' alt='facebook' className='w-[13px] h-[21px]' />
+    </Link>
+    <Link href={'https://www.instagram.com/auroelia.na/'}>
     <img src='/assets/icons/ig.svg' alt='instagram' className='w-[21px] h-[24px]' />
+    </Link>
 </div>
         </div>
 
