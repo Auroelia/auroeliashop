@@ -156,7 +156,7 @@ function Envio({ openModal, isModalOpen, closeModal,
             <DatosModal
               isOpen={isModalOpen}
               close={closeModal}
-              title="Título del Modal"
+              
             />
           )}
         </div>

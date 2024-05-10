@@ -1,10 +1,19 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react'
 
-function DatosModal({isOpen,close,title}) {
+
+function DatosModal({isOpen,close}) {
 
 
   if (!isOpen) return null; 
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    close();
+    router.push('/');
+  };
 
   return (
     <div style={{
@@ -24,7 +33,7 @@ function DatosModal({isOpen,close,title}) {
       style={{
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
       }}>
-        <img src='/assets/Carrito/cerrar.svg' alt='close' className='absolute top-4 right-4 m-[20px] cursor-pointer w-[24px] lg:w-[50px]' onClick={close}/>
+        <img src='/assets/Carrito/cerrar.svg' alt='close' className='absolute top-4 right-4 m-[20px] cursor-pointer w-[24px] lg:w-[50px]' onClick={handleClick}/>
 
         <img src='/assets/Carrito/girasol.png' alt='girasol' className='absolute -top-24 -left-24 lg:-top-60 lg:-left-60 w-[182px] h-[190px] lg:w-[469px] lg:h-[489px] object-contain'/>
         <img src='/assets/Acerca/elegirnos/rosa.png' alt='girasol' className='absolute -bottom-28 -right-24 lg:-bottom-60 lg:-right-60 w-[182px] h-[190px] lg:w-[469px] lg:h-[489px] object-contain' />
@@ -37,6 +46,10 @@ function DatosModal({isOpen,close,title}) {
             <span className='text-center text-[12px] lg:text-[32px] text-[#E39C9D] font-bold'>
               CUENTA
             </span>
+            <p className='text-[12px] lg:text-[22px] font-bold mt-[12px]  lg:mt-[28px] text-center  w-[215px] lg:w-full '>
+           Santander u Oxxo
+           
+            </p>
             <p className='text-[12px] lg:text-[22px] font-bold mt-[12px]  lg:mt-[28px] text-center  w-[215px] lg:w-full '>
            J Armando Zavala
            
@@ -64,7 +77,7 @@ function DatosModal({isOpen,close,title}) {
         </div>
         <div className='flex flex-row justify-center items-center gap-[46px] mt-[32px]'>
         <button className='w-[117px] h-[37px] lg:w-[152px] lg:h-[58px] rounded-[6px] bg-[#E39C9D] font-inter text-[15px] lg:text-[24px] font-bold'
-        onClick={close}
+       onClick={handleClick}
         >Aceptar</button>
         <Link href='/Contacto'>
         <button className='w-[117px] h-[37px] lg:w-[152px] lg:h-[58px] rounded-[6px] bg-black text-white font-inter text-[15px] lg:text-[24px] font-bold'>Contacto</button>
