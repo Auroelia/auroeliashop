@@ -43,7 +43,9 @@ function Hero() {
 
         <img src={heroProducts[seleccion+1].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -right-[150px] top-[15%] lg:-top-[30px] blur-sm -z-10" />
 
-        <img src={heroProducts[seleccion+2].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -left-[150px] top-[15%]  lg:-right-[150px] lg:bottom-[40px] blur-sm -z-10" />
+        <img src={heroProducts[seleccion+2].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -left-[150px] top-[15%]  lg:hidden blur-sm -z-10" />
+
+        <img src={heroProducts[seleccion+2].image} alt="hero" className="hidden lg:block lg:w-[326px] lg:h-[326px] absolute   lg:-right-[150px] lg:bottom-[40px] blur-sm -z-10" />
       
       <div className="w-full h-screen lg:h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto items-center">
         <div className="w-full lg:w-[90%] zl:w-full  flex flex-col-reverse lg:flex-row justify-center items-center ">

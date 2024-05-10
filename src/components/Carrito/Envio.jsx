@@ -90,7 +90,7 @@ function Envio({ openModal, isModalOpen, closeModal,
             onChange={handleChangeEnvio}
         />
         <select
-          className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
+          className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] my-[10px] pl-4"
           name="horario"
             value={envio.horario}
             onChange={handleChangeEnvio}
@@ -99,7 +99,7 @@ function Envio({ openModal, isModalOpen, closeModal,
           <option value="12-4">12pm-4pm</option>
           {new Date().getHours() > 16 && <option value="4-7">4pm-7pm</option>}
         </select>
-        <span className="text-[16px] font-inter font-bold">
+        <span className="text-[16px] font-inter font-bold ">
           Escribe o elige una dedicatoria
         </span>
         <textarea
