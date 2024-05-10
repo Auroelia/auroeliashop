@@ -168,6 +168,7 @@ function Product() {
                         addToCart(complemento, 1);
                       });
                     }
+                    router.push("/Carrito");
                   }}
                 >
                   Agregar a carrito

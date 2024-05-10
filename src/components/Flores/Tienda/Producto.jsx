@@ -31,7 +31,10 @@ function Producto({producto, addToCart}) {
                       src="/assets/icons/carrito.svg"
                       alt="carrito de compras"
                       className="w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] cursor-pointer hover:scale-125 transition-all duration-300"
-                      onClick={() => addToCart(producto, 1)}
+                      onClick={() => {
+                        addToCart(producto, 1)
+                        router.push("/Carrito")}
+                      }
                     />
                   </div>
                 </div>

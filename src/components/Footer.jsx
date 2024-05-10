@@ -24,11 +24,11 @@ del corazón</h3>
 </div>
           <div className='items-center gap-[3px] hidden lg:flex'>
             <img src='/assets/icons/telefono.svg' alt='telefono' className='w-[32px] h-[31px]' />
-            <a href='tel:+5255402356' className='text-white text-[24px] font-inter '>+52 5540 2356</a>
+            <a href='tel:+525626306790' className='text-white text-[24px] font-inter '>+52 56 2630 6790</a>
           </div>
           <div className='items-center gap-[2px] hidden lg:flex'>
             <img src='/assets/icons/correo.svg' alt='telefono' className='w-[32px] h-[31px]' />
-            <a href='tel:+5255402356' className='text-white text-[24px] font-inter '>contacto@auroelia.com</a>
+            <a href='mailto:auroeliashop@gmail.com' className='text-white text-[24px] font-inter '>auroeliashop@gmail.com</a>
           </div>
         </div>
         <div className='flex flex-col text-white text-end gap-[17px]'>
