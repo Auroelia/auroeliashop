@@ -124,10 +124,18 @@ function Navbar() {
         </div>
         <div className='w-full flex flex-row justify-center items-center gap-[55px] my-[26px]'>
 
+          <Link href={'https://www.facebook.com/auroelia'}>
         <Image src="/assets/icons/navbar/fbnav.svg" width={100} height={100} className='w-[26px] h-[25px] object-fit'/>
+        </Link>
+        <Link href={'https://www.instagram.com/auroelia.na/'}>
         <Image src="/assets/icons/navbar/ignav.svg" width={100} height={100} className='w-[26px] h-[25px] object-fit'/>
+        </Link>
+        <a href='tel:+525626306790'>
         <Image src="/assets/icons/navbar/telnav.svg" width={100} height={100} className='w-[26px] h-[25px] object-fit'/>
+        </a>
+        <a href='mailto:auroeliashop@gmail.com'>
         <Image src="/assets/icons/navbar/mailnav.svg" width={100} height={100} className='w-[26px] h-[25px] object-fit'/>
+        </a>
 
         </div>
         </div>
