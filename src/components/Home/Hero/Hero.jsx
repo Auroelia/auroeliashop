@@ -47,7 +47,7 @@ function Hero() {
 
         <img src={heroProducts[seleccion+2].image} alt="hero" className="hidden lg:block lg:w-[326px] lg:h-[326px] absolute   lg:-right-[150px] lg:bottom-[40px] blur-sm -z-10" />
       
-      <div className="w-full h-screen lg:h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto items-center">
+      <div className="w-full h-[920px] lg:h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto items-center">
         <div className="w-full lg:w-[90%] zl:w-full  flex flex-col-reverse lg:flex-row justify-center items-center ">
           <div className=" flex flex-col">
             <h1 className="text-[50px] lg:text-[70px] font-bloverly">
@@ -88,7 +88,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className=" w-[90%] lg:w-[853px] h-[73px] lg:h-[113px] bg-black rounded-[13px] lg:rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[19px] lg:gap-[32px] my-[20px] lg:my-[0px]">
+        <div className=" w-[90%] lg:w-[853px] h-[73px] lg:h-[113px] bg-black rounded-[13px] lg:rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[19px] lg:gap-[32px]  my-[20px] lg:my-[0px]">
           <div className="flex flex-col lg:flex-row items-center gap-[13px]">
             <div>
               <img
