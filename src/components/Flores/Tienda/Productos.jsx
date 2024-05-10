@@ -10,7 +10,7 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
   const { addToCart } = useContext(AppContext);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6; // Cambia esto al número de elementos que quieres por página
+  const itemsPerPage = 12; // Cambia esto al número de elementos que quieres por página
   const [totalItems, setTotalItems] = useState(0);
 
   const [filteredProductos, setFilteredProductos] = useState([]);

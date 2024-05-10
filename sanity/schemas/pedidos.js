@@ -66,6 +66,17 @@ const pedidosSchema = {
             ],
             validation: (Rule) => Rule.required(),
         },
+        {
+            name: 'cupon',
+            title: 'Cupón',
+            type: 'string',
+        },
+        {
+            name: 'total',
+            title: 'Total',
+            type: 'number',
+            validation: (Rule) => Rule.required().integer().positive(),
+        },
     ],
 };
 

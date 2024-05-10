@@ -42,7 +42,8 @@ const [isModalOpen, setModalOpen] = useState(false);
 const openModal = () => setModalOpen(true);
 const closeModal = () => setModalOpen(false);
 
-const [descuento, setDescuento] = useState(0)
+const [descuento, setDescuento] = useState('')
+const [porcentaje, setProcentaje] = useState(0)
 
 const [cliente, setCliente] = useState({
   nombre: "",
@@ -110,7 +111,9 @@ const [cliente, setCliente] = useState({
         cliente: cliente,
         destinatario: destinatario,
         envio: envio,
-        productos: productosParaSanity, // Ajuste aquí: utiliza productosParaSanity
+        productos: productosParaSanity, 
+        cupon: descuento,
+        total: total,
       })
       .then((res) => {
         console.log(`Pedido fue creado, ID es ${res._id}`);
@@ -120,6 +123,33 @@ const [cliente, setCliente] = useState({
       });
     }
   };
+
+  const [cuponEncontrado, setcuponEncontrado] = useState('')
+
+  const buscarDescuento = async (descuento) => {
+    console.log(descuento)
+    try {
+        const resultado = await client.fetch(`*[(_type == "cupon" && nombre match '${descuento}')]`);
+        console.log(resultado)
+        if (resultado.length > 0) {
+            const cupon = resultado[0];
+            const descuentoAplicado = (total * cupon.porcentaje) / 100;
+            const totalConDescuento = total - descuentoAplicado;
+            setProcentaje(cupon.porcentaje);
+            setcuponEncontrado('')
+            setTotal(totalConDescuento);
+        }
+        else{
+          setcuponEncontrado('No existe ese cupon')
+        }
+        
+    } catch (err) {
+        console.log("No existe ese cupon", err.message);
+    }
+}
+
+
+
 
 
 
@@ -162,13 +192,21 @@ const [cliente, setCliente] = useState({
             <input
               type="text"
               placeholder="Codigo de Descuento"
-              className="w-[184px] h-[30px] border-[1px] border-[#E39C9D]
-rounded-[6px]
-"
+              className="w-[184px] h-[30px] border-[1px] border-[#E39C9D] rounded-[6px]"
+              name="descuento"
+              id="descuento"
+              onChange={(e) => setDescuento(e.target.value)}
+
             />
-            <div className="w-[97px] h-[30px] rounded-[6px]  bg-[#E39C9D] flex flex-row items-center justify-center font-bold ">
+            <div className="w-[97px] h-[30px] rounded-[6px]  bg-[#E39C9D] flex flex-row items-center justify-center font-bold cursor-pointer"
+            onClick={()=>buscarDescuento(descuento)}
+            >
               Usar
             </div>
+          </div>
+          <div className="w-full flex flex-row justify-end gap-[15px] mt-[8px] pr-[155px]">
+
+          <span className="text-red-500">{cuponEncontrado}</span>
           </div>
           <div className="w-full h-full flex flex-row justify-end font-inter text-[16px] font-light mt-[13px] ">
             <div className=" flex flex-col">
@@ -178,7 +216,7 @@ rounded-[6px]
             </div>
             <div className=" flex flex-col w-[120px] items-end">
               <span>${subtotalPrice}</span>
-              <span>{descuento}%</span>
+              <span>{porcentaje}%</span>
               <span className="font-bold">${total}</span>
             </div>
           </div>

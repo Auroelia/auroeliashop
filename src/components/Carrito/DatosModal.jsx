@@ -37,12 +37,21 @@ function DatosModal({isOpen,close,title}) {
             <span className='text-center text-[12px] lg:text-[32px] text-[#E39C9D] font-bold'>
               CUENTA
             </span>
-            <p className='text-[12px] lg:text-[22px] font-bold mt-[12px]  lg:mt-[28px] text-center lg:text-left w-[215px] lg:w-full '>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+            <p className='text-[12px] lg:text-[22px] font-bold mt-[12px]  lg:mt-[28px] text-center  w-[215px] lg:w-full '>
+           J Armando Zavala
+           
+            </p>
+            <p className='text-[12px] lg:text-[22px] font-bold mt-[12px]  lg:mt-[28px] text-center  w-[215px] lg:w-full '>
+           5579 0990 1683 5342
+
+            </p>
+            <p className='text-[12px] lg:text-[22px] font-bold mt-[12px]  lg:mt-[28px] text-center  w-[215px] lg:w-full '>
+           0141-8020-0108-399426
+
             </p>
 
           </div>
-          <div className='w-[336px] flex flex-col items-center '>
+        {/*   <div className='w-[336px] flex flex-col items-center '>
             <span className='text-center text-[12px] lg:text-[32px] text-[#E39C9D] font-bold'>
                 DEPÓSITOS
             </span>
@@ -50,7 +59,7 @@ function DatosModal({isOpen,close,title}) {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
             </p>
 
-          </div>
+          </div> */}
 
         </div>
         <div className='flex flex-row justify-center items-center gap-[46px] mt-[32px]'>
