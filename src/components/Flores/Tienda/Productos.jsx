@@ -35,11 +35,21 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
     client
       .fetch(`*[_type == "producto"] | order(_createdAt desc)`)
       .then((data) => {
-        setTotalItems(data.length);
-        setProductos(data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
+        // Filtrar los productos antes de paginarlos
+        let filteredData = data;
+        if(checklist.length > 0 || checklistArreglos.length > 0) {
+          filteredData = data.filter((producto) => {
+            return (
+              checklist.includes(producto.flor._ref) ||
+              checklistArreglos.includes(producto.arreglo._ref)
+            );
+          });
+        }
+        setTotalItems(filteredData.length);
+        setProductos(filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
       })
       .catch((error) => console.error(error));
-  }, [currentPage]);
+  }, [currentPage, checklist, checklistArreglos]);
 
   const nextPage = () => {
     if (currentPage < Math.ceil(totalItems / itemsPerPage)) {

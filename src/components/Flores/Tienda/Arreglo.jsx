@@ -11,6 +11,7 @@ function Arreglo({arreglo, checklistArreglos, setChecklistArreglos}) {
     }
   };
 
+
   return (
     <div
       key={arreglo.id}
