@@ -10,12 +10,14 @@ function Producto({producto, addToCart}) {
     <div
     className="w-full md:w-[70%] lg:w-[229px] shadow-popular rounded-[30px] cursor-pointer"
   >
-    <img
-                  src={urlForImage(producto?.imagenes[0]?.asset._ref)}
-                  alt={producto.nombre}
-                  className="w-full h-[173px] lg:h-[263px] object-cover rounded-t-[30px]"
-                  onClick={()=> router.push(`/${producto.slug.current}`)}
-                />
+   {producto?.imagenes[0]?.asset?._ref ? (
+  <img
+    src={urlForImage(producto.imagenes[0].asset._ref)}
+    alt={producto.nombre}
+    className="w-full h-[173px] lg:h-[263px] object-cover rounded-t-[30px]"
+    onClick={()=> router.push(`/${producto.slug.current}`)}
+  />
+) : null}
                 <div className="h-[100px]  flex flex-col  justify-center px-[22px]">
                   <span className="font-inter font-bold text-[12px] lg:text-[16px]">
                     {producto.nombre}

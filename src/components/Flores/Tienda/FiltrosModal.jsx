@@ -70,7 +70,7 @@ function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos,
       }}>
         <img src='/assets/Carrito/cerrar.svg' alt='close' className='absolute top-4 right-4 m-[20px] cursor-pointer' onClick={close}/>
         <span className='text-[24px] font-inter font-bold text-[#E39C9D]'>Filtrar</span>
-        <span className='text-[16px] font-inter font-semibold mt-[26px]'>Flores</span>
+       {/*  <span className='text-[16px] font-inter font-semibold mt-[26px]'>Flores</span>
       <div className="w-full  mt-[12px] ">
         {floresOpen && (
           <div className=" w-full flex flex-col gap-[15px]">
@@ -84,7 +84,7 @@ function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos,
             ))}
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className='h-[1px] w-full bg-[#E39C9D] my-[26px]'/>
 
@@ -108,7 +108,7 @@ function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos,
 
       <div className='h-[1px] w-full bg-[#E39C9D] my-[26px]'/>
 
-     
+     {/* 
       <span className='text-[16px] font-inter font-semibold'>Precio</span>
        
       {precioOpen && (
@@ -125,7 +125,7 @@ function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos,
         <button className="bg-[#E39C9D] w-[188px] h-[60px] rounded-[6px] text-[24px] font-bold font-inter mt-[43px] ">
           Filtrar
         </button>
-      </div>
+      </div> */}
 
       </div>
     </div>

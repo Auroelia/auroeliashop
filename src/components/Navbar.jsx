@@ -25,15 +25,18 @@ function Navbar() {
       <div>
         <ul className='flex flex-row gap-x-[49px]'>
           <li className='text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300'>
+            <Link href={"/"}>Home</Link>
+          </li>
+          <li className='text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300'>
             <Link href={"/Acerca"}>Acerca</Link>
           </li>
           
           <li className='text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300'>
-            <Link href={"/Flores"}>Flores</Link>
+            <Link href={"/Tienda"}>Tienda</Link>
           </li>
-          <li className='text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300'>
+         {/*  <li className='text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300'>
             <Link href={"/Luxury"}>Luxury</Link>
-          </li>
+          </li> */}
           <li className='text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300'>
             <Link href={"/Contacto"}>Contacto</Link>
           </li>
@@ -97,15 +100,18 @@ function Navbar() {
         </div>
         <div className={!open&&"hidden"}>
         <div className='font-inter text-[26px] text-center my-[59px] gap-[29px] flex flex-col '>
+          <Link onClick={()=>setOpen(!open)	} href={"/"}>
+            Home
+          </Link>
           <Link onClick={()=>setOpen(!open)	} href={"/Acerca"}>
             Acerca De
           </Link>
-          <Link onClick={()=>setOpen(!open)	} href={"/Flores"}>
-            Flores
+          <Link onClick={()=>setOpen(!open)	} href={"/Tienda"}>
+            Tienda
           </Link>
-          <Link onClick={()=>setOpen(!open)	} href={"/Luxury"}>
+         {/*  <Link onClick={()=>setOpen(!open)	} href={"/Luxury"}>
             Luxury
-          </Link>
+          </Link> */}
           <Link onClick={()=>setOpen(!open)	} href={"/Contacto"}>
             Contacto
           </Link>

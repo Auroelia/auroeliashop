@@ -30,7 +30,7 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
 
   const [floresOpen, setFloresOpen] = useState(false);
 
-  const [arreglosOpen, setArreglosOpen] = useState(false);
+  const [arreglosOpen, setArreglosOpen] = useState(true);
 
 
   const [precioOpen, setPrecioOpen] = useState(false);
@@ -47,7 +47,7 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
     <div className="hidden lg:block w-[220px] flex flex-col ">
       <span>Filtrar</span>
       <div className="bg-[#E39C9D] h-[1px] w-full mt-[10px]" />
-      <div
+      {/* <div
         className="w-[190px] h-[27px] border-[1px]  border-[#E39C9D] rounded-[6px] flex flex-row justify-between items-center px-[5px] mt-[27px] cursor-pointer "
         onClick={() => setFloresOpen(!floresOpen)}
       >
@@ -73,7 +73,7 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
             ))}
           </div>
         )}
-      </div>
+      </div> */}
 
       <div
         className="w-[190px] h-[27px] border-[1px]  border-[#E39C9D] rounded-[6px] flex flex-row justify-between items-center px-[5px] mt-[27px] cursor-pointer "
@@ -104,7 +104,7 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
           </div>
         )}
       </div>
-      <div
+      {/* <div
         className="w-[190px] h-[27px] border-[1px]  border-[#E39C9D] rounded-[6px] flex flex-row justify-between items-center px-[5px] mt-[27px] cursor-pointer "
         onClick={() => setPrecioOpen(!precioOpen)}
       >
@@ -128,12 +128,12 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
            <span>${value[1]}</span>
         </div>
         </div>
-      )}
-      <div>
+      )} */}
+      {/* <div>
         <button className="bg-[#E39C9D] w-[188px] h-[60px] rounded-[6px] text-[24px] font-bold font-inter mt-[43px] ">
           Filtrar
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
