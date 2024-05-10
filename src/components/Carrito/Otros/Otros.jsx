@@ -32,7 +32,7 @@ function Populares() {
             </span>
             <h2 className="text-[65px] ">Complementa tu pedido</h2>
           </div>
-          <div className=" w-1/4 flex flex-row items-center justify-end gap-[21px]">
+         {/*  <div className=" w-1/4 flex flex-row items-center justify-end gap-[21px]">
             <div className="rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center">
               <img
                 src="/assets/icons/izq.svg"
@@ -47,7 +47,7 @@ function Populares() {
                 className="w-[25px] h-[40px]"
               />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="w-full flex flex-row justify-between xl:px-[120px] 2xl:px-[198px] ">
 

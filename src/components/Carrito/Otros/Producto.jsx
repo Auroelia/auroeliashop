@@ -1,16 +1,17 @@
 import { AppContext } from "@/context/AppContext";
 import React, { useContext } from "react";
+import { urlForImage } from "../../../../sanity/lib/image";
 
 function Producto({ product }) {
   const {addToCart} = useContext(AppContext);
 
   return (
     <div className="w-[322px] h-[315px] flex flex-col relative shadow-popular  ">
-      <div className="w-[322px] ">
+    <div className="w-[322px] ">
         <img
-          src="/assets/Home/populares/arreglo.jpg"
+          src={urlForImage(product.imagenes[0].asset._ref)}
           alt="ramo1"
-          className="  object-fit "
+          className="  object-cover w-full h-[175px] rounded-t-[30px] cursor-pointer"
         />
       </div>
       <div className="w-full absolute bottom-0 h-[140px] z-10 bg-white  flex flex-row justify-center items-center ">
