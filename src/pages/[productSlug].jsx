@@ -245,7 +245,7 @@ function Product() {
                       className="w-[40px] h-[40px]"
                     />
                     <span className="font-inter text-[20px] ">
-                      Envíos y devoluciones
+                      Cuidados
                     </span>
                   </div>
                   <img
