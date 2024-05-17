@@ -87,44 +87,47 @@ const Dashboard = () => {
   return (
     
     <Fragment>
-      <div className="lg:hidden flex flex-row justify-between   w-full h-full    ">
+      <div className="lg:hidden flex flex-row justify-between   w-full h-[100px] items-center px-8    ">
+      <div>
+      <Image
+        src='/assets/logonav.png' width={100} height={100} alt='logo' />
+      </div> 
       <div>
 
-      </div>
-        <FaBars
-          src="/assets/icons/menuMob.svg"
-          alt="menu movil"
-          className={!active ? "flex text-5xl mr-4 mt-8 cursor-pointer text-[#d3cbc0] z-20" : "hidden"}
-          onClick={()=>setActive(true)}
+      {
+        !active ?
+        
+        <Image
+        width={30} height={30}
+        src="/assets/icons/menuMob.svg"
+        alt="menu movil"
+        className={!active ? "flex text-5xl   cursor-pointer text-[#d3cbc0] z-20" : "hidden"}
+        onClick={()=>setActive(true)}
         />
+        :
+        <Image src="/assets/icons/navbar/close.svg" width={30} height={30}
+        alt="close menu movil"
+        onClick={() => setActive(false)}
+        className={active ? "flex text-5xl  cursor-pointer text-[#d3cbc0] z-20" : "hidden"}
+        />
+      }
+      </div>
       </div>
       <div
         className={
           active
-            ? "w-full h-full flex flex-col  bg-white "
-            : "hidden"
+          ? "w-full h-full flex flex-col   bg-white "
+          : "hidden"
         }
-      >
-        <div className="w-full h-[180px] flex flex-row justify-center relative">
-        <Image src="/assets/icons/navbar/close.svg" width={30} height={30}
-            alt="close menu movil"
-            onClick={() => setActive(false)}
-            className="w-[30px] absolute top-10 right-4 cursor-pointer z-20"
-          />
-
-          <Image
-            src="/assets/Login/logoLogin.png"
-           width={30} height={30}
-            alt="logo menu movil"
-            className="w-[60%] absolute top-[80px] sm:top-[30%] md:top-[10%] "
-          />
-        </div>
+        >
+        
+        
         <div>
           <ul className="flex flex-col text-center gap-3 text-xl font-Geometrica">
            
             
             <li
-              className="cursor-pointer hover:text-[#d3cbc0] tracking-[3px]"
+              className="text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300"
               onClick={() => {
                 setActive(false);
                 handleSidebarClick("Ventas");
@@ -135,24 +138,25 @@ const Dashboard = () => {
               </span>{" "}
               Ventas
             </li>
-            <a
-            href="https://casaitzimna.sanity.studio/desk/fechas"
+           <div
             target="_blank"
             rel="noopener noreferrer"
-             className="cursor-pointer hover:text-[#d3cbc0] tracking-[3px]"
+             className="text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300"
              onClick={() => {
                setActive(false)
+               handleSidebarClick("Productos")
              }}
-            >
-              <span>
+            > 
+              <span
+              >
                 <FaReceipt className="text-2xl text-white" />
               </span>{" "}
               Productos
-            </a>
+            </div>
           
            
             <li
-              className="cursor-pointer hover:text-[#d3cbc0] tracking-[3px]"
+              className="text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300"
               onClick={() => {
                 setActive(false);
                 logout()
@@ -166,7 +170,7 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
-    <div className="w-full h-full lg:h-screen flex flex-row ">
+    <div className="w-full h-screen flex flex-row ">
       <div className="hidden w-1/4 lg:flex flex-col bg-[#E39C9D]">
         <div className="w-full h-full flex flex-row justify-center ">
           <div className="w-[90%] flex flex-col items-center  justify-between gap-[85px]">
