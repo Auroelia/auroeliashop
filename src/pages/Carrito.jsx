@@ -156,7 +156,7 @@ const [cliente, setCliente] = useState({
   return (
     <div className="w-full h-full overflow-hidden relative my-8 lg:my-0">
       <div
-        className="w-full max-w-[1440px] min-w-sm mx-auto flex flex-col lg:flex-row justify-center  gap-[33px] px-4 lg:px-[50px] xl:px-[0px] mt-4 lg:mb-8
+        className="w-[90%] lg:w-full max-w-[1440px] min-w-sm mx-auto flex flex-col lg:flex-row justify-center  gap-[33px] lg:px-[50px] xl:px-[0px] mt-4 lg:mb-8
       
       "
       >

@@ -18,19 +18,19 @@ function Productos({ item }) {
   return (
     <div className="w-full h-full flex flex-row justify-between  gap-[31px]">
 
-      <div className="w-[84px] h-[107px] flex flex-col items-center justify-center">
+      <div className="w-[84px] h-[107px] md:w-[150px] md:h-[170px] flex flex-col items-center justify-center">
         <img
           src={urlForImage(item?.product.imagenes[0]?.asset._ref)}
-          className="w-[84px] h-[107px] object-cover rounded-[10px]"
+          className="w-[84px] h-[107px] md:w-[209px] md:h-[240px] object-cover rounded-[10px]"
           alt="imagen producto"
         />
       </div>
 
       <div className=" w-[110px]  flex flex-col  justify-center">
-        <span className="font-inter font-bold text-[11px] lg:text-[16px] ">
+        <span className="font-inter font-bold text-[11px] md:text-[14px] lg:text-[16px] ">
           {item.product.nombre}
         </span>
-        <p className=" text-[10px] font-medium  leading-[14px] ">
+        <p className=" text-[10px]  md:text-[14px] font-medium  leading-[14px] ">
           {item.product.descripcion.slice(0, 40)}...
         </p>
         <div className="flex flex-row lg:hidden items-center md:justify-center gap-[23px]">
