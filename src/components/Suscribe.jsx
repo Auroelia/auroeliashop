@@ -42,18 +42,18 @@ function Suscribe() {
               <span className="text-white font-inter text-[19px] lg:text-[35px] font-bold leading-[42px]">
                 Suscríbete para grandes ofertas
               </span>
-              <p className="w-[60%] lg:w-full text-white text-[12px] lg:text-[16px] font-semibold leading-[17px] lg:leading-[24px]">
+              <p className="w-[60%] lg:w-full text-white text-[14px] lg:text-[16px] font-semibold leading-[17px] lg:leading-[24px]">
                 ¡No dejes de enterarte de nuestras mejores promociones y
                 descuentos!
               </p>
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-row gap-[20px] mt-[18px]"
+                className="flex flex-row gap-[10px] lg:gap-[20px] mt-[18px] px-[10px]"
               >
                 <input
                   type="email"
                   placeholder="Correo Electrónico"
-                  className="w-[255px] lg:w-[481px] lg:h-[58px] h-[36px]  border-0 outline-none rounded-[6px] placeholder:text-[#989898] placeholder:font-inter placeholder:text-[16px] placeholder:pl-[55px]"
+                  className="w-[200px]  md:w-[255px] lg:w-[481px] lg:h-[58px] h-[36px]  border-0 outline-none rounded-[6px] placeholder:text-[#989898] placeholder:font-inter placeholder:text-[16px] placeholder:pl-[20px] placeholder:md:pl-[55px]"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />

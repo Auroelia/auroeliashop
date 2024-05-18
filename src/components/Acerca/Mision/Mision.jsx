@@ -2,8 +2,8 @@ import React from "react";
 
 function Mision() {
   return (
-    <div className="w-full h-full flex flex-col gap-[81px] relative">
-      <div className="w-full h-full flex flex-row flex-wrap justify-center items-center gap-[25px] lg:gap-[35px]">
+    <div className="w-full h-full flex flex-col gap-[30px] lg:gap-[81px] relative">
+      <div className="w-full h-full flex flex-row flex-wrap justify-center items-center gap-[10px] lg:gap-[35px]">
         <div
           className="w-[180px] h-[190px] lg:w-[325px] lg:h-[341px] rounded-[3px] bg-[#E39C9D] flex flex-col items-center justify-center text-center"
           style={{ boxShadow: "0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)" }}
