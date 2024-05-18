@@ -25,7 +25,7 @@ function Contacto() {
 
   return (
     <div className='w-full h-full relative'>
-        <div className='w-full h-screen md:h-[800px] lg:h-[1200px] 2xl:h-[80vh] flex flex-col items-center max-w-[1440px] min-w-sm mx-auto relative '>
+        <div className='w-full h-screen md:h-[800px] lg:h-[1050px] 2xl:h-[80vh] flex flex-col items-center max-w-[1440px] min-w-sm mx-auto relative '>
         <img src='/assets/petaloizq.png' alt='flores' className='w-[221px] h-[200px] object-cover absolute bottom-0 -left-[50px] lg:bottom-[100px] lg:-left-[0px]'/>
           <img src='/assets/Home/populares/petalo.png' alt='flores' className='w-[103px] h-[111px] lg:w-[230px] lg:h-[247px] object-cover absolute lg:top-[0px] lg:-right-[0px] right-0 top-[150px]
           

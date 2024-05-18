@@ -138,7 +138,7 @@ const Dashboard = () => {
               </span>{" "}
               Ventas
             </li>
-           <div
+           <li
             target="_blank"
             rel="noopener noreferrer"
              className="text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300"
@@ -152,7 +152,7 @@ const Dashboard = () => {
                 <FaReceipt className="text-2xl text-white" />
               </span>{" "}
               Productos
-            </div>
+            </li>
           
            
             <li
