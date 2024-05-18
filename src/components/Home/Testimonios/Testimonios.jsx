@@ -41,7 +41,9 @@ function Testimonios() {
         <img
           src="/assets/Home/testimonios/testimonio.png"
           alt="testimonio-bg"
-          className=" w-[202px] h-[156px] lg:w-[450px]  lg:h-[350px] xl:w-[577px]  xl:h-[481px] "
+          className=" w-[130px] h-[120px] md:w-[202px] md:h-[156px] lg:w-[450px]  lg:h-[350px] xl:w-[577px]  xl:h-[481px] "
+          
+
         />
         <div className=" flex flex-col items-center justify-center gap-[30px]">
           <div className="w-full flex flex-row justify-between">
