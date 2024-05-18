@@ -31,9 +31,9 @@ function Productos({ item }) {
           {item.product.nombre}
         </span>
         <p className=" text-[10px] font-medium  leading-[14px] ">
-          {item.product.descripcion.slice(0, 40)}
+          {item.product.descripcion.slice(0, 40)}...
         </p>
-        <div className="flex flex-row lg:hidden items-center justify-center gap-[23px]">
+        <div className="flex flex-row lg:hidden items-center md:justify-center gap-[23px]">
           <button
             className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center "
             onClick={() => {
