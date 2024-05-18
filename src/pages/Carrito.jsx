@@ -3,7 +3,7 @@ import { AppContext } from "@/context/AppContext";
 import React, { useContext, useEffect, useState } from "react";
 import Otros from "../components/Carrito/Otros/Otros";
 import DatosModal from "@/components/Carrito/DatosModal";
-import Productos from "../../public/assets/Carrito/Productos";
+import Productos from "../components/Carrito/Productos";
 import Informacion from "@/components/Carrito/Informacion";
 import Envio from "@/components/Carrito/Envio";
 import { client } from "@/lib/client";

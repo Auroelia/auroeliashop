@@ -73,17 +73,17 @@ const closeModal = () => setModalOpen(false);
 
         <div className="w-full h-full flex flex-col mt-4 lg:mt-0 lg:mb-8 ">
           
-          <div className="w-full flex justify-around lg:justify-end lg:pr-8">
+          <div className="w-full flex justify-between px-5 lg:justify-end lg:pr-8">
             <div className="flex flex-col gap-[10px] ">
               <span className="text-[#E39C9D] font-inter font-bold text-[12px] lg:text-[16px] lg:hidden">Ordenar por:</span>
             <div className="flex items-center  gap-[6px]">
-              <span className="text-[16px] font-inter">Ordenar por</span>
+              <span className="hidden md:block text-[16px] font-inter">Ordenar por</span>
               <select className="rounded-[3px] border-[1px] border-[#E39C9D] w-[121px] h-[23px] flex items-center justify-center">
                 <option value="mas-vendidos">Más vendidos</option>
                 <option value="precio-ascendente">Precio ascendente</option>
                 <option value="precio-descendente">Precio descendente</option>
               </select>
-                <span className="text-[12px] font-inter ">{productos.length} productos</span>
+                <span className="hidden md:block text-[12px] font-inter ">{productos.length} productos</span>
             </div>
             </div>
             <div className="flex flex-col justify-end">
@@ -120,7 +120,7 @@ const closeModal = () => setModalOpen(false);
       </div>
       </div>
       <div>
-        <div className=" w-full flex flex-row items-center justify-end gap-[21px] mt-[56px]">
+        <div className=" w-full flex flex-row items-center justify-end gap-[21px] mt-[56px] px-8">
           <button onClick={prevPage}  
           className={
             currentPage > 1?

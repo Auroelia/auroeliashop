@@ -64,7 +64,7 @@ function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos,
       zIndex: 1000
     }}>
       <div
-      className='bg-white w-full h-full rounded-[54px] flex flex-col  justify-center relative px-8'
+      className='bg-white w-full h-full lg:rounded-[54px] flex flex-col  justify-center relative px-8'
       style={{
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
       }}>
@@ -121,11 +121,13 @@ function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos,
         </div>
         </div>
       )}
+      */}
       <div className='w-full flex justify-center'>
-        <button className="bg-[#E39C9D] w-[188px] h-[60px] rounded-[6px] text-[24px] font-bold font-inter mt-[43px] ">
+        <button className="bg-[#E39C9D] w-[188px] h-[60px] rounded-[6px] text-[24px] font-bold font-inter mt-[43px] "
+        onClick={close}>
           Filtrar
         </button>
-      </div> */}
+      </div> 
 
       </div>
     </div>
