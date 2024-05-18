@@ -50,7 +50,7 @@ function Hero() {
       <div className="w-full h-[920px] lg:h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto items-center">
         <div className="w-full lg:w-[90%] zl:w-full  flex flex-col-reverse lg:flex-row justify-center items-center ">
           <div className=" flex flex-col">
-            <h1 className="text-[50px] lg:text-[70px] font-bloverly">
+            <h1 className="text-[50px] lg:text-[70px] font-bloverly text-center lg:text-start">
               {heroProducts[seleccion].name}
             </h1>
             <p className="mt-[12px] w-[293px] lg:w-[583px] text-[12px] lg:text-[16px] lg:font-semibold text-center lg:text-left font-shipporiMincho ">
@@ -88,20 +88,20 @@ function Hero() {
           </div>
         </div>
 
-        <div className=" w-[90%] lg:w-[853px] h-[73px] lg:h-[113px] bg-black rounded-[13px] lg:rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[19px] lg:gap-[32px]  my-[20px] lg:my-[0px]">
+        <div className=" w-[90%] md:w-[70%] lg:w-[853px] h-[73px] md:h-[90px] lg:h-[113px] bg-black rounded-[13px] lg:rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[19px] lg:gap-[32px]  my-[20px] lg:my-[0px]">
           <div className="flex flex-col lg:flex-row items-center gap-[13px]">
             <div>
               <img
                 src="/assets/Home/hero/info/envio.svg"
                 alt="entrega"
-                className="w-[25px] h-[19px] lg:w-[61px] lg:h-[41px]"
+                className="w-[25px] h-[19px] md:w-[40px] lg:w-[61px] md:h-[30px] lg:h-[41px]"
               />
             </div>
             <div className="flex flex-col text-center lg:text-left">
-              <h4 className="text-white font-bold text-[7px] lg:text-[12px]  font-inter ">
+              <h4 className="text-white font-bold text-[7px] md:text-[10px] lg:text-[12px]  font-inter ">
                 Envíos a todo México
               </h4>
-              <p className="text-white text-[7px] lg:text-[12px] font-inter leading-[14px]">
+              <p className="text-white text-[7px] md:text-[10px] lg:text-[12px] font-inter leading-[14px]">
                 Belleza floral a tu puerta
               </p>
             </div>
@@ -115,14 +115,14 @@ function Hero() {
               <img
                 src="/assets/Home/hero/info/tarjetas.svg"
                 alt="entrega"
-                className="w-[25px] h-[17px] lg:w-[56px] lg:h-[38px]"
+                className="w-[25px] h-[17px] md:w-[40px] lg:w-[56px] md:h-[30px] lg:h-[38px]"
               />
             </div>
             <div className="flex flex-col text-center lg:text-left">
-              <h4 className="text-white font-bold text-[7px] lg:text-[12px]  font-inter">
+              <h4 className="text-white font-bold text-[7px] md:text-[10px] lg:text-[12px]  font-inter">
                 Aceptamos todas las tarjetas
               </h4>
-              <p className="text-white text-[7px] lg:text-[12px] font-inter leading-[14px]">
+              <p className="text-white text-[7px] md:text-[10px] lg:text-[12px] font-inter leading-[14px]">
                 Seguridad y confianza al pagar
               </p>
             </div>
@@ -135,14 +135,14 @@ function Hero() {
               <img
                 src="/assets/Home/hero/info/premium.svg"
                 alt="entrega"
-                className="w-[22px] h[19px] lg:w-[49px] lg:h-[44px]"
+                className="w-[22px] h[19px] md:w-[40px] lg:w-[49px] md:h-[30px] lg:h-[44px]"
               />
             </div>
             <div className="flex flex-col text-center lg:text-left">
-              <h4 className="text-white font-bold text-[7px] lg:text-[12px]  font-inter">
+              <h4 className="text-white font-bold text-[7px] md:text-[10px] lg:text-[12px]  font-inter">
                 Arreglos Premium
               </h4>
-              <p className="text-white text-[7px] lg:text-[12px] font-inter leading-[14px]">
+              <p className="text-white text-[7px] md:text-[10px] lg:text-[12px] font-inter leading-[14px]">
                 Calidad en todos los pedidos
               </p>
             </div>
