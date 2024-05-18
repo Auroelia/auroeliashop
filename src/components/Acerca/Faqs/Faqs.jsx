@@ -38,16 +38,16 @@ function Faqs() {
         className="w-[90%] flex flex-col justify-center text-left xl:text-center  max-w-[1440px] min-w-sm mx-auto lg:px-[50px] 
         xl:px-[180px] "
       >
-        <span className="text-[#E39C9D] font-inter font-bold text-[19px] lg:text-[32px] ">
+        <span className="text-[#E39C9D] font-inter font-bold text-[19px] md:text-[25px] lg:text-[32px] ">
           FAQs
         </span>
-        <h2 className="w-[150px] lg:w-[200px] xl:w-full text-[42px] lg:text-[50px] xl:text-[65px] ">Dudas y Preguntas</h2>
+        <h2 className="w-[150px] md:w-[200px] xl:w-full text-[42px] md:text-[50px] lg:text-[50px] xl:text-[65px] ">Dudas y Preguntas</h2>
         <div className="flex flex-col gap-[36px] mt-[69px]">
           {faqs.map((faq, index) => (
             <div
               key={index}
               className={`w-full flex  ${
-                eleccion == faq.id ? "h-[200px] lg:h-[110px]" : "h-[48px]"
+                eleccion == faq.id ? "h-[200px] md:h-[150px] lg:h-[110px]" : "h-[48px]"
               } border-[#E39C9D] border-[1px] rounded-[6px] transition-all duration-300 cursor-pointer`}
               onClick={()=> setEleccion(faq.id)}
             >
@@ -67,7 +67,7 @@ function Faqs() {
                   {faq.answer}
                 </p>
               </div>
-              <div className="w-[5%] mr-4 lg:mr-0">
+              <div className="w-[5%] mr-4 lg:mr-0 flex flex-col items-center justify-center">
                 <img
                   src="/assets/icons/open.svg"
                   alt="faq"

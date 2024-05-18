@@ -9,7 +9,7 @@ function Elegirnos() {
         lg:px-[180px] 
         '>
             <div className='w-full h-full flex flex-col justify-center items-center '>
-            <span className="text-[#E39C9D] font-inter font-bold text-[18px] lg:text-[32px]">
+            <span className="text-[#E39C9D] font-inter font-bold text-[18px] md:text-[25px] lg:text-[32px]">
             Ideas  Artesanales
                 </span>
                 <h2 className="text-[40px] md:text-[65px]">¿Por qué elegirnos?</h2>

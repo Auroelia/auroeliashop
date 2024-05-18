@@ -15,7 +15,7 @@ function Complemento(
       className="w-full h-full flex flex-col items-center cursor-pointer"
     >
       <img
-        className="w-[112px] h-[95px] lg:w-[142px] lg:h-[120px] rounded-[6px] object-cover"
+        className="w-[112px] h-[95px] md:w-[142px] md:h-[120px] rounded-[6px] object-cover"
         src={urlForImage(complemento?.imagenes[0]?.asset._ref)}
         alt={complemento.nombre}
       />

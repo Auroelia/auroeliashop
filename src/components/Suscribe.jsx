@@ -39,10 +39,10 @@ function Suscribe() {
           />
           <div className="w-full h-[249px] flex flex-row justify-center items-center">
             <div className="flex flex-col items-center lg:items-start text-center gap-[6px]">
-              <span className="text-white font-inter text-[19px] lg:text-[35px] font-bold leading-[42px]">
+              <span className="text-white font-inter text-[19px] md:text-[25px] lg:text-[35px] font-bold leading-[42px]">
                 Suscríbete para grandes ofertas
               </span>
-              <p className="w-[60%] lg:w-full text-white text-[14px] lg:text-[16px] font-semibold leading-[17px] lg:leading-[24px]">
+              <p className="w-[60%] lg:w-full text-white text-[14px] md:text-[15px] lg:text-[16px] font-semibold leading-[17px] lg:leading-[24px]">
                 ¡No dejes de enterarte de nuestras mejores promociones y
                 descuentos!
               </p>

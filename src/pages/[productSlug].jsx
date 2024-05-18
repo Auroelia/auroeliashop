@@ -54,12 +54,12 @@ function Product() {
         <div className="w-full h-full flex flex-col justify-between  max-w-[1440px] min-w-sm mx-auto">
           <div className="w-full flex flex-col lg:flex-row justify-center gap-[10px] lg:gap-[54px]  ">
             {/* Mobil */}
-            <div className="w-full h-full lg:hidden flex flex-row overflow-x-scroll no-scrollbar gap-[10px] px-4 my-4 ">
+            <div className="w-full h-full lg:hidden flex flex-row overflow-x-scroll no-scrollbar gap-[10px] px-8 my-4 ">
               {product?.imagenes[0] &&
                 product.imagenes.map((imagen, index) => (
                   <div
                     key={index}
-                    className="w-[321px] h-[338px] flex-shrink-0"
+                    className="w-[321px] h-[338px] md:w-[520px] md:h-[530px] flex-shrink-0"
                   >
                     <img
                       src={urlForImage(imagen)}
@@ -91,8 +91,9 @@ function Product() {
                 </div>
               )}
             </div>
+              <div className="w-full flex flex-row justify-center">
 
-            <div className="w-full flex flex-col  px-4 ">
+            <div className="w-[90%] flex flex-col  px-4 ">
               <span className="font-inter text-[20px] lg:text-[42px] font-bold ">
                 {product.nombre}{" "}
               </span>
@@ -118,7 +119,7 @@ function Product() {
                   +
                 </button>
               </div>
-              <p className="text-[16px] font-medium w-[322px] lg:w-[481px] xl:mt-[30px]">
+              <p className="text-[16px] font-medium w-[322px] md:w-[530px] lg:w-[481px] xl:mt-[30px]">
                 {product.descripcion}
               </p>
               <div className="w-full h-full lg:w-[481px] flex flex-row items-center">
@@ -261,6 +262,7 @@ function Product() {
                   laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
               </div>
+            </div>
             </div>
           </div>
           <div className="hidden lg:flex flex-col justify-center items-center text-center mt-[97px] ">
