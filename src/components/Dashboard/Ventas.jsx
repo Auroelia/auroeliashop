@@ -5,7 +5,7 @@ import Venta from './Ventas/Venta';
 
 function Ventas() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3; 
+  const itemsPerPage = 6; 
 
   const [ventas, setVentas] = useState([])
   const [totalItems, setTotalItems] = useState(0);
