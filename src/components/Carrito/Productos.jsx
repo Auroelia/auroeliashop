@@ -21,7 +21,7 @@ function Productos({ item }) {
       <div className="w-[84px] h-[107px] md:w-[150px] md:h-[170px] flex flex-col items-center justify-center">
         <img
           src={urlForImage(item?.product.imagenes[0]?.asset._ref)}
-          className="w-[84px] h-[107px] md:w-[209px] md:h-[240px] object-cover rounded-[10px]"
+          className="w-[84px] h-[107px] md:w-[150px] md:h-[170px] object-cover rounded-[10px]"
           alt="imagen producto"
         />
       </div>
