@@ -28,8 +28,8 @@
   }
 @font-face {
     font-family: 'shipporiMincho';
-    src: url('/assets/fonts/ShipporiMincho.ttf') format('truetype');
-    font-weight: normal;
+    src: url('/assets/fonts/ShipporiMincho-Regular.ttf') format('truetype');
+    font-weight: normal; 
     font-style: normal;
   }
 @font-face {

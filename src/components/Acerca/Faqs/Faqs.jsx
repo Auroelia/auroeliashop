@@ -36,7 +36,7 @@ function Faqs() {
     <div className="w-full h-full relative overflow-hidden">
       <div
         className="w-[90%] flex flex-col justify-center text-left xl:text-center  max-w-[1440px] min-w-sm mx-auto lg:px-[50px] 
-        xl:px-[180px] "
+         "
       >
         <span className="text-[#E39C9D] font-inter font-bold text-[19px] md:text-[25px] lg:text-[32px] ">
           FAQs
