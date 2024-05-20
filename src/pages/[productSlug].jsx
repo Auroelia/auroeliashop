@@ -46,7 +46,7 @@ function Product() {
   );
   const [selectedImage, setSelectedImage] = useState(null);
 
-  console.log(product)
+  const [size, setSize] = useState(0)
 
   return (
     <div className="w-full h-full relative overflow-hidden">
@@ -97,8 +97,23 @@ function Product() {
               <span className="font-inter text-[20px] lg:text-[42px] font-bold ">
                 {product.nombre}{" "}
               </span>
+              {
+                product.tamanos.length>0&&
+                <div className="flex flex-row items-center gap-[10px]">
+                {product.tamanos.map((t, index) => (
+                  <div
+                  key={index}
+                  className={` ${index == size && "font-bold"} w-full bg-[#E39C9D] flex justify-center rounded-lg my-2 px-2 py-1 cursor-pointer`}
+                  onClick={() => setSize(index)}
+                  >
+                  {t.tamano}
+                  </div>
+                ))}
+              </div>
+              }
               <span className="font-inter text-[20px] lg:text-[36px] xl:mt-[17px] ">
-                ${product.precio}.00
+              {console.log(product)}
+                ${product.tamanos[size].precio}.00
               </span>
               <div className="flex flex-row items-center gap-[23px] xl:mt-[32px]">
                 <button
@@ -163,7 +178,7 @@ function Product() {
                 <div
                   className="font-inter text-[15px] lg:text-[24px] font-bold w-[160px] h-[37px] lg:w-[258px] lg:h-[60px] rounded-[6px] bg-[#E39C9D] flex items-center justify-center cursor-pointer"
                   onClick={() => {
-                    addToCart(product, counter);
+                    addToCart(product, size,counter);
                     if (complementosActivos.length > 0) {
                       complementosActivos.forEach((complemento) => {
                         addToCart(complemento, 1);
@@ -288,6 +303,7 @@ function Product() {
                       {producto.nombre}
                     </span>
                     <div className="flex justify-between items-center ">
+                     
                       <span className="font-inter font-bold text-[16px]">
                         ${producto.precio}.00
                       </span>

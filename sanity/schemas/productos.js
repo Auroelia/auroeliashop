@@ -40,11 +40,33 @@ const productosSchema = {
             validation: (Rule) => Rule.required(),
         },
         {
-            name: 'precio',
-            title: 'Precio',
-            type: 'number',
-            validation: (Rule) => Rule.required().positive(),
-        },
+            name: 'tamanos',
+            title: 'Tamaños',
+            type: 'array',
+            of: [
+              {
+                type: 'object',
+                fields: [
+                  {
+                    name: 'tamano',
+                    title: 'Tamaño',
+                    type: 'string',
+                    validation: (Rule) => Rule.required(),
+                  },
+                  {
+                    name: 'precio',
+                    title: 'Precio',
+                    type: 'number',
+                    validation: (Rule) => Rule.required().positive(),
+                  },
+                  { name: 'inventario',
+                   title: 'Inventario',
+                    type: 'number',
+                     validation: (Rule) => Rule.required().integer().positive(), },
+                ],
+              },
+            ],
+          },
         { 
             name: 'inventario',
          title: 'Inventario',
