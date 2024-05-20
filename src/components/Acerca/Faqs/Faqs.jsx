@@ -49,7 +49,15 @@ function Faqs() {
               className={`w-full flex  ${
                 eleccion == faq.id ? "h-[200px] md:h-[150px] lg:h-[110px]" : "h-[48px]"
               } border-[#E39C9D] border-[1px] rounded-[6px] transition-all duration-300 cursor-pointer`}
-              onClick={()=> setEleccion(faq.id)}
+              onClick={()=>{
+                if(eleccion == faq.id){
+                  setEleccion(null)
+                }
+                else{
+                setEleccion(faq.id)
+                }
+              } 
+            }
             >
               <div className="w-[95%] flex flex-col   justify-center text-start  px-[15px]">
                 <span
