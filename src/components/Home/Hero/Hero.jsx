@@ -1,6 +1,6 @@
 import Link from "next/link";
-import React, { useState } from "react";
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from 'framer-motion';
 
 
 function Hero() {
@@ -41,6 +41,56 @@ function Hero() {
     visible: { opacity: 1 },
   };
 
+  const variantsProducto1 = {
+    hidden: { opacity: 0 ,
+      x: 50,
+      y:-100
+
+    },
+    visible: { 
+      opacity: 1,
+      x: 0,
+y:0
+     },
+  };
+  const variantsProducto2 = {
+    hidden: { opacity: 0 ,
+      x: 50,
+      y:100
+
+    },
+    visible: { 
+      opacity: 1,
+      x: 0,
+y:0
+     },
+  };
+  const variantsProducto3 = {
+    hidden: { opacity: 0 ,
+      x: -50,
+      y:100
+
+    },
+    visible: { 
+      opacity: 1,
+      x: 0,
+y:0
+     },
+  };
+
+  const [orientacion, setOrientacion] = useState(true)
+  const prevSeleccion = useRef(seleccion);
+
+  useEffect(() => {
+    if (seleccion > 0 && seleccion > prevSeleccion.current) {
+      setOrientacion(true);
+    } else {
+      setOrientacion(false);
+    }
+    prevSeleccion.current = seleccion;
+  }, [seleccion])
+  
+
 
   return (
     <div className="w-full h-full overflow-hidden relative">
@@ -48,7 +98,7 @@ function Hero() {
         <img src="/assets/Home/hero/lirio.png" alt="hero" className="
         hidden xl:block
         w-[728px] h-[722px] absolute lg:-left-[150px] lg:-bottom-[100px] opacity-30 -z-10" /> 
-
+<AnimatePresence mode="wait">
 <motion.img 
 id="hola3"
 key={heroProducts[
@@ -58,16 +108,15 @@ key={heroProducts[
 ]?.image}
 initial="hidden"
 animate="visible"
-variants={variants}
-transition={{ duration: 1 }}
+variants={variantsProducto2}
+transition={{ duration: 3 }}
 src={heroProducts[
   seleccion == 0 ?
   1 : seleccion == 1 ?
   2 : 0
 ]?.image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -right-[150px] top-[15%] lg:-top-[30px] blur-sm -z-10" />
-{
-  console.log(seleccion)
-}
+</AnimatePresence>
+<AnimatePresence mode="wait">
 <motion.img
 id="hola2"
 key={heroProducts[
@@ -77,13 +126,14 @@ key={heroProducts[
 ]?.image}
 initial="hidden"
 animate="visible"
-variants={variants}
-transition={{ duration: 1 }}
+variants={variantsProducto3}
+transition={{ duration: 3 }}
 src={heroProducts[
   seleccion == 0 ?
   2 : seleccion == 1 ?
   0 : 1
 ]?.image} alt="hero" className="hidden lg:block lg:w-[326px] lg:h-[326px] absolute   lg:-right-[150px] lg:bottom-[40px] blur-sm -z-10" />
+</AnimatePresence>
 
 {/* <motion.img 
 key={heroProducts[(seleccion+2) % 3]?.image}
@@ -146,16 +196,18 @@ src={heroProducts[(seleccion+2) % 3]?.image} alt="hero" className="w-[264px] h-[
             </div>
           </div>
           <div className="w-[526px]  h-[526px] ">
+          <AnimatePresence mode="wait">
             <motion.img
             key={heroProducts[seleccion].image}
             initial="hidden"
             animate="visible"
-            variants={variants}
-            transition={{ duration: 1 }}
+            variants={variantsProducto1}
+            transition={{ duration: 3 }}
               src={heroProducts[seleccion]?.image}
               alt="osofancy"
               className="w-full h-full object-contain"
             />
+            </AnimatePresence>
           </div>
         </div>
 
