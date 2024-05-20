@@ -38,7 +38,7 @@ function Suscribe() {
             className="w-full h-full object-cover absolute -z-20"
           />
           <div className="w-full h-[249px] flex flex-row justify-center items-center">
-            <div className="flex flex-col items-center lg:items-start text-center gap-[6px]">
+            <div className="flex flex-col items-center text-center gap-[6px]">
               <span className="text-white font-inter text-[19px] md:text-[25px] lg:text-[35px] font-bold leading-[42px]">
                 Suscríbete para grandes ofertas
               </span>

@@ -87,11 +87,11 @@ function Faqs() {
             </div>
           ))}
         </div>
-        <div className="w-full flex flex-col lg:flex-row my-[68px]">
-          <div className=" w-full xl:w-1/2">
-            <h3 className="text-[29px] lg:text-[41px] text-center lg:text-start">¿Tienes más dudas?</h3>
+        <div className="w-full flex flex-col  my-[68px]">
+          <div className=" w-full ">
+            <h3 className="text-[29px] lg:text-[41px] text-center ">¿Tienes más dudas?</h3>
           </div>
-          <div className=" w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <div className=" w-full  flex justify-center ">
             <Link href="/Contacto">
             <button className="w[117px] lg:w-[188px] h-[37px] lg:h-[60px] rounded-[6px] bg-[#E39C9D] text-[15px] lg:text-[24px] font-inter font-bold px-[15px]">
               Contáctanos
