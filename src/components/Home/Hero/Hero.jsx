@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { motion } from 'framer-motion';
+
 
 function Hero() {
   const heroProducts = [ 
@@ -34,6 +36,12 @@ function Hero() {
 
   const [seleccion, setSeleccion] = useState(0);
 
+  const variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
+
   return (
     <div className="w-full h-full overflow-hidden relative">
       
@@ -41,22 +49,74 @@ function Hero() {
         hidden xl:block
         w-[728px] h-[722px] absolute lg:-left-[150px] lg:-bottom-[100px] opacity-30 -z-10" /> 
 
-        <img src={heroProducts[seleccion+1].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -right-[150px] top-[15%] lg:-top-[30px] blur-sm -z-10" />
+<motion.img 
+id="hola3"
+key={heroProducts[
+  seleccion == 0 ?
+  1 : seleccion == 1 ?
+  2 : 0
+]?.image}
+initial="hidden"
+animate="visible"
+variants={variants}
+transition={{ duration: 1 }}
+src={heroProducts[
+  seleccion == 0 ?
+  1 : seleccion == 1 ?
+  2 : 0
+]?.image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -right-[150px] top-[15%] lg:-top-[30px] blur-sm -z-10" />
+{
+  console.log(seleccion)
+}
+<motion.img
+id="hola2"
+key={heroProducts[
+  seleccion == 0 ?
+  2 : seleccion == 1 ?
+  0 : 1
+]?.image}
+initial="hidden"
+animate="visible"
+variants={variants}
+transition={{ duration: 1 }}
+src={heroProducts[
+  seleccion == 0 ?
+  2 : seleccion == 1 ?
+  0 : 1
+]?.image} alt="hero" className="hidden lg:block lg:w-[326px] lg:h-[326px] absolute   lg:-right-[150px] lg:bottom-[40px] blur-sm -z-10" />
 
-        <img src={heroProducts[seleccion+2].image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -left-[150px] top-[15%]  lg:hidden blur-sm -z-10" />
-
-        <img src={heroProducts[seleccion+2].image} alt="hero" className="hidden lg:block lg:w-[326px] lg:h-[326px] absolute   lg:-right-[150px] lg:bottom-[40px] blur-sm -z-10" />
+{/* <motion.img 
+key={heroProducts[(seleccion+2) % 3]?.image}
+id="hola"
+initial="hidden"
+animate="visible"
+variants={variants}
+transition={{ duration: 1 }}
+src={heroProducts[(seleccion+2) % 3]?.image} alt="hero" className="w-[264px] h-[264px] lg:w-[326px] lg:h-[326px] absolute -left-[150px] top-[15%]  lg:hidden blur-sm -z-10" /> */}
       
       <div className="w-full h-[920px] lg:h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto items-center">
-        <div className="w-full lg:w-[90%] zl:w-full  flex flex-col-reverse lg:flex-row justify-center items-center ">
+        <div className="w-full lg:w-[90%] xl:w-full  flex flex-col-reverse lg:flex-row justify-center items-center ">
           <div className=" flex flex-col">
-            <h1 className="text-[50px] lg:text-[70px] font-bloverly text-center lg:text-start">
+          <motion.h1
+          key={heroProducts[seleccion].name}
+              className="text-[50px] lg:text-[70px] font-bloverly text-center lg:text-start"
+              initial="hidden"
+              animate="visible"
+              variants={variants}
+              transition={{ duration: 1 }}
+            >
               {heroProducts[seleccion].name}
-            </h1>
-            <p className="mt-[12px] w-[293px] lg:w-[583px] text-[12px] lg:text-[16px] lg:font-semibold text-center lg:text-left font-shipporiMincho ">
+            </motion.h1>
+            <motion.p
+            key={heroProducts[seleccion].description}
+            initial="hidden"
+            animate="visible"
+            variants={variants}
+            transition={{ duration: 1 }}
+            className="mt-[12px] w-[293px] lg:w-[583px] text-[12px] lg:text-[16px] lg:font-semibold text-center lg:text-left font-shipporiMincho ">
               {heroProducts[seleccion].description}
-            </p>
-            {/* <div className="w-[200px] hidden lg:flex flex-row items-center justify-start  gap-[33px] mt-[40px]">
+            </motion.p>
+           <div className="w-[200px] hidden lg:flex flex-row items-center justify-start  gap-[33px] mt-[40px]">
               {heroProducts.map((product, index) => (
                 <div key={index} className="w-full h-full flex flex-col  gap-[12px]">
                   <div className="rounded-full w-[60px] h-[60px] cursor-pointer ">
@@ -66,11 +126,17 @@ function Hero() {
                       onClick={() => setSeleccion(index)}
                       className="object-cover "
                     ></img>
-                    <div className={seleccion == index && `w-[60px] h-[3px] bg-black rounded-[4px] mt-[12px]`}></div>
+                    <motion.div
+                    key={heroProducts[seleccion].elipse}
+                    initial="hidden"
+                    animate="visible"
+                    variants={variants}
+                    transition={{ duration: 1 }}
+                    className={seleccion == index && `w-[60px] h-[3px] bg-black rounded-[4px] mt-[12px]`}></motion.div>
                   </div>
                 </div>
               ))}
-            </div> */}
+            </div> 
             <div className="mt-[7px]  lg:mt-[59px] flex flex-row justify-center lg:justify-start">
               <Link href="/Tienda">
               <button className="w-[188px] h-[60px] bg-[#e39c9d] text-[24px] font-bold rounded-[6px] ">
@@ -80,8 +146,13 @@ function Hero() {
             </div>
           </div>
           <div className="w-[526px]  h-[526px] ">
-            <img
-              src="/assets/Home/hero/osito.png"
+            <motion.img
+            key={heroProducts[seleccion].image}
+            initial="hidden"
+            animate="visible"
+            variants={variants}
+            transition={{ duration: 1 }}
+              src={heroProducts[seleccion]?.image}
               alt="osofancy"
               className="w-full h-full object-contain"
             />
