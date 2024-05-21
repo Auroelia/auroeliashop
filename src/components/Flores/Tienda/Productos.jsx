@@ -114,7 +114,7 @@ useEffect(() => {
               <span className="text-[#E39C9D] font-inter font-bold text-[12px] lg:text-[16px] lg:hidden">Ordenar por:</span>
             <div className="flex items-center  gap-[6px]">
               <span className="hidden md:block text-[16px] font-inter">Ordenar por</span>
-              <select className="rounded-[3px] border-[1px] border-[#E39C9D] w-[121px] h-[23px] flex items-center justify-center" value={orden} onChange={handleOrdenChange}>
+              <select className="rounded-[3px] border-[1px] border-[#E39C9D] w-[180px] h-[23px] flex items-center justify-center" value={orden} onChange={handleOrdenChange}>
 
                 <option value="mas-nuevo">Más nuevo</option>
                 <option value="precio-ascendente">Precio ascendente</option>

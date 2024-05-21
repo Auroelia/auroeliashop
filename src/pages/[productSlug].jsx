@@ -46,6 +46,15 @@ function Product() {
   );
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    if (product?.imagenes) {
+      setSelectedImage(product.imagenes[0]);
+    }
+  
+  
+  }, [product]);
+  
+
   const [size, setSize] = useState({})
 
   useEffect(() => {
@@ -55,6 +64,11 @@ function Product() {
   }, [product]);
 
   console.log(size)
+
+
+const handleImageClick = (image) => {
+  setSelectedImage(image);
+};
 
   return (
     <div className="w-full h-full relative overflow-hidden">
@@ -79,26 +93,30 @@ function Product() {
             </div>
             {/* Desktop */}
             <div className="w-full hidden lg:flex flex-col items-end  gap-[44px]">
-              <img
-                src={urlForImage(product?.imagenes[0]?.asset._ref)}
-                alt={product.nombre}
-                className="w-[427px] h-[486px] object-cover rounded-[30px]"
-              />
-              {product?.imagenes[1] && product?.imagenes[2] && (
-                <div className="w-[427px] flex justify-between items-center ">
-                  <img
-                    src={urlForImage(product?.imagenes[1]?.asset._ref)}
-                    alt={product.nombre}
-                    className="w-[188px] h-[194px] object-cover rounded-[30px]"
-                  />
-                  <img
-                    src={urlForImage(product?.imagenes[2]?.asset._ref)}
-                    alt={product.nombre}
-                    className="w-[188px] h-[194px] object-cover rounded-[30px]"
-                  />
-                </div>
-              )}
-            </div>
+            <img
+  src={selectedImage ? urlForImage(selectedImage) : 'url-de-imagen-por-defecto'}
+  alt={product.nombre}
+  className="w-[427px] h-[486px] object-cover rounded-[30px] cursor-pointer"
+  onClick={() => handleImageClick(product?.imagenes[0]?.asset._ref)}
+
+/>
+    {product?.imagenes[1] && product?.imagenes[2] && (
+      <div className="w-[427px] flex justify-between items-center ">
+        <img
+          src={urlForImage(product?.imagenes[1]?.asset._ref)}
+          alt={product.nombre}
+          className="w-[188px] h-[194px] object-cover rounded-[30px] cursor-pointer"
+          onClick={() => handleImageClick(product?.imagenes[1]?.asset._ref)}
+        />
+        <img
+          src={urlForImage(product?.imagenes[2]?.asset._ref)}
+          alt={product.nombre}
+          className="w-[188px] h-[194px] object-cover rounded-[30px] cursor-pointer"
+          onClick={() => handleImageClick(product?.imagenes[2]?.asset._ref)}
+        />
+      </div>
+    )}
+  </div>
               <div className="w-full flex flex-row justify-center">
 
             <div className="w-[90%] flex flex-col  px-4 ">
