@@ -82,22 +82,36 @@ function Envio({ openModal, isModalOpen, closeModal,
         <span className="text-[16px] font-inter font-bold">
           Selecciona Fecha y Hora de Entrega
         </span>
-        <input
-          type="date"
-          className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
-            name="fecha"
-            value={envio.fecha}
-            onChange={handleChangeEnvio}
-        />
-        <select
-          className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] my-[10px] pl-4"
-          name="horario"
-            value={envio.horario}
-            onChange={handleChangeEnvio}
-        >
+      <input
+  type="date"
+  className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] px-4"
+  name="fecha"
+  value={envio.fecha}
+  onChange={handleChangeEnvio}
+  style={{
+    WebkitAppearance: 'textfield',
+    MozAppearance: 'textfield',
+    appearance: 'textfield',
+  }}
+/>
+<select
+  className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] my-[10px] px-4"
+  name="horario"
+  value={envio.horario}
+  onChange={handleChangeEnvio}
+  style={{
+    WebkitAppearance: 'none',
+    MozAppearance: 'none',
+    appearance: 'none',
+    backgroundImage: 'url("data:image/svg+xml;utf8,<svg fill=\'gray\' viewBox=\'0 0 140 140\' width=\'50\' height=\'50\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M20 40l50 50l50 -50\'/></svg>")',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'right .7em top 50%',
+    backgroundSize: '.65em auto',
+  }}
+>
           <option >Elige un horario</option>
           <option value="12-4">12pm-4pm</option>
-          {new Date().getHours() > 16 && <option value="4-7">4pm-7pm</option>}
+           <option value="4-7">4pm-7pm</option>
         </select>
         <span className="text-[16px] font-inter font-bold ">
           Escribe o elige una dedicatoria

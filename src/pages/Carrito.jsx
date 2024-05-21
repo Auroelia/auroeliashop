@@ -165,14 +165,14 @@ const [cliente, setCliente] = useState({
       >
         {/* Productos */}
         <div className="w-full lg:w-[639px] flex flex-col justify-center items-center">
-          <div className="w-full hidden lg:grid grid-cols-5 place-items-center">
-            <div>{/* vacio */}</div>
+          <div className="w-full hidden lg:hidden grid-cols-5 place-items-center">
+            <div className="">{/* vacio */}</div>
             <div>Producto</div>
             <div className="hidden lg:block">Cantidad</div>
             <div>{/* vacio */}</div>
             <div>Total</div>
           </div>
-          <div className="h-[1px] bg-[#E39C9D] w-full hidden lg:block" />
+          <div className="h-[1px] bg-[#E39C9D] w-full hidden lg:block my-4" />
           <div className="w-full h-full flex flex-col gap-[24px] ">
 
           {
