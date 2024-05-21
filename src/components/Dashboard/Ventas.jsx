@@ -1,14 +1,18 @@
 import { client } from '@/lib/client';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useStateLink } from 'sanity/router';
 import Venta from './Ventas/Venta';
+import { AppContext } from '@/context/AppContext';
 
 function Ventas() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6; 
+  const itemsPerPage = 5; 
 
   const [ventas, setVentas] = useState([])
   const [totalItems, setTotalItems] = useState(0);
+
+  const {deleteVenta} = useContext(AppContext);
+  
   
   useEffect(() => {
     // Realiza la consulta a la API de Sanity para obtener los productos
@@ -20,6 +24,17 @@ function Ventas() {
       })
       .catch((error) => console.error(error));
   }, [currentPage]);
+
+  const handleDeleteVenta = async (ref) => {
+    try {
+      await deleteVenta(ref);
+      setVentas(ventas.filter(venta => venta._id !== ref)); // Actualiza el estado para reflejar la venta eliminada
+
+    } catch (error) {
+      console.error("Error al eliminar la venta:", error);
+    }
+  };
+
 
   const nextPage = () => {
     if (currentPage < Math.ceil(totalItems / itemsPerPage)) {
@@ -49,6 +64,7 @@ const closeModal = () => setModalOpen(false);
           key={index}
           venta={venta}	
           productoVenta = {productoVenta}
+          handleDeleteVenta={handleDeleteVenta}
           />
           ))
         ))

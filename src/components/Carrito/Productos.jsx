@@ -7,13 +7,17 @@ function Productos({ item }) {
   const [counter, setCounter] = useState(1);
   useEffect(() => {
     if (item) {
+      console.log(item)
       setCounter(item.qty);
     }
   }, []);
 
   useEffect(() => {
-    updateCartItem(item.product._id, counter);
+    updateCartItem(item.product._id, item.size, counter);
   }, [counter]);
+
+  console.log(item);
+  console.log(item.size);
 
   return (
     <div className="w-full h-full flex flex-row justify-between  gap-[31px]">
@@ -33,6 +37,19 @@ function Productos({ item }) {
         <p className=" text-[10px]  md:text-[14px] font-medium  leading-[14px] ">
           {item.product.descripcion.slice(0, 40)}...
         </p>
+        <div>
+        <div
+                  
+                  className={` w-1/2 bg-[#E39C9D] flex justify-center rounded-lg my-2 `}
+                  
+                  >
+                    <p className="text-[14px]">
+
+                   {item?.size?.tamano} 
+                    </p>
+                  </div>
+        </div>
+
         <div className="flex flex-row lg:hidden items-center md:justify-center gap-[23px]">
           <button
             className="w-[25px] h-[25px] rounded-[7px] border-[2px] border-[#E39C9D] text-[#E39C9D] text-[15px] flex flex-col items-center justify-center "
@@ -82,7 +99,7 @@ function Productos({ item }) {
       </div>
       <div className=" flex flex-col items-center justify-center">
         <span className="font-inter font-bold text-[16px] ">
-          ${item.product.precio}.00
+          $ {item?.size?.precio}.00
         </span>
       </div>
     </div>

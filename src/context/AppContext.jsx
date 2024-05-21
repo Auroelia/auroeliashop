@@ -49,23 +49,23 @@ useEffect(() => {
   setTotal((subtotal+iva+envio));
 }, [subtotal,iva,envio]);
 
-const addToCart = (product, qty) => {
+const addToCart = (product, size, qty) => {
+  
   setCart((currentCart) => {
     // Buscar el producto en el carrito
     const index = currentCart.findIndex(
-      (item) => item.product._id === product._id 
+      (item) => item.product._id === product._id
     );
 
     // Si el producto ya está en el carrito, incrementar su cantidad
     if (index !== -1) {
       const newCart = [...currentCart];
-      console.log(newCart[index].qty)
       newCart[index].qty += qty;
       return newCart;
     }
 
     // Si el producto no está en el carrito, agregarlo
-    return [...currentCart, { product,  qty }];
+    return [...currentCart, { product, size, qty }];
   });
 };
 
@@ -73,11 +73,11 @@ const addToCart = (product, qty) => {
   const getCart = () => cart;
 
   // Update
-  const updateCartItem = (productId,  qty) => {
+  const updateCartItem = (productId, size, qty) => {
     setCart((currentCart) => {
       return currentCart.map((item) => 
         item.product._id === productId 
-          ? {product: item.product,  qty} 
+          ? {product: item.product, size, qty} 
           : item
       );
     });
@@ -170,6 +170,33 @@ const addToCart = (product, qty) => {
         throw error; 
       }
     }
+
+    // Update
+    const updateVenta = async (ref, newData) => {
+      try {
+        await client.patch(ref, (patch) => {
+          Object.keys(newData).forEach((key) => {
+            patch.set(key, newData[key]);
+          });
+        });
+      } catch (error) {
+        console.error("Error al actualizar la venta:", error);
+        throw error;
+      }
+    };
+
+    // Delete
+    const deleteVenta = async (ref) => {
+      try {
+        await 
+        console.log("entre")
+        client.delete(ref);
+        setVentas(ventas.filter(venta => venta._id !== ref)); // Actualiza el estado para reflejar la venta eliminada
+      } catch (error) {
+        console.error("Error al eliminar la venta:", error);
+        throw error;
+      }
+    };
   
 
  
@@ -192,7 +219,9 @@ const addToCart = (product, qty) => {
           postUser,
           loginUser,
           getVenta,
-          getVentas
+          getVentas,
+          updateVenta,
+          deleteVenta
     
     }}>
       {children}

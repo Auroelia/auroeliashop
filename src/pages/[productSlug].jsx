@@ -17,7 +17,7 @@ function Product() {
   const [counter, setCounter] = useState(1);
 
   const [products, setProductos] = useState([]);
-  console.log(products);
+
 
   const [complementos, setComplementos] = useState([]);
 
@@ -46,7 +46,14 @@ function Product() {
   );
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const [size, setSize] = useState(0)
+  const [size, setSize] = useState({})
+
+  useEffect(() => {
+    setSize(product?.tamanos[0])
+  }
+  ,[product])
+
+  console.log(size)
 
   return (
     <div className="w-full h-full relative overflow-hidden">
@@ -98,13 +105,14 @@ function Product() {
                 {product.nombre}{" "}
               </span>
               {
+                product.tamanos &&
                 product.tamanos.length>0&&
                 <div className="flex flex-row items-center gap-[10px]">
                 {product.tamanos.map((t, index) => (
                   <div
                   key={index}
-                  className={` ${index == size && "font-bold"} w-full bg-[#E39C9D] flex justify-center rounded-lg my-2 px-2 py-1 cursor-pointer`}
-                  onClick={() => setSize(index)}
+                  className={` ${t == size && "font-bold"} w-full bg-[#E39C9D] flex justify-center rounded-lg my-2 px-2 py-1 cursor-pointer`}
+                  onClick={() => setSize(t)}
                   >
                   {t.tamano}
                   </div>
@@ -112,8 +120,8 @@ function Product() {
               </div>
               }
               <span className="font-inter text-[20px] lg:text-[36px] xl:mt-[17px] ">
-              {console.log(product)}
-                ${product.tamanos[size].precio}.00
+                ${
+               size?.precio}.00
               </span>
               <div className="flex flex-row items-center gap-[23px] xl:mt-[32px]">
                 <button

@@ -1,14 +1,15 @@
 import { client } from "@/lib/client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { urlForImage } from "../../../../sanity/lib/image";
+import { AppContext } from "@/context/AppContext";
 
-function Venta({ venta, productoVenta }) {
+function Venta({ venta, productoVenta, handleDeleteVenta }) {
+
 
 
   const [product, setProduct] = useState([]);
   
   const fetchProductDetails = async (productId) => {
-    console.log(productId)
     const product = await client.fetch(`*[_id == "${productId}"]`);
     return product[0]; // Devuelve el primer producto que coincida con el ID
   };
@@ -18,12 +19,12 @@ function Venta({ venta, productoVenta }) {
       const fetchedProduct = await(
        fetchProductDetails(productoVenta?.product._ref)
       );
-      console.log(fetchedProduct)
       setProduct(fetchedProduct);
     };
 
     fetchProducts();
   }, [venta]);
+
 
   return (
     <div>
@@ -86,6 +87,7 @@ function Venta({ venta, productoVenta }) {
                 src="/assets/dashboard/Ventas/trashVenta.svg"
                 alt="trash"
                 className="cursor-pointer"
+                onClick={()=>handleDeleteVenta(venta._id)}
               />
               <select className="border-[1px] border-[#E39C9D] rounded-[6px]">
                 <option value="pendiente">Pendiente</option>

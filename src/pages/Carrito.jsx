@@ -12,23 +12,25 @@ import { v4 as uuidv4 } from 'uuid';
 
 function Carrito() {
   const { cart } = useContext(AppContext);
+  console.log(cart)
 
 
 
   const [total, setTotal] = useState(0);
   const [subtotalPrice, setSubTotalPrice] = useState(0);
+  console.log(cart);
 
   useEffect(() => {
     let total = 0;
     cart.forEach((item) => {
-      total += item.product.precio * item.qty;
+      total += item.size.precio * item.qty;
     });
     setTotal(total);
   }, [cart]);
 
   useEffect(() => {
     const subtotalPrice = cart.reduce(
-      (total, item) => total + item.product.precio,
+      (total, item) => total + item.size.precio,
       0
     );
     setSubTotalPrice(subtotalPrice);
@@ -102,6 +104,7 @@ const [cliente, setCliente] = useState({
       const productosParaSanity = cart.map((item) => ({
         _key: uuidv4(), // Generar una clave única para cada elemento
         product: { _ref: item.product._id }, // Referencia al _id del producto
+        size: item.size, // Referencia al _id del producto
         qty: item.qty, // Cantidad
       }));
       
