@@ -49,9 +49,10 @@ function Product() {
   const [size, setSize] = useState({})
 
   useEffect(() => {
-    setSize(product?.tamanos[0])
-  }
-  ,[product])
+    if (product?.tamanos) {
+      setSize(product.tamanos[0]);
+    }
+  }, [product]);
 
   console.log(size)
 
