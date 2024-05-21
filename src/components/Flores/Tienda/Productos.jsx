@@ -24,11 +24,19 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
         );
       });
       setFilteredProductos(newFilteredProductos);
+      
     }
     else{
       setFilteredProductos(productos);
     }
   }, [checklist, checklistArreglos, productos]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  
+    
+  }, [checklist, checklistArreglos])
+  
 
   useEffect(() => {
     // Realiza la consulta a la API de Sanity para obtener los productos
@@ -68,6 +76,34 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
 const openModal = () => setModalOpen(true);
 const closeModal = () => setModalOpen(false);
 
+// Agrega un nuevo estado para almacenar el valor seleccionado
+const [orden, setOrden] = useState('mas-vendidos');
+
+// Agrega un manejador para el evento onChange del select
+const handleOrdenChange = (event) => {
+  setOrden(event.target.value);
+};
+
+// Usa useEffect para ordenar los productos cuando el valor seleccionado cambie
+useEffect(() => {
+  let productosOrdenados;
+  switch (orden) {
+    case 'mas-nuevo':
+      // Aquí debes implementar la lógica para ordenar por más vendidos
+      productosOrdenados = productos
+      break
+    case 'precio-ascendente':
+      productosOrdenados = [...productos].sort((a, b) => a.precio - b.precio);
+      break;
+    case 'precio-descendente':
+      productosOrdenados = [...productos].sort((a, b) => b.precio - a.precio);
+      break;
+    default:
+      productosOrdenados = productos;
+  }
+  setProductos(productosOrdenados);
+}, [orden]);
+
   return (
     <div className="w-full h-full flex flex-col mb-[80px]">
 
@@ -78,8 +114,9 @@ const closeModal = () => setModalOpen(false);
               <span className="text-[#E39C9D] font-inter font-bold text-[12px] lg:text-[16px] lg:hidden">Ordenar por:</span>
             <div className="flex items-center  gap-[6px]">
               <span className="hidden md:block text-[16px] font-inter">Ordenar por</span>
-              <select className="rounded-[3px] border-[1px] border-[#E39C9D] w-[121px] h-[23px] flex items-center justify-center">
-                <option value="mas-vendidos">Más vendidos</option>
+              <select className="rounded-[3px] border-[1px] border-[#E39C9D] w-[121px] h-[23px] flex items-center justify-center" value={orden} onChange={handleOrdenChange}>
+
+                <option value="mas-nuevo">Más nuevo</option>
                 <option value="precio-ascendente">Precio ascendente</option>
                 <option value="precio-descendente">Precio descendente</option>
               </select>
@@ -120,7 +157,7 @@ const closeModal = () => setModalOpen(false);
       </div>
       </div>
       <div>
-        <div className=" w-[90%] flex flex-row items-center justify-end gap-[21px] mt-[56px] ">
+        <div className=" w-[90%] lg: w-[97%] flex flex-row items-center justify-end gap-[21px] mt-[56px] ">
           <button onClick={prevPage}  
           className={
             currentPage > 1?
