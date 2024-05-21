@@ -2,6 +2,7 @@ import { client } from "@/lib/client";
 import { useContext, useEffect, useState } from "react";
 import { urlForImage } from "../../../../sanity/lib/image";
 import { AppContext } from "@/context/AppContext";
+import VentasModal from './VentasModal'; 
 
 function Venta({ venta, productoVenta, handleDeleteVenta }) {
 
@@ -25,6 +26,17 @@ function Venta({ venta, productoVenta, handleDeleteVenta }) {
     fetchProducts();
   }, [venta]);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+const [isModalOpen, setModalOpen] = useState(false);
+
+const openModal = () => setModalOpen(true);
+const closeModal = () => setModalOpen(false);
+
+  console.log(venta)
+  console.log(product)
+  console.log(productoVenta)
+
 
   return (
     <div>
@@ -42,12 +54,32 @@ function Venta({ venta, productoVenta, handleDeleteVenta }) {
           />
         }
           <div className="flex flex-col h-[300px] justify-center px-[25px] rounded-b-[21px] gap-[5px]">
+            <div className="flex items-center gap-4">
+
             <span className="font-inter text-[14px] font-bold leading-[16px]">
               {product?.nombre}
             </span>
+            <span>
+              x{
+                productoVenta.qty
+              }
+            </span>
+           
+             <div
+                  
+                  className={` bg-[#E39C9D] flex justify-center rounded-lg my-2 px-2 `}
+                  
+                  >
+                    <p className="text-[14px]">
+
+                   {productoVenta.size.tamano} 
+                    </p>
+                  </div>
+                    </div>
+           
             <div className="font-inter text-[14px]  leading-[16px] flex flex-wrap gap-[10px]">
               <span>
-                ${product?.precio}.00 
+                ${venta.total}.00 
                 </span>
               <span>
                 {venta?.cupon}
@@ -82,7 +114,17 @@ function Venta({ venta, productoVenta, handleDeleteVenta }) {
                 src="/assets/dashboard/Ventas/editarVenta.svg"
                 alt="Editar"
                 className="cursor-pointer"
+                onClick={()=>openModal()}
               />
+              {isModalOpen  && (
+            <VentasModal
+              isOpen={isModalOpen}
+              close={closeModal}
+              venta={venta}
+
+              
+            />
+          )}
               <img
                 src="/assets/dashboard/Ventas/trashVenta.svg"
                 alt="trash"

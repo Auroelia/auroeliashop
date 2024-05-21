@@ -172,12 +172,21 @@ const addToCart = (product, size, qty) => {
     }
 
     // Update
-    const updateVenta = async (ref, newData) => {
+    const updateVenta = async (ref, updatedData) => {
       try {
         await client.patch(ref, (patch) => {
-          Object.keys(newData).forEach((key) => {
-            patch.set(key, newData[key]);
+          Object.keys(updatedData).forEach((key) => {
+            patch.set(key, updatedData[key]);
           });
+        });
+        setVentas((prevVentas) => {
+          const updatedVentas = prevVentas.map((venta) => {
+            if (venta._id === ref) {
+              return { ...venta, ...updatedData };
+            }
+            return venta;
+          });
+          return updatedVentas;
         });
       } catch (error) {
         console.error("Error al actualizar la venta:", error);
