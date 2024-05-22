@@ -9,6 +9,9 @@ import emailjs from '@emailjs/browser';
 
 function Venta({ venta, productoVenta, handleDeleteVenta }) {
 
+  console.log(venta.envio.estadoPedido)
+
+  const {updateVenta} = useContext(AppContext);
 
 
   const [product, setProduct] = useState([]);
@@ -37,6 +40,10 @@ const openModal = () => setModalOpen(true);
 const closeModal = () => setModalOpen(false);
 
  const [estado, setEstado] = useState("pendiente");
+
+ useEffect(() => {
+    setEstado(venta.envio.estadoPedido)
+  }, [venta])
 
   const handleEstadoChange = (e) => {
     setEstado(e.target.value);
@@ -92,6 +99,8 @@ const closeModal = () => setModalOpen(false);
       emailjs.send(serviceID, templateID, templateParamsConfirmado, userID)
         .then((response) => {
           console.log('Email sent successfully!', response.status, response.text);
+          /* tengo que hacer update en Sanity para guardar el nuevo estado de pedido */
+          updateVenta(venta._id, { envio: { estadoPedido: estado } });
         })
         .catch((error) => {
           console.error('Error sending email:', error);
@@ -100,6 +109,7 @@ const closeModal = () => setModalOpen(false);
       emailjs.send(serviceID, templateID, templateParamsEnviado, userID)
         .then((response) => {
           console.log('Email sent successfully!', response.status, response.text);
+          updateVenta(venta._id, { envio: { estadoPedido: estado } });
         })
         .catch((error) => {
           console.error('Error sending email:', error);
@@ -108,6 +118,7 @@ const closeModal = () => setModalOpen(false);
       emailjs.send(serviceID, templateID, templateParamsFinalizado, userID)
         .then((response) => {
           console.log('Email sent successfully!', response.status, response.text);
+          updateVenta(venta._id, { envio: { estadoPedido: estado } });
         })
         .catch((error) => {
           console.error('Error sending email:', error);

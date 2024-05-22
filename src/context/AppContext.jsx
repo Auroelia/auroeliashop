@@ -178,6 +178,7 @@ const addToCart = (product, size, qty) => {
 
     // Update
     const updateVenta = async (ref, updatedData) => {
+      console.log("entre UpdateVenta", ref, updatedData)
       try {
         await client.patch(ref, (patch) => {
           Object.keys(updatedData).forEach((key) => {
