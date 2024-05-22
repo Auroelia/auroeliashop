@@ -88,7 +88,12 @@ function Envio({ openModal, isModalOpen, closeModal,
   name="fecha"
   value={envio.fecha}
   onChange={handleChangeEnvio}
- 
+  placeholder="Fecha de entrega"
+  style={{
+    WebkitAppearance: 'textfield',
+    MozAppearance: 'textfield',
+    appearance: 'textfield',
+  }}
 />
 <select
   className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] my-[10px] px-4"
