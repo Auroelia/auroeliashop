@@ -9,7 +9,6 @@ import emailjs from '@emailjs/browser';
 
 function Venta({ venta, productoVenta, handleDeleteVenta }) {
 
-  console.log(venta.envio.estadoPedido)
 
   const {updateVenta} = useContext(AppContext);
 
@@ -45,6 +44,25 @@ const closeModal = () => setModalOpen(false);
     setEstado(venta.envio.estadoPedido)
 
   }, [venta])
+
+  const [localVenta, setLocalVenta] = useState(venta); 
+  
+  // Actualizar localVenta cuando cambie venta
+  useEffect(() => {
+    setLocalVenta(venta);
+  }, [venta]); 
+
+  const handleGuardar = async () => {
+    try {
+      // Actualizar la venta en la base de datos
+      await updateVenta(localVenta._id, localVenta);
+      // Cerrar el modal después de guardar los cambios
+      setModalOpen(false);
+      window.location.reload();
+    } catch (error) {
+      console.error("Error al guardar la venta:", error);
+    }
+  };
 
  
 
@@ -206,6 +224,9 @@ const closeModal = () => setModalOpen(false);
               isOpen={isModalOpen}
               close={closeModal}
               venta={venta}
+              handleGuardar={handleGuardar}
+              localVenta={localVenta}
+              setLocalVenta={setLocalVenta}
 
               
             />
@@ -215,6 +236,7 @@ const closeModal = () => setModalOpen(false);
                 alt="trash"
                 className="cursor-pointer"
                 onClick={()=>handleDeleteVenta(venta._id)}
+
               />
               
               <select

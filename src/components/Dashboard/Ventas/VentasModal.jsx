@@ -1,28 +1,39 @@
+import { AppContext } from "@/context/AppContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 
-function DatosModal({ isOpen, close, venta }) {
+function DatosModal({ isOpen, close, venta, handleGuardar, localVenta, setLocalVenta }) {
+ // Crear una copia de venta en el estado local
 
-  if (!isOpen) return null;
 
-  const handleChangeCliente = (e) => {
-    venta.cliente[e.target.name] = e.target.value;
-  };
-  const handleChangeDestinatario = (e) => {
-    venta.destinatario[e.target.name] = e.target.value;
-  };
+ console.log(venta)
+ 
+ if (!isOpen) return null;
+ 
 
-  const handleGuardar = async () => {
-    try {
-      // Actualizar la venta en la base de datos
-      await updateVenta(venta._id, venta);
-      // Cerrar el modal después de guardar los cambios
-      close();
-    } catch (error) {
-      console.error("Error al guardar la venta:", error);
-    }
-  };
+
+ const handleChangeCliente = (e) => {
+   setLocalVenta({
+     ...localVenta,
+     cliente: {
+       ...localVenta.cliente,
+       [e.target.name]: e.target.value,
+     },
+   });
+ };
+
+ const handleChangeDestinatario = (e) => {
+   setLocalVenta({
+     ...localVenta,
+     destinatario: {
+       ...localVenta.destinatario,
+       [e.target.name]: e.target.value,
+     },
+   });
+ };
+
+
 
   return (
     <div
@@ -62,7 +73,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Nombre"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4 "
               name="nombre"
-              value={venta.cliente.nombre}
+              value={localVenta.cliente.nombre}
               onChange={handleChangeCliente}
             />
             <input
@@ -70,7 +81,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Apellidos"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
               name="apellidos"
-              value={venta.cliente.apellidos}
+              value={localVenta.cliente.apellidos}
               onChange={handleChangeCliente}
             />
             <input
@@ -78,7 +89,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Teléfono"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
               name="telefono"
-              value={venta.cliente.telefono}
+              value={localVenta.cliente.telefono}
               onChange={handleChangeCliente}
             />
             <input
@@ -86,7 +97,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Correo"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
               name="correo"
-              value={venta.cliente.correo}
+              value={localVenta.cliente.correo}
               onChange={handleChangeCliente}
             />
             <span className=" text-[16px] font-inter font-bold col-span-2">
@@ -97,7 +108,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Nombre"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
               name="nombre"
-              value={venta.destinatario.nombre}
+              value={localVenta.destinatario.nombre}
               onChange={handleChangeDestinatario}
             />
             <input
@@ -105,7 +116,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Teléfono"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
               name="telefono"
-              value={venta.destinatario.telefono}
+              value={localVenta.destinatario.telefono}
               onChange={handleChangeDestinatario}
             />
             <input
@@ -113,7 +124,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Dirección"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4 col-span-2"
               name="direccion"
-              value={venta.destinatario.direccion}
+              value={localVenta.destinatario.direccion}
               onChange={handleChangeDestinatario}
             />
             <input
@@ -121,7 +132,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Colonia"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
               name="colonia"
-              value={venta.destinatario.colonia}
+              value={localVenta.destinatario.colonia}
               onChange={handleChangeDestinatario}
             />
             <input
@@ -129,7 +140,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Estado"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
               name="estado"
-              value={venta.destinatario.estado}
+              value={localVenta.destinatario.estado}
               onChange={handleChangeDestinatario}
             />
             <input
@@ -137,7 +148,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Delegación"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
               name="delegacion"
-              value={venta.destinatario.delegacion}
+              value={localVenta.destinatario.delegacion}
               onChange={handleChangeDestinatario}
             />
             <input
@@ -145,7 +156,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Código Postal"
               className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] pl-4"
               name="cp"
-              value={venta.destinatario.cp}
+              value={localVenta.destinatario.cp}
               onChange={handleChangeDestinatario}
             />
 
@@ -156,7 +167,7 @@ function DatosModal({ isOpen, close, venta }) {
               placeholder="Notas de envío"
               className="h-[164px] w-full border-[1px] border-[#E39C9D] col-span-2 pl-4 pt-4 mt-[10px]"
               name="notas"
-              value={venta.destinatario.notas}
+              value={localVenta.destinatario.notas}
               onChange={handleChangeDestinatario}
             />
             <div className="w-full flex justify-end col-span-2 gap-[10px] mb-8">
