@@ -88,11 +88,14 @@ function Envio({ openModal, isModalOpen, closeModal,
   name="fecha"
   value={envio.fecha}
   onChange={handleChangeEnvio}
-  placeholder="Fecha de entrega"
   style={{
-    WebkitAppearance: 'textfield',
-    MozAppearance: 'textfield',
-    appearance: 'textfield',
+    WebkitAppearance: 'none',
+    MozAppearance: 'none',
+    appearance: 'none',
+    backgroundImage: 'url("data:image/svg+xml;utf8,<svg fill=\'gray\' viewBox=\'0 0 140 140\' width=\'50\' height=\'50\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M20 40l50 50l50 -50\'/></svg>")',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'right .7em top 50%',
+    backgroundSize: '.65em auto',
   }}
 />
 <select
