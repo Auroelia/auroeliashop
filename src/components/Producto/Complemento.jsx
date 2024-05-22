@@ -27,9 +27,7 @@ function Complemento(
       </span>
 
       <div
-        className={`w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] ${
-          complementosActivos.find((item) => item._id === complemento._id) && "bg-[#E39C9D]"}
-           mt-[29px]`}
+        className={`w-[40px] h-[40px] rounded-[11px] border-[2px] border-[#E39C9D] mt-[29px] cursor-pointer relative`}
         onClick={() => {
           if(!complementosActivos.find((item) => item._id === complemento._id)){
 
@@ -39,7 +37,17 @@ function Complemento(
             setComplementosActivos((prev) => prev.filter((item) => item._id !== complemento._id));
           }
         }}
-      />
+      >
+        {
+          complementosActivos.find((item) => item._id === complemento._id) &&
+          <div className='w-full h-full flex justify-center items-center'>
+          <img className='absolute w-[70%] h-[70%] ' src='/assets/icons/check.svg' >
+
+            </img>
+            </div>
+        }
+        </div>
+      
     </div>
   );
 }

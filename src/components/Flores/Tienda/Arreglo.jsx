@@ -19,9 +19,17 @@ function Arreglo({arreglo, checklistArreglos, setChecklistArreglos}) {
     >
       <div
         id={arreglo.id}
-        className={`w-[21px] h-[21px]  rounded-[6px] border-[1px] border-[#E39C9D] ${checklistArreglos.includes(arreglo._id) ? "bg-[#E39C9D]" : "bg-transparent"}`}
+        className={`w-[21px] h-[21px]  rounded-[6px] border-[1px] border-[#E39C9D] `}
         onClick={handleClick}
-      />
+      >
+        {
+          checklistArreglos.includes(arreglo._id) &&
+          <div className='w-full h-full flex justify-center items-center'>
+
+          <img src='/assets/icons/check.svg' alt='check' className='w-[70%] h-[70%]' />
+        </div>
+        }
+        </div>
       <label htmlFor={arreglo._id}>{arreglo.nombre}</label>
     </div>
   )
