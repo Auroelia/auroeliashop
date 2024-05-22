@@ -43,23 +43,19 @@ const closeModal = () => setModalOpen(false);
 
  useEffect(() => {
     setEstado(venta.envio.estadoPedido)
+
   }, [venta])
+
+ 
 
   const handleEstadoChange = (e) => {
     setEstado(e.target.value);
-  }
+    sendEmail(e.target.value);
+    updateVenta(venta._id, { ...venta, envio: { ...venta.envio, estadoPedido: e.target.value } })
+     }
 
-  useEffect(() => {
-    if(estado == "confirmado"){
-      sendEmail("confirmado")
-    }
-    else if(estado == "enviado"){
-      sendEmail("enviado")
-    } 
-    else if(estado == "finalizado"){
-      sendEmail("finalizado")
-    }
-  }, [estado])
+
+
 
   const serviceID = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID
    const templateID = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_PEDIDO_ESTADO_ID ;
@@ -96,11 +92,10 @@ const closeModal = () => setModalOpen(false);
 
      // Send the email using emailjs
     if (estado === "confirmado") {
-      emailjs.send(serviceID, templateID, templateParamsConfirmado, userID)
+      emailjs.send(serviceID, templateID, templateParamsConfirmado,  userID )
         .then((response) => {
           console.log('Email sent successfully!', response.status, response.text);
           /* tengo que hacer update en Sanity para guardar el nuevo estado de pedido */
-          updateVenta(venta._id, { envio: { estadoPedido: estado } });
         })
         .catch((error) => {
           console.error('Error sending email:', error);
@@ -109,7 +104,6 @@ const closeModal = () => setModalOpen(false);
       emailjs.send(serviceID, templateID, templateParamsEnviado, userID)
         .then((response) => {
           console.log('Email sent successfully!', response.status, response.text);
-          updateVenta(venta._id, { envio: { estadoPedido: estado } });
         })
         .catch((error) => {
           console.error('Error sending email:', error);
@@ -118,12 +112,13 @@ const closeModal = () => setModalOpen(false);
       emailjs.send(serviceID, templateID, templateParamsFinalizado, userID)
         .then((response) => {
           console.log('Email sent successfully!', response.status, response.text);
-          updateVenta(venta._id, { envio: { estadoPedido: estado } });
         })
         .catch((error) => {
           console.error('Error sending email:', error);
         });
+        
     }
+   
    };
     
 
@@ -221,6 +216,7 @@ const closeModal = () => setModalOpen(false);
                 className="cursor-pointer"
                 onClick={()=>handleDeleteVenta(venta._id)}
               />
+              
               <select
               value={estado} onChange={handleEstadoChange}
               className="border-[1px] border-[#E39C9D] rounded-[6px]">

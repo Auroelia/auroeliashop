@@ -1,4 +1,4 @@
-import { client } from '@/lib/client';
+import { client } from "../lib/client";
 import React, { createContext, useEffect, useState } from 'react';
 
 export const AppContext = createContext();
@@ -177,28 +177,17 @@ const addToCart = (product, size, qty) => {
     }
 
     // Update
-    const updateVenta = async (ref, updatedData) => {
-      console.log("entre UpdateVenta", ref, updatedData)
-      try {
-        await client.patch(ref, (patch) => {
-          Object.keys(updatedData).forEach((key) => {
-            patch.set(key, updatedData[key]);
-          });
-        });
-        setVentas((prevVentas) => {
-          const updatedVentas = prevVentas.map((venta) => {
-            if (venta._id === ref) {
-              return { ...venta, ...updatedData };
-            }
-            return venta;
-          });
-          return updatedVentas;
-        });
-      } catch (error) {
-        console.error("Error al actualizar la venta:", error);
-        throw error;
-      }
-    };
+const updateVenta = async (ref, updatedData) => {
+  try {
+    await client
+      .patch(ref)
+      .set(updatedData)
+      .commit(); // Confirmar los cambios
+    console.log("Venta actualizada con éxito");
+  } catch (error) {
+    console.error("Hubo un error al actualizar la venta", error);
+  }
+};
 
     // Delete
     const deleteVenta = async (ref) => {
