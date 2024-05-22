@@ -171,7 +171,7 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
-    <div className="w-full h-screen flex flex-row ">
+    <div className="w-full  flex flex-row ">
       <div className="hidden w-1/4 lg:flex flex-col bg-[#E39C9D]">
         <div className="w-full h-full flex flex-row justify-center ">
           <div className="w-[90%] flex flex-col items-center  justify-between gap-[85px]">
