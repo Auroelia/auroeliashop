@@ -3,12 +3,14 @@ import React from 'react'
 function Elegirnos() {
   return (
     <div className='w-full h-full relative  mt-4 lg:mt-0'>
-        <img src='/assets/Acerca/elegirnos/rosa.png' alt='elegirnos' className='w-[199px] h-[194px]
-         xl:w-[627px] xl:h-[610px] object-cover absolute right-0 -bottom-[150px]  md:-bottom-[200px] lg:-bottom-[250px] lg:right-[100px] xl:-right-[300px] xl:-bottom-[50px] ' />
+        
 
         <div className='w-full h-[610px] md:h-[410px] lg:h-[850px] xl:h-[500px] flex flex-col text-center xl:text-left lg:flex-row justify-between max-w-[1440px] min-w-sm mx-auto 
-        lg:px-[180px] xl:px-[100px]
+        lg:px-[180px] xl:px-[100px] relative
         '>
+          <img src='/assets/Acerca/elegirnos/rosa.png' alt='elegirnos' className='w-[199px] h-[194px]
+         xl:w-[627px] xl:h-[610px] object-cover absolute right-0 -bottom-[150px]  md:-bottom-[200px] lg:-bottom-[250px] lg:right-[100px] xl:-right-[300px] xl:-bottom-[50px] ' />
+         
             <div className='w-full h-full flex flex-col justify-center items-center xl:items-start '>
             <span className="text-[#E39C9D] font-inter font-bold text-[18px] md:text-[25px] lg:text-[32px]">
             Ideas  Artesanales
