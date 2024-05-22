@@ -90,6 +90,11 @@ const addToCart = (product, size, qty) => {
     setCart((currentCart) => currentCart.filter((item) => item.product._id !== productId));
   };
 
+  // Delete
+  const deleteCart = () => {
+    setCart([]);
+  };
+
   //loginUser
   async function loginUser(email, password) {
     const query = `*[_type == "usuarios" && email == $email] `;
@@ -225,6 +230,7 @@ const addToCart = (product, size, qty) => {
         getCart,
          updateCartItem,
           removeFromCart,
+          deleteCart,
           postUser,
           loginUser,
           getVenta,

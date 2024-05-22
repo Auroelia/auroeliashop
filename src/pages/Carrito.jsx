@@ -8,10 +8,11 @@ import Informacion from "@/components/Carrito/Informacion";
 import Envio from "@/components/Carrito/Envio";
 import { client } from "@/lib/client";
 import { v4 as uuidv4 } from 'uuid';
-
+// Import the necessary modules from emailjs-com
+import emailjs from '@emailjs/browser';
 
 function Carrito() {
-  const { cart } = useContext(AppContext);
+  const { cart, deleteCart } = useContext(AppContext);
   console.log(cart)
 
 
@@ -97,6 +98,50 @@ const [cliente, setCliente] = useState({
     }
   }, [cliente, destinatario, envio]);
 
+   // Define your email service credentials
+   const serviceID = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID
+   const templateID = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_PEDIDO_ID;
+   const userID = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_PUBLIC_KEY_ID;
+
+   // Define the function to send the email
+  const sendEmail = () => {
+    const templateParams = {
+    cliente_nombre: cliente.nombre, 
+    cliente_apellidos: cliente.apellidos, 
+    cliente_telefono: cliente.telefono, 
+    cliente_correo: cliente.correo, 
+    destinatario_nombre: destinatario.nombre, 
+    destinatario_telefono: destinatario.telefono, 
+    destinatario_direccion: destinatario.direccion, 
+    destinatario_colonia: destinatario.colonia, 
+    destinatario_estado: destinatario.estado, 
+    destinatario_delegacion: destinatario.delegacion, 
+    destinatario_cp: destinatario.cp, 
+    envio_horario: envio.horario, 
+    envio_dedicatoria: envio.dedicatoria, 
+    envio_firma: envio.firma,
+    total: total,
+     message: 'Gracias por pedir en nuestra tienda, tu pedido ha sido recibido con éxito',
+     banco: 'Santander',
+     nombre:"J Armando Zavala",
+     numero_cuenta: '5579 0990 1683 5342',
+     clabe: '0141-8020-0108-399426',
+     instrucciones:"Por favor, envía una foto de tu comprobante de pago a nuestro correo electrónico para confirmar tu pedido.",
+     whatsapp: "https://wa.me/+525626306790?text=Quiero%20enviar%20mi%20comprobante%20de%20pago"
+
+    };
+
+     // Send the email using emailjs
+     emailjs.send(serviceID, templateID, templateParams, userID)
+       .then((response) => {
+         console.log('Email sent successfully!', response.status, response.text);
+       })
+       .catch((error) => {
+         console.error('Error sending email:', error);
+       });
+   };
+
+
   const enviarInfo = () => {
     
     if (!error) {
@@ -120,6 +165,9 @@ const [cliente, setCliente] = useState({
       })
       .then((res) => {
         console.log(`Pedido fue creado, ID es ${res._id}`);
+        sendEmail();
+        /* limpiar carrito */
+        deleteCart();
       })
       .catch((err) => {
         console.log("Ocurrió un error:", err.message);
