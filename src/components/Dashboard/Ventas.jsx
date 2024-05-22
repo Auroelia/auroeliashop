@@ -71,7 +71,7 @@ const closeModal = () => setModalOpen(false);
         ))
         }
       </div> 
-        <div className=" w-[90%] flex flex-row items-center justify-end gap-[21px] mt-[56px] ">
+        <div className=" w-[90%] 2xl:w-[94%] flex flex-row items-center justify-end gap-[21px] mt-[56px] ">
           <button onClick={prevPage}  
           className={
             currentPage > 1?

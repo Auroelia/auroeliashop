@@ -138,13 +138,14 @@ const Dashboard = () => {
               </span>{" "}
               Ventas
             </li>
-           <li
+           <a
+            href="https://auroelia.com/studio/structure/producto"
             target="_blank"
             rel="noopener noreferrer"
              className="text-[15px] font-medium hover:text-[#E39C9D] hover:scale-125 transition-all duration-300"
              onClick={() => {
                setActive(false)
-               handleSidebarClick("Productos")
+               
              }}
             > 
               <span
@@ -152,7 +153,7 @@ const Dashboard = () => {
                 <FaReceipt className="text-2xl text-white" />
               </span>{" "}
               Productos
-            </li>
+            </a>
           
            
             <li
@@ -199,11 +200,12 @@ const Dashboard = () => {
                 <p className="flex flex-row gap-4 mt-9 items-center cursor-pointer ">
                   
                   
-      <span className="text-xl  font-inter tracking-[2px]"
-      onClick={() => handleSidebarClick("Productos")}
+      <a href="https://auroelia.com/studio/structure/producto"
+            target="_blank"
+            rel="noopener noreferrer" className="text-xl  font-inter tracking-[2px]"
       >
         Productos
-      </span>
+      </a>
                 </p>
                 
                 
