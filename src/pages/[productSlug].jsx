@@ -130,7 +130,7 @@ const handleImageClick = (image) => {
                 {product.tamanos.map((t, index) => (
                   <div
                   key={index}
-                  className={` ${t == size && "font-bold"} w-full bg-[#E39C9D] flex justify-center rounded-lg my-2 px-2 py-1 cursor-pointer`}
+                  className={` ${t == size && "font-bold"} w-[105px] bg-[#E39C9D] flex justify-center rounded-lg my-2 px-2 py-1 cursor-pointer`}
                   onClick={() => setSize(t)}
                   >
                   {t.tamano}

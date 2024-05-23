@@ -24,7 +24,8 @@ function Carrito() {
   useEffect(() => {
     let total = 0;
     cart.forEach((item) => {
-      const precio = item.size?.precio || item.product.precio;
+      console.log(item)
+      const precio = item.size?.precio || item.product.precio || item.product?.tamanos[0]?.precio;
       const qty = item.qty || 1;
       total += precio * qty;
     });

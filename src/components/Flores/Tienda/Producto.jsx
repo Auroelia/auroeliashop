@@ -24,8 +24,8 @@ function Producto({producto, addToCart}) {
             </span>
             <div className="flex justify-between items-center ">
               <span className="font-inter font-bold text-[12px] lg:text-[16px]">
-                ${producto.precio}.00
-              </span>
+              ${producto?.tamanos?.[producto.tamanos.length - 1]?.precio}.00    
+                        </span>
 
               <img
                 src="/assets/icons/carrito.svg"
