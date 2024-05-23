@@ -8,7 +8,7 @@ function Productos({ item }) {
   useEffect(() => {
     if (item) {
       console.log(item)
-      setCounter(item.qty);
+      setCounter(item.qty? item.qty : 1);
     }
   }, []);
 
@@ -98,8 +98,13 @@ function Productos({ item }) {
         />
       </div>
       <div className=" flex flex-col items-center justify-center">
-        <span className="font-inter font-bold text-[16px] ">
-          $ {item?.size?.precio}.00
+        <span className="font-inter font-bold text-[12px] md:text-[16px] ">
+          
+          {item?.product?.tipo === "complemento" ?
+          <span>$ {item?.product?.precio}.00</span>
+          :
+         <span> $ {item?.size?.precio}.00</span>
+          }
         </span>
       </div>
     </div>

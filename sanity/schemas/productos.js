@@ -67,11 +67,7 @@ const productosSchema = {
               },
             ],
           },
-        { 
-            name: 'inventario',
-         title: 'Inventario',
-          type: 'number',
-           validation: (Rule) => Rule.required().integer().positive(), },
+       
         {
             name: 'imagenes',
             title: 'Imágenes',

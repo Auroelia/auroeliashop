@@ -24,16 +24,19 @@ function Carrito() {
   useEffect(() => {
     let total = 0;
     cart.forEach((item) => {
-      total += item.size.precio * item.qty;
+      const precio = item.size?.precio || item.product.precio;
+      const qty = item.qty || 1;
+      total += precio * qty;
     });
     setTotal(total);
   }, [cart]);
 
   useEffect(() => {
-    const subtotalPrice = cart.reduce(
-      (total, item) => total + item.size.precio,
-      0
-    );
+    const subtotalPrice = cart.reduce((total, item) => {
+      const precio = item.size?.precio || item.product.precio;
+      const qty = item.qty || 1;
+      return total + precio * qty;
+    }, 0);
     setSubTotalPrice(subtotalPrice);
   }, [cart]);
 
