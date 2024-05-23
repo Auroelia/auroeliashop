@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DatosModal from "./DatosModal";
+import { useMediaQuery } from "react-responsive";
 
 function Envio({ openModal, isModalOpen, closeModal,
  envio, setEnvio, enviarInfo, error})
@@ -8,6 +9,18 @@ function Envio({ openModal, isModalOpen, closeModal,
  
   const [selectedPerson, setSelectedPerson] = useState("novia/o");
   const [generatedMessages, setGeneratedMessages] = useState("");
+
+  const today = new Date();
+  const dateString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  
+  const [fecha, setFecha] = useState(dateString);
+  useEffect(() => {
+    setEnvio({
+      ...envio,
+      fecha: fecha,
+    });
+  }, []);
+
 
   const handleChangeEnvio = (e) => {
     setEnvio({
@@ -76,28 +89,39 @@ function Envio({ openModal, isModalOpen, closeModal,
     });
   }, [generatedMessages]);
 
+  const isMobile = useMediaQuery({ query: "(min-width: 640px)" });
+  const isMedium = useMediaQuery({ query: "(min-width: 768px)" });
+  const isLarge = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isExtraLarge = useMediaQuery({ query: "(min-width: 1280px)" });
+  const isDoubleExtraLarge = useMediaQuery({ query: "(min-width: 1536px)" });
+
+
+
   return (
     <div className="flex flex-col items-center">
       <div className="w-full lg:w-[349px]">
         <span className="text-[16px] font-inter font-bold">
           Selecciona Fecha y Hora de Entrega
         </span>
-      <input
-  type="date"
-  className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] px-4"
-  name="fecha"
-  value={envio.fecha}
-  onChange={handleChangeEnvio}
-  style={{
-    WebkitAppearance: 'none',
-    MozAppearance: 'none',
-    appearance: 'none',
-    backgroundImage: 'url("data:image/svg+xml;utf8,<svg fill=\'gray\' viewBox=\'0 0 140 140\' width=\'50\' height=\'50\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M20 40l50 50l50 -50\'/></svg>")',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'right .7em top 50%',
-    backgroundSize: '.65em auto',
-  }}
-/>
+        
+        <input
+        type="date"
+        id="fecha"
+        className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] mt-[10px] px-4"
+        name="fecha"
+        value={fecha}
+        onChange={handleChangeEnvio}
+        style={
+          !isLarge ?
+          {
+          background: `#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat`,
+        }
+      :
+      {
+      
+      }
+      }
+      />
 <select
   className="w-full h-[40px] border-[1px] border-[#E39C9D] rounded-[10px] my-[10px] px-4"
   name="horario"
@@ -130,7 +154,20 @@ function Envio({ openModal, isModalOpen, closeModal,
         <div className="w-full flex justify-between items-center">
           <span className="text-[12px] font-light">Genera un mensaje para</span>
           <div className="w-[111px] h[30px] border-[2px] border-[#E39C9D] rounded-[6px] flex justify-between px-2">
-            <select value={selectedPerson} onChange={handlePersonChange}>
+            <select value={selectedPerson} onChange={handlePersonChange}
+          style={{
+            WebkitAppearance: 'none',
+            MozAppearance: 'none',
+            appearance: 'none',
+            backgroundColor: 'white',
+            backgroundImage: 'url("data:image/svg+xml;utf8,<svg fill=\'gray\' viewBox=\'0 0 140 140\' width=\'50\' height=\'50\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M20 40l50 50l50 -50\'/></svg>")',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'right .7em top 50%',
+            backgroundSize: '.65em auto',
+            paddingRight: '2em',
+            outline: 'none', // Agrega esta línea
+          }}
+            >
               <option value="novia/o">Novia/o</option>
               <option value="madre">Madre</option>
               <option value="padre">Padre</option>

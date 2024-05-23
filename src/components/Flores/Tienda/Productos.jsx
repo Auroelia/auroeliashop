@@ -38,26 +38,6 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
   }, [checklist, checklistArreglos])
   
 
-  useEffect(() => {
-    // Realiza la consulta a la API de Sanity para obtener los productos
-    client
-      .fetch(`*[_type == "producto"] | order(_createdAt desc)`)
-      .then((data) => {
-        // Filtrar los productos antes de paginarlos
-        let filteredData = data;
-        if(checklist.length > 0 || checklistArreglos.length > 0) {
-          filteredData = data.filter((producto) => {
-            return (
-              checklist.includes(producto.flor._ref) ||
-              checklistArreglos.includes(producto.arreglo._ref)
-            );
-          });
-        }
-        setTotalItems(filteredData.length);
-        setProductos(filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
-      })
-      .catch((error) => console.error(error));
-  }, [currentPage, checklist, checklistArreglos]);
 
   const nextPage = () => {
     if (currentPage < Math.ceil(totalItems / itemsPerPage)) {
@@ -79,9 +59,45 @@ const closeModal = () => setModalOpen(false);
 // Agrega un nuevo estado para almacenar el valor seleccionado
 const [orden, setOrden] = useState('mas-vendidos');
 
+useEffect(() => {
+  // Realiza la consulta a la API de Sanity para obtener todos los productos
+  client
+    .fetch('*[_type == "producto"]')
+    .then((data) => {
+      // Ordena los productos antes de establecer el estado
+      let productosOrdenados;
+      switch (orden) {
+        case 'mas-nuevo':
+          // Aquí debes implementar la lógica para ordenar por más vendidos
+          productosOrdenados = data;
+          break;
+        case 'precio-ascendente':
+          productosOrdenados = [...data].sort((a, b) => a.precio - b.precio);
+          break;
+        case 'precio-descendente':
+          productosOrdenados = [...data].sort((a, b) => b.precio - a.precio);
+          break;
+        default:
+          productosOrdenados = data;
+      }
+      // Establece el estado con los productos ordenados
+      setProductos(productosOrdenados);
+      // Establece el total de items
+      setTotalItems(productosOrdenados.length);
+    })
+    .catch((error) => console.error(error));
+}, [orden]);
+
+useEffect(() => {
+  setFilteredProductos(productos.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
+}, [currentPage, productos]);
+
+
 // Agrega un manejador para el evento onChange del select
 const handleOrdenChange = (event) => {
   setOrden(event.target.value);
+  setCurrentPage(1); // Agrega esta línea
+
 };
 
 // Usa useEffect para ordenar los productos cuando el valor seleccionado cambie
@@ -107,18 +123,18 @@ useEffect(() => {
   return (
     <div className="w-full h-full flex flex-col mb-[80px]">
 
-        <div className="w-full h-full flex flex-col mt-4 lg:mt-0 lg:mb-8 ">
+        <div className="w-full h-full flex flex-col items-center mt-4 lg:mt-0 lg:mb-8 ">
           
-          <div className="w-full flex justify-between px-5 lg:justify-end lg:pr-8">
+          <div className="w-full md:w-[80%] lg:w-full flex justify-between px-5 lg:justify-end lg:pr-8">
             <div className="flex flex-col gap-[10px] ">
               <span className="text-[#E39C9D] font-inter font-bold text-[12px] lg:text-[16px] lg:hidden">Ordenar por:</span>
             <div className="flex items-center  gap-[6px]">
               <span className="hidden md:block text-[16px] font-inter">Ordenar por</span>
-              <select className="rounded-[3px] border-[1px] border-[#E39C9D] w-[180px] h-[23px] flex items-center justify-center" value={orden} onChange={handleOrdenChange}>
+              <select className="rounded-[3px] border-[1px] border-[#E39C9D] w-[180px] h-[23px] flex items-center justify-center outline-none" value={orden} onChange={handleOrdenChange}>
 
-                <option value="mas-nuevo">Más nuevo</option>
-                <option value="precio-ascendente">Precio ascendente</option>
-                <option value="precio-descendente">Precio descendente</option>
+                <option value="mas-nuevo" className="cursor-pointer">Más nuevo</option>
+                <option value="precio-ascendente" className="cursor-pointer">Precio ascendente</option>
+                <option value="precio-descendente" className="cursor-pointer">Precio descendente</option>
               </select>
                 <span className="hidden md:block text-[12px] font-inter ">{productos.length} productos</span>
             </div>
@@ -157,7 +173,7 @@ useEffect(() => {
       </div>
       </div>
       <div>
-        <div className=" w-[90%] lg: w-[97%] flex flex-row items-center justify-end gap-[21px] mt-[56px] ">
+        <div className=" w-[90%] lg:w-[97%] flex flex-row items-center justify-end gap-[21px] mt-[56px] ">
           <button onClick={prevPage}  
           className={
             currentPage > 1?
