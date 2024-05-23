@@ -6,7 +6,7 @@ import Flor from "../../../components/Flores/Tienda/Flor";
 import { client } from "@/lib/client";
 import Arreglo from "./Arreglo";
 
-function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArreglos}) {
+function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArreglos, handleChecklistChange}) {
   const [flores, setFlores] = useState([]);
   const [arreglos, setArreglos] = useState([]);
 
@@ -129,11 +129,16 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
         </div>
         </div>
       )} */}
-      {/* <div>
-        <button className="bg-[#E39C9D] w-[188px] h-[60px] rounded-[6px] text-[24px] font-bold font-inter mt-[43px] ">
+      <div>
+        <button className="bg-[#E39C9D] w-[188px] h-[60px] rounded-[6px] text-[24px] font-bold font-inter mt-[43px] "
+        onClick={()=>
+          handleChecklistChange()
+        
+      }
+        >
           Filtrar
         </button>
-      </div> */}
+      </div> 
     </div>
   );
 }
