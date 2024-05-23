@@ -17,23 +17,51 @@ function Layout() {
   const [totalItems, setTotalItems] = useState(0);
 
   const [filteredProductos, setFilteredProductos] = useState([]);
+  
+  
 
   
   const handleChecklistChange = (event) => {
-    if(checklist.length > 0 || checklistArreglos.length > 0) {
-      const newFilteredProductos = productos.filter((producto) => {
-        return (
-          checklist.includes(producto.flor._ref) ||
-          checklistArreglos.includes(producto.arreglo._ref)
-        );
-      });
-      setFilteredProductos(newFilteredProductos);
-      setCurrentPage(1);
-      
+    // Filtrar todos los productos
+    let newFilteredProductos = productos.filter((producto) => {
+      return (
+        checklist.includes(producto.flor._ref) ||
+        checklistArreglos.includes(producto.arreglo._ref)
+      );
+    });
+  
+    // Ordenar los productos filtrados
+    switch (orden) {
+      case 'mas-nuevo':
+        // Aquí debes implementar la lógica para ordenar por más vendidos
+        // Por ahora, no cambiamos el orden
+        break;
+      case 'precio-ascendente':
+        newFilteredProductos = [...newFilteredProductos].sort((a, b) => {
+          const lastA = a.tamanos && a.tamanos.length > 0 ? a.tamanos[a.tamanos.length - 1].precio : 0;
+          const lastB = b.tamanos && b.tamanos.length > 0 ? b.tamanos[b.tamanos.length - 1].precio : 0;
+          return lastA - lastB;
+        });
+        break;
+      case 'precio-descendente':
+        newFilteredProductos = [...newFilteredProductos].sort((a, b) => {
+          const lastA = a.tamanos && a.tamanos.length > 0 ? a.tamanos[a.tamanos.length - 1].precio : 0;
+          const lastB = b.tamanos && b.tamanos.length > 0 ? b.tamanos[b.tamanos.length - 1].precio : 0;
+          return lastB - lastA;
+        });
+        break;
+      default:
+        // Si no se especifica un orden, no cambiamos el orden
     }
-    else{
-      setFilteredProductos(productos);
-    }
+  
+    // Actualizar los productos filtrados y ordenados
+    setFilteredProductos(newFilteredProductos);
+  
+    // Actualizar el número total de elementos
+    setTotalItems(newFilteredProductos.length);
+  
+    // Reiniciar la página actual a 1
+    setCurrentPage(1);
   };
 
 
@@ -64,33 +92,47 @@ useEffect(() => {
   client
     .fetch('*[_type == "producto"]')
     .then((data) => {
+      // Filtra los productos si hay elementos en la lista de verificación
+      let productosFiltrados = data;
+      if (checklist.length > 0) {
+        productosFiltrados = data.filter((producto) => checklist.includes(producto.flor._ref));
+      }
+
       // Ordena los productos antes de establecer el estado
       let productosOrdenados;
       switch (orden) {
         case 'mas-nuevo':
           // Aquí debes implementar la lógica para ordenar por más vendidos
-          productosOrdenados = data;
+          productosOrdenados = productosFiltrados;
           break;
         case 'precio-ascendente':
-          productosOrdenados = [...data].sort((a, b) => a.precio - b.precio);
+          productosOrdenados = [...productosFiltrados].sort((a, b) => a.precio - b.precio);
           break;
         case 'precio-descendente':
-          productosOrdenados = [...data].sort((a, b) => b.precio - a.precio);
+          productosOrdenados = [...productosFiltrados].sort((a, b) => b.precio - a.precio);
           break;
         default:
-          productosOrdenados = data;
+          productosOrdenados = productosFiltrados;
       }
+
       // Establece el estado con los productos ordenados
       setProductos(productosOrdenados);
       // Establece el total de items
       setTotalItems(productosOrdenados.length);
     })
     .catch((error) => console.error(error));
-}, [orden]);
+}, [orden, checklist]);
 
 useEffect(() => {
-  setFilteredProductos(productos.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
+  setFilteredProductos(
+    filteredProductos && filteredProductos.length > 0
+      ? filteredProductos.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+      : productos.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+  );
 }, [currentPage, productos]);
+
+
+
 
 
 // Agrega un manejador para el evento onChange del select
