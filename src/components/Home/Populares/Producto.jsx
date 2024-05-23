@@ -3,7 +3,9 @@ import { urlForImage } from "../../../../sanity/lib/image";
 
 function Producto({ product }) {
   return (
-    <div className="w-[322px] h-[315px] flex flex-col relative shadow-popular rounded-[30px]  ">
+    <div className="w-[322px] h-[315px] flex flex-col relative shadow-popular rounded-[30px] cursor-pointer "
+    onClick={() => router.push(`${product.slug.current}`)}
+    >
       <div className="w-[322px] rounded-t-[30px] ">
         <img
           src={urlForImage(product.imagenes[0].asset._ref)}
@@ -20,7 +22,7 @@ function Producto({ product }) {
           <span className="text-[24px] font-inter font-light">
             ${product.precio}
           </span>
-          <img
+          {/* <img
                       src="/assets/icons/carrito.svg"
                       alt="carrito de compras"
                       className="w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] cursor-pointer hover:scale-125 transition-all duration-300"
@@ -28,7 +30,7 @@ function Producto({ product }) {
                         addToCart(product, 1)
                         router.push("/Carrito")}
                       }
-                    /> 
+                    />  */}
           </div>
         </div>
         <div className=""></div>
