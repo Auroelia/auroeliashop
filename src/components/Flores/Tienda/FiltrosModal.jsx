@@ -5,7 +5,7 @@ import Flor from './Flor';
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 
-function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos, setChecklistArreglos}) {
+function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos, setChecklistArreglos, handleCheckListChange}) {
 
   console.log(isOpen)
 
@@ -124,7 +124,11 @@ function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos,
       */}
       <div className='w-full flex justify-center'>
         <button className="bg-[#E39C9D] w-[188px] h-[60px] rounded-[6px] text-[24px] font-bold font-inter mt-[43px] "
-        onClick={close}>
+        onClick={()=>{
+          handleCheckListChange()
+          close()
+        }
+          }>
           Filtrar
         </button>
       </div> 

@@ -7,6 +7,8 @@ function Layout() {
   console.log(checklist)
   const [checklistArreglos, setChecklistArreglos] = useState([]);
 
+ 
+
   return (
     <div className='w-full h-full overflow-hidden relative'>
 
@@ -19,6 +21,7 @@ function Layout() {
         setChecklist={setChecklist}
         checklistArreglos={checklistArreglos}
         setChecklistArreglos={setChecklistArreglos}
+        
         />
         <Productos
            checklist={checklist}

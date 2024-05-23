@@ -15,7 +15,8 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
 
   const [filteredProductos, setFilteredProductos] = useState([]);
 
-  useEffect(() => {
+  
+  const handleChecklistChange = (event) => {
     if(checklist.length > 0 || checklistArreglos.length > 0) {
       const newFilteredProductos = productos.filter((producto) => {
         return (
@@ -24,19 +25,14 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
         );
       });
       setFilteredProductos(newFilteredProductos);
+      setCurrentPage(1);
       
     }
     else{
       setFilteredProductos(productos);
     }
-  }, [checklist, checklistArreglos, productos]);
+  };
 
-  useEffect(() => {
-    setCurrentPage(1);
-  
-    
-  }, [checklist, checklistArreglos])
-  
 
 
   const nextPage = () => {
@@ -154,6 +150,7 @@ useEffect(() => {
      setChecklist={setChecklist}
      checklistArreglos={checklistArreglos}
      setChecklistArreglos={setChecklistArreglos}
+     handleCheckListChange={handleChecklistChange}
 
    />
     )}
