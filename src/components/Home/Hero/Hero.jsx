@@ -35,7 +35,7 @@ function Hero() {
     },
   ];
 
-  const [seleccion, setSeleccion] = useState(1);
+  const [seleccion, setSeleccion] = useState(0);
 
   const isMobile = useMediaQuery({ query: "(min-width: 640px)" });
   const isMedium = useMediaQuery({ query: "(min-width: 768px)" });
