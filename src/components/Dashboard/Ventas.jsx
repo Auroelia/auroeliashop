@@ -55,7 +55,7 @@ const closeModal = () => setModalOpen(false);
 
 
   return (
-    <div className='w-full h-full flex flex-col justify-center  pb-[100px]'>
+    <div className='w-full h-full flex flex-col justify-center   pb-[100px]'>
        <div className='w-full h-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[10px] gap-y-[20px] place-items-center lg:mt-[100px] '>
         {
           ventas.map((venta,index) => (

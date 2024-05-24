@@ -111,7 +111,9 @@ function Envio({ openModal, isModalOpen, closeModal, envio, setEnvio, enviarInfo
                   background: `#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat`,
                 }
               : {
-                  
+                  background: "",
+                  padding: '10px',
+                  fontSize: '16px'
                 }
           }
         />
