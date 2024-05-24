@@ -138,6 +138,7 @@ const Dashboard = () => {
               </span>{" "}
               Ventas
             </li>
+            <li>
            <a
             href="https://auroelia.com/studio/structure/producto"
             target="_blank"
@@ -154,6 +155,7 @@ const Dashboard = () => {
               </span>{" "}
               Productos
             </a>
+            </li>
           
            
             <li
