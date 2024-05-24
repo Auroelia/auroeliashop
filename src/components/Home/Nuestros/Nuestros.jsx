@@ -70,7 +70,7 @@ function Nuestros() {
             <Link href="/Tienda" className="w-[60%] h-[103px] md:h-[223px] md:w-[443px] lg:w-[559px] lg:h-[282px]">
             <div className="w-full h-full relative cursor-pointer">
               <img
-                src="/assets/Home/categorias/ramos.png"
+                src="/assets/Home/categorias/velas.png"
                 alt="ramo1"
                 className="w-full h-full flex flex-col  "
               />
@@ -81,8 +81,8 @@ function Nuestros() {
 
                     
               >
-                <span>Ramos de</span>
-                <span>Novia</span>
+                <span>Velas</span>
+                <span>Con aroma</span>
               </div>
             </div>
             </Link>
