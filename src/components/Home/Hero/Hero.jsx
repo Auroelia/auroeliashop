@@ -26,12 +26,12 @@ function Hero() {
     },
     {
       id: 3,
-      name: "Ramos de novia",
+      name: "Velas aromatizantes",
       price: 100,
       description:
-        "Deja que tu amor florezca con un toque de elegancia en tu día especial. Cada ramo es una obra maestra única, que fusiona la belleza natural de las flores con la practicidad del jabón, ofreciendo una alternativa encantadora y duradera a los ramos tradicionales.",
-      image: "/assets/Home/hero/ramo.png",
-      elipse: "/assets/Home/hero/ramoelipse.svg",
+        "¡Descubre la elegancia perdurable de nuestras velas aromatizantes artesanales! Cada vela es una fusión de belleza y aroma, elaborada a mano con cuidado y detalle. Sorprende con un regalo que crea una atmósfera acogedora y deleita los sentidos.",
+      image: "/assets/Home/hero/vela.png",
+      elipse: "/assets/Home/hero/velaelipse.svg",
     },
   ];
 
