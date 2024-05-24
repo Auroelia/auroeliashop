@@ -20,7 +20,7 @@ function Producto({ product }) {
           </span>
           <div className="w-full flex flex-row justify-between">
           <span className="text-[24px] font-inter font-light">
-            ${product.precio}
+          ${product?.tamanos?.[product.tamanos.length - 1]?.precio}.00  
           </span>
           {/* <img
                       src="/assets/icons/carrito.svg"

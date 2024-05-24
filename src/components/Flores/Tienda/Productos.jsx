@@ -7,27 +7,10 @@ import FiltrosModal from "./FiltrosModal";
 
 function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArreglos, orden, setOrden, handleOrdenChange, isModalOpen, openModal, closeModal, productos, setProductos, currentPage, itemsPerPage, totalItems, filteredProductos, handleChecklistChange, nextPage, prevPage, addToCart,}) {
   
+  
 
 
-// Usa useEffect para ordenar los productos cuando el valor seleccionado cambie
-useEffect(() => {
-  let productosOrdenados;
-  switch (orden) {
-    case 'mas-nuevo':
-      // Aquí debes implementar la lógica para ordenar por más vendidos
-      productosOrdenados = productos
-      break
-    case 'precio-ascendente':
-      productosOrdenados = [...productos].sort((a, b) => a.precio - b.precio);
-      break;
-    case 'precio-descendente':
-      productosOrdenados = [...productos].sort((a, b) => b.precio - a.precio);
-      break;
-    default:
-      productosOrdenados = productos;
-  }
-  setProductos(productosOrdenados);
-}, [orden]);
+
 
   return (
     <div className="w-full h-full flex flex-col mb-[80px]">
