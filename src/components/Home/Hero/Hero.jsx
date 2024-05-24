@@ -35,7 +35,7 @@ function Hero() {
     },
   ];
 
-  const [seleccion, setSeleccion] = useState(0);
+  const [seleccion, setSeleccion] = useState(1);
 
   const isMobile = useMediaQuery({ query: "(min-width: 640px)" });
   const isMedium = useMediaQuery({ query: "(min-width: 768px)" });
@@ -167,7 +167,7 @@ function Hero() {
 
       <div className="w-full h-[920px] lg:h-[750px] flex flex-col max-w-[1440px] min-w-sm mx-auto items-center">
         <div className="w-full lg:w-[90%] xl:w-full  flex flex-col-reverse lg:flex-row justify-center items-center ">
-          <div className=" flex flex-col">
+          <div className=" flex flex-col items-center lg:items-start">
             <motion.h1
               key={heroProducts[seleccion].name}
               className="text-[50px] lg:text-[70px] font-bloverly text-center lg:text-start"
