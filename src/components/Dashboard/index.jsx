@@ -87,7 +87,7 @@ const Dashboard = () => {
   return (
     
     <Fragment>
-      <div className="lg:hidden flex flex-row justify-between   w-full h-[100px] items-center px-8    ">
+      <div className="xl:hidden flex flex-row justify-between   w-full h-[100px] items-center px-8     ">
       <div>
       <Image
         src='/assets/logonav.png' width={100} height={100} alt='logo' />
@@ -173,8 +173,8 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
-    <div className="w-full h-full lg:h-screen flex flex-row ">
-      <div className="hidden w-1/4 lg:flex flex-col bg-[#E39C9D]">
+    <div className="w-full h-full  flex flex-row ">
+      <div className="hidden w-1/4 min-h-[1200px] h-screen xl:flex flex-col bg-[#E39C9D]">
         <div className="w-full h-full flex flex-row justify-center ">
           <div className="w-[90%] flex flex-col items-center  justify-between gap-[85px]">
             <img src='/assets/Acerca/elegirnos/rosa.png' alt='girasol' className='
@@ -231,7 +231,7 @@ const Dashboard = () => {
       
 
       
-      <div className={" h-full w-full lg:w-3/4  flex flex-col justify-center mt-8 mb-8 lg:mt-0 lg:mb-0"}>
+      <div className={" h-full w-full xl:w-3/4  flex flex-col justify-center mt-8 mb-8 lg:mt-0 lg:mb-0 "}>
         {renderActiveComponent()}
       </div>
     </div>
