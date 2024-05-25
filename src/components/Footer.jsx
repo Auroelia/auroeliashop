@@ -19,7 +19,7 @@ del corazón</h3>
     <img src='/assets/icons/carritob.svg' alt='carrito' className='w-[20px] h-[22px] text' />
     <img src='/assets/icons/fb.svg' alt='facebook' className='w-[13px] h-[21px]' />
     <img src='/assets/icons/ig.svg' alt='instagram' className='w-[21px] h-[24px]' />
-    <img src='/assets/icons/telblanco.svg' alt='facebook' className='w-[13px] h-[21px]' />
+    <img src='/assets/icons/telblanco.svg' alt='facebook' className='w-[21px] h-[21px]' />
     <img src='/assets/icons/mailblanco.svg' alt='instagram' className='w-[21px] h-[24px]' />
 </div>
           <div className='items-center gap-[3px] hidden lg:flex'>
