@@ -20,10 +20,10 @@ export default function Home() {
     <meta name="keywords" content="flores, arreglos florales, flores de jabon, ramos, floreria, floral, jabon, velas, regalos, regalar" />
     <meta property="og:title" content="Auroelia Shop" />
     <meta property="og:description" content="Descubre Auroelia, una marca mexicana que ofrece una experiencia única en el mundo de los arreglos florales con piezas que cautivan los sentidos y llenan el espacio de elegancia y distinción, innovando el arte de regalar al implementar arreglos artesanales hechos a base de distintos materiales como jabón, velas, entre otros." />
-    <meta property="og:image" content="/assets/ogimage.png" />
+    <meta property="og:image" content="/assets/ogimage.jpg" />
     <meta property="og:url" content="https://www.auroelia.com" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/assets/ogimage.png" />
+    <meta name="twitter:image" content="/assets/ogimage.jpg" />
     <link rel="icon" href="favicon.ico" />
   </Head>
     <div className="">
