@@ -27,7 +27,7 @@ function Producto({producto, addToCart}) {
               ${producto?.tamanos?.[producto.tamanos.length - 1]?.precio}.00    
                         </span>
 
-              <img
+            {/*   <img
                 src="/assets/icons/carrito.svg"
                 alt="carrito de compras"
                 className="w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] cursor-pointer hover:scale-125 transition-all duration-300"
@@ -35,7 +35,7 @@ function Producto({producto, addToCart}) {
                   addToCart(producto, 1);
                   router.push("/Carrito");
                 }}
-              />
+              /> */}
             </div>
           </div>
         </>
