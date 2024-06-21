@@ -10,10 +10,16 @@ const arreglosSchema = {
             validation: (Rule) => Rule.required(),
         },
         {
-            name: 'descripcion',
-            title: 'Descripción',
+            name: 'material',
+            title: 'Material',
             type: 'text',
         },
+        {
+            name: 'envios',
+            title: 'Envios',
+            type: 'text',
+        },
+       
         // Agrega aquí más campos según tus necesidades
     ],
 };

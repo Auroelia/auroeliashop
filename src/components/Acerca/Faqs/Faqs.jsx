@@ -19,13 +19,13 @@ function Faqs() {
       id:3,
       question: "¿Qué métodos de pago aceptan?",
       answer:
-        "Aceptamos pagos con tarjeta de crédito, débito y PayPal. También ofrecemos la opción de pago en efectivo al momento de la entrega. Para obtener más información sobre los métodos de pago disponibles, contáctanos.",
+        "Aceptamos pagos por transferencia, Paypal y pagos en efectivo en Oxxo. Para obtener más información sobre otros métodos de pago disponibles, contáctanos.",
     },
     {
       id:4,
       question: "¿Ofrecen servicio de envío a domicilio?",
       answer:
-        "Sí, ofrecemos servicio de envío a domicilio en toda la Ciudad de México y área metropolitana. Para envíos a otras zonas, contáctanos para obtener más información sobre las opciones de envío disponibles.",
+        "Sí, Ofrecemos entregas a domicilio en toda la Ciudad de México y algunas partes del Estado de México y también hacemos envíos vía paquetería a toda la Republica Mexicana (con un tiempo de entrega de 3 a 5 días hábiles). Contáctanos para obtener más información sobre las opciones de envío disponibles.",
     },
   ];
 

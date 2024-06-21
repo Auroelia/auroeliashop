@@ -21,6 +21,8 @@ function Product() {
 
   const [complementos, setComplementos] = useState([]);
 
+  const [arreglos, setArreglos] = useState([])
+
   useEffect(() => {
     // Realiza la consulta a la API de Sanity para obtener los productos
     client
@@ -34,6 +36,14 @@ function Product() {
     client
       .fetch('*[_type == "complemento"]')
       .then((data) => setComplementos(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  useEffect(() => {
+    // Realiza la consulta a la API de Sanity para obtener los productos
+    client
+      .fetch('*[_type == "arreglo"]')
+      .then((data) => setArreglos(data))
       .catch((error) => console.error(error));
   }, []);
 
@@ -246,10 +256,13 @@ const handleImageClick = (image) => {
                   />
                 </div>
                 <p className="text-[16px] font-medium leading-[23px] mt-[8px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                  {
+                    arreglos.map((arreglo, index) => (
+                    arreglo._id == product.arreglo._ref && 
+                    arreglo.material
+                    ))
+                    
+                  }
                 </p>
               </div>
               <div className="h-[1px] lg:w-[481px] bg-[#E39C9D] mt-[13px]" />
@@ -272,10 +285,13 @@ const handleImageClick = (image) => {
                   />
                 </div>
                 <p className="text-[16px] font-medium leading-[23px] mt-[8px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                {
+                    arreglos.map((arreglo, index) => (
+                    arreglo._id == product.arreglo._ref && 
+                    arreglo.envios
+                    ))
+                    
+                  }
                 </p>
               </div>
               <div className="h-[1px] lg:w-[481px] bg-[#E39C9D] mt-[13px]" />
@@ -297,12 +313,14 @@ const handleImageClick = (image) => {
                     className="w-[40px] h-[40px]"
                   />
                 </div>
-                <p className="text-[16px] font-medium leading-[23px] mt-[8px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                <ol className="w-full text-[16px] font-medium leading-[23px] mt-[8px] ">
+                
+                  <li>1.- Evita la exposición al sol y al calor excesivo</li>
+                  <li>2.- Limpia suavemente con un paño suave y seco para remover el polvo.</li>
+                  <li>3.- Coloca el arreglo en un lugar fresco y seco protegiéndolo así de posibles daños.</li>
+
+                </ol>
+                
               </div>
             </div>
             </div>

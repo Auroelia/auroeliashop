@@ -24,7 +24,7 @@ function Filtros({checklist, setChecklist, checklistArreglos, setChecklistArregl
       .then((data) => setArreglos(data))
       .catch((error) => console.error(error));
   }, []);
-
+ 
 
   
 
