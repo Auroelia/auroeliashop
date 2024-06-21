@@ -67,9 +67,9 @@ del corazón</h3>
 </div>
 <div className='w-full  flex flex-col lg:flex-row font-inter justify-center items-center text-white text-[12px] py-[15px] gap-[10px]'>
   <span>2024 Auroelia® </span>
-  <Link href={"/TerminosCondiciones"} className='text-[#E39C9D]'>Términos y Condiciones</Link>
-  <Link href={"/PoliticaPrivacidad"} className='text-[#E39C9D]'>Política de Privacidad</Link>
-  <Link href={"/PoliticaEnvio"} className='text-[#E39C9D]'>Política de Envío</Link>
+  <Link href={"/Terminos"} className='text-[#E39C9D]'>Términos y Condiciones</Link>
+  <Link href={"/Politicas"} className='text-[#E39C9D]'>Política de Privacidad</Link>
+  <Link href={"/PoliticasEnvio"} className='text-[#E39C9D]'>Política de Envío</Link>
   <a href='https://www.instagram.com/jaizmora_agency/'>Website made by <span className='text-[#E39C9D]'>Jaizmora Digital Media </span> </a>
 
   
