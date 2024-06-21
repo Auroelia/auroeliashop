@@ -41,14 +41,14 @@ function Contacto() {
 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-x-[37px] gap-y-[50px]'>
 
-                <a href='tel:+5255402356 ' className='flex flex-row lg:flex-col items-center justify-center gap-[25px] lg:gap-[8px] w-[326px] h-[90px] lg:w-[333px] lg:h-[285px] rounded-[26px] lg:rounded-[58px] cursor-pointer'
+                <a href='tel:+525626306790 ' className='flex flex-row lg:flex-col items-center justify-center gap-[25px] lg:gap-[8px] w-[326px] h-[90px] lg:w-[333px] lg:h-[285px] rounded-[26px] lg:rounded-[58px] cursor-pointer'
                 style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}
                 >
                     <div className='w-[50px] lg:w-[80px] h-[50px] lg:h-[80px]  flex justify-center items-center'>
                     <img src="/assets/icons/contactPhone.svg" alt='contacto1' className='w-[32px] h-[32px] md:w-[40px] md:h-[40px] lg:w-[64px] lg:h-[62px] object-cover' />
                     </div>
                     <div className='w-[100px] flex items-center'>
-                    <p className='text-[12px] md:text-[15px] lg:text-[24px] font-medium'>+5255402356</p>
+                    <p className='text-[12px] md:text-[15px] lg:text-[24px] font-medium'>5626306790</p>
                     </div>
                 </a>
                 <a href='mailto:contacto@auroelia.com' className='flex flex-row lg:flex-col items-center justify-center gap-[25px] lg:gap-[8px] w-[326px] h-[90px] lg:w-[333px] lg:h-[285px] rounded-[26px] lg:rounded-[58px] cursor-pointer' style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}>
