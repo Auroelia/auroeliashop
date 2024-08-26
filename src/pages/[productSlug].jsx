@@ -228,7 +228,9 @@ const handleImageClick = (image) => {
                 </div>
                 {
                   product.file?.asset?._ref&&
-                  <div className="font-inter text-[15px] lg:text-[24px] font-bold  w-[160px] h-[37px] lg:w-[204px] lg:h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px]">
+                  <div className="font-inter text-[15px] lg:text-[24px] font-bold  w-[160px] h-[37px] lg:w-[204px] lg:h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px] cursor-pointer"
+                  onClick={() => router.push(`/AR/${product.slug.current}`)}
+                  >
                   <img
                     src="/assets/icons/ar.svg"
                     className="w-[13px] h-[22px] lg:w-[21px] lg:h-[37px]"
