@@ -78,13 +78,13 @@ function AR() {
             />
            
           </div>
-         
-        </model-viewer>
           <button slot="ar-button" className="absolute top-[60%] left-[10%] md:top-[50%] lg:top-[55%] md:left-[35%] lg:left-[40%] xl:hidden xl:bottom-[15%] xl:left-[45%] z-50 "  >
             <span  className="rounded-[4px] bg-[#E39C9D] text-white hover:text-[#d3cbc0] w-[200px] h-[45px] text-xl tracking-[4px] mt-8 font-apollo flex flex-col justify-center">
        Activate AR
             </span>
   </button>
+        </model-viewer>
+          
       </div>
     </div>
     </div>
