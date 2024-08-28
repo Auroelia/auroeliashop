@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Filtros from "./Filtros";
 import Productos from "./Productos";
 import { AppContext } from "@/context/AppContext";
@@ -14,6 +14,8 @@ function Layout() {
   const [totalItems, setTotalItems] = useState(0);
   const [filteredProductos, setFilteredProductos] = useState([]);
   const [orden, setOrden] = useState("mas-vendidos");
+  const productosRef = useRef(null); // Crear una referencia para el contenedor de productos
+
 
   useEffect(() => {
     client.fetch('*[_type == "producto"]').then((data) => {
@@ -81,12 +83,14 @@ function Layout() {
   const nextPage = () => {
     if (currentPage < Math.ceil(totalItems / itemsPerPage)) {
       setCurrentPage(currentPage + 1);
+      productosRef.current.scrollIntoView({ behavior: 'smooth' }); // Desplazarse hasta el contenedor de productos
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
+      productosRef.current.scrollIntoView({ behavior: 'smooth' }); // Desplazarse hasta el contenedor de productos
     }
   };
 
@@ -128,7 +132,8 @@ function Layout() {
           handleChecklistChange={handleChecklistChange}
           nextPage={nextPage}
           prevPage={prevPage}
-          addToCart={addToCart}
+          addToCart={addToCart} 
+          productosRef={productosRef}
         />
       </div>
     </div>

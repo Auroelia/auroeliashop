@@ -5,7 +5,7 @@ import { AppContext } from "@/context/AppContext";
 import Producto from "./Producto";
 import FiltrosModal from "./FiltrosModal";
 
-function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArreglos, orden, setOrden, handleOrdenChange, isModalOpen, openModal, closeModal, productos, setProductos, currentPage, itemsPerPage, totalItems, filteredProductos, handleChecklistChange, nextPage, prevPage, addToCart,}) {
+function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArreglos, orden, setOrden, handleOrdenChange, isModalOpen, openModal, closeModal, productos, setProductos, currentPage, itemsPerPage, totalItems, filteredProductos, handleChecklistChange, nextPage, prevPage, addToCart, productosRef }) {
   
   
 
@@ -54,7 +54,7 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
             </div>
           </div>
           </div>
-      <div className="w-full flex justify-center">
+      <div ref={productosRef} className="w-full flex justify-center">
       <div className="w-[90%] lg:w-full h-full grid grid-cols-2 lg:grid-cols-3 gap-x-[22px] gap-y-[22px] lg:gap-y-[61px]  lg:px-[0px] place-items-center mt-4 lg:mt-0">
         {filteredProductos.map((producto) => (
           <Producto
@@ -77,7 +77,7 @@ function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArr
               className={"w-[25px] h-[40px]"}
             />
           </button>
-          <button onClick={nextPage}  className={currentPage < Math.ceil(totalItems / itemsPerPage) ? "rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center":"hidden"}>
+          <button onClick={nextPage} className={currentPage < Math.ceil(totalItems / itemsPerPage) ? "rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center":"hidden"}>
             <img
               src="/assets/icons/der.svg"
               alt="arrow"

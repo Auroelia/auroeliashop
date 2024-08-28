@@ -1,6 +1,7 @@
 import React from 'react'
 import { urlForImage } from '../../../../sanity/lib/image'
 import { useRouter } from 'next/router'
+import Image from 'next/image';
 
 function Producto({producto, addToCart}) {
 
