@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import Filtros from "./Filtros";
 import Productos from "./Productos";
 import { AppContext } from "@/context/AppContext";
-import { client } from "../../../../sanity/lib/client";
 
 function Layout() {
   const [checklist, setChecklist] = useState([]);
@@ -12,64 +11,35 @@ function Layout() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
   const [totalItems, setTotalItems] = useState(0);
-  const [filteredProductos, setFilteredProductos] = useState([]);
   const [orden, setOrden] = useState("mas-vendidos");
-  const productosRef = useRef(null); // Crear una referencia para el contenedor de productos
-
-
-  useEffect(() => {
-    client.fetch('*[_type == "producto"]').then((data) => {
-      setProductos(data);
-      filterAndSortProducts(data, checklist, checklistArreglos, orden, currentPage);
-    });
-  }, []);
+  const productosRef = useRef(null); 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    filterAndSortProducts(productos, checklist, checklistArreglos, orden, currentPage);
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`/api/productos?page=${currentPage}&itemsPerPage=${itemsPerPage}&checklist=${JSON.stringify(checklist)}&checklistArreglos=${JSON.stringify(checklistArreglos)}&orden=${orden}`);
+        const data = await response.json();
+        setProductos(data.productos);
+        setTotalItems(data.totalItems); // Ajustar esto con el total de productos en la base de datos
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, [checklist, checklistArreglos, orden, currentPage]);
-
-  const filterAndSortProducts = (productos, checklist, checklistArreglos, orden, currentPage) => {
-    let filtered = productos.filter((producto) => {
-      return (
-        (checklist.length === 0 || checklist.includes(producto.flor._ref)) &&
-        (checklistArreglos.length === 0 || checklistArreglos.includes(producto.arreglo._ref))
-      );
-    });
-
-    switch (orden) {
-      case "mas-nuevo":
-        filtered = filtered.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
-        break;
-      case "precio-ascendente":
-        filtered = filtered.sort((a, b) =>
-          (a.tamanos?.[a.tamanos.length - 1]?.precio || 0) - (b.tamanos?.[b.tamanos.length - 1]?.precio || 0)
-        );
-        break;
-      case "precio-descendente":
-        filtered = filtered.sort((a, b) =>
-          (b.tamanos?.[b.tamanos.length - 1]?.precio || 0) - (a.tamanos?.[a.tamanos.length - 1]?.precio || 0)
-        );
-        break;
-      default:
-        break;
-    }
-
-    setTotalItems(filtered.length);
-    setFilteredProductos(filtered.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
-  };
 
   const handleChecklistChange = (event) => {
     const { name, checked } = event.target;
-    const updateChecklist = name.startsWith("flor")
-      ? setChecklist
-      : setChecklistArreglos;
+    const updateChecklist = name.startsWith("flor") ? setChecklist : setChecklistArreglos;
 
     updateChecklist((prev) => {
-      const newList = checked
-        ? [...prev, name]
-        : prev.filter((item) => item !== name);
+      const newList = checked ? [...prev, name] : prev.filter((item) => item !== name);
       setCurrentPage(1);
-      filterAndSortProducts(productos, checklist, checklistArreglos, orden, 1);
       return newList;
     });
   };
@@ -77,20 +47,19 @@ function Layout() {
   const handleOrdenChange = (event) => {
     setOrden(event.target.value);
     setCurrentPage(1);
-    filterAndSortProducts(productos, checklist, checklistArreglos, event.target.value, 1);
   };
 
   const nextPage = () => {
     if (currentPage < Math.ceil(totalItems / itemsPerPage)) {
       setCurrentPage(currentPage + 1);
-      productosRef.current.scrollIntoView({ behavior: 'smooth' }); // Desplazarse hasta el contenedor de productos
+      productosRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
-      productosRef.current.scrollIntoView({ behavior: 'smooth' }); // Desplazarse hasta el contenedor de productos
+      productosRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -112,30 +81,30 @@ function Layout() {
           setChecklistArreglos={setChecklistArreglos}
           handleChecklistChange={handleChecklistChange}
         />
-        
-        <Productos
-          checklist={checklist}
-          setChecklist={setChecklist}
-          checklistArreglos={checklistArreglos}
-          setChecklistArreglos={setChecklistArreglos}
-          orden={orden}
-          setOrden={setOrden}
-          handleOrdenChange={handleOrdenChange}
-          isModalOpen={isModalOpen}
-          openModal={openModal}
-          closeModal={closeModal}
-          productos={filteredProductos}
-          setProductos={setProductos}
-          currentPage={currentPage}
-          itemsPerPage={itemsPerPage}
-          totalItems={totalItems}
-          filteredProductos={filteredProductos}
-          handleChecklistChange={handleChecklistChange}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          addToCart={addToCart} 
-          productosRef={productosRef}
-        />
+        {loading ? (
+          <div>Cargando productos...</div>
+        ) : (
+          <Productos
+            checklist={checklist}
+            setChecklist={setChecklist}
+            checklistArreglos={checklistArreglos}
+            setChecklistArreglos={setChecklistArreglos}
+            orden={orden}
+            setOrden={setOrden}
+            handleOrdenChange={handleOrdenChange}
+            productos={productos}
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            totalItems={totalItems}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            addToCart={addToCart}
+            productosRef={productosRef}
+            isModalOpen={isModalOpen}
+            openModal={openModal}
+            closeModal={closeModal}
+          />
+        )}
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ const productosSchema = {
           type: 'reference',
            to: [{ type: 'flor' }], validation: (Rule) => Rule.required(), },
         
-
+ 
         { 
             name: 'arreglo',
          title: 'Arreglo',
