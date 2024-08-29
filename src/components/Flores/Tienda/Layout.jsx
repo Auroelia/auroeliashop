@@ -33,6 +33,11 @@ function Layout() {
     fetchData();
   }, [checklist, checklistArreglos, orden, currentPage]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [checklist, checklistArreglos]);
+
+
   const handleChecklistChange = (event) => {
     const { name, checked } = event.target;
     const updateChecklist = name.startsWith("flor") ? setChecklist : setChecklistArreglos;
