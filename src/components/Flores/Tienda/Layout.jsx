@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState, useMemo, useCallback } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Filtros from "./Filtros";
 import Productos from "./Productos";
 import { AppContext } from "@/context/AppContext";
@@ -14,27 +14,21 @@ function Layout() {
   const [totalItems, setTotalItems] = useState(0);
   const [filteredProductos, setFilteredProductos] = useState([]);
   const [orden, setOrden] = useState("mas-vendidos");
-  const productosRef = useRef(null); 
+  const productosRef = useRef(null); // Crear una referencia para el contenedor de productos
+
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await client.fetch('*[_type == "producto"]');
-        setProductos(data);
-        filterAndSortProducts(data, checklist, checklistArreglos, orden, currentPage);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchData();
+    client.fetch('*[_type == "producto"]').then((data) => {
+      setProductos(data);
+      filterAndSortProducts(data, checklist, checklistArreglos, orden, currentPage);
+    });
   }, []);
 
   useEffect(() => {
     filterAndSortProducts(productos, checklist, checklistArreglos, orden, currentPage);
   }, [checklist, checklistArreglos, orden, currentPage]);
 
-  const filterAndSortProducts = useCallback((productos, checklist, checklistArreglos, orden, currentPage) => {
+  const filterAndSortProducts = (productos, checklist, checklistArreglos, orden, currentPage) => {
     let filtered = productos.filter((producto) => {
       return (
         (checklist.length === 0 || checklist.includes(producto.flor._ref)) &&
@@ -62,37 +56,41 @@ function Layout() {
 
     setTotalItems(filtered.length);
     setFilteredProductos(filtered.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
-  }, [productos, checklist, checklistArreglos, orden]);
+  };
 
-  const handleChecklistChange = useCallback((event) => {
+  const handleChecklistChange = (event) => {
     const { name, checked } = event.target;
-    const updateChecklist = name.startsWith("flor") ? setChecklist : setChecklistArreglos;
+    const updateChecklist = name.startsWith("flor")
+      ? setChecklist
+      : setChecklistArreglos;
 
     updateChecklist((prev) => {
-      const newList = checked ? [...prev, name] : prev.filter((item) => item !== name);
+      const newList = checked
+        ? [...prev, name]
+        : prev.filter((item) => item !== name);
       setCurrentPage(1);
       filterAndSortProducts(productos, checklist, checklistArreglos, orden, 1);
       return newList;
     });
-  }, [productos, checklist, checklistArreglos, orden, filterAndSortProducts]);
+  };
 
-  const handleOrdenChange = useCallback((event) => {
+  const handleOrdenChange = (event) => {
     setOrden(event.target.value);
     setCurrentPage(1);
     filterAndSortProducts(productos, checklist, checklistArreglos, event.target.value, 1);
-  }, [productos, checklist, checklistArreglos, filterAndSortProducts]);
+  };
 
   const nextPage = () => {
     if (currentPage < Math.ceil(totalItems / itemsPerPage)) {
       setCurrentPage(currentPage + 1);
-      productosRef.current.scrollIntoView({ behavior: 'smooth' });
+      productosRef.current.scrollIntoView({ behavior: 'smooth' }); // Desplazarse hasta el contenedor de productos
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
-      productosRef.current.scrollIntoView({ behavior: 'smooth' });
+      productosRef.current.scrollIntoView({ behavior: 'smooth' }); // Desplazarse hasta el contenedor de productos
     }
   };
 
@@ -114,6 +112,7 @@ function Layout() {
           setChecklistArreglos={setChecklistArreglos}
           handleChecklistChange={handleChecklistChange}
         />
+        
         <Productos
           checklist={checklist}
           setChecklist={setChecklist}

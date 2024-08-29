@@ -14,6 +14,7 @@ function Producto({producto, addToCart}) {
       {producto ? (
         <>
           <img
+          loading='lazy'
             src={urlForImage(producto.imagenes[0].asset._ref)}
             alt={producto.nombre}
             className="w-full h-[173px] lg:h-[263px] object-cover rounded-t-[30px]"
