@@ -8,12 +8,12 @@ export default async function handler(req, res) {
   try {
     // Asegúrate de que estas variables sean parseadas correctamente
     const productosData = await getProductos({ 
-        page: parseInt(page) || 1, 
-        itemsPerPage: parseInt(itemsPerPage) || 12, 
-        checklist: checklist ? JSON.parse(checklist) : [], 
-        checklistArreglos: checklistArreglos ? JSON.parse(checklistArreglos) : [], 
-        orden: orden || 'mas-vendidos' 
-      });
+      page: parseInt(page) || 1, 
+      itemsPerPage: parseInt(itemsPerPage) || 12, 
+      checklist: checklist ? JSON.parse(checklist) : [], 
+      checklistArreglos: checklistArreglos ? JSON.parse(checklistArreglos) : [], 
+      orden: orden || 'mas-vendidos' 
+    });
 
     // Revisa si `productosData` tiene los campos `productos` y `totalItems`
     if (productosData && productosData.productos && productosData.totalItems !== undefined) {

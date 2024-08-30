@@ -1,4 +1,4 @@
-import { client } from "../lib/client";
+import { client } from "@/lib/client";
 
 export async function getProductos({ page = 1, itemsPerPage = 12, checklist = [], checklistArreglos = [], orden = 'mas-vendidos' }) {
   try {
@@ -15,6 +15,7 @@ export async function getProductos({ page = 1, itemsPerPage = 12, checklist = []
       filters.push(`arreglo._ref in ${JSON.stringify(checklistArreglos)}`);
     }
 
+    // Construir la consulta GROQ
     let query = `*[_type == "producto" ${filters.length > 0 ? '&& ' + filters.join(' && ') : ''}]`;
 
     // Aplicar orden
@@ -33,13 +34,18 @@ export async function getProductos({ page = 1, itemsPerPage = 12, checklist = []
         break;
     }
 
-    // Limitar la consulta para la paginación
+    // Aplicar la paginación
     query += `[${start}...${end}]`;
 
     const productos = await client.fetch(query);
 
-    // Calcular el total de productos sin paginación para el cálculo de páginas
+    // Calcular el total de productos para el cálculo de páginas
+    console.log('filters:', filters);
+
     const totalQuery = `count(*[_type == "producto" ${filters.length > 0 ? '&& ' + filters.join(' && ') : ''}])`;
+
+    console.log('totalQuery:', totalQuery);
+
     const totalItems = await client.fetch(totalQuery);
 
     return { productos, totalItems };
