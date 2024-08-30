@@ -27,7 +27,7 @@ function Contacto() {
     <div className='w-full h-full relative'>
         <div className='w-full h-screen md:h-[800px] lg:h-[1050px] 2xl:h-[80vh] flex flex-col items-center max-w-[1440px] min-w-sm mx-auto relative '>
         <img src='/assets/petaloizq.png' alt='flores' className='w-[100px] md:w-[150px] lg:w-[221px] h-[100px] md:h-[150px] lg:h-[200px] object-cover absolute bottom-0 -left-[50px] lg:bottom-[100px] lg:-left-[0px]'/>
-          <img src='/assets/Home/populares/petalo.png' alt='flores' className='w-[103px] h-[111px] lg:w-[230px] lg:h-[247px] object-cover absolute lg:top-[0px] lg:-right-[0px] right-0 top-[150px]
+          <img src='/assets/Home/populares/petalo.png' alt='imagen petalo' className='w-[103px] h-[111px] lg:w-[230px] lg:h-[247px] object-cover absolute lg:top-[0px] lg:-right-[0px] right-0 top-[150px]
           
           '/>
         <span className="text-[#E39C9D] font-inter font-bold text-[18px] lg:text-[32px] mt-8 lg:mt-0">

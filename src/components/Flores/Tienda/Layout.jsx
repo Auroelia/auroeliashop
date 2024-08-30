@@ -1,127 +1,76 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useRouter } from 'next/router';
+import React, { useContext, useEffect, useState } from "react";
 import Filtros from "./Filtros";
 import Productos from "./Productos";
+import { AppContext } from "@/context/AppContext";
 
 function Layout() {
-  const router = useRouter();
-  const { checklist, checklistArreglos, orden } = router.query;
-
+  const [checklist, setChecklist] = useState([]);
+  const [checklistArreglos, setChecklistArreglos] = useState([]);
   const [productos, setProductos] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-  const [selectedChecklist, setSelectedChecklist] = useState(checklist ? JSON.parse(checklist) : []);
-  const [selectedChecklistArreglos, setSelectedChecklistArreglos] = useState(checklistArreglos ? JSON.parse(checklistArreglos) : []);
-  const [selectedOrden, setSelectedOrden] = useState(orden || "mas-vendidos");
+  const { addToCart } = useContext(AppContext);
+  const [orden, setOrden] = useState("mas-vendidos");
+  const [loading, setLoading] = useState(true);
 
-  const itemsPerPage = 12;
+  console.log("checklist:", checklist);
+  console.log("checklistArreglos:", checklistArreglos);
+  console.log("orden:", orden);
 
-  const fetchProductos = useCallback(async (page = 1) => {
-    if (!hasMore) return;
-
-    setLoading(true);
-    try {
-      const response = await fetch(`/api/productos?page=${page}&itemsPerPage=${itemsPerPage}&checklist=${JSON.stringify(selectedChecklist)}&checklistArreglos=${JSON.stringify(selectedChecklistArreglos)}&orden=${selectedOrden}`);
-      const data = await response.json();
-
-      if (data.productos.length < itemsPerPage) {
-        setHasMore(false); // No hay más productos para cargar
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`/api/productos?checklist=${JSON.stringify(checklist)}&checklistArreglos=${JSON.stringify(checklistArreglos)}&orden=${orden}`);
+        const data = await response.json();
+        setProductos(data.productos);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
       }
+    };
 
-      setProductos((prevProductos) => [...prevProductos, ...data.productos]);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    } finally {
-      setLoading(false);
-    }
-  }, [currentPage, selectedChecklist, selectedChecklistArreglos, selectedOrden, hasMore]);
+    fetchData();
+  }, [checklist, checklistArreglos, orden]);
 
-  useEffect(() => {
-    fetchProductos(currentPage);
-  }, [fetchProductos, currentPage]);
+  const handleChecklistChange = (event) => {
+    const { name, checked } = event.target;
+    const updateChecklist = name.startsWith("flor") ? setChecklist : setChecklistArreglos;
 
-  const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || loading) {
-      return;
-    }
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [loading]);
-
-  const handleChecklistChange = (newChecklist) => {
-    setSelectedChecklist(newChecklist);
-    setCurrentPage(1);
-    setProductos([]);
-    setHasMore(true);
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        checklist: JSON.stringify(newChecklist),
-        page: 1,
-      },
+    updateChecklist((prev) => {
+      const newList = checked ? [...prev, name] : prev.filter((item) => item !== name);
+      return newList;
     });
   };
 
-  const handleChecklistArreglosChange = (newChecklistArreglos) => {
-    setSelectedChecklistArreglos(newChecklistArreglos);
-    setCurrentPage(1);
-    setProductos([]);
-    setHasMore(true);
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        checklistArreglos: JSON.stringify(newChecklistArreglos),
-        page: 1,
-      },
-    });
-  };
-
-  const handleOrdenChange = (newOrden) => {
-    setSelectedOrden(newOrden);
-    setCurrentPage(1);
-    setProductos([]);
-    setHasMore(true);
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        orden: newOrden,
-        page: 1,
-      },
-    });
+  const handleOrdenChange = (event) => {
+    setOrden(event.target.value);
   };
 
   return (
     <div className="w-full h-full overflow-hidden relative">
       <div className="w-full flex flex-row max-w-[1440px] min-w-sm mx-auto lg:px-[50px] xl:px-[180px] relative">
         <Filtros
-          checklist={selectedChecklist}
-          setChecklist={handleChecklistChange}
-          checklistArreglos={selectedChecklistArreglos}
-          setChecklistArreglos={handleChecklistArreglosChange}
-          orden={selectedOrden}
-          setOrden={handleOrdenChange}
+          checklist={checklist}
+          setChecklist={setChecklist}
+          checklistArreglos={checklistArreglos}
+          setChecklistArreglos={setChecklistArreglos}
+          handleChecklistChange={handleChecklistChange}
         />
-        <div className="w-full">
-          <Productos productos={productos} />
-          {loading && (
-            <div className="flex justify-center items-center w-full py-4">
-              <span>Cargando más productos...</span>
-            </div>
-          )}
-          {!hasMore && (
-            <div className="flex justify-center items-center w-full py-4">
-              <span>No hay más productos</span>
-            </div>
-          )}
-        </div>
+        {loading ? (
+          <div>Cargando productos...</div>
+        ) : (
+          <Productos
+            checklist={checklist}
+            setChecklist={setChecklist}
+            checklistArreglos={checklistArreglos}
+            setChecklistArreglos={setChecklistArreglos}
+            orden={orden}
+            setOrden={setOrden}
+            handleOrdenChange={handleOrdenChange}
+            productos={productos}
+            addToCart={addToCart}
+          />
+        )}
       </div>
     </div>
   );
