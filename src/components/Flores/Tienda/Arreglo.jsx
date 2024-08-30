@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Arreglo({arreglo, checklistArreglos, setChecklistArreglos}) {
+  
   const handleClick = () => {
     if (checklistArreglos.includes(arreglo._id)) {
       // Si el arreglo ya está en el checklist, lo eliminamos

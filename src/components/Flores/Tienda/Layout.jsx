@@ -1,115 +1,127 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { useRouter } from 'next/router';
 import Filtros from "./Filtros";
 import Productos from "./Productos";
-import { AppContext } from "@/context/AppContext";
 
 function Layout() {
-  const [checklist, setChecklist] = useState([]);
-  const [checklistArreglos, setChecklistArreglos] = useState([]);
+  const router = useRouter();
+  const { checklist, checklistArreglos, orden } = router.query;
+
   const [productos, setProductos] = useState([]);
-  const { addToCart } = useContext(AppContext);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [selectedChecklist, setSelectedChecklist] = useState(checklist ? JSON.parse(checklist) : []);
+  const [selectedChecklistArreglos, setSelectedChecklistArreglos] = useState(checklistArreglos ? JSON.parse(checklistArreglos) : []);
+  const [selectedOrden, setSelectedOrden] = useState(orden || "mas-vendidos");
+
   const itemsPerPage = 12;
-  const [totalItems, setTotalItems] = useState(0);
-  const [orden, setOrden] = useState("mas-vendidos");
-  const productosRef = useRef(null); 
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(`/api/productos?page=${currentPage}&itemsPerPage=${itemsPerPage}&checklist=${JSON.stringify(checklist)}&checklistArreglos=${JSON.stringify(checklistArreglos)}&orden=${orden}`);
-        const data = await response.json();
-        setProductos(data.productos);
-        setTotalItems(data.totalItems); // Ajustar esto con el total de productos en la base de datos
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      } finally {
-        setLoading(false);
+  const fetchProductos = useCallback(async (page = 1) => {
+    if (!hasMore) return;
+
+    setLoading(true);
+    try {
+      const response = await fetch(`/api/productos?page=${page}&itemsPerPage=${itemsPerPage}&checklist=${JSON.stringify(selectedChecklist)}&checklistArreglos=${JSON.stringify(selectedChecklistArreglos)}&orden=${selectedOrden}`);
+      const data = await response.json();
+
+      if (data.productos.length < itemsPerPage) {
+        setHasMore(false); // No hay más productos para cargar
       }
-    };
 
-    fetchData();
-  }, [checklist, checklistArreglos, orden, currentPage]);
+      setProductos((prevProductos) => [...prevProductos, ...data.productos]);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false);
+    }
+  }, [currentPage, selectedChecklist, selectedChecklistArreglos, selectedOrden, hasMore]);
 
   useEffect(() => {
+    fetchProductos(currentPage);
+  }, [fetchProductos, currentPage]);
+
+  const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || loading) {
+      return;
+    }
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [loading]);
+
+  const handleChecklistChange = (newChecklist) => {
+    setSelectedChecklist(newChecklist);
     setCurrentPage(1);
-  }, [checklist, checklistArreglos]);
-
-
-  const handleChecklistChange = (event) => {
-    const { name, checked } = event.target;
-    const updateChecklist = name.startsWith("flor") ? setChecklist : setChecklistArreglos;
-
-    updateChecklist((prev) => {
-      const newList = checked ? [...prev, name] : prev.filter((item) => item !== name);
-      setCurrentPage(1);
-      return newList;
+    setProductos([]);
+    setHasMore(true);
+    router.push({
+      pathname: router.pathname,
+      query: {
+        ...router.query,
+        checklist: JSON.stringify(newChecklist),
+        page: 1,
+      },
     });
   };
 
-  const handleOrdenChange = (event) => {
-    setOrden(event.target.value);
+  const handleChecklistArreglosChange = (newChecklistArreglos) => {
+    setSelectedChecklistArreglos(newChecklistArreglos);
     setCurrentPage(1);
+    setProductos([]);
+    setHasMore(true);
+    router.push({
+      pathname: router.pathname,
+      query: {
+        ...router.query,
+        checklistArreglos: JSON.stringify(newChecklistArreglos),
+        page: 1,
+      },
+    });
   };
 
-  const nextPage = () => {
-    if (currentPage < Math.ceil(totalItems / itemsPerPage)) {
-      setCurrentPage(currentPage + 1);
-      productosRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleOrdenChange = (newOrden) => {
+    setSelectedOrden(newOrden);
+    setCurrentPage(1);
+    setProductos([]);
+    setHasMore(true);
+    router.push({
+      pathname: router.pathname,
+      query: {
+        ...router.query,
+        orden: newOrden,
+        page: 1,
+      },
+    });
   };
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-      productosRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const [isModalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
 
   return (
     <div className="w-full h-full overflow-hidden relative">
-      <div
-        className="w-full flex flex-row max-w-[1440px] min-w-sm mx-auto lg:px-[50px]
-        xl:px-[180px] relative"
-      >
+      <div className="w-full flex flex-row max-w-[1440px] min-w-sm mx-auto lg:px-[50px] xl:px-[180px] relative">
         <Filtros
-          checklist={checklist}
-          setChecklist={setChecklist}
-          checklistArreglos={checklistArreglos}
-          setChecklistArreglos={setChecklistArreglos}
-          handleChecklistChange={handleChecklistChange}
+          checklist={selectedChecklist}
+          setChecklist={handleChecklistChange}
+          checklistArreglos={selectedChecklistArreglos}
+          setChecklistArreglos={handleChecklistArreglosChange}
+          orden={selectedOrden}
+          setOrden={handleOrdenChange}
         />
-        {loading ? (
-          <div>Cargando productos...</div>
-        ) : (
-          <Productos
-            checklist={checklist}
-            setChecklist={setChecklist}
-            checklistArreglos={checklistArreglos}
-            setChecklistArreglos={setChecklistArreglos}
-            orden={orden}
-            setOrden={setOrden}
-            handleOrdenChange={handleOrdenChange}
-            productos={productos}
-            currentPage={currentPage}
-            itemsPerPage={itemsPerPage}
-            totalItems={totalItems}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            addToCart={addToCart}
-            productosRef={productosRef}
-            isModalOpen={isModalOpen}
-            openModal={openModal}
-            closeModal={closeModal}
-          />
-        )}
+        <div className="w-full">
+          <Productos productos={productos} />
+          {loading && (
+            <div className="flex justify-center items-center w-full py-4">
+              <span>Cargando más productos...</span>
+            </div>
+          )}
+          {!hasMore && (
+            <div className="flex justify-center items-center w-full py-4">
+              <span>No hay más productos</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

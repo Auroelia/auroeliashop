@@ -34,9 +34,7 @@ function Filtros({
 
   const [arreglosOpen, setArreglosOpen] = useState(true);
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
-  };
+  
 
   return (
     <div className="hidden  w-[220px] lg:flex flex-col ">
