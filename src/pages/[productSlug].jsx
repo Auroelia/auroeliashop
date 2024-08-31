@@ -55,7 +55,7 @@ function Product() {
   const similarProducts = products.filter(
     (product) => product.category === product.category
   );
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(0);
 
   useEffect(() => {
     if (product?.imagenes) {
@@ -95,6 +95,8 @@ const handleImageClick = (image) => {
                     className="w-[321px] h-[338px] md:w-[520px] md:h-[530px] flex-shrink-0"
                   >
                     <Image
+                    width={321}
+                    height={338}
                       src={urlForImage(imagen)}
                       alt={product.nombre}
                       className="w-full h-full object-cover rounded-[30px]"
@@ -107,7 +109,7 @@ const handleImageClick = (image) => {
             <Image
             width={427}
             height={486}
-  src={selectedImage ? urlForImage(selectedImage) : 'url-de-imagen-por-defecto'}
+  src={selectedImage ? urlForImage(selectedImage) : urlForImage(product.imagenes[0])}
   alt={product.nombre}
   className="w-[427px] h-[486px] object-cover rounded-[30px] cursor-pointer"
   onClick={() => handleImageClick(product?.imagenes[0]?.asset._ref)}

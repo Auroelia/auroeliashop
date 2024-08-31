@@ -128,7 +128,7 @@ function Hero() {
         w-[728px] h-[722px] absolute lg:-left-[150px] lg:-bottom-[100px] opacity-30 -z-10"
       />
       <AnimatePresence mode="wait">
-        <img
+        <motion.img
         width={1440}
         height={920}
           id="hola3"
@@ -143,7 +143,7 @@ function Hero() {
         />
       </AnimatePresence>
       <AnimatePresence mode="wait">
-        <img
+        <motion.img
         width={1440}
         height={920}
           id="hola2"
@@ -159,7 +159,7 @@ function Hero() {
       </AnimatePresence>
 
       <AnimatePresence mode="wait">
-        <img
+        <motion.img
         width={1440}
         height={920}
           key={heroProducts[(seleccion + 2) % 3]?.image}
@@ -241,7 +241,7 @@ function Hero() {
             {...handlers}
           >
             <AnimatePresence mode="wait">
-              <img
+              <motion.img
               width={526}
               height={526}
                 key={heroProducts[seleccion].image}
