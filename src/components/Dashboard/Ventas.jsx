@@ -61,6 +61,12 @@ function Ventas() {
 
   return (
     <>
+    {
+      totalItems === 0 ?
+      <div className="w-full h-screen flex items-center justify-center">
+        <h1 className="text-2xl">No hay ventas disponibles</h1>
+      </div>
+      :
       <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[10px] gap-y-[20px] place-items-center lg:mt-[100px]  ">
         {
           currentVentas.map((venta, ventaIndex) => (
@@ -75,6 +81,7 @@ function Ventas() {
           ))
         }
       </div> 
+}
       <div className="w-[90%] xl:w-[97%]  flex flex-row items-center justify-end gap-[21px] ">
         <button onClick={prevPage} className={currentPage > 1 ? 'rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center' : 'hidden'}>
           <Image
