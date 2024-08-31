@@ -10,6 +10,7 @@ function Layout() {
   const { addToCart } = useContext(AppContext);
   const [orden, setOrden] = useState("mas-vendidos");
   const [loading, setLoading] = useState(true);
+  
 
   console.log("checklist:", checklist);
   console.log("checklistArreglos:", checklistArreglos);
@@ -45,6 +46,11 @@ function Layout() {
   const handleOrdenChange = (event) => {
     setOrden(event.target.value);
   };
+  
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   return (
     <div className="w-full h-full overflow-hidden relative">
@@ -69,6 +75,10 @@ function Layout() {
             handleOrdenChange={handleOrdenChange}
             productos={productos}
             addToCart={addToCart}
+            openModal={openModal}
+            closeModal={closeModal}
+            isModalOpen={isModalOpen}
+
           />
         )}
       </div>

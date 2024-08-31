@@ -35,6 +35,23 @@ function Productos({
               </select>
               <span className="hidden md:block text-[12px] font-inter ">{productos.length} productos</span>
             </div>
+            
+          </div>
+          <div className="flex flex-col justify-end">
+            <div className="w-[79px] h-[23px] border-[1px] border-[#E39C9D] flex items-center justify-center gap-[15px] lg:hidden" onClick={openModal}>
+              <span>Filtrar</span>
+              <img src="/assets/icons/filtro.svg" alt="filtro" className="w-[15px] h-[12px] cursor-pointer" />
+            </div>
+            {isModalOpen && (
+              <FiltrosModal
+                isOpen={isModalOpen}
+                close={closeModal}
+                checklist={checklist}
+                setChecklist={setChecklist}
+                checklistArreglos={checklistArreglos}
+                setChecklistArreglos={setChecklistArreglos}
+              />
+            )}
           </div>
         </div>
       </div>
