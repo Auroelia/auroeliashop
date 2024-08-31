@@ -1,8 +1,12 @@
 import React from "react";
 import { urlForImage } from "../../../../sanity/lib/image";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 function Producto({ product }) {
+
+  const router = useRouter();
+
   return (
     <div className="w-[322px] h-[315px] flex flex-col relative shadow-popular rounded-[30px] cursor-pointer "
     onClick={() => router.push(`${product.slug.current}`)}
