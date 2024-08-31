@@ -2,6 +2,7 @@ import { client } from '@/lib/client';
 import React, { useContext, useEffect, useState } from 'react';
 import Venta from './Ventas/Venta';
 import { AppContext } from '@/context/AppContext';
+import Image from 'next/image';
 
 function Ventas() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -76,10 +77,16 @@ function Ventas() {
       </div> 
       <div className="w-[90%] xl:w-[97%]  flex flex-row items-center justify-end gap-[21px] ">
         <button onClick={prevPage} className={currentPage > 1 ? 'rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center' : 'hidden'}>
-          <img src="/assets/icons/izq.svg" alt="arrow" className="w-[25px] h-[40px]" />
+          <Image
+          width={25}
+          height={40}
+          src="/assets/icons/izq.svg" alt="arrow" className="w-[25px] h-[40px]" />
         </button>
         <button onClick={nextPage} className={currentPage < Math.ceil(totalItems / itemsPerPage) ? 'rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center' : 'hidden'}>
-          <img src="/assets/icons/der.svg" alt="arrow" className="w-[25px] h-[40px]" />
+          <Image
+          width={25}
+          height={40}
+          src="/assets/icons/der.svg" alt="arrow" className="w-[25px] h-[40px]" />
         </button>
       </div>
     </>

@@ -1,4 +1,5 @@
 import { AppContext } from "@/context/AppContext";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
@@ -56,7 +57,9 @@ function DatosModal({ isOpen, close, venta, handleGuardar, localVenta, setLocalV
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <img
+        <Image
+          width={24}
+          height={24}
           src="/assets/Carrito/cerrar.svg"
           alt="close"
           className="absolute top-2 right-4 m-[20px] cursor-pointer w-[24px] md:w-[35px] "

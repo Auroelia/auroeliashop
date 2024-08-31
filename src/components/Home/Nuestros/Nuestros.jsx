@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -13,7 +14,10 @@ function Nuestros() {
           <div className="w-full flex flex-row gap-[14px] lg:gap-[37px] justify-center">
             <Link href="/Tienda" className="w-[60%] h-[103px] md:h-[223px] md:w-[443px] lg:w-[559px]  lg:h-[282px]">
             <div className="w-full h-full relative cursor-pointer">
-              <img
+              <Image
+                width={559}
+                height={282}
+
                 src="/assets/Home/categorias/jabon.png"
                 alt="ramo1"
                 className=" w-full h-full flex flex-col  "
@@ -31,7 +35,9 @@ function Nuestros() {
             </Link>
             <Link href="/Tienda" className="w-[40%] h-[103px] md:h-[223px] md:w-[361px] lg:w-[456px] lg:h-[282px]">
             <div className="w-full h-full relative cursor-pointer">
-              <img
+              <Image
+                width={456}
+                height={282}
                 src="/assets/Home/categorias/ositos.png"
                 alt="ramo1"
                 className=" w-full h-full flex flex-col   "
@@ -51,7 +57,9 @@ function Nuestros() {
           <div className="w-full flex flex-row gap-[14px] lg:gap-[37px] justify-center">
             <Link href="/Tienda" className="w-[40%] h-[103px] md:h-[223px] md:w-[361px] lg:w-[456px] lg:h-[282px]">
             <div className="w-full h-full relative cursor-pointer">
-              <img
+              <Image
+                width={456}
+                height={282}
                 src="/assets/Home/categorias/bouquets.png"
                 alt="ramo1"
                 className="w-full h-full flex flex-col   "
@@ -69,7 +77,9 @@ function Nuestros() {
             </Link>
             <Link href="/Tienda" className="w-[60%] h-[103px] md:h-[223px] md:w-[443px] lg:w-[559px] lg:h-[282px]">
             <div className="w-full h-full relative cursor-pointer">
-              <img
+              <Image 
+                width={559}
+                height={282}
                 src="/assets/Home/categorias/velas.png"
                 alt="ramo1"
                 className="w-full h-full flex flex-col  "

@@ -2,6 +2,7 @@ import { AppContext } from "@/context/AppContext";
 import React, { useContext } from "react";
 import { urlForImage } from "../../../../sanity/lib/image";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 function Producto({ product }) {
   const {addToCart} = useContext(AppContext);
@@ -13,7 +14,10 @@ function Producto({ product }) {
     onClick={() => router.push(`${product.slug.current}`)}
     >
     <div className="w-[322px]  ">
-        <img
+        <Image
+          width={322}
+          height={175}
+          
           src={urlForImage(product.imagenes[0].asset._ref)}
           alt="ramo1"
           className="  object-cover w-full h-[175px] rounded-t-[30px] cursor-pointer"

@@ -5,6 +5,7 @@ import { client } from "../lib/client";
 import { urlForImage } from "../../sanity/lib/image";
 import Link from "next/link";
 import Complemento from "@/components/Producto/Complemento";
+import Image from "next/image";
 
 function Product() {
   const router = useRouter();
@@ -93,7 +94,7 @@ const handleImageClick = (image) => {
                     key={index}
                     className="w-[321px] h-[338px] md:w-[520px] md:h-[530px] flex-shrink-0"
                   >
-                    <img
+                    <Image
                       src={urlForImage(imagen)}
                       alt={product.nombre}
                       className="w-full h-full object-cover rounded-[30px]"
@@ -103,7 +104,9 @@ const handleImageClick = (image) => {
             </div>
             {/* Desktop */}
             <div className="w-full hidden lg:flex flex-col items-end  gap-[44px]">
-            <img
+            <Image
+            width={427}
+            height={486}
   src={selectedImage ? urlForImage(selectedImage) : 'url-de-imagen-por-defecto'}
   alt={product.nombre}
   className="w-[427px] h-[486px] object-cover rounded-[30px] cursor-pointer"
@@ -112,13 +115,17 @@ const handleImageClick = (image) => {
 />
     {product?.imagenes[1] && product?.imagenes[2] && (
       <div className="w-[427px] flex justify-between items-center ">
-        <img
+        <Image
+        width={188}
+        height={194}
           src={urlForImage(product?.imagenes[1]?.asset._ref)}
           alt={product.nombre}
           className="w-[188px] h-[194px] object-cover rounded-[30px] cursor-pointer"
           onClick={() => handleImageClick(product?.imagenes[1]?.asset._ref)}
         />
-        <img
+        <Image
+        width={188}
+        height={194}
           src={urlForImage(product?.imagenes[2]?.asset._ref)}
           alt={product.nombre}
           className="w-[188px] h-[194px] object-cover rounded-[30px] cursor-pointer"
@@ -231,7 +238,10 @@ const handleImageClick = (image) => {
                   <div className="font-inter text-[15px] lg:text-[24px] font-bold  w-[160px] h-[37px] lg:w-[204px] lg:h-[60px] rounded-[6px] bg-black text-white flex items-center justify-center gap-[19px] cursor-pointer"
                   onClick={() => router.push(`/AR/${product.slug.current}`)}
                   >
-                  <img
+                  <Image
+                  width={21}
+                  height={37}
+                  alt="ar"
                     src="/assets/icons/ar.svg"
                     className="w-[13px] h-[22px] lg:w-[21px] lg:h-[37px]"
                     />
@@ -244,14 +254,18 @@ const handleImageClick = (image) => {
               <div className="lg:w-[481px] flex flex-col justify-between items-center mt-[11px]">
                 <div className="w-full flex flex-row  items-center justify-between gap-[19px]">
                   <div className="flex flex-row items-center gap-[19px]">
-                    <img
+                    <Image
+                    width={40}
+                    height={40}
                       src="/assets/icons/materiales.svg"
                       alt="material"
                       className="w-[40px] h-[40px]"
                     />
                     <span className="font-inter text-[20px] ">Materiales</span>
                   </div>
-                  <img
+                  <Image
+                  width={40}
+                  height={40}
                     src="/assets/icons/up.svg"
                     alt="arrow"
                     className="w-[40px] h-[40px]"
@@ -271,7 +285,9 @@ const handleImageClick = (image) => {
               <div className="lg:w-[481px] flex flex-col justify-between items-center mt-[11px]">
                 <div className="w-full flex flex-row  items-center justify-between gap-[19px]">
                   <div className="flex flex-row items-center gap-[19px]">
-                    <img
+                    <Image
+                    width={40}
+                    height={40}
                       src="/assets/icons/envios.svg"
                       alt="material"
                       className="w-[40px] h-[40px]"
@@ -280,7 +296,9 @@ const handleImageClick = (image) => {
                       Envíos y devoluciones
                     </span>
                   </div>
-                  <img
+                  <Image
+                  width={40}
+                  height={40}
                     src="/assets/icons/up.svg"
                     alt="arrow"
                     className="w-[40px] h-[40px]"
@@ -300,7 +318,9 @@ const handleImageClick = (image) => {
               <div className="lg:w-[481px] flex flex-col justify-between items-center mt-[11px] mb-4 lg:mb-0">
                 <div className="w-full flex flex-row  items-center justify-between gap-[19px]">
                   <div className="flex flex-row items-center gap-[19px]">
-                    <img
+                    <Image
+                    width={40}
+                    height={40}
                       src="/assets/icons/cuidados.svg"
                       alt="material"
                       className="w-[40px] h-[40px]"
@@ -309,7 +329,9 @@ const handleImageClick = (image) => {
                       Cuidados
                     </span>
                   </div>
-                  <img
+                  <Image
+                  width={40}
+                  height={40}
                     src="/assets/icons/up.svg"
                     alt="arrow"
                     className="w-[40px] h-[40px]"
@@ -342,7 +364,9 @@ const handleImageClick = (image) => {
                   onClick={() => router.push(`${producto.slug.current}`)}
 
                 >
-                  <img
+                  <Image
+                  width={263}
+                  height={173}
                     src={urlForImage(producto?.imagenes[0]?.asset._ref)}
                     alt={producto.nombre}
                     className="w-full h-[263px] object-cover rounded-t-[30px]"
@@ -374,7 +398,9 @@ const handleImageClick = (image) => {
                   Ver Tienda
                 </span>
               </Link>
-              <img
+              <Image
+              width={40}
+              height={40}
                 src="/assets/icons/arrow.svg"
                 alt="arrow"
                 className="w-[40px] h-[40px]"

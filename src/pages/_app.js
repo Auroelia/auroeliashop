@@ -4,6 +4,7 @@ import Promo from "@/components/Promo";
 import Suscribe from "@/components/Suscribe";
 import { AppProvider } from "@/context/AppContext";
 import "@/styles/globals.css";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {
@@ -28,7 +29,10 @@ export default function App({ Component, pageProps }) {
           style={{position: 'fixed', bottom: '25px', right: '25px', padding: '10px', backgroundColor: '#25D366', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '80px', height: '80px', textDecoration: 'none'}}
          
           >
-          <img src="/assets/whatsapp.svg" alt="WhatsApp" width={100} height={100}
+          <Image
+          
+
+          src="/assets/whatsapp.svg" alt="WhatsApp" width={100} height={100}
           
           style={{width: '48px', height: '48px'}}/>
         </a>

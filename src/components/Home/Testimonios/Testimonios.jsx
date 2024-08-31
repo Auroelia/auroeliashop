@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 
 function Testimonios() {
@@ -38,7 +39,9 @@ function Testimonios() {
         <h2 className="text-[42px] md:text-[50px]  lg:text-[83px]">Testimonios</h2>
       </div>
       <div className="w-full flex flex-row justify-center md:justify-between xl:justify-center md:px-[50px] xl:px-[0px]">
-        <img
+        <Image
+        width={577}
+        height={481}
           src="/assets/Home/testimonios/testimonio.png"
           alt="testimonio-bg"
           className=" w-[130px] h-[120px] md:w-[350px] md:h-[250px] lg:w-[450px]  lg:h-[350px] xl:w-[577px]  xl:h-[481px] "
@@ -48,7 +51,10 @@ function Testimonios() {
         <div className=" flex flex-col items-center justify-center gap-[30px]">
           <div className="w-full flex flex-row justify-between">
             <div className="flex flex-col justify-end">
-              <img src="/assets/Home/testimonios/comillas.png" alt="persona" className="w-[40px] h-[40px] md:w-[80px] md:h-[60px] lg:w-[100px] lg:h-[80px] xl:w-[120px] xl:h-[100px]" />
+              <Image
+              width={40}
+              height={40}
+              src="/assets/Home/testimonios/comillas.png" alt="persona" className="w-[40px] h-[40px] md:w-[80px] md:h-[60px] lg:w-[100px] lg:h-[80px] xl:w-[120px] xl:h-[100px]" />
               </div>
               <div className="flex flex-row justify-end">
 
@@ -61,7 +67,9 @@ function Testimonios() {
               </span>
             </div>
             <div>
-            <img
+            <Image
+            width={35}
+            height={35}
               src="/assets/Home/testimonios/usuario.svg"
               alt="estrella"
               className="w-[35px] h-[35px] md:w-[70px] md:h-[70px] lg:w-[80px] lg:h-[80px] xl:w-[117px] xl:h-[117px] ml-[10px]"
@@ -85,7 +93,9 @@ function Testimonios() {
             }
             }
             >
-              <img
+              <Image
+              width={9}
+              height={15}
                 src="/assets/icons/izq.svg"
                 alt="arrow"
                 className="w-[9px] h-[15px] md:w-[15px] md:h-[15px] lg:w-[20px] lg:h-[35px] xl:w-[25px] xl:h-[40px]"
@@ -102,7 +112,9 @@ function Testimonios() {
             }
             }
             >
-              <img
+              <Image
+              width={9}
+              height={15}
                 src="/assets/icons/der.svg"
                 alt="arrow"
                 className="w-[9px]  h-[15px] md:w-[15px] md:h-[15px] lg:w-[20px] lg:h-[35px] xl:w-[25px] xl:h-[40px]"

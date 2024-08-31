@@ -177,11 +177,17 @@ const Dashboard = () => {
       <div className="hidden w-1/4 min-h-[1200px] h-screen xl:flex flex-col bg-[#E39C9D]">
         <div className="w-full h-full flex flex-row justify-center ">
           <div className="w-[90%] flex flex-col items-center  justify-between gap-[85px]">
-            <img src='/assets/Acerca/elegirnos/rosa.png' alt='girasol' className='
+            <Image
+            width={182}
+            height={190}
+            src='/assets/Acerca/elegirnos/rosa.png' alt='girasol' className='
             -translate-y-16
             w-[182px] h-[190px] lg:w-[286px] lg:h-[277px] object-contain' />
             <div className="h-full flex flex-col items-center gap-[102px]">
-              <img src="/assets/dashboard/logoDashboard.png"
+              <Image
+              width={216}
+              height={46}
+              src="/assets/dashboard/logoDashboard.png"
               alt="logo dashboard"
               className="w-[216px] h-[46px] object-cover"
               />

@@ -1,6 +1,7 @@
 import React from "react";
 import Producto from "./Producto";
 import FiltrosModal from "./FiltrosModal";
+import Image from "next/image";
 
 function Productos({
   checklist,
@@ -40,7 +41,11 @@ function Productos({
           <div className="flex flex-col justify-end">
             <div className="w-[79px] h-[23px] border-[1px] border-[#E39C9D] flex items-center justify-center gap-[15px] lg:hidden" onClick={openModal}>
               <span>Filtrar</span>
-              <img src="/assets/icons/filtro.svg" alt="filtro" className="w-[15px] h-[12px] cursor-pointer" />
+              <Image
+                width={15} 
+                height={12}
+              
+              src="/assets/icons/filtro.svg" alt="filtro" className="w-[15px] h-[12px] cursor-pointer" />
             </div>
             {isModalOpen && (
               <FiltrosModal

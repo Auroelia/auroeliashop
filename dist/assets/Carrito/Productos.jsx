@@ -1,6 +1,7 @@
 import { AppContext } from "@/context/AppContext";
 import React, { use, useContext, useEffect, useState } from "react";
 import { urlForImage } from "../../../sanity/lib/image";
+import Image from "next/image";
 
 function Productos({ item }) {
   const { cart, updateCartItem, removeFromCart } = useContext(AppContext);
@@ -19,7 +20,9 @@ function Productos({ item }) {
     <div className="w-full h-full flex flex-row justify-between  gap-[31px]">
 
       <div className="w-[84px] h-[107px] flex flex-col items-center justify-center">
-        <img
+        <Image
+        width={84}
+        height={107}
           src={urlForImage(item?.product.imagenes[0]?.asset._ref)}
           className="w-[84px] h-[107px] object-cover rounded-[10px]"
           alt="imagen producto"
@@ -73,7 +76,9 @@ function Productos({ item }) {
         </button>
       </div>
       <div className=" flex flex-col items-center justify-center">
-        <img
+        <Image
+        width={16}
+        height={19}
           src="/assets/icons/trash.svg"
           alt="eliminar"
           className="cursor-pointer w-[16px] h-[19px]"

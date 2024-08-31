@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -76,7 +77,9 @@ function Faqs() {
                 </p>
               </div>
               <div className="w-[5%] mr-4 lg:mr-0 flex flex-col items-center justify-center">
-                <img
+                <Image
+                  width={30}
+                  height={34}
                   src="/assets/icons/open.svg"
                   alt="faq"
                   className={`w-[30px] h-[34px] ${

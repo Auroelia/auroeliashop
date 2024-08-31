@@ -5,6 +5,7 @@ import "react-range-slider-input/dist/style.css";
 import Flor from "../../../components/Flores/Tienda/Flor";
 import { client } from "@/lib/client";
 import Arreglo from "./Arreglo";
+import Image from "next/image";
 
 function Filtros({
   checklist,
@@ -46,7 +47,9 @@ function Filtros({
         onClick={() => setArreglosOpen(!arreglosOpen)}
       >
         <span>Tipo de arreglo</span>
-        <img
+        <Image
+        width={13}
+        height={21}
           src="/assets/icons/up.svg"
           alt="arrow-up"
           className={`w-[13px] h-[21px] m-[8px] ${

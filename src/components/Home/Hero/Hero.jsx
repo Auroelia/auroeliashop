@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
 import { useMediaQuery } from "react-responsive";
+import Image from "next/image";
 
 function Hero() {
   const heroProducts = [
@@ -117,7 +118,9 @@ function Hero() {
 
   return (
     <div className="w-full h-full overflow-hidden relative">
-      <img
+      <Image
+      width={1440}
+      height={920}
         src="/assets/Home/hero/lirio.png"
         alt="hero"
         className="
@@ -125,7 +128,9 @@ function Hero() {
         w-[728px] h-[722px] absolute lg:-left-[150px] lg:-bottom-[100px] opacity-30 -z-10"
       />
       <AnimatePresence mode="wait">
-        <motion.img
+        <img
+        width={1440}
+        height={920}
           id="hola3"
           key={heroProducts[seleccion == 0 ? 1 : seleccion == 1 ? 2 : 0]?.image}
           initial="hidden"
@@ -138,7 +143,9 @@ function Hero() {
         />
       </AnimatePresence>
       <AnimatePresence mode="wait">
-        <motion.img
+        <img
+        width={1440}
+        height={920}
           id="hola2"
           key={heroProducts[seleccion == 0 ? 2 : seleccion == 1 ? 0 : 1]?.image}
           initial="hidden"
@@ -152,7 +159,9 @@ function Hero() {
       </AnimatePresence>
 
       <AnimatePresence mode="wait">
-        <motion.img
+        <img
+        width={1440}
+        height={920}
           key={heroProducts[(seleccion + 2) % 3]?.image}
           id="hola"
           initial="hidden"
@@ -195,12 +204,15 @@ function Hero() {
                   className="w-full h-full flex flex-col  gap-[12px]"
                 >
                   <div className="rounded-full w-[60px] h-[60px] cursor-pointer ">
-                    <img
+                    <Image
+                    width={60}
+                    height={60}
+                    alt="elipse"
                       src={product.elipse}
                       key={product.id}
                       onClick={() => setSeleccion(index)}
                       className="object-cover "
-                    ></img>
+                    ></Image>
                     <motion.div
                       key={heroProducts[seleccion].elipse}
                       initial="hidden"
@@ -229,7 +241,9 @@ function Hero() {
             {...handlers}
           >
             <AnimatePresence mode="wait">
-              <motion.img
+              <img
+              width={526}
+              height={526}
                 key={heroProducts[seleccion].image}
                 initial="hidden"
                 animate="visible"
@@ -246,7 +260,9 @@ function Hero() {
         <div className=" w-[90%] md:w-[70%] lg:w-[853px] h-[73px] md:h-[90px] lg:h-[113px] bg-black rounded-[13px] lg:rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[19px] lg:gap-[32px]  my-[20px] lg:my-[0px]">
           <div className="flex flex-col lg:flex-row items-center gap-[13px]">
             <div>
-              <img
+              <Image
+              width={40}
+              height={30}
                 src="/assets/Home/hero/info/envio.svg"
                 alt="entrega"
                 className="w-[25px] h-[19px] md:w-[40px] lg:w-[61px] md:h-[30px] lg:h-[41px]"
@@ -262,7 +278,9 @@ function Hero() {
             </div>
           </div>
           <div>
-            <img
+            <Image
+            width={40}
+            height={30}
               src="/assets/Home/hero/info/divider.png"
               alt="entrega"
               className="w-full h-full"
@@ -270,7 +288,9 @@ function Hero() {
           </div>
           <div className="flex flex-col lg:flex-row items-center gap-[13px]">
             <div>
-              <img
+              <Image
+              width={40}
+              height={30}
                 src="/assets/Home/hero/info/tarjetas.svg"
                 alt="entrega"
                 className="w-[25px] h-[17px] md:w-[40px] lg:w-[56px] md:h-[30px] lg:h-[38px]"
@@ -286,7 +306,9 @@ function Hero() {
             </div>
           </div>
           <div>
-            <img
+            <Image
+            width={40}
+            height={30}
               src="/assets/Home/hero/info/divider.png"
               alt="entrega"
               className="w-full h-full"
@@ -294,7 +316,9 @@ function Hero() {
           </div>
           <div className="flex flex-col lg:flex-row items-center gap-[13px]">
             <div>
-              <img
+              <Image
+              width={40}
+              height={30}
                 src="/assets/Home/hero/info/premium.svg"
                 alt="entrega"
                 className="w-[22px] h[19px] md:w-[40px] lg:w-[49px] md:h-[30px] lg:h-[44px]"

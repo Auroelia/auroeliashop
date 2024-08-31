@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { urlForImage } from '../../../sanity/lib/image';
+import Image from 'next/image';
 
 
 
@@ -14,7 +15,9 @@ function Complemento(
       key={complemento._id}
       className="w-full h-full flex flex-col items-center cursor-pointer"
     >
-      <img
+      <Image
+      width={142}
+      height={120}
         className="w-[112px] h-[95px] md:w-[142px] md:h-[120px] rounded-[6px] object-cover"
         src={urlForImage(complemento?.imagenes[0]?.asset._ref)}
         alt={complemento.nombre}
@@ -41,9 +44,13 @@ function Complemento(
         {
           complementosActivos.find((item) => item._id === complemento._id) &&
           <div className='w-full h-full flex justify-center items-center'>
-          <img className='absolute w-[70%] h-[70%] ' src='/assets/icons/check.svg' >
+          <Image
+          width={30}
+          height={30}
+          alt='check'
+          className='absolute w-[70%] h-[70%] ' src='/assets/icons/check.svg' >
 
-            </img>
+            </Image>
             </div>
         }
         </div>

@@ -1,15 +1,25 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 function Acerca() {
   return (
     <div className='w-full h-full overflow-hidden relative'>
-      <img src='/assets/Home/acerca/acercaFondo.png' alt='acerca-bg' className='w-full h-full absolute top-0 left-0 -z-10 object-cover'/>
+      <Image
+      width={1920}
+      height={549}
+      src='/assets/Home/acerca/acercaFondo.png' alt='acerca-bg' className='w-full h-full absolute top-0 left-0 -z-10 object-cover'/>
       
       <div className='w-full h-[549px] flex flex-col lg:flex-row justify-center items-center max-w-[1440px] min-w-sm mx-auto lg:gap-[20px] xl:gap-[0px]'>
         <div className='w-full flex flex-row items-center justify-center '>
-          <img src='/assets/Home/acerca/foto1.png' alt='acercaRamo' className='w-[203px] h-[160px] lg:w-[416px] lg:h-[327px] lg:-translate-y-[50px] -translate-x-[50px] lg:absolute  '/>
-          <img src='/assets/Home/acerca/foto2.png' alt='acercaRamo' className='w-[203px] h-[160px] lg:w-[416px] lg:h-[327px]  absolute lg:translate-y-[25px] translate-x-[75px] '/>
+          <Image
+          width={203}
+          height={160}
+          src='/assets/Home/acerca/foto1.png' alt='acercaRamo' className='w-[203px] h-[160px] lg:w-[416px] lg:h-[327px] lg:-translate-y-[50px] -translate-x-[50px] lg:absolute  '/>
+          <Image
+          width={203}
+          height={160}
+          src='/assets/Home/acerca/foto2.png' alt='acercaRamo' className='w-[203px] h-[160px] lg:w-[416px] lg:h-[327px]  absolute lg:translate-y-[25px] translate-x-[75px] '/>
         </div>
         <div className='w-full lg:w-[70%] flex flex-col items-center lg:items-start justify-center gap-[21px] ' >
 

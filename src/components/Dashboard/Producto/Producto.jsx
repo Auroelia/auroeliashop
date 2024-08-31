@@ -207,7 +207,9 @@ function Producto({ producto }) {
             </div>
             <div className="flex flex-row justify-between gap-8">
               <div className="w-[50%] h-full">
-                <img
+                <Image
+                width={200}
+                height={230}
                   src={urlFor(producto?.image[0]?.asset._ref)}
                   alt="imagen producto"
                   className="w-[150px] h-[150px] md:w-[200px] md:h-[230px]  object-contain"

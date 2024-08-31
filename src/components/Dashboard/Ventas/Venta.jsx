@@ -5,6 +5,7 @@ import { AppContext } from "@/context/AppContext";
 import VentasModal from './VentasModal'; 
 import { send } from "@emailjs/browser";
 import emailjs from '@emailjs/browser';
+import Image from "next/image";
 
 
 function Venta({ venta, productoVenta, handleDeleteVenta }) {
@@ -150,7 +151,9 @@ const closeModal = () => setModalOpen(false);
           {
             product?.imagenes&&
 
-          <img
+          <Image
+          width={311}
+          height={152}
           src={urlForImage(product?.imagenes[0].asset._ref)}
           alt={product?.nombre}
           className="w-[311px] h-[152px] object-cover rounded-t-[21px]"
@@ -213,7 +216,9 @@ const closeModal = () => setModalOpen(false);
               <span>{venta.destinatario.notas},</span>
             </div>
             <div className="w-full flex gap-[10px] mt-[10px]">
-              <img
+              <Image
+              width={20}
+              height={20}
                 src="/assets/dashboard/Ventas/editarVenta.svg"
                 alt="Editar"
                 className="cursor-pointer"
@@ -231,7 +236,9 @@ const closeModal = () => setModalOpen(false);
               
             />
           )}
-              <img
+              <Image
+              width={20}
+              height={20}
                 src="/assets/dashboard/Ventas/trashVenta.svg"
                 alt="trash"
                 className="cursor-pointer"

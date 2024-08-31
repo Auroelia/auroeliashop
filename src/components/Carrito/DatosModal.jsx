@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react'
@@ -36,10 +37,19 @@ function DatosModal({isOpen,close}) {
       style={{
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
       }}>
-        <img src='/assets/Carrito/cerrar.svg' alt='close' className='absolute top-4 right-4 m-[20px] cursor-pointer w-[24px] md:w-[35px] lg:w-[50px]' onClick={handleClick}/>
+        <Image
+        width={24}
+        height={24}
+        src='/assets/Carrito/cerrar.svg' alt='close' className='absolute top-4 right-4 m-[20px] cursor-pointer w-[24px] md:w-[35px] lg:w-[50px]' onClick={handleClick}/>
 
-        <img src='/assets/Carrito/girasol.png' alt='girasol' className='absolute -top-24 -left-24 lg:-top-60 lg:-left-60 w-[182px] h-[190px] md:w-[250px] md:h-[290px] lg:w-[469px] lg:h-[489px] object-contain'/>
-        <img src='/assets/Acerca/elegirnos/rosa.png' alt='girasol' className='absolute -bottom-28 -right-24 lg:-bottom-60 lg:-right-60 w-[182px] h-[190px] md:w-[270px] md:h-[290px] lg:w-[469px] lg:h-[489px] object-contain' />
+        <Image
+        width={182}
+        height={190}
+        src='/assets/Carrito/girasol.png' alt='girasol' className='absolute -top-24 -left-24 lg:-top-60 lg:-left-60 w-[182px] h-[190px] md:w-[250px] md:h-[290px] lg:w-[469px] lg:h-[489px] object-contain'/>
+        <Image
+        width={182}
+        height={190}
+        src='/assets/Acerca/elegirnos/rosa.png' alt='girasol' className='absolute -bottom-28 -right-24 lg:-bottom-60 lg:-right-60 w-[182px] h-[190px] md:w-[270px] md:h-[290px] lg:w-[469px] lg:h-[489px] object-contain' />
         <span className='text-center text-[12px] lg:text-[32px] text-[#E39C9D] font-bold'>
               ¡Hemos registrado tu pedido!
             </span>

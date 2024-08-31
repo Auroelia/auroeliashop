@@ -4,6 +4,7 @@ import { urlForImage } from "../../../../sanity/lib/image";
 import { AppContext } from "@/context/AppContext";
 import Producto from "./Producto";
 import FiltrosModal from "./FiltrosModal";
+import Image from "next/image";
 
 function Productos({ checklist, checklistArreglos, setChecklist, setChecklistArreglos}) {
   const [productos, setProductos] = useState([]);
@@ -82,7 +83,10 @@ const closeModal = () => setModalOpen(false);
              onClick={openModal}
             >
               <span>Filtrar</span>
-              <img src="/assets/icons/filtro.svg" alt="filtro" className="w-[15px] h-[12px] cursor-pointer" />	
+              <Image
+              width={15}
+              height={12}
+              src="/assets/icons/filtro.svg" alt="filtro" className="w-[15px] h-[12px] cursor-pointer" />	
             </div>
             {isModalOpen && (
      <FiltrosModal
@@ -114,14 +118,18 @@ const closeModal = () => setModalOpen(false);
           className={
             currentPage > 1?
             `rounded-full bg-[#d8d8d8] w-[76px] h-[76px] flex items-center justify-center` :"hidden"}>
-            <img
+            <Image
+            width={9}
+            height={15}
               src="/assets/icons/izq.svg"
               alt="arrow"
               className={"w-[25px] h-[40px]"}
             />
           </button>
           <button onClick={nextPage}  className={currentPage < Math.ceil(totalItems / itemsPerPage) ? "rounded-full bg-black w-[76px] h-[76px] flex items-center justify-center":"hidden"}>
-            <img
+            <Image
+            width={9}
+            height={15}
               src="/assets/icons/der.svg"
               alt="arrow"
               className={ "w-[25px] h-[40px] "}

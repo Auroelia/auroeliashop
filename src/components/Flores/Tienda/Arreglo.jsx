@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 
 function Arreglo({arreglo, checklistArreglos, setChecklistArreglos}) {
@@ -27,7 +28,11 @@ function Arreglo({arreglo, checklistArreglos, setChecklistArreglos}) {
           checklistArreglos.includes(arreglo._id) &&
           <div className='w-full h-full flex justify-center items-center'>
 
-          <img src='/assets/icons/check.svg' alt='check' className='w-[70%] h-[70%]' />
+          <Image
+          width={15}
+          height={15}
+          
+          src='/assets/icons/check.svg' alt='check' className='w-[70%] h-[70%]' />
         </div>
         }
         </div>

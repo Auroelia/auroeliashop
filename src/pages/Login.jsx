@@ -53,7 +53,9 @@ function Login() {
  </Head>
 
       <div className="absolute top-0 h-screen lg:h-full w-full z-0">
-        <img
+        <Image
+        width={1920}
+        height={1080}
           src="/assets/Login/loginbg.jpg"
           alt="login background"
           className="w-full h-screen object-cover"
@@ -66,7 +68,10 @@ function Login() {
       <div className=" w-[90%] lg:w-[50%] h-[50vh] lg:h-[50%] bg-[#282828]/20 border-2 rounded-xl mt-10 xl:mb-[20px] 2xl:mb-[100px] z-10 ">
         <div className="h-full w-full flex flex-col justify-center items-center text-center">
           
-          <img src='/assets/Login/logoLogin.png' alt='logo' className='w-[253px] h-[54px] object-cover' />
+          <Image
+          width={253}
+          height={54}
+          src='/assets/Login/logoLogin.png' alt='logo' className='w-[253px] h-[54px] object-cover' />
           
           <form
             className="w-[80%] flex flex-col md:items-center text-left mt-8"

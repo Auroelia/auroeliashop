@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { client } from "../lib/client";
 import { useState } from "react";
+import Image from "next/image";
 
 function Suscribe() {
   const [email, setEmail] = useState("");
@@ -32,7 +33,9 @@ function Suscribe() {
       ) : (
         <>
           <div className="w-full h-full bg-black/50 absolute -z-10" />
-          <img
+          <Image
+          width={1920}
+          height={249}
             src="/assets/suscribe/suscribebg.jpg"
             alt="suscribe-bg"
             className="w-full h-full object-cover absolute -z-20"

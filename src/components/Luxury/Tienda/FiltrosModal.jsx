@@ -4,6 +4,7 @@ import Arreglo from './Arreglo';
 import Flor from './Flor';
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
+import Image from 'next/image';
 
 function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos, setChecklistArreglos}) {
 
@@ -68,7 +69,10 @@ function FiltrosModal({isOpen,close, checklist, setChecklist, checklistArreglos,
       style={{
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
       }}>
-        <img src='/assets/Carrito/cerrar.svg' alt='close' className='absolute top-4 right-4 m-[20px] cursor-pointer' onClick={close}/>
+        <Image
+        width={24}
+        height={24}
+        src='/assets/Carrito/cerrar.svg' alt='close' className='absolute top-4 right-4 m-[20px] cursor-pointer' onClick={close}/>
         <span className='text-[24px] font-inter font-bold text-[#E39C9D]'>Filtrar</span>
         <span className='text-[16px] font-inter font-semibold mt-[26px]'>Flores</span>
       <div className="w-full  mt-[12px] ">

@@ -28,7 +28,7 @@ function Producto({ producto, addToCart }) {
           src={imageUrl}
           alt={producto.nombre}
           onLoadingComplete={handleImageLoad} // Usar onLoadingComplete en lugar de onLoad
-          className="w-full h-[173px] lg:h-[263px] object-cover rounded-t-[30px]"
+          className={ `w-full h-[173px] lg:h-[263px] object-cover rounded-t-[30px]`}
           onClick={() => router.push(`/${producto.slug.current}`)}
         />
       ) : (

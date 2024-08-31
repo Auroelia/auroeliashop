@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 function Contacto() {
@@ -26,8 +27,14 @@ function Contacto() {
   return (
     <div className='w-full h-full relative'>
         <div className='w-full h-screen md:h-[800px] lg:h-[1050px] 2xl:h-[80vh] flex flex-col items-center max-w-[1440px] min-w-sm mx-auto relative '>
-        <img src='/assets/petaloizq.png' alt='flores' className='w-[100px] md:w-[150px] lg:w-[221px] h-[100px] md:h-[150px] lg:h-[200px] object-cover absolute bottom-0 -left-[50px] lg:bottom-[100px] lg:-left-[0px]'/>
-          <img src='/assets/Home/populares/petalo.png' alt='imagen petalo' className='w-[103px] h-[111px] lg:w-[230px] lg:h-[247px] object-cover absolute lg:top-[0px] lg:-right-[0px] right-0 top-[150px]
+        <Image
+        width={100}
+        height={100}
+        src='/assets/petaloizq.png' alt='flores' className='w-[100px] md:w-[150px] lg:w-[221px] h-[100px] md:h-[150px] lg:h-[200px] object-cover absolute bottom-0 -left-[50px] lg:bottom-[100px] lg:-left-[0px]'/>
+          <Image
+          width={103}
+            height={111}
+          src='/assets/Home/populares/petalo.png' alt='imagen petalo' className='w-[103px] h-[111px] lg:w-[230px] lg:h-[247px] object-cover absolute lg:top-[0px] lg:-right-[0px] right-0 top-[150px]
           
           '/>
         <span className="text-[#E39C9D] font-inter font-bold text-[18px] lg:text-[32px] mt-8 lg:mt-0">
@@ -45,7 +52,10 @@ function Contacto() {
                 style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}
                 >
                     <div className='w-[50px] lg:w-[80px] h-[50px] lg:h-[80px]  flex justify-center items-center'>
-                    <img src="/assets/icons/contactPhone.svg" alt='contacto1' className='w-[32px] h-[32px] md:w-[40px] md:h-[40px] lg:w-[64px] lg:h-[62px] object-cover' />
+                    <Image
+                    width={32}
+                    height={32}
+                    src="/assets/icons/contactPhone.svg" alt='contacto1' className='w-[32px] h-[32px] md:w-[40px] md:h-[40px] lg:w-[64px] lg:h-[62px] object-cover' />
                     </div>
                     <div className='w-[100px] flex items-center'>
                     <p className='text-[12px] md:text-[15px] lg:text-[24px] font-medium'>5626306790</p>
@@ -53,7 +63,10 @@ function Contacto() {
                 </a>
                 <a href='mailto:contacto@auroelia.com' className='flex flex-row lg:flex-col items-center justify-center gap-[25px] lg:gap-[8px] w-[326px] h-[90px] lg:w-[333px] lg:h-[285px] rounded-[26px] lg:rounded-[58px] cursor-pointer' style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}>
                 <div className='w-[50px] lg:w-[80px] h-[50px] lg:h-[80px]  flex justify-center items-center'>
-                        <img src="/assets/icons/contactMail.svg" alt='contacto1' className='w-[48px] h-[31px] md:w-[52px] md:h-[40px]  lg:w-[82px] lg:h-[61px] object-cover' />
+                        <Image
+                        width={48}
+                        height={31}
+                        src="/assets/icons/contactMail.svg" alt='contacto1' className='w-[48px] h-[31px] md:w-[52px] md:h-[40px]  lg:w-[82px] lg:h-[61px] object-cover' />
                         </div>
                         <div className='w-[100px] lg:w-[200px] flex items-center'>
                         <p className='text-[12px] md:text-[15px] lg:text-[24px] font-medium'>contacto@auroelia.com</p>
@@ -61,7 +74,10 @@ function Contacto() {
                     </a>
                 <a href='https://www.facebook.com/auroelia' className='flex flex-row lg:flex-col items-center justify-center gap-[25px] lg:gap-[8px] w-[326px] h-[90px] lg:w-[333px] lg:h-[285px] rounded-[26px] lg:rounded-[58px] cursor-pointer' style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}>
                 <div className='w-[50px] lg:w-[80px] h-[50px] lg:h-[80px]  flex justify-center items-center'>
-                        <img src="/assets/icons/conctactFB.svg" alt='contacto1' className='w-[20] h-[32px] md:w-[30px] md:h-[50px] lg:w-[44px] lg:h-[70px] object-cover' />
+                        <Image
+                        width={20}
+                        height={32}
+                        src="/assets/icons/conctactFB.svg" alt='contacto1' className='w-[20] h-[32px] md:w-[30px] md:h-[50px] lg:w-[44px] lg:h-[70px] object-cover' />
                         </div>
                         <div className='w-[100px] flex items-center'>
                         <p className='text-[12px] md:text-[15px] lg:text-[24px] font-medium'>Auroelia</p>
@@ -69,7 +85,10 @@ function Contacto() {
                     </a>
                 <a href='https://www.instagram.com/auroelia.na' className='flex flex-row lg:flex-col items-center justify-center gap-[25px] lg:gap-[8px] w-[326px] h-[90px] lg:w-[333px] lg:h-[285px] rounded-[26px] lg:rounded-[58px] cursor-pointer' style={{boxShadow: '0px 4px 40.6px 0px rgba(0, 0, 0, 0.12)'}}>
                 <div className='w-[50px] lg:w-[80px] h-[50px] lg:h-[80px]  flex justify-center items-center'>
-                        <img src="/assets/icons/contactIG.svg" alt='contacto1' className='w-[32px] h-[37px] md:w-[40px] md:h-[50px] lg:w-[64px] lg:h-[73px] object-cover' />
+                        <Image
+                        width={32}
+                        height={37}
+                        src="/assets/icons/contactIG.svg" alt='contacto1' className='w-[32px] h-[37px] md:w-[40px] md:h-[50px] lg:w-[64px] lg:h-[73px] object-cover' />
                         </div>
                         <div className='w-[100px] flex items-center'>
                         <p className='text-[12px] md:text-[15px] lg:text-[24px] font-medium'>auroelia.na</p>

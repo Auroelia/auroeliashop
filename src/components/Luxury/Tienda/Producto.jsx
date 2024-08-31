@@ -2,6 +2,7 @@ import React from 'react'
 import { urlForImage } from '../../../../sanity/lib/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 function Producto({producto, addToCart}) {
 
@@ -13,7 +14,10 @@ function Producto({producto, addToCart}) {
     className="w-full lg:w-[229px] shadow-popular rounded-[30px] cursor-pointer"
    
   >
-    <img
+    <Image
+    width={263}
+    height={173}
+    
                   src={urlForImage(producto?.imagenes[0]?.asset._ref)}
                   alt={producto.nombre}
                   className="w-full h-[173px] lg:h-[263px] object-cover rounded-t-[30px]"
@@ -28,7 +32,7 @@ function Producto({producto, addToCart}) {
                       ${producto.precio}.00
                     </span>
 
-                    <img
+                    <ImageError
                       src="/assets/icons/carrito.svg"
                       alt="carrito de compras"
                       className="w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] cursor-pointer hover:scale-125 transition-all duration-300"

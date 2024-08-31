@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 function Elegirnos() {
@@ -8,7 +9,10 @@ function Elegirnos() {
         <div className='w-full h-[610px] md:h-[410px] lg:h-[850px] xl:h-[500px] flex flex-col text-center xl:text-left lg:flex-row justify-between max-w-[1440px] min-w-sm mx-auto 
         lg:px-[180px] xl:px-[100px] relative
         '>
-          <img src='/assets/Acerca/elegirnos/rosa.png' alt='elegirnos' className='w-[199px] h-[194px]
+          <Image
+          width={199}
+          height={194}
+          src='/assets/Acerca/elegirnos/rosa.png' alt='elegirnos' className='w-[199px] h-[194px]
          xl:w-[627px] xl:h-[610px] object-cover absolute right-0 -bottom-[150px]  md:-bottom-[200px] lg:-bottom-[250px] lg:right-[100px] xl:-right-[300px] xl:-bottom-[50px] ' />
          
             <div className='w-full h-full flex flex-col justify-center items-center xl:items-start '>
