@@ -3,6 +3,7 @@ import { urlForImage } from '../../../../sanity/lib/image';
 import { useRouter } from 'next/router';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Image from 'next/image';
 
 function Producto({ producto, addToCart }) {
   const router = useRouter();
@@ -19,16 +20,18 @@ function Producto({ producto, addToCart }) {
     <div className="w-full md:w-[70%] lg:w-[229px] shadow-popular rounded-[30px] cursor-pointer">
       {producto ? (
         <>
-          {!imageLoaded && <Skeleton height={200} />}
-          {imageUrl ? (
-            <img
-              src={imageUrl}
-              alt={producto.nombre}
-              onLoad={handleImageLoad}
-              className={`w-full h-[173px] lg:h-[263px] object-cover rounded-t-[30px] ${imageLoaded ? '' : 'hidden'}`}
-              onClick={() => router.push(`/${producto.slug.current}`)}
-            />
-          ) : (
+              {!imageLoaded && <Skeleton height={200} />}
+      {imageUrl ? (
+        <Image
+        height={173}
+        width={263} 
+          src={imageUrl}
+          alt={producto.nombre}
+          onLoadingComplete={handleImageLoad} // Usar onLoadingComplete en lugar de onLoad
+          className="w-full h-[173px] lg:h-[263px] object-cover rounded-t-[30px]"
+          onClick={() => router.push(`/${producto.slug.current}`)}
+        />
+      ) : (
             <div className="w-full h-[175px] rounded-t-[30px] bg-gray-200 flex items-center justify-center">
               <span>Imagen no disponible</span>
             </div>
