@@ -6,6 +6,7 @@ import { urlForImage } from "../../sanity/lib/image";
 import Link from "next/link";
 import Complemento from "@/components/Producto/Complemento";
 import Image from "next/image";
+import Skeleton from "react-loading-skeleton";
 
 function Product() {
   const router = useRouter();
@@ -81,6 +82,13 @@ const handleImageClick = (image) => {
   setSelectedImage(image);
 };
 
+
+const [isLoading, setIsLoading] = useState(true);
+
+const handleLoadingComplete = () => {
+  setIsLoading(false);
+};
+
   return (
     <div className="w-full h-full relative overflow-hidden">
       {product && (
@@ -106,6 +114,10 @@ const handleImageClick = (image) => {
             </div>
             {/* Desktop */}
             <div className="w-full hidden lg:flex flex-col items-end  gap-[44px]">
+              
+
+{isLoading && <Skeleton height={486} width={427} />}
+
             <Image
             width={427}
             height={486}
@@ -113,8 +125,10 @@ const handleImageClick = (image) => {
   alt={product.nombre}
   className="w-[427px] h-[486px] object-cover rounded-[30px] cursor-pointer"
   onClick={() => handleImageClick(product?.imagenes[0]?.asset._ref)}
+  onLoadingComplete={ handleLoadingComplete }
 
 />
+
     {product?.imagenes[1] && product?.imagenes[2] && (
       <div className="w-[427px] flex justify-between items-center ">
         <Image
@@ -188,26 +202,6 @@ const handleImageClick = (image) => {
                   Complementos
                 </h3>
 
-               {/*  <div className="  flex flex-row items-center justify-end gap-[20px] lg:gap-[21px] mt-[56px]">
-                  <div className="rounded-full bg-[#d8d8d8] w-[29px] h-[29px] lg:w-[64px] lg:h-[64px] flex items-center justify-center">
-                    <img
-                      src="/assets/icons/izq.svg"
-                      alt="arrow"
-                      className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
-                    />
-                  </div>
-                  <div
-                    className="rounded-full bg-black 
-                    w-[29px] h-[29px]
-                    lg:w-[64px] lg:h-[64px] flex items-center justify-center"
-                  >
-                    <img
-                      src="/assets/icons/der.svg"
-                      alt="arrow"
-                      className="w-[9px] h-[15px] lg:w-[25px] lg:h-[40px]"
-                    />
-                  </div>
-                </div> */}
               </div>
               <div className="lg:w-[481px] flex flex-row justify-between items-center mt-[27px]">
                 {complementos.map((complemento, index) => (
