@@ -26,7 +26,7 @@ function Contacto() {
 
   return (
     <div className='w-full h-full relative'>
-        <div className='w-full h-screen md:h-[800px] lg:h-[1050px] 2xl:h-[80vh] flex flex-col items-center max-w-[1440px] min-w-sm mx-auto relative '>
+        <div className='w-full h-screen md:h-[800px] lg:h-[1050px] flex flex-col items-center max-w-[1440px] min-w-sm mx-auto relative '>
         <Image
         width={100}
         height={100}
