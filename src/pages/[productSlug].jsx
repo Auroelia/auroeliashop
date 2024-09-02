@@ -102,12 +102,15 @@ const handleLoadingComplete = () => {
                     key={index}
                     className="w-[321px] h-[338px] md:w-[520px] md:h-[530px] flex-shrink-0"
                   >
+                    {isLoading && <Skeleton width={321} height={338} />}
                     <Image
                     width={321}
                     height={338}
                       src={urlForImage(imagen)}
                       alt={product.nombre}
                       className="w-full h-full object-cover rounded-[30px]"
+                      onLoadingComplete={ handleLoadingComplete }
+
                     />
                   </div>
                 ))}
