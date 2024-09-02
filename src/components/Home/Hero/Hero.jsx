@@ -257,7 +257,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className=" w-[90%] md:w-[70%] lg:w-[853px] h-[73px] md:h-[90px] lg:h-[113px] bg-black rounded-[13px] lg:rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[19px] lg:gap-[32px]  my-[20px] lg:my-[0px]">
+        <div className=" w-[95%] md:w-[70%] lg:w-[853px] h-[80px] md:h-[90px] lg:h-[113px] bg-black rounded-[13px] lg:rounded-[30px] mx-auto flex flex-row justify-center items-center gap-[19px] lg:gap-[32px]  my-[20px] lg:my-[0px]">
           <div className="flex flex-col lg:flex-row items-center gap-[13px]">
             <div>
               <Image
