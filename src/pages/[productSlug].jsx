@@ -7,7 +7,6 @@ import Link from "next/link";
 import Complemento from "@/components/Producto/Complemento";
 import Image from "next/image";
 import Skeleton from "react-loading-skeleton";
-import Head from "next/head";
 
 function Product() {
   const router = useRouter();
@@ -91,19 +90,7 @@ const handleLoadingComplete = () => {
 };
 
   return (
-    <>
-    <Head>
-        <title>{product.nombre} | Auroelia Shop</title>
-        <meta name="description" content={product.descripcion} />
-        <meta name="keywords" content="flores, arreglos florales, flores de jabon, ramos, floreria, floral, jabon, velas, regalos, regalar" />
-        <meta property="og:title" content={`${product.nombre} | Auroelia Shop`} />
-        <meta property="og:description" content={product.descripcion} />
-        <meta property="og:image" content={urlForImage(product.imagenes[0]?.asset._ref)} />
-        <meta property="og:url" content={`https://www.auroelia.com/product/${productSlug}`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={urlForImage(product.imagenes[0]?.asset._ref)} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    
     <div className="w-full h-full relative overflow-hidden">
       {product && (
         <div className="w-full h-full flex flex-col justify-between  max-w-[1440px] min-w-sm mx-auto">
@@ -423,7 +410,6 @@ const handleLoadingComplete = () => {
         </div>
       )}
     </div>
-    </>
   );
 }
 
