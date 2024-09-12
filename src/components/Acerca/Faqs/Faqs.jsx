@@ -71,7 +71,7 @@ function Faqs() {
                 <p
                   className={` ${
                     eleccion != faq.id  && "hidden"
-                  } text-[16px] font-medium leading-[23px]`}
+                  } text-[14px] lg:text-[16px] font-medium leading-[18px] lg:leading-[23px]`}
                 >
                   {faq.answer}
                 </p>

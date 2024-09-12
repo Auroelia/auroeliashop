@@ -21,7 +21,7 @@ function Productos({ item }) {
   console.log(item.size);
 
   return (
-    <div className="w-full h-full flex flex-row justify-between  gap-[31px]">
+    <div className="w-full h-full flex flex-row justify-between gap-[14px] xl:gap-[31px]">
 
       <div className="w-[84px] h-[107px] md:w-[150px] md:h-[170px] flex flex-col items-center justify-center">
         <Image

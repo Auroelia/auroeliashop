@@ -26,7 +26,7 @@ function Contacto() {
 
   return (
     <div className='w-full h-full relative'>
-        <div className='w-full h-screen md:h-[800px] lg:h-[1050px] 2xl:h-[80vh] flex flex-col items-center max-w-[1440px] min-w-sm mx-auto relative '>
+        <div className='w-full h-screen md:h-[800px] lg:h-[1050px] 2xl:h-[1050px] flex flex-col items-center max-w-[1440px] min-w-sm mx-auto relative '>
         <Image
         width={100}
         height={100}
@@ -38,7 +38,7 @@ function Contacto() {
           
           '/>
         <span className="text-[#E39C9D] font-inter font-bold text-[18px] lg:text-[32px] mt-8 lg:mt-0">
-        Dudas y comentarios
+        Dudas y comentarioss
                 </span>
                 <h2 className="text-[45px] lg:text-[83px]">Contáctanos</h2>
                 <span className="text-[#E39C9D] font-inter text-[18px] lg:text-[24px] w-[179px] text-center lg:w-full  ">
