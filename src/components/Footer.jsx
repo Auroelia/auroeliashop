@@ -20,29 +20,40 @@ function Footer() {
           <h3 className='text-[#E39C9D] text-[15px] w-[215px] text-center lg:hidden'>Ideas que nacen
 del corazón</h3>
 <div className='flex justify-end gap-[19px] lg:hidden'>
+  <Link href={"/Carrito"}>
     <Image
     width={20}
     height={22}
 
     src='/assets/icons/carritob.svg' alt='carrito' className='w-[20px] h-[22px] text' />
+    </Link>
+    <Link href={'https://www.facebook.com/auroelia'}>
     <Image
     width={13}
     height={21}
     src='/assets/icons/fb.svg' alt='facebook' className='w-[13px] h-[21px]' />
+    </Link>
+    <Link href={'https://www.instagram.com/auroelia.na/'}>
     <Image
     width={21}
     height={24}
     src='/assets/icons/ig.svg' alt='instagram' className='w-[21px] h-[24px]' />
+    </Link>
+    <a href='tel:+525626306790'>
     <Image
     width={21}
     height={21}
     src='/assets/icons/telblanco.svg' alt='facebook' className='w-[21px] h-[21px]' />
+    </a>
+    <a href='mailto:auroeliashop@gmail.com'>
     <Image
     width={21}
     height={24}
     src='/assets/icons/mailblanco.svg' alt='instagram' className='w-[21px] h-[24px]' />
+    </a>
 </div>
           <div className='items-center gap-[3px] hidden lg:flex'>
+            
             <Image
             width={32}
             height={31}
