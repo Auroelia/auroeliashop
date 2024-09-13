@@ -3,7 +3,7 @@ import React from 'react'
 
 function Hero() { 
     return (
-        <div className='h-[600px] lg:h-[900px] w-full relative '>
+        <div className='h-[600px] lg:h-[700px] w-full relative '>
                 <Image
                 width={1920}
                 height={493}
