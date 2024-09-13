@@ -293,7 +293,7 @@ const handleLoadingComplete = () => {
                       className="w-[40px] h-[40px]"
                     />
                     <span className="font-inter text-[20px] ">
-                      Envíos y devoluciones
+                      Envíos 
                     </span>
                   </div>
                   <Image
