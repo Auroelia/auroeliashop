@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
     :
     <>
     <div className="flex flex-col-reverse lg:flex-col">
-  <Promo/>
+ {/*  <Promo/> */}
   <Navbar/>
   </div>
   <Component {...pageProps} />
