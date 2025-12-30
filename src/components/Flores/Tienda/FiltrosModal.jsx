@@ -1,23 +1,18 @@
 import { client } from '@/lib/client';
 import React, { useEffect, useState } from 'react';
 import Arreglo from './Arreglo';
-import Flor from './Flor';
-import RangeSlider from "react-range-slider-input";
-import "react-range-slider-input/dist/style.css";
 import Image from 'next/image';
 
-function FiltrosModal({ isOpen, close, checklist, setChecklist, checklistArreglos, setChecklistArreglos, handleCheckListChange }) {
-  const [flores, setFlores] = useState([]);
+function FiltrosModal({ isOpen, close, checklist, setChecklist, checklistArreglos, setChecklistArreglos }) {
   const [arreglos, setArreglos] = useState([]);
-  const [tempChecklist, setTempChecklist] = useState(checklist);
-  const [tempChecklistArreglos, setTempChecklistArreglos] = useState(checklistArreglos);
+  const [tempChecklistArreglos, setTempChecklistArreglos] = useState([]);
 
+  // Sincronizar tempChecklistArreglos cuando se abre el modal
   useEffect(() => {
-    client
-      .fetch('*[_type == "flor"]')
-      .then((data) => setFlores(data))
-      .catch((error) => console.error(error));
-  }, []);
+    if (isOpen) {
+      setTempChecklistArreglos([...checklistArreglos]);
+    }
+  }, [isOpen, checklistArreglos]);
 
   useEffect(() => {
     client
@@ -26,14 +21,13 @@ function FiltrosModal({ isOpen, close, checklist, setChecklist, checklistArreglo
       .catch((error) => console.error(error));
   }, []);
 
-  const [floresOpen, setFloresOpen] = useState(true);
-  const [arreglosOpen, setArreglosOpen] = useState(true);
-  const [precioOpen, setPrecioOpen] = useState(true);
-  const [checklistPrecio, setChecklistPrecio] = useState([]);
-  const [value, setValue] = useState([0, 100]);
+  const handleApplyFilters = () => {
+    setChecklistArreglos(tempChecklistArreglos);
+    close();
+  };
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  const handleClearFilters = () => {
+    setTempChecklistArreglos([]);
   };
 
   if (!isOpen) return null;
@@ -57,37 +51,51 @@ function FiltrosModal({ isOpen, close, checklist, setChecklist, checklistArreglo
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
         }}>
         <Image
-        width={24}
-        height={24}
-        src='/assets/Carrito/cerrar.svg' alt='close' className='absolute top-4 right-4 m-[20px] cursor-pointer' onClick={close} />
+          width={24}
+          height={24}
+          src='/assets/Carrito/cerrar.svg' 
+          alt='close' 
+          className='absolute top-4 right-4 m-[20px] cursor-pointer' 
+          onClick={close} 
+        />
         <span className='text-[24px] font-inter font-bold text-[#E39C9D]'>Filtrar</span>
         <div className='h-[1px] w-full bg-[#E39C9D] my-[26px]' />
         <span className='text-[16px] font-inter font-semibold'>Tipo de arreglo</span>
-        <div className="w-full mt-[12px]">
-          {arreglosOpen && (
-            <div className="w-full flex flex-col gap-[15px]">
-              {arreglos.map((arreglo, index) => (
-                <Arreglo
-                  key={index}
-                  arreglo={arreglo}
-                  checklistArreglos={tempChecklistArreglos}
-                  setChecklistArreglos={setTempChecklistArreglos}
-                />
-              ))}
-            </div>
-          )}
+        <div className="w-full mt-[12px] max-h-[300px] overflow-y-auto">
+          <div className="w-full flex flex-col gap-[15px]">
+            {arreglos.map((arreglo) => (
+              <Arreglo
+                key={arreglo._id}
+                arreglo={arreglo}
+                checklistArreglos={tempChecklistArreglos}
+                setChecklistArreglos={setTempChecklistArreglos}
+              />
+            ))}
+          </div>
         </div>
         <div className='h-[1px] w-full bg-[#E39C9D] my-[26px]' />
-        <div className='w-full flex justify-center'>
+        
+        {/* Filtros seleccionados */}
+        {tempChecklistArreglos.length > 0 && (
+          <div className='mb-4'>
+            <span className='text-sm text-gray-500'>
+              {tempChecklistArreglos.length} filtro(s) seleccionado(s)
+            </span>
+          </div>
+        )}
+        
+        <div className='w-full flex flex-col sm:flex-row justify-center gap-4'>
           <button
-            className="bg-[#E39C9D] w-[188px] h-[60px] rounded-[6px] text-[24px] font-bold font-inter mt-[43px]"
-            onClick={() => {
-              setChecklist(tempChecklist);
-              setChecklistArreglos(tempChecklistArreglos);
-              close();
-            }}
+            className="border-2 border-[#E39C9D] text-[#E39C9D] w-full sm:w-[150px] h-[50px] rounded-[6px] text-[18px] font-bold font-inter transition-all hover:bg-gray-50"
+            onClick={handleClearFilters}
           >
-            Filtrar
+            Limpiar
+          </button>
+          <button
+            className="bg-[#E39C9D] text-white w-full sm:w-[150px] h-[50px] rounded-[6px] text-[18px] font-bold font-inter transition-all hover:bg-[#d08687]"
+            onClick={handleApplyFilters}
+          >
+            Aplicar
           </button>
         </div>
       </div>

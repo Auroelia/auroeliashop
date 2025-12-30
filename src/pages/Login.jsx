@@ -113,7 +113,7 @@ function Login() {
                 Ingresar
               </button>
               <span className="hidden lg:block text-white uppercase font-inter text-[9px] lg:text-[12px]">
-              2024 Auroelia® - All Rights Reserved{" "}
+              {new Date().getFullYear()} Auroelia® - All Rights Reserved{" "}
               </span>
             </div>
           </form>

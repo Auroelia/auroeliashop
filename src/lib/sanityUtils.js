@@ -2,7 +2,13 @@
 
 import { client } from "@/lib/client";
 
-export async function getProductos({ checklist = [], checklistArreglos = [], orden = 'mas-vendidos' }) {
+export async function getProductos({ 
+  checklist = [], 
+  checklistArreglos = [], 
+  orden = 'mas-nuevo',
+  page = 1,
+  limit = 12 
+}) {
   try {
     let filters = [];
 
@@ -14,27 +20,52 @@ export async function getProductos({ checklist = [], checklistArreglos = [], ord
       filters.push(`arreglo._ref in ${JSON.stringify(checklistArreglos)}`);
     }
 
-    // Construir la consulta GROQ
-    let query = `*[_type == "producto" ${filters.length > 0 ? '&& ' + filters.join(' && ') : ''}]`;
+    // Construir la consulta GROQ base
+    const baseFilter = `*[_type == "producto" ${filters.length > 0 ? '&& ' + filters.join(' && ') : ''}]`;
 
-    // Aplicar orden
+    // Obtener el total de productos para la paginación
+    const totalQuery = `count(${baseFilter})`;
+    const total = await client.fetch(totalQuery);
+
+    // Construir la consulta con orden
+    let orderClause = '';
     switch (orden) {
       case 'mas-nuevo':
-        query += ` | order(_createdAt desc)`; // Ordenar por la fecha de creación (más nuevo primero)
+        orderClause = ` | order(_createdAt desc)`;
         break;
       case 'precio-ascendente':
-        query += ` | order(coalesce(tamanos[0].precio, 0) asc)`; // Ordenar por precio ascendente
+        orderClause = ` | order(coalesce(tamanos[0].precio, 0) asc)`;
         break;
       case 'precio-descendente':
-        query += ` | order(coalesce(tamanos[0].precio, 0) desc)`; // Ordenar por precio descendente
+        orderClause = ` | order(coalesce(tamanos[0].precio, 0) desc)`;
         break;
       default:
-        query += ` | order(_createdAt desc)`; // Ordenar por defecto
+        orderClause = ` | order(_createdAt desc)`;
         break;
     }
 
+    // Calcular offset para paginación
+    const offset = (page - 1) * limit;
+    
+    // Consulta completa sin proyección restrictiva para obtener todos los campos
+    const query = `${baseFilter}${orderClause}[${offset}...${offset + limit}]`;
+
     const productos = await client.fetch(query);
-    return { productos };
+    
+    // Calcular información de paginación
+    const totalPages = Math.ceil(total / limit);
+    
+    return { 
+      productos,
+      pagination: {
+        total,
+        totalPages,
+        currentPage: page,
+        limit,
+        hasNextPage: page < totalPages,
+        hasPrevPage: page > 1
+      }
+    };
   } catch (error) {
     console.error('Error in getProductos:', error);
     throw new Error('Error al obtener productos desde Sanity.');

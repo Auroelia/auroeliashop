@@ -1,51 +1,66 @@
 import { AppContext } from "@/context/AppContext";
 import React, { useContext } from "react";
-import { urlForImage } from "../../../../sanity/lib/image";
+import { urlFor } from "@/lib/client";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
 function Producto({ product }) {
-  const {addToCart} = useContext(AppContext);
-
+  const { addToCart } = useContext(AppContext);
   const router = useRouter();
 
+  // Función segura para obtener URL de imagen
+  const getImageUrl = () => {
+    try {
+      if (product?.imagenes && product.imagenes.length > 0) {
+        return urlFor(product.imagenes[0]).width(322).height(175).url();
+      }
+      return null;
+    } catch (error) {
+      console.error('Error al obtener URL de imagen:', error);
+      return null;
+    }
+  };
+
+  const imageUrl = getImageUrl();
+  const precio = product?.tamanos?.[0]?.precio || 0;
+
+  const handleClick = () => {
+    if (product?.slug?.current) {
+      router.push(`/${product.slug.current}`);
+    }
+  };
+
   return (
-    <div className="w-[322px] h-[315px] flex flex-col relative shadow-popular  rounded-[30px] cursor-pointer "
-    onClick={() => router.push(`${product.slug.current}`)}
+    <div 
+      className="w-[322px] h-[315px] flex flex-col relative shadow-popular rounded-[30px] cursor-pointer"
+      onClick={handleClick}
     >
-    <div className="w-[322px]  ">
-        <Image
-          width={322}
-          height={175}
-          
-          src={urlForImage(product.imagenes[0].asset._ref)}
-          alt="ramo1"
-          className="  object-cover w-full h-[175px] rounded-t-[30px] cursor-pointer"
-        />
+      <div className="w-[322px]">
+        {imageUrl ? (
+          <Image
+            width={322}
+            height={175}
+            src={imageUrl}
+            alt={product?.nombre || 'Producto'}
+            className="object-cover w-full h-[175px] rounded-t-[30px] cursor-pointer"
+          />
+        ) : (
+          <div className="w-full h-[175px] bg-gray-200 rounded-t-[30px] flex items-center justify-center">
+            <span className="text-gray-500 text-sm">Sin imagen</span>
+          </div>
+        )}
       </div>
-      <div className="w-full absolute bottom-0 h-[140px] z-10 bg-white  flex flex-row justify-center items-center rounded-b-[30px] ">
+      <div className="w-full absolute bottom-0 h-[140px] z-10 bg-white flex flex-row justify-center items-center rounded-b-[30px]">
         <div className="w-full flex flex-col px-[24px]">
-          <span className="w-[180px] font-inter font-bold text-[24px]">
-            {product.nombre}
+          <span className="w-[180px] font-inter font-bold text-[24px] line-clamp-2">
+            {product?.nombre || 'Sin nombre'}
           </span>
           <div className="w-full flex flex-row justify-between">
-          <span className="text-[24px] font-inter font-light">
-            {console.log(product)}
-            ${product?.tamanos && product?.tamanos[0]?.precio}
-          </span>
-          {/* <img
-                      src="/assets/icons/carrito.svg"
-                      alt="carrito de compras"
-                      className="w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] cursor-pointer hover:scale-125 transition-all duration-300"
-                      onClick={() => {
-                        addToCart(product, 1)
-                        console.log(product)
-                        }
-                      }
-                    />  */}
+            <span className="text-[24px] font-inter font-light">
+              ${precio > 0 ? precio.toLocaleString('es-MX', { minimumFractionDigits: 2 }) : '0.00'}
+            </span>
           </div>
         </div>
-        <div className=""></div>
       </div>
     </div>
   );

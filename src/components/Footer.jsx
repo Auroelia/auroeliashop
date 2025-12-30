@@ -112,7 +112,7 @@ del corazón</h3>
 
 </div>
 <div className='w-full  flex flex-col lg:flex-row font-inter justify-center items-center text-white text-[12px] py-[15px] gap-[10px]'>
-  <span>2024 Auroelia® </span>
+  <span> {new Date().getFullYear()} Auroelia® </span>
   <Link href={"/Terminos"} className='text-[#E39C9D]'>Términos y Condiciones</Link>
   <Link href={"/Politicas"} className='text-[#E39C9D]'>Política de Privacidad</Link>
   <Link href={"/PoliticasEnvio"} className='text-[#E39C9D]'>Política de Envío</Link>
